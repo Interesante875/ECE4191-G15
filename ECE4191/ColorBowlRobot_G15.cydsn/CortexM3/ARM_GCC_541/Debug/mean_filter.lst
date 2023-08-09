@@ -1,0 +1,748 @@
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccDlb5Zx.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"mean_filter.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.global	__aeabi_dadd
+  20              		.global	__aeabi_dsub
+  21              		.global	__aeabi_ddiv
+  22              		.section	.text.meanFilter,"ax",%progbits
+  23              		.align	2
+  24              		.global	meanFilter
+  25              		.thumb
+  26              		.thumb_func
+  27              		.type	meanFilter, %function
+  28              	meanFilter:
+  29              	.LFB1:
+  30              		.file 1 "..\\..\\..\\Draft\\mean_filter.c"
+   1:..\..\..\Draft/mean_filter.c **** #include <stdio.h>
+   2:..\..\..\Draft/mean_filter.c **** #include <stdlib.h>
+   3:..\..\..\Draft/mean_filter.c **** #include "mean_filter.h"
+   4:..\..\..\Draft/mean_filter.c **** 
+   5:..\..\..\Draft/mean_filter.c **** // Function to update the FIFO array and calculate the mean
+   6:..\..\..\Draft/mean_filter.c **** double meanFilter(double fifo[], double newValue) {
+  31              		.loc 1 6 0
+  32              		.cfi_startproc
+  33              		@ args = 0, pretend = 0, frame = 0
+  34              		@ frame_needed = 0, uses_anonymous_args = 0
+  35              	.LVL0:
+  36 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+  37              		.cfi_def_cfa_offset 24
+  38              		.cfi_offset 4, -24
+  39              		.cfi_offset 5, -20
+  40              		.cfi_offset 6, -16
+  41              		.cfi_offset 7, -12
+  42              		.cfi_offset 8, -8
+  43              		.cfi_offset 14, -4
+  44 0004 8046     		mov	r8, r0
+  45 0006 1646     		mov	r6, r2
+  46 0008 1F46     		mov	r7, r3
+   7:..\..\..\Draft/mean_filter.c ****     static int currentIndex = 0;
+   8:..\..\..\Draft/mean_filter.c ****     static int isInitialized = 0;
+   9:..\..\..\Draft/mean_filter.c ****     static double sum = 0.0;
+  10:..\..\..\Draft/mean_filter.c **** 
+  11:..\..\..\Draft/mean_filter.c ****     if (!isInitialized) {
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccDlb5Zx.s 			page 2
+
+
+  47              		.loc 1 11 0
+  48 000a 214B     		ldr	r3, .L9
+  49 000c 1B68     		ldr	r3, [r3]
+  50 000e 7BB1     		cbz	r3, .L6
+  51 0010 15E0     		b	.L7
+  52              	.LVL1:
+  53              	.L4:
+  54              	.LBB2:
+  12:..\..\..\Draft/mean_filter.c ****         for (int i = 0; i < ARRAY_SIZE; i++) {
+  13:..\..\..\Draft/mean_filter.c ****             fifo[i] = newValue;
+  55              		.loc 1 13 0 discriminator 3
+  56 0012 08EBC403 		add	r3, r8, r4, lsl #3
+  57 0016 C3E90067 		strd	r6, [r3]
+  14:..\..\..\Draft/mean_filter.c ****             sum += newValue;
+  58              		.loc 1 14 0 discriminator 3
+  59 001a 1D4D     		ldr	r5, .L9
+  60 001c 3246     		mov	r2, r6
+  61 001e 3B46     		mov	r3, r7
+  62 0020 D5E90201 		ldrd	r0, [r5, #8]
+  63 0024 FFF7FEFF 		bl	__aeabi_dadd
+  64              	.LVL2:
+  65 0028 C5E90201 		strd	r0, [r5, #8]
+  12:..\..\..\Draft/mean_filter.c ****         for (int i = 0; i < ARRAY_SIZE; i++) {
+  66              		.loc 1 12 0 discriminator 3
+  67 002c 0134     		adds	r4, r4, #1
+  68              	.LVL3:
+  69 002e 00E0     		b	.L2
+  70              	.LVL4:
+  71              	.L6:
+  72              	.LBE2:
+  73 0030 0024     		movs	r4, #0
+  74              	.LVL5:
+  75              	.L2:
+  76              	.LBB3:
+  12:..\..\..\Draft/mean_filter.c ****         for (int i = 0; i < ARRAY_SIZE; i++) {
+  77              		.loc 1 12 0 is_stmt 0 discriminator 1
+  78 0032 042C     		cmp	r4, #4
+  79 0034 EDDD     		ble	.L4
+  80              	.LBE3:
+  15:..\..\..\Draft/mean_filter.c ****         }
+  16:..\..\..\Draft/mean_filter.c ****         isInitialized = 1;
+  81              		.loc 1 16 0 is_stmt 1
+  82 0036 0122     		movs	r2, #1
+  83 0038 154B     		ldr	r3, .L9
+  84 003a 1A60     		str	r2, [r3]
+  85 003c 1EE0     		b	.L5
+  86              	.LVL6:
+  87              	.L7:
+  17:..\..\..\Draft/mean_filter.c ****     } else {
+  18:..\..\..\Draft/mean_filter.c ****         sum -= fifo[currentIndex];
+  88              		.loc 1 18 0
+  89 003e 144C     		ldr	r4, .L9
+  90 0040 2569     		ldr	r5, [r4, #16]
+  91 0042 00EBC508 		add	r8, r0, r5, lsl #3
+  92 0046 D8E90023 		ldrd	r2, [r8]
+  93              	.LVL7:
+  94 004a D4E90201 		ldrd	r0, [r4, #8]
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccDlb5Zx.s 			page 3
+
+
+  95              	.LVL8:
+  96 004e FFF7FEFF 		bl	__aeabi_dsub
+  97              	.LVL9:
+  19:..\..\..\Draft/mean_filter.c ****         fifo[currentIndex] = newValue;
+  98              		.loc 1 19 0
+  99 0052 C8E90067 		strd	r6, [r8]
+  20:..\..\..\Draft/mean_filter.c ****         sum += newValue;
+ 100              		.loc 1 20 0
+ 101 0056 0246     		mov	r2, r0
+ 102 0058 0B46     		mov	r3, r1
+ 103 005a 3046     		mov	r0, r6
+ 104 005c 3946     		mov	r1, r7
+ 105 005e FFF7FEFF 		bl	__aeabi_dadd
+ 106              	.LVL10:
+ 107 0062 C4E90201 		strd	r0, [r4, #8]
+  21:..\..\..\Draft/mean_filter.c **** 
+  22:..\..\..\Draft/mean_filter.c ****         currentIndex = (currentIndex + 1) % ARRAY_SIZE;
+ 108              		.loc 1 22 0
+ 109 0066 6A1C     		adds	r2, r5, #1
+ 110 0068 0A4B     		ldr	r3, .L9+4
+ 111 006a 83FB0231 		smull	r3, r1, r3, r2
+ 112 006e D317     		asrs	r3, r2, #31
+ 113 0070 C3EB6103 		rsb	r3, r3, r1, asr #1
+ 114 0074 03EB8303 		add	r3, r3, r3, lsl #2
+ 115 0078 D31A     		subs	r3, r2, r3
+ 116 007a 2361     		str	r3, [r4, #16]
+ 117              	.L5:
+  23:..\..\..\Draft/mean_filter.c ****     }
+  24:..\..\..\Draft/mean_filter.c **** 
+  25:..\..\..\Draft/mean_filter.c ****     return sum / ARRAY_SIZE;
+ 118              		.loc 1 25 0
+ 119 007c 0022     		movs	r2, #0
+ 120 007e 064B     		ldr	r3, .L9+8
+ 121 0080 0349     		ldr	r1, .L9
+ 122 0082 D1E90201 		ldrd	r0, [r1, #8]
+ 123 0086 FFF7FEFF 		bl	__aeabi_ddiv
+ 124              	.LVL11:
+  26:..\..\..\Draft/mean_filter.c **** }
+ 125              		.loc 1 26 0
+ 126 008a BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 127              	.L10:
+ 128 008e 00BF     		.align	2
+ 129              	.L9:
+ 130 0090 00000000 		.word	.LANCHOR0
+ 131 0094 67666666 		.word	1717986919
+ 132 0098 00001440 		.word	1075052544
+ 133              		.cfi_endproc
+ 134              	.LFE1:
+ 135              		.size	meanFilter, .-meanFilter
+ 136              		.bss
+ 137              		.align	3
+ 138              		.set	.LANCHOR0,. + 0
+ 139              		.type	isInitialized.5572, %object
+ 140              		.size	isInitialized.5572, 4
+ 141              	isInitialized.5572:
+ 142 0000 00000000 		.space	4
+ 143 0004 00000000 		.space	4
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccDlb5Zx.s 			page 4
+
+
+ 144              		.type	sum.5573, %object
+ 145              		.size	sum.5573, 8
+ 146              	sum.5573:
+ 147 0008 00000000 		.space	8
+ 147      00000000 
+ 148              		.type	currentIndex.5571, %object
+ 149              		.size	currentIndex.5571, 4
+ 150              	currentIndex.5571:
+ 151 0010 00000000 		.space	4
+ 152              		.text
+ 153              	.Letext0:
+ 154              		.section	.debug_info,"",%progbits
+ 155              	.Ldebug_info0:
+ 156 0000 08010000 		.4byte	0x108
+ 157 0004 0400     		.2byte	0x4
+ 158 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 159 000a 04       		.byte	0x4
+ 160 000b 01       		.uleb128 0x1
+ 161 000c 44000000 		.4byte	.LASF17
+ 162 0010 0C       		.byte	0xc
+ 163 0011 92010000 		.4byte	.LASF18
+ 164 0015 D2000000 		.4byte	.LASF19
+ 165 0019 18000000 		.4byte	.Ldebug_ranges0+0x18
+ 166 001d 00000000 		.4byte	0
+ 167 0021 00000000 		.4byte	.Ldebug_line0
+ 168 0025 02       		.uleb128 0x2
+ 169 0026 08       		.byte	0x8
+ 170 0027 04       		.byte	0x4
+ 171 0028 AF010000 		.4byte	.LASF0
+ 172 002c 02       		.uleb128 0x2
+ 173 002d 01       		.byte	0x1
+ 174 002e 06       		.byte	0x6
+ 175 002f C9010000 		.4byte	.LASF1
+ 176 0033 02       		.uleb128 0x2
+ 177 0034 01       		.byte	0x1
+ 178 0035 08       		.byte	0x8
+ 179 0036 6B010000 		.4byte	.LASF2
+ 180 003a 02       		.uleb128 0x2
+ 181 003b 02       		.byte	0x2
+ 182 003c 05       		.byte	0x5
+ 183 003d E1010000 		.4byte	.LASF3
+ 184 0041 02       		.uleb128 0x2
+ 185 0042 02       		.byte	0x2
+ 186 0043 07       		.byte	0x7
+ 187 0044 B6010000 		.4byte	.LASF4
+ 188 0048 02       		.uleb128 0x2
+ 189 0049 04       		.byte	0x4
+ 190 004a 05       		.byte	0x5
+ 191 004b 7E010000 		.4byte	.LASF5
+ 192 004f 02       		.uleb128 0x2
+ 193 0050 04       		.byte	0x4
+ 194 0051 07       		.byte	0x7
+ 195 0052 42010000 		.4byte	.LASF6
+ 196 0056 02       		.uleb128 0x2
+ 197 0057 08       		.byte	0x8
+ 198 0058 05       		.byte	0x5
+ 199 0059 00000000 		.4byte	.LASF7
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccDlb5Zx.s 			page 5
+
+
+ 200 005d 02       		.uleb128 0x2
+ 201 005e 08       		.byte	0x8
+ 202 005f 07       		.byte	0x7
+ 203 0060 54010000 		.4byte	.LASF8
+ 204 0064 03       		.uleb128 0x3
+ 205 0065 04       		.byte	0x4
+ 206 0066 05       		.byte	0x5
+ 207 0067 696E7400 		.ascii	"int\000"
+ 208 006b 02       		.uleb128 0x2
+ 209 006c 04       		.byte	0x4
+ 210 006d 07       		.byte	0x7
+ 211 006e 0E000000 		.4byte	.LASF9
+ 212 0072 02       		.uleb128 0x2
+ 213 0073 08       		.byte	0x8
+ 214 0074 04       		.byte	0x4
+ 215 0075 D5010000 		.4byte	.LASF10
+ 216 0079 02       		.uleb128 0x2
+ 217 007a 04       		.byte	0x4
+ 218 007b 07       		.byte	0x7
+ 219 007c EB010000 		.4byte	.LASF11
+ 220 0080 02       		.uleb128 0x2
+ 221 0081 01       		.byte	0x1
+ 222 0082 08       		.byte	0x8
+ 223 0083 79010000 		.4byte	.LASF12
+ 224 0087 04       		.uleb128 0x4
+ 225 0088 87010000 		.4byte	.LASF20
+ 226 008c 01       		.byte	0x1
+ 227 008d 06       		.byte	0x6
+ 228 008e 25000000 		.4byte	0x25
+ 229 0092 00000000 		.4byte	.LFB1
+ 230 0096 9C000000 		.4byte	.LFE1-.LFB1
+ 231 009a 01       		.uleb128 0x1
+ 232 009b 9C       		.byte	0x9c
+ 233 009c 05010000 		.4byte	0x105
+ 234 00a0 05       		.uleb128 0x5
+ 235 00a1 31000000 		.4byte	.LASF13
+ 236 00a5 01       		.byte	0x1
+ 237 00a6 06       		.byte	0x6
+ 238 00a7 05010000 		.4byte	0x105
+ 239 00ab 00000000 		.4byte	.LLST0
+ 240 00af 05       		.uleb128 0x5
+ 241 00b0 28000000 		.4byte	.LASF14
+ 242 00b4 01       		.byte	0x1
+ 243 00b5 06       		.byte	0x6
+ 244 00b6 25000000 		.4byte	0x25
+ 245 00ba 4D000000 		.4byte	.LLST1
+ 246 00be 06       		.uleb128 0x6
+ 247 00bf 1B000000 		.4byte	.LASF15
+ 248 00c3 01       		.byte	0x1
+ 249 00c4 07       		.byte	0x7
+ 250 00c5 64000000 		.4byte	0x64
+ 251 00c9 05       		.uleb128 0x5
+ 252 00ca 03       		.byte	0x3
+ 253 00cb 10000000 		.4byte	currentIndex.5571
+ 254 00cf 06       		.uleb128 0x6
+ 255 00d0 36000000 		.4byte	.LASF16
+ 256 00d4 01       		.byte	0x1
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccDlb5Zx.s 			page 6
+
+
+ 257 00d5 08       		.byte	0x8
+ 258 00d6 64000000 		.4byte	0x64
+ 259 00da 05       		.uleb128 0x5
+ 260 00db 03       		.byte	0x3
+ 261 00dc 00000000 		.4byte	isInitialized.5572
+ 262 00e0 07       		.uleb128 0x7
+ 263 00e1 73756D00 		.ascii	"sum\000"
+ 264 00e5 01       		.byte	0x1
+ 265 00e6 09       		.byte	0x9
+ 266 00e7 25000000 		.4byte	0x25
+ 267 00eb 05       		.uleb128 0x5
+ 268 00ec 03       		.byte	0x3
+ 269 00ed 08000000 		.4byte	sum.5573
+ 270 00f1 08       		.uleb128 0x8
+ 271 00f2 00000000 		.4byte	.Ldebug_ranges0+0
+ 272 00f6 09       		.uleb128 0x9
+ 273 00f7 6900     		.ascii	"i\000"
+ 274 00f9 01       		.byte	0x1
+ 275 00fa 0C       		.byte	0xc
+ 276 00fb 64000000 		.4byte	0x64
+ 277 00ff B5000000 		.4byte	.LLST2
+ 278 0103 00       		.byte	0
+ 279 0104 00       		.byte	0
+ 280 0105 0A       		.uleb128 0xa
+ 281 0106 04       		.byte	0x4
+ 282 0107 25000000 		.4byte	0x25
+ 283 010b 00       		.byte	0
+ 284              		.section	.debug_abbrev,"",%progbits
+ 285              	.Ldebug_abbrev0:
+ 286 0000 01       		.uleb128 0x1
+ 287 0001 11       		.uleb128 0x11
+ 288 0002 01       		.byte	0x1
+ 289 0003 25       		.uleb128 0x25
+ 290 0004 0E       		.uleb128 0xe
+ 291 0005 13       		.uleb128 0x13
+ 292 0006 0B       		.uleb128 0xb
+ 293 0007 03       		.uleb128 0x3
+ 294 0008 0E       		.uleb128 0xe
+ 295 0009 1B       		.uleb128 0x1b
+ 296 000a 0E       		.uleb128 0xe
+ 297 000b 55       		.uleb128 0x55
+ 298 000c 17       		.uleb128 0x17
+ 299 000d 11       		.uleb128 0x11
+ 300 000e 01       		.uleb128 0x1
+ 301 000f 10       		.uleb128 0x10
+ 302 0010 17       		.uleb128 0x17
+ 303 0011 00       		.byte	0
+ 304 0012 00       		.byte	0
+ 305 0013 02       		.uleb128 0x2
+ 306 0014 24       		.uleb128 0x24
+ 307 0015 00       		.byte	0
+ 308 0016 0B       		.uleb128 0xb
+ 309 0017 0B       		.uleb128 0xb
+ 310 0018 3E       		.uleb128 0x3e
+ 311 0019 0B       		.uleb128 0xb
+ 312 001a 03       		.uleb128 0x3
+ 313 001b 0E       		.uleb128 0xe
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccDlb5Zx.s 			page 7
+
+
+ 314 001c 00       		.byte	0
+ 315 001d 00       		.byte	0
+ 316 001e 03       		.uleb128 0x3
+ 317 001f 24       		.uleb128 0x24
+ 318 0020 00       		.byte	0
+ 319 0021 0B       		.uleb128 0xb
+ 320 0022 0B       		.uleb128 0xb
+ 321 0023 3E       		.uleb128 0x3e
+ 322 0024 0B       		.uleb128 0xb
+ 323 0025 03       		.uleb128 0x3
+ 324 0026 08       		.uleb128 0x8
+ 325 0027 00       		.byte	0
+ 326 0028 00       		.byte	0
+ 327 0029 04       		.uleb128 0x4
+ 328 002a 2E       		.uleb128 0x2e
+ 329 002b 01       		.byte	0x1
+ 330 002c 3F       		.uleb128 0x3f
+ 331 002d 19       		.uleb128 0x19
+ 332 002e 03       		.uleb128 0x3
+ 333 002f 0E       		.uleb128 0xe
+ 334 0030 3A       		.uleb128 0x3a
+ 335 0031 0B       		.uleb128 0xb
+ 336 0032 3B       		.uleb128 0x3b
+ 337 0033 0B       		.uleb128 0xb
+ 338 0034 27       		.uleb128 0x27
+ 339 0035 19       		.uleb128 0x19
+ 340 0036 49       		.uleb128 0x49
+ 341 0037 13       		.uleb128 0x13
+ 342 0038 11       		.uleb128 0x11
+ 343 0039 01       		.uleb128 0x1
+ 344 003a 12       		.uleb128 0x12
+ 345 003b 06       		.uleb128 0x6
+ 346 003c 40       		.uleb128 0x40
+ 347 003d 18       		.uleb128 0x18
+ 348 003e 9642     		.uleb128 0x2116
+ 349 0040 19       		.uleb128 0x19
+ 350 0041 01       		.uleb128 0x1
+ 351 0042 13       		.uleb128 0x13
+ 352 0043 00       		.byte	0
+ 353 0044 00       		.byte	0
+ 354 0045 05       		.uleb128 0x5
+ 355 0046 05       		.uleb128 0x5
+ 356 0047 00       		.byte	0
+ 357 0048 03       		.uleb128 0x3
+ 358 0049 0E       		.uleb128 0xe
+ 359 004a 3A       		.uleb128 0x3a
+ 360 004b 0B       		.uleb128 0xb
+ 361 004c 3B       		.uleb128 0x3b
+ 362 004d 0B       		.uleb128 0xb
+ 363 004e 49       		.uleb128 0x49
+ 364 004f 13       		.uleb128 0x13
+ 365 0050 02       		.uleb128 0x2
+ 366 0051 17       		.uleb128 0x17
+ 367 0052 00       		.byte	0
+ 368 0053 00       		.byte	0
+ 369 0054 06       		.uleb128 0x6
+ 370 0055 34       		.uleb128 0x34
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccDlb5Zx.s 			page 8
+
+
+ 371 0056 00       		.byte	0
+ 372 0057 03       		.uleb128 0x3
+ 373 0058 0E       		.uleb128 0xe
+ 374 0059 3A       		.uleb128 0x3a
+ 375 005a 0B       		.uleb128 0xb
+ 376 005b 3B       		.uleb128 0x3b
+ 377 005c 0B       		.uleb128 0xb
+ 378 005d 49       		.uleb128 0x49
+ 379 005e 13       		.uleb128 0x13
+ 380 005f 02       		.uleb128 0x2
+ 381 0060 18       		.uleb128 0x18
+ 382 0061 00       		.byte	0
+ 383 0062 00       		.byte	0
+ 384 0063 07       		.uleb128 0x7
+ 385 0064 34       		.uleb128 0x34
+ 386 0065 00       		.byte	0
+ 387 0066 03       		.uleb128 0x3
+ 388 0067 08       		.uleb128 0x8
+ 389 0068 3A       		.uleb128 0x3a
+ 390 0069 0B       		.uleb128 0xb
+ 391 006a 3B       		.uleb128 0x3b
+ 392 006b 0B       		.uleb128 0xb
+ 393 006c 49       		.uleb128 0x49
+ 394 006d 13       		.uleb128 0x13
+ 395 006e 02       		.uleb128 0x2
+ 396 006f 18       		.uleb128 0x18
+ 397 0070 00       		.byte	0
+ 398 0071 00       		.byte	0
+ 399 0072 08       		.uleb128 0x8
+ 400 0073 0B       		.uleb128 0xb
+ 401 0074 01       		.byte	0x1
+ 402 0075 55       		.uleb128 0x55
+ 403 0076 17       		.uleb128 0x17
+ 404 0077 00       		.byte	0
+ 405 0078 00       		.byte	0
+ 406 0079 09       		.uleb128 0x9
+ 407 007a 34       		.uleb128 0x34
+ 408 007b 00       		.byte	0
+ 409 007c 03       		.uleb128 0x3
+ 410 007d 08       		.uleb128 0x8
+ 411 007e 3A       		.uleb128 0x3a
+ 412 007f 0B       		.uleb128 0xb
+ 413 0080 3B       		.uleb128 0x3b
+ 414 0081 0B       		.uleb128 0xb
+ 415 0082 49       		.uleb128 0x49
+ 416 0083 13       		.uleb128 0x13
+ 417 0084 02       		.uleb128 0x2
+ 418 0085 17       		.uleb128 0x17
+ 419 0086 00       		.byte	0
+ 420 0087 00       		.byte	0
+ 421 0088 0A       		.uleb128 0xa
+ 422 0089 0F       		.uleb128 0xf
+ 423 008a 00       		.byte	0
+ 424 008b 0B       		.uleb128 0xb
+ 425 008c 0B       		.uleb128 0xb
+ 426 008d 49       		.uleb128 0x49
+ 427 008e 13       		.uleb128 0x13
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccDlb5Zx.s 			page 9
+
+
+ 428 008f 00       		.byte	0
+ 429 0090 00       		.byte	0
+ 430 0091 00       		.byte	0
+ 431              		.section	.debug_loc,"",%progbits
+ 432              	.Ldebug_loc0:
+ 433              	.LLST0:
+ 434 0000 00000000 		.4byte	.LVL0
+ 435 0004 12000000 		.4byte	.LVL1
+ 436 0008 0100     		.2byte	0x1
+ 437 000a 50       		.byte	0x50
+ 438 000b 12000000 		.4byte	.LVL1
+ 439 000f 30000000 		.4byte	.LVL4
+ 440 0013 0100     		.2byte	0x1
+ 441 0015 58       		.byte	0x58
+ 442 0016 30000000 		.4byte	.LVL4
+ 443 001a 32000000 		.4byte	.LVL5
+ 444 001e 0100     		.2byte	0x1
+ 445 0020 50       		.byte	0x50
+ 446 0021 32000000 		.4byte	.LVL5
+ 447 0025 3E000000 		.4byte	.LVL6
+ 448 0029 0100     		.2byte	0x1
+ 449 002b 58       		.byte	0x58
+ 450 002c 3E000000 		.4byte	.LVL6
+ 451 0030 4E000000 		.4byte	.LVL8
+ 452 0034 0100     		.2byte	0x1
+ 453 0036 50       		.byte	0x50
+ 454 0037 4E000000 		.4byte	.LVL8
+ 455 003b 9C000000 		.4byte	.LFE1
+ 456 003f 0400     		.2byte	0x4
+ 457 0041 F3       		.byte	0xf3
+ 458 0042 01       		.uleb128 0x1
+ 459 0043 50       		.byte	0x50
+ 460 0044 9F       		.byte	0x9f
+ 461 0045 00000000 		.4byte	0
+ 462 0049 00000000 		.4byte	0
+ 463              	.LLST1:
+ 464 004d 00000000 		.4byte	.LVL0
+ 465 0051 12000000 		.4byte	.LVL1
+ 466 0055 0600     		.2byte	0x6
+ 467 0057 52       		.byte	0x52
+ 468 0058 93       		.byte	0x93
+ 469 0059 04       		.uleb128 0x4
+ 470 005a 53       		.byte	0x53
+ 471 005b 93       		.byte	0x93
+ 472 005c 04       		.uleb128 0x4
+ 473 005d 12000000 		.4byte	.LVL1
+ 474 0061 30000000 		.4byte	.LVL4
+ 475 0065 0600     		.2byte	0x6
+ 476 0067 F3       		.byte	0xf3
+ 477 0068 03       		.uleb128 0x3
+ 478 0069 F5       		.byte	0xf5
+ 479 006a 02       		.uleb128 0x2
+ 480 006b 25       		.uleb128 0x25
+ 481 006c 9F       		.byte	0x9f
+ 482 006d 30000000 		.4byte	.LVL4
+ 483 0071 32000000 		.4byte	.LVL5
+ 484 0075 0600     		.2byte	0x6
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccDlb5Zx.s 			page 10
+
+
+ 485 0077 52       		.byte	0x52
+ 486 0078 93       		.byte	0x93
+ 487 0079 04       		.uleb128 0x4
+ 488 007a 53       		.byte	0x53
+ 489 007b 93       		.byte	0x93
+ 490 007c 04       		.uleb128 0x4
+ 491 007d 32000000 		.4byte	.LVL5
+ 492 0081 3E000000 		.4byte	.LVL6
+ 493 0085 0600     		.2byte	0x6
+ 494 0087 F3       		.byte	0xf3
+ 495 0088 03       		.uleb128 0x3
+ 496 0089 F5       		.byte	0xf5
+ 497 008a 02       		.uleb128 0x2
+ 498 008b 25       		.uleb128 0x25
+ 499 008c 9F       		.byte	0x9f
+ 500 008d 3E000000 		.4byte	.LVL6
+ 501 0091 4A000000 		.4byte	.LVL7
+ 502 0095 0600     		.2byte	0x6
+ 503 0097 52       		.byte	0x52
+ 504 0098 93       		.byte	0x93
+ 505 0099 04       		.uleb128 0x4
+ 506 009a 53       		.byte	0x53
+ 507 009b 93       		.byte	0x93
+ 508 009c 04       		.uleb128 0x4
+ 509 009d 4A000000 		.4byte	.LVL7
+ 510 00a1 9C000000 		.4byte	.LFE1
+ 511 00a5 0600     		.2byte	0x6
+ 512 00a7 F3       		.byte	0xf3
+ 513 00a8 03       		.uleb128 0x3
+ 514 00a9 F5       		.byte	0xf5
+ 515 00aa 02       		.uleb128 0x2
+ 516 00ab 25       		.uleb128 0x25
+ 517 00ac 9F       		.byte	0x9f
+ 518 00ad 00000000 		.4byte	0
+ 519 00b1 00000000 		.4byte	0
+ 520              	.LLST2:
+ 521 00b5 12000000 		.4byte	.LVL1
+ 522 00b9 30000000 		.4byte	.LVL4
+ 523 00bd 0100     		.2byte	0x1
+ 524 00bf 54       		.byte	0x54
+ 525 00c0 32000000 		.4byte	.LVL5
+ 526 00c4 3E000000 		.4byte	.LVL6
+ 527 00c8 0100     		.2byte	0x1
+ 528 00ca 54       		.byte	0x54
+ 529 00cb 00000000 		.4byte	0
+ 530 00cf 00000000 		.4byte	0
+ 531              		.section	.debug_aranges,"",%progbits
+ 532 0000 1C000000 		.4byte	0x1c
+ 533 0004 0200     		.2byte	0x2
+ 534 0006 00000000 		.4byte	.Ldebug_info0
+ 535 000a 04       		.byte	0x4
+ 536 000b 00       		.byte	0
+ 537 000c 0000     		.2byte	0
+ 538 000e 0000     		.2byte	0
+ 539 0010 00000000 		.4byte	.LFB1
+ 540 0014 9C000000 		.4byte	.LFE1-.LFB1
+ 541 0018 00000000 		.4byte	0
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccDlb5Zx.s 			page 11
+
+
+ 542 001c 00000000 		.4byte	0
+ 543              		.section	.debug_ranges,"",%progbits
+ 544              	.Ldebug_ranges0:
+ 545 0000 12000000 		.4byte	.LBB2
+ 546 0004 30000000 		.4byte	.LBE2
+ 547 0008 32000000 		.4byte	.LBB3
+ 548 000c 36000000 		.4byte	.LBE3
+ 549 0010 00000000 		.4byte	0
+ 550 0014 00000000 		.4byte	0
+ 551 0018 00000000 		.4byte	.LFB1
+ 552 001c 9C000000 		.4byte	.LFE1
+ 553 0020 00000000 		.4byte	0
+ 554 0024 00000000 		.4byte	0
+ 555              		.section	.debug_line,"",%progbits
+ 556              	.Ldebug_line0:
+ 557 0000 64000000 		.section	.debug_str,"MS",%progbits,1
+ 557      02003300 
+ 557      00000201 
+ 557      FB0E0D00 
+ 557      01010101 
+ 558              	.LASF7:
+ 559 0000 6C6F6E67 		.ascii	"long long int\000"
+ 559      206C6F6E 
+ 559      6720696E 
+ 559      7400
+ 560              	.LASF9:
+ 561 000e 756E7369 		.ascii	"unsigned int\000"
+ 561      676E6564 
+ 561      20696E74 
+ 561      00
+ 562              	.LASF15:
+ 563 001b 63757272 		.ascii	"currentIndex\000"
+ 563      656E7449 
+ 563      6E646578 
+ 563      00
+ 564              	.LASF14:
+ 565 0028 6E657756 		.ascii	"newValue\000"
+ 565      616C7565 
+ 565      00
+ 566              	.LASF13:
+ 567 0031 6669666F 		.ascii	"fifo\000"
+ 567      00
+ 568              	.LASF16:
+ 569 0036 6973496E 		.ascii	"isInitialized\000"
+ 569      69746961 
+ 569      6C697A65 
+ 569      6400
+ 570              	.LASF17:
+ 571 0044 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 571      43313120 
+ 571      352E342E 
+ 571      31203230 
+ 571      31363036 
+ 572 0077 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 572      20726576 
+ 572      6973696F 
+ 572      6E203233 
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccDlb5Zx.s 			page 12
+
+
+ 572      37373135 
+ 573 00aa 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 573      66756E63 
+ 573      74696F6E 
+ 573      2D736563 
+ 573      74696F6E 
+ 574              	.LASF19:
+ 575 00d2 433A5C55 		.ascii	"C:\\Users\\Chong Yen Juin\\Desktop\\Monash\\ECE4191"
+ 575      73657273 
+ 575      5C43686F 
+ 575      6E672059 
+ 575      656E204A 
+ 576 0100 5C303920 		.ascii	"\\09 - Implementation\\ECE4191-G15\\ECE4191\\ColorB"
+ 576      2D20496D 
+ 576      706C656D 
+ 576      656E7461 
+ 576      74696F6E 
+ 577 012f 6F776C52 		.ascii	"owlRobot_G15.cydsn\000"
+ 577      6F626F74 
+ 577      5F473135 
+ 577      2E637964 
+ 577      736E00
+ 578              	.LASF6:
+ 579 0142 6C6F6E67 		.ascii	"long unsigned int\000"
+ 579      20756E73 
+ 579      69676E65 
+ 579      6420696E 
+ 579      7400
+ 580              	.LASF8:
+ 581 0154 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 581      206C6F6E 
+ 581      6720756E 
+ 581      7369676E 
+ 581      65642069 
+ 582              	.LASF2:
+ 583 016b 756E7369 		.ascii	"unsigned char\000"
+ 583      676E6564 
+ 583      20636861 
+ 583      7200
+ 584              	.LASF12:
+ 585 0179 63686172 		.ascii	"char\000"
+ 585      00
+ 586              	.LASF5:
+ 587 017e 6C6F6E67 		.ascii	"long int\000"
+ 587      20696E74 
+ 587      00
+ 588              	.LASF20:
+ 589 0187 6D65616E 		.ascii	"meanFilter\000"
+ 589      46696C74 
+ 589      657200
+ 590              	.LASF18:
+ 591 0192 2E2E5C2E 		.ascii	"..\\..\\..\\Draft\\mean_filter.c\000"
+ 591      2E5C2E2E 
+ 591      5C447261 
+ 591      66745C6D 
+ 591      65616E5F 
+ 592              	.LASF0:
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccDlb5Zx.s 			page 13
+
+
+ 593 01af 646F7562 		.ascii	"double\000"
+ 593      6C6500
+ 594              	.LASF4:
+ 595 01b6 73686F72 		.ascii	"short unsigned int\000"
+ 595      7420756E 
+ 595      7369676E 
+ 595      65642069 
+ 595      6E7400
+ 596              	.LASF1:
+ 597 01c9 7369676E 		.ascii	"signed char\000"
+ 597      65642063 
+ 597      68617200 
+ 598              	.LASF10:
+ 599 01d5 6C6F6E67 		.ascii	"long double\000"
+ 599      20646F75 
+ 599      626C6500 
+ 600              	.LASF3:
+ 601 01e1 73686F72 		.ascii	"short int\000"
+ 601      7420696E 
+ 601      7400
+ 602              	.LASF11:
+ 603 01eb 73697A65 		.ascii	"sizetype\000"
+ 603      74797065 
+ 603      00
+ 604              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

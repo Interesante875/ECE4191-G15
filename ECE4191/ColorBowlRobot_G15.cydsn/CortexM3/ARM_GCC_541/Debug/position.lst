@@ -1,0 +1,133 @@
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccPvUz63.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"position.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              	.Letext0:
+  20              		.section	.debug_info,"",%progbits
+  21              	.Ldebug_info0:
+  22 0000 21000000 		.4byte	0x21
+  23 0004 0400     		.2byte	0x4
+  24 0006 00000000 		.4byte	.Ldebug_abbrev0
+  25 000a 04       		.byte	0x4
+  26 000b 01       		.uleb128 0x1
+  27 000c 77000000 		.4byte	.LASF0
+  28 0010 0C       		.byte	0xc
+  29 0011 05010000 		.4byte	.LASF1
+  30 0015 07000000 		.4byte	.LASF2
+  31 0019 00000000 		.4byte	.Ldebug_line0
+  32 001d 02       		.uleb128 0x2
+  33 001e 08       		.byte	0x8
+  34 001f 04       		.byte	0x4
+  35 0020 00000000 		.4byte	.LASF3
+  36 0024 00       		.byte	0
+  37              		.section	.debug_abbrev,"",%progbits
+  38              	.Ldebug_abbrev0:
+  39 0000 01       		.uleb128 0x1
+  40 0001 11       		.uleb128 0x11
+  41 0002 01       		.byte	0x1
+  42 0003 25       		.uleb128 0x25
+  43 0004 0E       		.uleb128 0xe
+  44 0005 13       		.uleb128 0x13
+  45 0006 0B       		.uleb128 0xb
+  46 0007 03       		.uleb128 0x3
+  47 0008 0E       		.uleb128 0xe
+  48 0009 1B       		.uleb128 0x1b
+  49 000a 0E       		.uleb128 0xe
+  50 000b 10       		.uleb128 0x10
+  51 000c 17       		.uleb128 0x17
+  52 000d 00       		.byte	0
+  53 000e 00       		.byte	0
+  54 000f 02       		.uleb128 0x2
+  55 0010 24       		.uleb128 0x24
+  56 0011 00       		.byte	0
+  57 0012 0B       		.uleb128 0xb
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccPvUz63.s 			page 2
+
+
+  58 0013 0B       		.uleb128 0xb
+  59 0014 3E       		.uleb128 0x3e
+  60 0015 0B       		.uleb128 0xb
+  61 0016 03       		.uleb128 0x3
+  62 0017 0E       		.uleb128 0xe
+  63 0018 00       		.byte	0
+  64 0019 00       		.byte	0
+  65 001a 00       		.byte	0
+  66              		.section	.debug_aranges,"",%progbits
+  67 0000 14000000 		.4byte	0x14
+  68 0004 0200     		.2byte	0x2
+  69 0006 00000000 		.4byte	.Ldebug_info0
+  70 000a 04       		.byte	0x4
+  71 000b 00       		.byte	0
+  72 000c 0000     		.2byte	0
+  73 000e 0000     		.2byte	0
+  74 0010 00000000 		.4byte	0
+  75 0014 00000000 		.4byte	0
+  76              		.section	.debug_line,"",%progbits
+  77              	.Ldebug_line0:
+  78 0000 19000000 		.section	.debug_str,"MS",%progbits,1
+  78      02001300 
+  78      00000201 
+  78      FB0E0D00 
+  78      01010101 
+  79              	.LASF3:
+  80 0000 646F7562 		.ascii	"double\000"
+  80      6C6500
+  81              	.LASF2:
+  82 0007 433A5C55 		.ascii	"C:\\Users\\Chong Yen Juin\\Desktop\\Monash\\ECE4191"
+  82      73657273 
+  82      5C43686F 
+  82      6E672059 
+  82      656E204A 
+  83 0035 5C303920 		.ascii	"\\09 - Implementation\\ECE4191-G15\\ECE4191\\ColorB"
+  83      2D20496D 
+  83      706C656D 
+  83      656E7461 
+  83      74696F6E 
+  84 0064 6F776C52 		.ascii	"owlRobot_G15.cydsn\000"
+  84      6F626F74 
+  84      5F473135 
+  84      2E637964 
+  84      736E00
+  85              	.LASF0:
+  86 0077 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+  86      43313120 
+  86      352E342E 
+  86      31203230 
+  86      31363036 
+  87 00aa 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+  87      20726576 
+  87      6973696F 
+  87      6E203233 
+  87      37373135 
+  88 00dd 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+  88      66756E63 
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccPvUz63.s 			page 3
+
+
+  88      74696F6E 
+  88      2D736563 
+  88      74696F6E 
+  89              	.LASF1:
+  90 0105 2E2E5C2E 		.ascii	"..\\..\\..\\Draft\\position.c\000"
+  90      2E5C2E2E 
+  90      5C447261 
+  90      66745C70 
+  90      6F736974 
+  91              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

@@ -1,0 +1,1263 @@
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cczfsuwO.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"median_filter.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.global	__aeabi_dcmplt
+  20              		.section	.text.insertionSort,"ax",%progbits
+  21              		.align	2
+  22              		.global	insertionSort
+  23              		.thumb
+  24              		.thumb_func
+  25              		.type	insertionSort, %function
+  26              	insertionSort:
+  27              	.LFB1:
+  28              		.file 1 "..\\..\\..\\Draft\\median_filter.c"
+   1:..\..\..\Draft/median_filter.c **** #include <stdio.h>
+   2:..\..\..\Draft/median_filter.c **** #include <stdlib.h>
+   3:..\..\..\Draft/median_filter.c **** #include "median_filter.h"
+   4:..\..\..\Draft/median_filter.c **** 
+   5:..\..\..\Draft/median_filter.c **** 
+   6:..\..\..\Draft/median_filter.c **** // Function to sort the array using insertion sort
+   7:..\..\..\Draft/median_filter.c **** void insertionSort(double arr[], int n) {
+  29              		.loc 1 7 0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33              	.LVL0:
+  34 0000 2DE9F84F 		push	{r3, r4, r5, r6, r7, r8, r9, r10, fp, lr}
+  35              		.cfi_def_cfa_offset 40
+  36              		.cfi_offset 3, -40
+  37              		.cfi_offset 4, -36
+  38              		.cfi_offset 5, -32
+  39              		.cfi_offset 6, -28
+  40              		.cfi_offset 7, -24
+  41              		.cfi_offset 8, -20
+  42              		.cfi_offset 9, -16
+  43              		.cfi_offset 10, -12
+  44              		.cfi_offset 11, -8
+  45              		.cfi_offset 14, -4
+  46 0004 0546     		mov	r5, r0
+  47 0006 8B46     		mov	fp, r1
+  48              	.LVL1:
+   8:..\..\..\Draft/median_filter.c ****     int i, j;
+   9:..\..\..\Draft/median_filter.c ****     double key;
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cczfsuwO.s 			page 2
+
+
+  10:..\..\..\Draft/median_filter.c ****     for (i = 1; i < n; i++) {
+  49              		.loc 1 10 0
+  50 0008 4FF0010A 		mov	r10, #1
+  51 000c 21E0     		b	.L2
+  52              	.LVL2:
+  53              	.L6:
+  11:..\..\..\Draft/median_filter.c ****         key = arr[i];
+  54              		.loc 1 11 0
+  55 000e 05EBCA03 		add	r3, r5, r10, lsl #3
+  56 0012 D3E90089 		ldrd	r8, [r3]
+  57              	.LVL3:
+  12:..\..\..\Draft/median_filter.c ****         j = i - 1;
+  58              		.loc 1 12 0
+  59 0016 0AF1FF34 		add	r4, r10, #-1
+  60              	.LVL4:
+  13:..\..\..\Draft/median_filter.c **** 
+  14:..\..\..\Draft/median_filter.c ****         while (j >= 0 && arr[j] > key) {
+  61              		.loc 1 14 0
+  62 001a 05E0     		b	.L3
+  63              	.L5:
+  15:..\..\..\Draft/median_filter.c ****             arr[j + 1] = arr[j];
+  64              		.loc 1 15 0
+  65 001c 631C     		adds	r3, r4, #1
+  66 001e 05EBC303 		add	r3, r5, r3, lsl #3
+  67 0022 C3E90067 		strd	r6, [r3]
+  16:..\..\..\Draft/median_filter.c ****             j = j - 1;
+  68              		.loc 1 16 0
+  69 0026 013C     		subs	r4, r4, #1
+  70              	.LVL5:
+  71              	.L3:
+  14:..\..\..\Draft/median_filter.c ****             arr[j + 1] = arr[j];
+  72              		.loc 1 14 0
+  73 0028 002C     		cmp	r4, #0
+  74 002a 0BDB     		blt	.L4
+  14:..\..\..\Draft/median_filter.c ****             arr[j + 1] = arr[j];
+  75              		.loc 1 14 0 is_stmt 0 discriminator 1
+  76 002c 05EBC403 		add	r3, r5, r4, lsl #3
+  77 0030 D3E90067 		ldrd	r6, [r3]
+  78 0034 3246     		mov	r2, r6
+  79 0036 3B46     		mov	r3, r7
+  80 0038 4046     		mov	r0, r8
+  81 003a 4946     		mov	r1, r9
+  82 003c FFF7FEFF 		bl	__aeabi_dcmplt
+  83              	.LVL6:
+  84 0040 0028     		cmp	r0, #0
+  85 0042 EBD1     		bne	.L5
+  86              	.L4:
+  17:..\..\..\Draft/median_filter.c ****         }
+  18:..\..\..\Draft/median_filter.c ****         arr[j + 1] = key;
+  87              		.loc 1 18 0 is_stmt 1 discriminator 2
+  88 0044 0134     		adds	r4, r4, #1
+  89              	.LVL7:
+  90 0046 05EBC404 		add	r4, r5, r4, lsl #3
+  91              	.LVL8:
+  92 004a C4E90089 		strd	r8, [r4]
+  10:..\..\..\Draft/median_filter.c ****         key = arr[i];
+  93              		.loc 1 10 0 discriminator 2
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cczfsuwO.s 			page 3
+
+
+  94 004e 0AF1010A 		add	r10, r10, #1
+  95              	.LVL9:
+  96              	.L2:
+  10:..\..\..\Draft/median_filter.c ****         key = arr[i];
+  97              		.loc 1 10 0 is_stmt 0 discriminator 1
+  98 0052 DA45     		cmp	r10, fp
+  99 0054 DBDB     		blt	.L6
+  19:..\..\..\Draft/median_filter.c ****     }
+  20:..\..\..\Draft/median_filter.c **** }
+ 100              		.loc 1 20 0 is_stmt 1
+ 101 0056 BDE8F88F 		pop	{r3, r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 102              		.cfi_endproc
+ 103              	.LFE1:
+ 104              		.size	insertionSort, .-insertionSort
+ 105              		.global	__aeabi_dadd
+ 106              		.global	__aeabi_dmul
+ 107 005a 00BF     		.section	.text.findMedian,"ax",%progbits
+ 108              		.align	2
+ 109              		.global	findMedian
+ 110              		.thumb
+ 111              		.thumb_func
+ 112              		.type	findMedian, %function
+ 113              	findMedian:
+ 114              	.LFB2:
+  21:..\..\..\Draft/median_filter.c **** 
+  22:..\..\..\Draft/median_filter.c **** // Function to find the median of an array
+  23:..\..\..\Draft/median_filter.c **** double findMedian(double arr[], int n) {
+ 115              		.loc 1 23 0
+ 116              		.cfi_startproc
+ 117              		@ args = 0, pretend = 0, frame = 0
+ 118              		@ frame_needed = 0, uses_anonymous_args = 0
+ 119              	.LVL10:
+ 120 0000 38B5     		push	{r3, r4, r5, lr}
+ 121              		.cfi_def_cfa_offset 16
+ 122              		.cfi_offset 3, -16
+ 123              		.cfi_offset 4, -12
+ 124              		.cfi_offset 5, -8
+ 125              		.cfi_offset 14, -4
+ 126 0002 0546     		mov	r5, r0
+ 127 0004 0C46     		mov	r4, r1
+  24:..\..\..\Draft/median_filter.c ****     insertionSort(arr, n);
+ 128              		.loc 1 24 0
+ 129 0006 FFF7FEFF 		bl	insertionSort
+ 130              	.LVL11:
+  25:..\..\..\Draft/median_filter.c **** 
+  26:..\..\..\Draft/median_filter.c ****     if (n % 2 == 0) {
+ 131              		.loc 1 26 0
+ 132 000a 14F0010F 		tst	r4, #1
+ 133 000e 14D1     		bne	.L9
+  27:..\..\..\Draft/median_filter.c ****         return (arr[n / 2 - 1] + arr[n / 2]) / 2;
+ 134              		.loc 1 27 0
+ 135 0010 04EBD474 		add	r4, r4, r4, lsr #31
+ 136              	.LVL12:
+ 137 0014 6310     		asrs	r3, r4, #1
+ 138 0016 03F10052 		add	r2, r3, #536870912
+ 139 001a 013A     		subs	r2, r2, #1
+ 140 001c 05EBC201 		add	r1, r5, r2, lsl #3
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cczfsuwO.s 			page 4
+
+
+ 141 0020 05EBC303 		add	r3, r5, r3, lsl #3
+ 142 0024 D3E90023 		ldrd	r2, [r3]
+ 143 0028 D1E90001 		ldrd	r0, [r1]
+ 144 002c FFF7FEFF 		bl	__aeabi_dadd
+ 145              	.LVL13:
+ 146 0030 0022     		movs	r2, #0
+ 147 0032 064B     		ldr	r3, .L12
+ 148 0034 FFF7FEFF 		bl	__aeabi_dmul
+ 149              	.LVL14:
+ 150 0038 38BD     		pop	{r3, r4, r5, pc}
+ 151              	.LVL15:
+ 152              	.L9:
+  28:..\..\..\Draft/median_filter.c ****     } else {
+  29:..\..\..\Draft/median_filter.c ****         return arr[n / 2];
+ 153              		.loc 1 29 0
+ 154 003a 04EBD474 		add	r4, r4, r4, lsr #31
+ 155              	.LVL16:
+ 156 003e 6410     		asrs	r4, r4, #1
+ 157 0040 05EBC404 		add	r4, r5, r4, lsl #3
+ 158 0044 D4E90001 		ldrd	r0, [r4]
+  30:..\..\..\Draft/median_filter.c ****     }
+  31:..\..\..\Draft/median_filter.c **** }
+ 159              		.loc 1 31 0
+ 160 0048 38BD     		pop	{r3, r4, r5, pc}
+ 161              	.LVL17:
+ 162              	.L13:
+ 163 004a 00BF     		.align	2
+ 164              	.L12:
+ 165 004c 0000E03F 		.word	1071644672
+ 166              		.cfi_endproc
+ 167              	.LFE2:
+ 168              		.size	findMedian, .-findMedian
+ 169              		.section	.text.medianFilter,"ax",%progbits
+ 170              		.align	2
+ 171              		.global	medianFilter
+ 172              		.thumb
+ 173              		.thumb_func
+ 174              		.type	medianFilter, %function
+ 175              	medianFilter:
+ 176              	.LFB3:
+  32:..\..\..\Draft/median_filter.c **** 
+  33:..\..\..\Draft/median_filter.c **** // Function to update the FIFO array and calculate the median
+  34:..\..\..\Draft/median_filter.c **** double medianFilter(double fifo[], double newValue) {
+ 177              		.loc 1 34 0
+ 178              		.cfi_startproc
+ 179              		@ args = 0, pretend = 0, frame = 40
+ 180              		@ frame_needed = 0, uses_anonymous_args = 0
+ 181              	.LVL18:
+ 182 0000 70B5     		push	{r4, r5, r6, lr}
+ 183              		.cfi_def_cfa_offset 16
+ 184              		.cfi_offset 4, -16
+ 185              		.cfi_offset 5, -12
+ 186              		.cfi_offset 6, -8
+ 187              		.cfi_offset 14, -4
+ 188 0002 8AB0     		sub	sp, sp, #40
+ 189              		.cfi_def_cfa_offset 56
+ 190 0004 1446     		mov	r4, r2
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cczfsuwO.s 			page 5
+
+
+ 191 0006 1D46     		mov	r5, r3
+  35:..\..\..\Draft/median_filter.c ****     static int currentIndex = 0;
+  36:..\..\..\Draft/median_filter.c ****     static int isInitialized = 0;
+  37:..\..\..\Draft/median_filter.c ****     double tempArray[ARRAY_SIZE];
+  38:..\..\..\Draft/median_filter.c **** 
+  39:..\..\..\Draft/median_filter.c ****     if (!isInitialized) {
+ 192              		.loc 1 39 0
+ 193 0008 194B     		ldr	r3, .L22
+ 194 000a 1B68     		ldr	r3, [r3]
+ 195 000c 33B1     		cbz	r3, .L20
+ 196 000e 0BE0     		b	.L16
+ 197              	.LVL19:
+ 198              	.L17:
+ 199              	.LBB2:
+  40:..\..\..\Draft/median_filter.c ****         for (int i = 0; i < ARRAY_SIZE; i++) {
+  41:..\..\..\Draft/median_filter.c ****             fifo[i] = newValue;
+ 200              		.loc 1 41 0 discriminator 3
+ 201 0010 00EBC301 		add	r1, r0, r3, lsl #3
+ 202 0014 C1E90045 		strd	r4, [r1]
+  40:..\..\..\Draft/median_filter.c ****         for (int i = 0; i < ARRAY_SIZE; i++) {
+ 203              		.loc 1 40 0 discriminator 3
+ 204 0018 0133     		adds	r3, r3, #1
+ 205              	.LVL20:
+ 206 001a 00E0     		b	.L15
+ 207              	.LVL21:
+ 208              	.L20:
+ 209              	.LBE2:
+ 210 001c 0023     		movs	r3, #0
+ 211              	.L15:
+ 212              	.LVL22:
+ 213              	.LBB3:
+  40:..\..\..\Draft/median_filter.c ****         for (int i = 0; i < ARRAY_SIZE; i++) {
+ 214              		.loc 1 40 0 is_stmt 0 discriminator 1
+ 215 001e 042B     		cmp	r3, #4
+ 216 0020 F6DD     		ble	.L17
+ 217              	.LBE3:
+  42:..\..\..\Draft/median_filter.c ****         }
+  43:..\..\..\Draft/median_filter.c ****         isInitialized = 1;
+ 218              		.loc 1 43 0 is_stmt 1
+ 219 0022 0122     		movs	r2, #1
+ 220              	.LVL23:
+ 221 0024 124B     		ldr	r3, .L22
+ 222              	.LVL24:
+ 223 0026 1A60     		str	r2, [r3]
+ 224              	.L16:
+  44:..\..\..\Draft/median_filter.c ****     }
+  45:..\..\..\Draft/median_filter.c **** 
+  46:..\..\..\Draft/median_filter.c ****     fifo[currentIndex] = newValue;
+ 225              		.loc 1 46 0
+ 226 0028 114E     		ldr	r6, .L22
+ 227 002a 7368     		ldr	r3, [r6, #4]
+ 228 002c 00EBC302 		add	r2, r0, r3, lsl #3
+ 229 0030 C2E90045 		strd	r4, [r2]
+  47:..\..\..\Draft/median_filter.c ****     currentIndex = (currentIndex + 1) % ARRAY_SIZE;
+ 230              		.loc 1 47 0
+ 231 0034 5A1C     		adds	r2, r3, #1
+ 232 0036 0F4B     		ldr	r3, .L22+4
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cczfsuwO.s 			page 6
+
+
+ 233 0038 83FB0231 		smull	r3, r1, r3, r2
+ 234 003c D317     		asrs	r3, r2, #31
+ 235 003e C3EB6103 		rsb	r3, r3, r1, asr #1
+ 236 0042 03EB8303 		add	r3, r3, r3, lsl #2
+ 237 0046 D31A     		subs	r3, r2, r3
+ 238 0048 7360     		str	r3, [r6, #4]
+ 239              	.LVL25:
+ 240              	.LBB4:
+  48:..\..\..\Draft/median_filter.c **** 
+  49:..\..\..\Draft/median_filter.c ****     // Make a copy of the FIFO array and calculate the median
+  50:..\..\..\Draft/median_filter.c ****     for (int i = 0; i < ARRAY_SIZE; i++) {
+ 241              		.loc 1 50 0
+ 242 004a 0022     		movs	r2, #0
+ 243 004c 08E0     		b	.L18
+ 244              	.LVL26:
+ 245              	.L19:
+  51:..\..\..\Draft/median_filter.c ****         tempArray[i] = fifo[i];
+ 246              		.loc 1 51 0 discriminator 3
+ 247 004e D300     		lsls	r3, r2, #3
+ 248 0050 C118     		adds	r1, r0, r3
+ 249 0052 D1E90045 		ldrd	r4, [r1]
+ 250 0056 0AA9     		add	r1, sp, #40
+ 251 0058 0B44     		add	r3, r3, r1
+ 252 005a 43E90A45 		strd	r4, [r3, #-40]
+  50:..\..\..\Draft/median_filter.c ****         tempArray[i] = fifo[i];
+ 253              		.loc 1 50 0 discriminator 3
+ 254 005e 0132     		adds	r2, r2, #1
+ 255              	.LVL27:
+ 256              	.L18:
+  50:..\..\..\Draft/median_filter.c ****         tempArray[i] = fifo[i];
+ 257              		.loc 1 50 0 is_stmt 0 discriminator 1
+ 258 0060 042A     		cmp	r2, #4
+ 259 0062 F4DD     		ble	.L19
+ 260              	.LBE4:
+  52:..\..\..\Draft/median_filter.c ****     }
+  53:..\..\..\Draft/median_filter.c **** 
+  54:..\..\..\Draft/median_filter.c ****     double median = findMedian(tempArray, ARRAY_SIZE);
+ 261              		.loc 1 54 0 is_stmt 1
+ 262 0064 0521     		movs	r1, #5
+ 263 0066 6846     		mov	r0, sp
+ 264              	.LVL28:
+ 265 0068 FFF7FEFF 		bl	findMedian
+ 266              	.LVL29:
+  55:..\..\..\Draft/median_filter.c ****     return median;
+  56:..\..\..\Draft/median_filter.c **** }
+ 267              		.loc 1 56 0
+ 268 006c 0AB0     		add	sp, sp, #40
+ 269              		.cfi_def_cfa_offset 16
+ 270              		@ sp needed
+ 271 006e 70BD     		pop	{r4, r5, r6, pc}
+ 272              	.L23:
+ 273              		.align	2
+ 274              	.L22:
+ 275 0070 00000000 		.word	.LANCHOR0
+ 276 0074 67666666 		.word	1717986919
+ 277              		.cfi_endproc
+ 278              	.LFE3:
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cczfsuwO.s 			page 7
+
+
+ 279              		.size	medianFilter, .-medianFilter
+ 280              		.bss
+ 281              		.align	2
+ 282              		.set	.LANCHOR0,. + 0
+ 283              		.type	isInitialized.5595, %object
+ 284              		.size	isInitialized.5595, 4
+ 285              	isInitialized.5595:
+ 286 0000 00000000 		.space	4
+ 287              		.type	currentIndex.5594, %object
+ 288              		.size	currentIndex.5594, 4
+ 289              	currentIndex.5594:
+ 290 0004 00000000 		.space	4
+ 291              		.text
+ 292              	.Letext0:
+ 293              		.section	.debug_info,"",%progbits
+ 294              	.Ldebug_info0:
+ 295 0000 FE010000 		.4byte	0x1fe
+ 296 0004 0400     		.2byte	0x4
+ 297 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 298 000a 04       		.byte	0x4
+ 299 000b 01       		.uleb128 0x1
+ 300 000c 90000000 		.4byte	.LASF21
+ 301 0010 0C       		.byte	0xc
+ 302 0011 4D010000 		.4byte	.LASF22
+ 303 0015 0D000000 		.4byte	.LASF23
+ 304 0019 18000000 		.4byte	.Ldebug_ranges0+0x18
+ 305 001d 00000000 		.4byte	0
+ 306 0021 00000000 		.4byte	.Ldebug_line0
+ 307 0025 02       		.uleb128 0x2
+ 308 0026 08       		.byte	0x8
+ 309 0027 04       		.byte	0x4
+ 310 0028 6C010000 		.4byte	.LASF0
+ 311 002c 02       		.uleb128 0x2
+ 312 002d 01       		.byte	0x1
+ 313 002e 06       		.byte	0x6
+ 314 002f 16020000 		.4byte	.LASF1
+ 315 0033 02       		.uleb128 0x2
+ 316 0034 01       		.byte	0x1
+ 317 0035 08       		.byte	0x8
+ 318 0036 82000000 		.4byte	.LASF2
+ 319 003a 02       		.uleb128 0x2
+ 320 003b 02       		.byte	0x2
+ 321 003c 05       		.byte	0x5
+ 322 003d 73010000 		.4byte	.LASF3
+ 323 0041 02       		.uleb128 0x2
+ 324 0042 02       		.byte	0x2
+ 325 0043 07       		.byte	0x7
+ 326 0044 3A010000 		.4byte	.LASF4
+ 327 0048 02       		.uleb128 0x2
+ 328 0049 04       		.byte	0x4
+ 329 004a 05       		.byte	0x5
+ 330 004b FA010000 		.4byte	.LASF5
+ 331 004f 02       		.uleb128 0x2
+ 332 0050 04       		.byte	0x4
+ 333 0051 07       		.byte	0x7
+ 334 0052 28010000 		.4byte	.LASF6
+ 335 0056 02       		.uleb128 0x2
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cczfsuwO.s 			page 8
+
+
+ 336 0057 08       		.byte	0x8
+ 337 0058 05       		.byte	0x5
+ 338 0059 DE010000 		.4byte	.LASF7
+ 339 005d 02       		.uleb128 0x2
+ 340 005e 08       		.byte	0x8
+ 341 005f 07       		.byte	0x7
+ 342 0060 98010000 		.4byte	.LASF8
+ 343 0064 03       		.uleb128 0x3
+ 344 0065 04       		.byte	0x4
+ 345 0066 05       		.byte	0x5
+ 346 0067 696E7400 		.ascii	"int\000"
+ 347 006b 02       		.uleb128 0x2
+ 348 006c 04       		.byte	0x4
+ 349 006d 07       		.byte	0x7
+ 350 006e 7D010000 		.4byte	.LASF9
+ 351 0072 02       		.uleb128 0x2
+ 352 0073 08       		.byte	0x8
+ 353 0074 04       		.byte	0x4
+ 354 0075 03020000 		.4byte	.LASF10
+ 355 0079 02       		.uleb128 0x2
+ 356 007a 04       		.byte	0x4
+ 357 007b 07       		.byte	0x7
+ 358 007c D5010000 		.4byte	.LASF11
+ 359 0080 02       		.uleb128 0x2
+ 360 0081 01       		.byte	0x1
+ 361 0082 08       		.byte	0x8
+ 362 0083 EC010000 		.4byte	.LASF12
+ 363 0087 04       		.uleb128 0x4
+ 364 0088 AF010000 		.4byte	.LASF24
+ 365 008c 01       		.byte	0x1
+ 366 008d 07       		.byte	0x7
+ 367 008e 00000000 		.4byte	.LFB1
+ 368 0092 5A000000 		.4byte	.LFE1-.LFB1
+ 369 0096 01       		.uleb128 0x1
+ 370 0097 9C       		.byte	0x9c
+ 371 0098 E2000000 		.4byte	0xe2
+ 372 009c 05       		.uleb128 0x5
+ 373 009d 61727200 		.ascii	"arr\000"
+ 374 00a1 01       		.byte	0x1
+ 375 00a2 07       		.byte	0x7
+ 376 00a3 E2000000 		.4byte	0xe2
+ 377 00a7 00000000 		.4byte	.LLST0
+ 378 00ab 05       		.uleb128 0x5
+ 379 00ac 6E00     		.ascii	"n\000"
+ 380 00ae 01       		.byte	0x1
+ 381 00af 07       		.byte	0x7
+ 382 00b0 64000000 		.4byte	0x64
+ 383 00b4 1E000000 		.4byte	.LLST1
+ 384 00b8 06       		.uleb128 0x6
+ 385 00b9 6900     		.ascii	"i\000"
+ 386 00bb 01       		.byte	0x1
+ 387 00bc 08       		.byte	0x8
+ 388 00bd 64000000 		.4byte	0x64
+ 389 00c1 3C000000 		.4byte	.LLST2
+ 390 00c5 06       		.uleb128 0x6
+ 391 00c6 6A00     		.ascii	"j\000"
+ 392 00c8 01       		.byte	0x1
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cczfsuwO.s 			page 9
+
+
+ 393 00c9 08       		.byte	0x8
+ 394 00ca 64000000 		.4byte	0x64
+ 395 00ce 5B000000 		.4byte	.LLST3
+ 396 00d2 06       		.uleb128 0x6
+ 397 00d3 6B657900 		.ascii	"key\000"
+ 398 00d7 01       		.byte	0x1
+ 399 00d8 09       		.byte	0x9
+ 400 00d9 25000000 		.4byte	0x25
+ 401 00dd 7B000000 		.4byte	.LLST4
+ 402 00e1 00       		.byte	0
+ 403 00e2 07       		.uleb128 0x7
+ 404 00e3 04       		.byte	0x4
+ 405 00e4 25000000 		.4byte	0x25
+ 406 00e8 08       		.uleb128 0x8
+ 407 00e9 CA010000 		.4byte	.LASF13
+ 408 00ed 01       		.byte	0x1
+ 409 00ee 17       		.byte	0x17
+ 410 00ef 25000000 		.4byte	0x25
+ 411 00f3 00000000 		.4byte	.LFB2
+ 412 00f7 50000000 		.4byte	.LFE2-.LFB2
+ 413 00fb 01       		.uleb128 0x1
+ 414 00fc 9C       		.byte	0x9c
+ 415 00fd 34010000 		.4byte	0x134
+ 416 0101 05       		.uleb128 0x5
+ 417 0102 61727200 		.ascii	"arr\000"
+ 418 0106 01       		.byte	0x1
+ 419 0107 17       		.byte	0x17
+ 420 0108 E2000000 		.4byte	0xe2
+ 421 010c 93000000 		.4byte	.LLST5
+ 422 0110 05       		.uleb128 0x5
+ 423 0111 6E00     		.ascii	"n\000"
+ 424 0113 01       		.byte	0x1
+ 425 0114 17       		.byte	0x17
+ 426 0115 64000000 		.4byte	0x64
+ 427 0119 BF000000 		.4byte	.LLST6
+ 428 011d 09       		.uleb128 0x9
+ 429 011e 0A000000 		.4byte	.LVL11
+ 430 0122 87000000 		.4byte	0x87
+ 431 0126 0A       		.uleb128 0xa
+ 432 0127 01       		.uleb128 0x1
+ 433 0128 50       		.byte	0x50
+ 434 0129 02       		.uleb128 0x2
+ 435 012a 75       		.byte	0x75
+ 436 012b 00       		.sleb128 0
+ 437 012c 0A       		.uleb128 0xa
+ 438 012d 01       		.uleb128 0x1
+ 439 012e 51       		.byte	0x51
+ 440 012f 02       		.uleb128 0x2
+ 441 0130 74       		.byte	0x74
+ 442 0131 00       		.sleb128 0
+ 443 0132 00       		.byte	0
+ 444 0133 00       		.byte	0
+ 445 0134 0B       		.uleb128 0xb
+ 446 0135 00000000 		.4byte	.LASF14
+ 447 0139 01       		.byte	0x1
+ 448 013a 22       		.byte	0x22
+ 449 013b 25000000 		.4byte	0x25
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cczfsuwO.s 			page 10
+
+
+ 450 013f 00000000 		.4byte	.LFB3
+ 451 0143 78000000 		.4byte	.LFE3-.LFB3
+ 452 0147 01       		.uleb128 0x1
+ 453 0148 9C       		.byte	0x9c
+ 454 0149 F5010000 		.4byte	0x1f5
+ 455 014d 0C       		.uleb128 0xc
+ 456 014e 7D000000 		.4byte	.LASF15
+ 457 0152 01       		.byte	0x1
+ 458 0153 22       		.byte	0x22
+ 459 0154 E2000000 		.4byte	0xe2
+ 460 0158 04010000 		.4byte	.LLST7
+ 461 015c 0C       		.uleb128 0xc
+ 462 015d F1010000 		.4byte	.LASF16
+ 463 0161 01       		.byte	0x1
+ 464 0162 22       		.byte	0x22
+ 465 0163 25000000 		.4byte	0x25
+ 466 0167 25010000 		.4byte	.LLST8
+ 467 016b 0D       		.uleb128 0xd
+ 468 016c BD010000 		.4byte	.LASF17
+ 469 0170 01       		.byte	0x1
+ 470 0171 23       		.byte	0x23
+ 471 0172 64000000 		.4byte	0x64
+ 472 0176 05       		.uleb128 0x5
+ 473 0177 03       		.byte	0x3
+ 474 0178 04000000 		.4byte	currentIndex.5594
+ 475 017c 0D       		.uleb128 0xd
+ 476 017d 8A010000 		.4byte	.LASF18
+ 477 0181 01       		.byte	0x1
+ 478 0182 24       		.byte	0x24
+ 479 0183 64000000 		.4byte	0x64
+ 480 0187 05       		.uleb128 0x5
+ 481 0188 03       		.byte	0x3
+ 482 0189 00000000 		.4byte	isInitialized.5595
+ 483 018d 0D       		.uleb128 0xd
+ 484 018e 1E010000 		.4byte	.LASF19
+ 485 0192 01       		.byte	0x1
+ 486 0193 25       		.byte	0x25
+ 487 0194 F5010000 		.4byte	0x1f5
+ 488 0198 02       		.uleb128 0x2
+ 489 0199 91       		.byte	0x91
+ 490 019a 48       		.sleb128 -56
+ 491 019b 0D       		.uleb128 0xd
+ 492 019c 0F020000 		.4byte	.LASF20
+ 493 01a0 01       		.byte	0x1
+ 494 01a1 36       		.byte	0x36
+ 495 01a2 25000000 		.4byte	0x25
+ 496 01a6 06       		.uleb128 0x6
+ 497 01a7 50       		.byte	0x50
+ 498 01a8 93       		.byte	0x93
+ 499 01a9 04       		.uleb128 0x4
+ 500 01aa 51       		.byte	0x51
+ 501 01ab 93       		.byte	0x93
+ 502 01ac 04       		.uleb128 0x4
+ 503 01ad 0E       		.uleb128 0xe
+ 504 01ae 00000000 		.4byte	.Ldebug_ranges0+0
+ 505 01b2 C4010000 		.4byte	0x1c4
+ 506 01b6 06       		.uleb128 0x6
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cczfsuwO.s 			page 11
+
+
+ 507 01b7 6900     		.ascii	"i\000"
+ 508 01b9 01       		.byte	0x1
+ 509 01ba 28       		.byte	0x28
+ 510 01bb 64000000 		.4byte	0x64
+ 511 01bf 4D010000 		.4byte	.LLST9
+ 512 01c3 00       		.byte	0
+ 513 01c4 0F       		.uleb128 0xf
+ 514 01c5 4A000000 		.4byte	.LBB4
+ 515 01c9 1A000000 		.4byte	.LBE4-.LBB4
+ 516 01cd DF010000 		.4byte	0x1df
+ 517 01d1 06       		.uleb128 0x6
+ 518 01d2 6900     		.ascii	"i\000"
+ 519 01d4 01       		.byte	0x1
+ 520 01d5 32       		.byte	0x32
+ 521 01d6 64000000 		.4byte	0x64
+ 522 01da 6B010000 		.4byte	.LLST10
+ 523 01de 00       		.byte	0
+ 524 01df 09       		.uleb128 0x9
+ 525 01e0 6C000000 		.4byte	.LVL29
+ 526 01e4 E8000000 		.4byte	0xe8
+ 527 01e8 0A       		.uleb128 0xa
+ 528 01e9 01       		.uleb128 0x1
+ 529 01ea 50       		.byte	0x50
+ 530 01eb 02       		.uleb128 0x2
+ 531 01ec 7D       		.byte	0x7d
+ 532 01ed 00       		.sleb128 0
+ 533 01ee 0A       		.uleb128 0xa
+ 534 01ef 01       		.uleb128 0x1
+ 535 01f0 51       		.byte	0x51
+ 536 01f1 01       		.uleb128 0x1
+ 537 01f2 35       		.byte	0x35
+ 538 01f3 00       		.byte	0
+ 539 01f4 00       		.byte	0
+ 540 01f5 10       		.uleb128 0x10
+ 541 01f6 25000000 		.4byte	0x25
+ 542 01fa 11       		.uleb128 0x11
+ 543 01fb 79000000 		.4byte	0x79
+ 544 01ff 04       		.byte	0x4
+ 545 0200 00       		.byte	0
+ 546 0201 00       		.byte	0
+ 547              		.section	.debug_abbrev,"",%progbits
+ 548              	.Ldebug_abbrev0:
+ 549 0000 01       		.uleb128 0x1
+ 550 0001 11       		.uleb128 0x11
+ 551 0002 01       		.byte	0x1
+ 552 0003 25       		.uleb128 0x25
+ 553 0004 0E       		.uleb128 0xe
+ 554 0005 13       		.uleb128 0x13
+ 555 0006 0B       		.uleb128 0xb
+ 556 0007 03       		.uleb128 0x3
+ 557 0008 0E       		.uleb128 0xe
+ 558 0009 1B       		.uleb128 0x1b
+ 559 000a 0E       		.uleb128 0xe
+ 560 000b 55       		.uleb128 0x55
+ 561 000c 17       		.uleb128 0x17
+ 562 000d 11       		.uleb128 0x11
+ 563 000e 01       		.uleb128 0x1
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cczfsuwO.s 			page 12
+
+
+ 564 000f 10       		.uleb128 0x10
+ 565 0010 17       		.uleb128 0x17
+ 566 0011 00       		.byte	0
+ 567 0012 00       		.byte	0
+ 568 0013 02       		.uleb128 0x2
+ 569 0014 24       		.uleb128 0x24
+ 570 0015 00       		.byte	0
+ 571 0016 0B       		.uleb128 0xb
+ 572 0017 0B       		.uleb128 0xb
+ 573 0018 3E       		.uleb128 0x3e
+ 574 0019 0B       		.uleb128 0xb
+ 575 001a 03       		.uleb128 0x3
+ 576 001b 0E       		.uleb128 0xe
+ 577 001c 00       		.byte	0
+ 578 001d 00       		.byte	0
+ 579 001e 03       		.uleb128 0x3
+ 580 001f 24       		.uleb128 0x24
+ 581 0020 00       		.byte	0
+ 582 0021 0B       		.uleb128 0xb
+ 583 0022 0B       		.uleb128 0xb
+ 584 0023 3E       		.uleb128 0x3e
+ 585 0024 0B       		.uleb128 0xb
+ 586 0025 03       		.uleb128 0x3
+ 587 0026 08       		.uleb128 0x8
+ 588 0027 00       		.byte	0
+ 589 0028 00       		.byte	0
+ 590 0029 04       		.uleb128 0x4
+ 591 002a 2E       		.uleb128 0x2e
+ 592 002b 01       		.byte	0x1
+ 593 002c 3F       		.uleb128 0x3f
+ 594 002d 19       		.uleb128 0x19
+ 595 002e 03       		.uleb128 0x3
+ 596 002f 0E       		.uleb128 0xe
+ 597 0030 3A       		.uleb128 0x3a
+ 598 0031 0B       		.uleb128 0xb
+ 599 0032 3B       		.uleb128 0x3b
+ 600 0033 0B       		.uleb128 0xb
+ 601 0034 27       		.uleb128 0x27
+ 602 0035 19       		.uleb128 0x19
+ 603 0036 11       		.uleb128 0x11
+ 604 0037 01       		.uleb128 0x1
+ 605 0038 12       		.uleb128 0x12
+ 606 0039 06       		.uleb128 0x6
+ 607 003a 40       		.uleb128 0x40
+ 608 003b 18       		.uleb128 0x18
+ 609 003c 9642     		.uleb128 0x2116
+ 610 003e 19       		.uleb128 0x19
+ 611 003f 01       		.uleb128 0x1
+ 612 0040 13       		.uleb128 0x13
+ 613 0041 00       		.byte	0
+ 614 0042 00       		.byte	0
+ 615 0043 05       		.uleb128 0x5
+ 616 0044 05       		.uleb128 0x5
+ 617 0045 00       		.byte	0
+ 618 0046 03       		.uleb128 0x3
+ 619 0047 08       		.uleb128 0x8
+ 620 0048 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cczfsuwO.s 			page 13
+
+
+ 621 0049 0B       		.uleb128 0xb
+ 622 004a 3B       		.uleb128 0x3b
+ 623 004b 0B       		.uleb128 0xb
+ 624 004c 49       		.uleb128 0x49
+ 625 004d 13       		.uleb128 0x13
+ 626 004e 02       		.uleb128 0x2
+ 627 004f 17       		.uleb128 0x17
+ 628 0050 00       		.byte	0
+ 629 0051 00       		.byte	0
+ 630 0052 06       		.uleb128 0x6
+ 631 0053 34       		.uleb128 0x34
+ 632 0054 00       		.byte	0
+ 633 0055 03       		.uleb128 0x3
+ 634 0056 08       		.uleb128 0x8
+ 635 0057 3A       		.uleb128 0x3a
+ 636 0058 0B       		.uleb128 0xb
+ 637 0059 3B       		.uleb128 0x3b
+ 638 005a 0B       		.uleb128 0xb
+ 639 005b 49       		.uleb128 0x49
+ 640 005c 13       		.uleb128 0x13
+ 641 005d 02       		.uleb128 0x2
+ 642 005e 17       		.uleb128 0x17
+ 643 005f 00       		.byte	0
+ 644 0060 00       		.byte	0
+ 645 0061 07       		.uleb128 0x7
+ 646 0062 0F       		.uleb128 0xf
+ 647 0063 00       		.byte	0
+ 648 0064 0B       		.uleb128 0xb
+ 649 0065 0B       		.uleb128 0xb
+ 650 0066 49       		.uleb128 0x49
+ 651 0067 13       		.uleb128 0x13
+ 652 0068 00       		.byte	0
+ 653 0069 00       		.byte	0
+ 654 006a 08       		.uleb128 0x8
+ 655 006b 2E       		.uleb128 0x2e
+ 656 006c 01       		.byte	0x1
+ 657 006d 3F       		.uleb128 0x3f
+ 658 006e 19       		.uleb128 0x19
+ 659 006f 03       		.uleb128 0x3
+ 660 0070 0E       		.uleb128 0xe
+ 661 0071 3A       		.uleb128 0x3a
+ 662 0072 0B       		.uleb128 0xb
+ 663 0073 3B       		.uleb128 0x3b
+ 664 0074 0B       		.uleb128 0xb
+ 665 0075 27       		.uleb128 0x27
+ 666 0076 19       		.uleb128 0x19
+ 667 0077 49       		.uleb128 0x49
+ 668 0078 13       		.uleb128 0x13
+ 669 0079 11       		.uleb128 0x11
+ 670 007a 01       		.uleb128 0x1
+ 671 007b 12       		.uleb128 0x12
+ 672 007c 06       		.uleb128 0x6
+ 673 007d 40       		.uleb128 0x40
+ 674 007e 18       		.uleb128 0x18
+ 675 007f 9642     		.uleb128 0x2116
+ 676 0081 19       		.uleb128 0x19
+ 677 0082 01       		.uleb128 0x1
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cczfsuwO.s 			page 14
+
+
+ 678 0083 13       		.uleb128 0x13
+ 679 0084 00       		.byte	0
+ 680 0085 00       		.byte	0
+ 681 0086 09       		.uleb128 0x9
+ 682 0087 898201   		.uleb128 0x4109
+ 683 008a 01       		.byte	0x1
+ 684 008b 11       		.uleb128 0x11
+ 685 008c 01       		.uleb128 0x1
+ 686 008d 31       		.uleb128 0x31
+ 687 008e 13       		.uleb128 0x13
+ 688 008f 00       		.byte	0
+ 689 0090 00       		.byte	0
+ 690 0091 0A       		.uleb128 0xa
+ 691 0092 8A8201   		.uleb128 0x410a
+ 692 0095 00       		.byte	0
+ 693 0096 02       		.uleb128 0x2
+ 694 0097 18       		.uleb128 0x18
+ 695 0098 9142     		.uleb128 0x2111
+ 696 009a 18       		.uleb128 0x18
+ 697 009b 00       		.byte	0
+ 698 009c 00       		.byte	0
+ 699 009d 0B       		.uleb128 0xb
+ 700 009e 2E       		.uleb128 0x2e
+ 701 009f 01       		.byte	0x1
+ 702 00a0 3F       		.uleb128 0x3f
+ 703 00a1 19       		.uleb128 0x19
+ 704 00a2 03       		.uleb128 0x3
+ 705 00a3 0E       		.uleb128 0xe
+ 706 00a4 3A       		.uleb128 0x3a
+ 707 00a5 0B       		.uleb128 0xb
+ 708 00a6 3B       		.uleb128 0x3b
+ 709 00a7 0B       		.uleb128 0xb
+ 710 00a8 27       		.uleb128 0x27
+ 711 00a9 19       		.uleb128 0x19
+ 712 00aa 49       		.uleb128 0x49
+ 713 00ab 13       		.uleb128 0x13
+ 714 00ac 11       		.uleb128 0x11
+ 715 00ad 01       		.uleb128 0x1
+ 716 00ae 12       		.uleb128 0x12
+ 717 00af 06       		.uleb128 0x6
+ 718 00b0 40       		.uleb128 0x40
+ 719 00b1 18       		.uleb128 0x18
+ 720 00b2 9742     		.uleb128 0x2117
+ 721 00b4 19       		.uleb128 0x19
+ 722 00b5 01       		.uleb128 0x1
+ 723 00b6 13       		.uleb128 0x13
+ 724 00b7 00       		.byte	0
+ 725 00b8 00       		.byte	0
+ 726 00b9 0C       		.uleb128 0xc
+ 727 00ba 05       		.uleb128 0x5
+ 728 00bb 00       		.byte	0
+ 729 00bc 03       		.uleb128 0x3
+ 730 00bd 0E       		.uleb128 0xe
+ 731 00be 3A       		.uleb128 0x3a
+ 732 00bf 0B       		.uleb128 0xb
+ 733 00c0 3B       		.uleb128 0x3b
+ 734 00c1 0B       		.uleb128 0xb
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cczfsuwO.s 			page 15
+
+
+ 735 00c2 49       		.uleb128 0x49
+ 736 00c3 13       		.uleb128 0x13
+ 737 00c4 02       		.uleb128 0x2
+ 738 00c5 17       		.uleb128 0x17
+ 739 00c6 00       		.byte	0
+ 740 00c7 00       		.byte	0
+ 741 00c8 0D       		.uleb128 0xd
+ 742 00c9 34       		.uleb128 0x34
+ 743 00ca 00       		.byte	0
+ 744 00cb 03       		.uleb128 0x3
+ 745 00cc 0E       		.uleb128 0xe
+ 746 00cd 3A       		.uleb128 0x3a
+ 747 00ce 0B       		.uleb128 0xb
+ 748 00cf 3B       		.uleb128 0x3b
+ 749 00d0 0B       		.uleb128 0xb
+ 750 00d1 49       		.uleb128 0x49
+ 751 00d2 13       		.uleb128 0x13
+ 752 00d3 02       		.uleb128 0x2
+ 753 00d4 18       		.uleb128 0x18
+ 754 00d5 00       		.byte	0
+ 755 00d6 00       		.byte	0
+ 756 00d7 0E       		.uleb128 0xe
+ 757 00d8 0B       		.uleb128 0xb
+ 758 00d9 01       		.byte	0x1
+ 759 00da 55       		.uleb128 0x55
+ 760 00db 17       		.uleb128 0x17
+ 761 00dc 01       		.uleb128 0x1
+ 762 00dd 13       		.uleb128 0x13
+ 763 00de 00       		.byte	0
+ 764 00df 00       		.byte	0
+ 765 00e0 0F       		.uleb128 0xf
+ 766 00e1 0B       		.uleb128 0xb
+ 767 00e2 01       		.byte	0x1
+ 768 00e3 11       		.uleb128 0x11
+ 769 00e4 01       		.uleb128 0x1
+ 770 00e5 12       		.uleb128 0x12
+ 771 00e6 06       		.uleb128 0x6
+ 772 00e7 01       		.uleb128 0x1
+ 773 00e8 13       		.uleb128 0x13
+ 774 00e9 00       		.byte	0
+ 775 00ea 00       		.byte	0
+ 776 00eb 10       		.uleb128 0x10
+ 777 00ec 01       		.uleb128 0x1
+ 778 00ed 01       		.byte	0x1
+ 779 00ee 49       		.uleb128 0x49
+ 780 00ef 13       		.uleb128 0x13
+ 781 00f0 00       		.byte	0
+ 782 00f1 00       		.byte	0
+ 783 00f2 11       		.uleb128 0x11
+ 784 00f3 21       		.uleb128 0x21
+ 785 00f4 00       		.byte	0
+ 786 00f5 49       		.uleb128 0x49
+ 787 00f6 13       		.uleb128 0x13
+ 788 00f7 2F       		.uleb128 0x2f
+ 789 00f8 0B       		.uleb128 0xb
+ 790 00f9 00       		.byte	0
+ 791 00fa 00       		.byte	0
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cczfsuwO.s 			page 16
+
+
+ 792 00fb 00       		.byte	0
+ 793              		.section	.debug_loc,"",%progbits
+ 794              	.Ldebug_loc0:
+ 795              	.LLST0:
+ 796 0000 00000000 		.4byte	.LVL0
+ 797 0004 0E000000 		.4byte	.LVL2
+ 798 0008 0100     		.2byte	0x1
+ 799 000a 50       		.byte	0x50
+ 800 000b 0E000000 		.4byte	.LVL2
+ 801 000f 5A000000 		.4byte	.LFE1
+ 802 0013 0100     		.2byte	0x1
+ 803 0015 55       		.byte	0x55
+ 804 0016 00000000 		.4byte	0
+ 805 001a 00000000 		.4byte	0
+ 806              	.LLST1:
+ 807 001e 00000000 		.4byte	.LVL0
+ 808 0022 0E000000 		.4byte	.LVL2
+ 809 0026 0100     		.2byte	0x1
+ 810 0028 51       		.byte	0x51
+ 811 0029 0E000000 		.4byte	.LVL2
+ 812 002d 5A000000 		.4byte	.LFE1
+ 813 0031 0100     		.2byte	0x1
+ 814 0033 5B       		.byte	0x5b
+ 815 0034 00000000 		.4byte	0
+ 816 0038 00000000 		.4byte	0
+ 817              	.LLST2:
+ 818 003c 08000000 		.4byte	.LVL1
+ 819 0040 0E000000 		.4byte	.LVL2
+ 820 0044 0200     		.2byte	0x2
+ 821 0046 31       		.byte	0x31
+ 822 0047 9F       		.byte	0x9f
+ 823 0048 0E000000 		.4byte	.LVL2
+ 824 004c 5A000000 		.4byte	.LFE1
+ 825 0050 0100     		.2byte	0x1
+ 826 0052 5A       		.byte	0x5a
+ 827 0053 00000000 		.4byte	0
+ 828 0057 00000000 		.4byte	0
+ 829              	.LLST3:
+ 830 005b 1A000000 		.4byte	.LVL4
+ 831 005f 46000000 		.4byte	.LVL7
+ 832 0063 0100     		.2byte	0x1
+ 833 0065 54       		.byte	0x54
+ 834 0066 46000000 		.4byte	.LVL7
+ 835 006a 4A000000 		.4byte	.LVL8
+ 836 006e 0300     		.2byte	0x3
+ 837 0070 74       		.byte	0x74
+ 838 0071 7F       		.sleb128 -1
+ 839 0072 9F       		.byte	0x9f
+ 840 0073 00000000 		.4byte	0
+ 841 0077 00000000 		.4byte	0
+ 842              	.LLST4:
+ 843 007b 16000000 		.4byte	.LVL3
+ 844 007f 52000000 		.4byte	.LVL9
+ 845 0083 0600     		.2byte	0x6
+ 846 0085 58       		.byte	0x58
+ 847 0086 93       		.byte	0x93
+ 848 0087 04       		.uleb128 0x4
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cczfsuwO.s 			page 17
+
+
+ 849 0088 59       		.byte	0x59
+ 850 0089 93       		.byte	0x93
+ 851 008a 04       		.uleb128 0x4
+ 852 008b 00000000 		.4byte	0
+ 853 008f 00000000 		.4byte	0
+ 854              	.LLST5:
+ 855 0093 00000000 		.4byte	.LVL10
+ 856 0097 09000000 		.4byte	.LVL11-1
+ 857 009b 0100     		.2byte	0x1
+ 858 009d 50       		.byte	0x50
+ 859 009e 09000000 		.4byte	.LVL11-1
+ 860 00a2 4A000000 		.4byte	.LVL17
+ 861 00a6 0100     		.2byte	0x1
+ 862 00a8 55       		.byte	0x55
+ 863 00a9 4A000000 		.4byte	.LVL17
+ 864 00ad 50000000 		.4byte	.LFE2
+ 865 00b1 0400     		.2byte	0x4
+ 866 00b3 F3       		.byte	0xf3
+ 867 00b4 01       		.uleb128 0x1
+ 868 00b5 50       		.byte	0x50
+ 869 00b6 9F       		.byte	0x9f
+ 870 00b7 00000000 		.4byte	0
+ 871 00bb 00000000 		.4byte	0
+ 872              	.LLST6:
+ 873 00bf 00000000 		.4byte	.LVL10
+ 874 00c3 09000000 		.4byte	.LVL11-1
+ 875 00c7 0100     		.2byte	0x1
+ 876 00c9 51       		.byte	0x51
+ 877 00ca 09000000 		.4byte	.LVL11-1
+ 878 00ce 14000000 		.4byte	.LVL12
+ 879 00d2 0100     		.2byte	0x1
+ 880 00d4 54       		.byte	0x54
+ 881 00d5 14000000 		.4byte	.LVL12
+ 882 00d9 3A000000 		.4byte	.LVL15
+ 883 00dd 0400     		.2byte	0x4
+ 884 00df F3       		.byte	0xf3
+ 885 00e0 01       		.uleb128 0x1
+ 886 00e1 51       		.byte	0x51
+ 887 00e2 9F       		.byte	0x9f
+ 888 00e3 3A000000 		.4byte	.LVL15
+ 889 00e7 3E000000 		.4byte	.LVL16
+ 890 00eb 0100     		.2byte	0x1
+ 891 00ed 54       		.byte	0x54
+ 892 00ee 3E000000 		.4byte	.LVL16
+ 893 00f2 50000000 		.4byte	.LFE2
+ 894 00f6 0400     		.2byte	0x4
+ 895 00f8 F3       		.byte	0xf3
+ 896 00f9 01       		.uleb128 0x1
+ 897 00fa 51       		.byte	0x51
+ 898 00fb 9F       		.byte	0x9f
+ 899 00fc 00000000 		.4byte	0
+ 900 0100 00000000 		.4byte	0
+ 901              	.LLST7:
+ 902 0104 00000000 		.4byte	.LVL18
+ 903 0108 68000000 		.4byte	.LVL28
+ 904 010c 0100     		.2byte	0x1
+ 905 010e 50       		.byte	0x50
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cczfsuwO.s 			page 18
+
+
+ 906 010f 68000000 		.4byte	.LVL28
+ 907 0113 78000000 		.4byte	.LFE3
+ 908 0117 0400     		.2byte	0x4
+ 909 0119 F3       		.byte	0xf3
+ 910 011a 01       		.uleb128 0x1
+ 911 011b 50       		.byte	0x50
+ 912 011c 9F       		.byte	0x9f
+ 913 011d 00000000 		.4byte	0
+ 914 0121 00000000 		.4byte	0
+ 915              	.LLST8:
+ 916 0125 00000000 		.4byte	.LVL18
+ 917 0129 24000000 		.4byte	.LVL23
+ 918 012d 0600     		.2byte	0x6
+ 919 012f 52       		.byte	0x52
+ 920 0130 93       		.byte	0x93
+ 921 0131 04       		.uleb128 0x4
+ 922 0132 53       		.byte	0x53
+ 923 0133 93       		.byte	0x93
+ 924 0134 04       		.uleb128 0x4
+ 925 0135 24000000 		.4byte	.LVL23
+ 926 0139 78000000 		.4byte	.LFE3
+ 927 013d 0600     		.2byte	0x6
+ 928 013f F3       		.byte	0xf3
+ 929 0140 03       		.uleb128 0x3
+ 930 0141 F5       		.byte	0xf5
+ 931 0142 02       		.uleb128 0x2
+ 932 0143 25       		.uleb128 0x25
+ 933 0144 9F       		.byte	0x9f
+ 934 0145 00000000 		.4byte	0
+ 935 0149 00000000 		.4byte	0
+ 936              	.LLST9:
+ 937 014d 10000000 		.4byte	.LVL19
+ 938 0151 1C000000 		.4byte	.LVL21
+ 939 0155 0100     		.2byte	0x1
+ 940 0157 53       		.byte	0x53
+ 941 0158 1E000000 		.4byte	.LVL22
+ 942 015c 26000000 		.4byte	.LVL24
+ 943 0160 0100     		.2byte	0x1
+ 944 0162 53       		.byte	0x53
+ 945 0163 00000000 		.4byte	0
+ 946 0167 00000000 		.4byte	0
+ 947              	.LLST10:
+ 948 016b 4A000000 		.4byte	.LVL25
+ 949 016f 4E000000 		.4byte	.LVL26
+ 950 0173 0200     		.2byte	0x2
+ 951 0175 30       		.byte	0x30
+ 952 0176 9F       		.byte	0x9f
+ 953 0177 4E000000 		.4byte	.LVL26
+ 954 017b 6B000000 		.4byte	.LVL29-1
+ 955 017f 0100     		.2byte	0x1
+ 956 0181 52       		.byte	0x52
+ 957 0182 00000000 		.4byte	0
+ 958 0186 00000000 		.4byte	0
+ 959              		.section	.debug_aranges,"",%progbits
+ 960 0000 2C000000 		.4byte	0x2c
+ 961 0004 0200     		.2byte	0x2
+ 962 0006 00000000 		.4byte	.Ldebug_info0
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cczfsuwO.s 			page 19
+
+
+ 963 000a 04       		.byte	0x4
+ 964 000b 00       		.byte	0
+ 965 000c 0000     		.2byte	0
+ 966 000e 0000     		.2byte	0
+ 967 0010 00000000 		.4byte	.LFB1
+ 968 0014 5A000000 		.4byte	.LFE1-.LFB1
+ 969 0018 00000000 		.4byte	.LFB2
+ 970 001c 50000000 		.4byte	.LFE2-.LFB2
+ 971 0020 00000000 		.4byte	.LFB3
+ 972 0024 78000000 		.4byte	.LFE3-.LFB3
+ 973 0028 00000000 		.4byte	0
+ 974 002c 00000000 		.4byte	0
+ 975              		.section	.debug_ranges,"",%progbits
+ 976              	.Ldebug_ranges0:
+ 977 0000 10000000 		.4byte	.LBB2
+ 978 0004 1C000000 		.4byte	.LBE2
+ 979 0008 1E000000 		.4byte	.LBB3
+ 980 000c 22000000 		.4byte	.LBE3
+ 981 0010 00000000 		.4byte	0
+ 982 0014 00000000 		.4byte	0
+ 983 0018 00000000 		.4byte	.LFB1
+ 984 001c 5A000000 		.4byte	.LFE1
+ 985 0020 00000000 		.4byte	.LFB2
+ 986 0024 50000000 		.4byte	.LFE2
+ 987 0028 00000000 		.4byte	.LFB3
+ 988 002c 78000000 		.4byte	.LFE3
+ 989 0030 00000000 		.4byte	0
+ 990 0034 00000000 		.4byte	0
+ 991              		.section	.debug_line,"",%progbits
+ 992              	.Ldebug_line0:
+ 993 0000 B9000000 		.section	.debug_str,"MS",%progbits,1
+ 993      02003500 
+ 993      00000201 
+ 993      FB0E0D00 
+ 993      01010101 
+ 994              	.LASF14:
+ 995 0000 6D656469 		.ascii	"medianFilter\000"
+ 995      616E4669 
+ 995      6C746572 
+ 995      00
+ 996              	.LASF23:
+ 997 000d 433A5C55 		.ascii	"C:\\Users\\Chong Yen Juin\\Desktop\\Monash\\ECE4191"
+ 997      73657273 
+ 997      5C43686F 
+ 997      6E672059 
+ 997      656E204A 
+ 998 003b 5C303920 		.ascii	"\\09 - Implementation\\ECE4191-G15\\ECE4191\\ColorB"
+ 998      2D20496D 
+ 998      706C656D 
+ 998      656E7461 
+ 998      74696F6E 
+ 999 006a 6F776C52 		.ascii	"owlRobot_G15.cydsn\000"
+ 999      6F626F74 
+ 999      5F473135 
+ 999      2E637964 
+ 999      736E00
+ 1000              	.LASF15:
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cczfsuwO.s 			page 20
+
+
+ 1001 007d 6669666F 		.ascii	"fifo\000"
+ 1001      00
+ 1002              	.LASF2:
+ 1003 0082 756E7369 		.ascii	"unsigned char\000"
+ 1003      676E6564 
+ 1003      20636861 
+ 1003      7200
+ 1004              	.LASF21:
+ 1005 0090 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1005      43313120 
+ 1005      352E342E 
+ 1005      31203230 
+ 1005      31363036 
+ 1006 00c3 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1006      20726576 
+ 1006      6973696F 
+ 1006      6E203233 
+ 1006      37373135 
+ 1007 00f6 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1007      66756E63 
+ 1007      74696F6E 
+ 1007      2D736563 
+ 1007      74696F6E 
+ 1008              	.LASF19:
+ 1009 011e 74656D70 		.ascii	"tempArray\000"
+ 1009      41727261 
+ 1009      7900
+ 1010              	.LASF6:
+ 1011 0128 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1011      20756E73 
+ 1011      69676E65 
+ 1011      6420696E 
+ 1011      7400
+ 1012              	.LASF4:
+ 1013 013a 73686F72 		.ascii	"short unsigned int\000"
+ 1013      7420756E 
+ 1013      7369676E 
+ 1013      65642069 
+ 1013      6E7400
+ 1014              	.LASF22:
+ 1015 014d 2E2E5C2E 		.ascii	"..\\..\\..\\Draft\\median_filter.c\000"
+ 1015      2E5C2E2E 
+ 1015      5C447261 
+ 1015      66745C6D 
+ 1015      65646961 
+ 1016              	.LASF0:
+ 1017 016c 646F7562 		.ascii	"double\000"
+ 1017      6C6500
+ 1018              	.LASF3:
+ 1019 0173 73686F72 		.ascii	"short int\000"
+ 1019      7420696E 
+ 1019      7400
+ 1020              	.LASF9:
+ 1021 017d 756E7369 		.ascii	"unsigned int\000"
+ 1021      676E6564 
+ 1021      20696E74 
+ 1021      00
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cczfsuwO.s 			page 21
+
+
+ 1022              	.LASF18:
+ 1023 018a 6973496E 		.ascii	"isInitialized\000"
+ 1023      69746961 
+ 1023      6C697A65 
+ 1023      6400
+ 1024              	.LASF8:
+ 1025 0198 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1025      206C6F6E 
+ 1025      6720756E 
+ 1025      7369676E 
+ 1025      65642069 
+ 1026              	.LASF24:
+ 1027 01af 696E7365 		.ascii	"insertionSort\000"
+ 1027      7274696F 
+ 1027      6E536F72 
+ 1027      7400
+ 1028              	.LASF17:
+ 1029 01bd 63757272 		.ascii	"currentIndex\000"
+ 1029      656E7449 
+ 1029      6E646578 
+ 1029      00
+ 1030              	.LASF13:
+ 1031 01ca 66696E64 		.ascii	"findMedian\000"
+ 1031      4D656469 
+ 1031      616E00
+ 1032              	.LASF11:
+ 1033 01d5 73697A65 		.ascii	"sizetype\000"
+ 1033      74797065 
+ 1033      00
+ 1034              	.LASF7:
+ 1035 01de 6C6F6E67 		.ascii	"long long int\000"
+ 1035      206C6F6E 
+ 1035      6720696E 
+ 1035      7400
+ 1036              	.LASF12:
+ 1037 01ec 63686172 		.ascii	"char\000"
+ 1037      00
+ 1038              	.LASF16:
+ 1039 01f1 6E657756 		.ascii	"newValue\000"
+ 1039      616C7565 
+ 1039      00
+ 1040              	.LASF5:
+ 1041 01fa 6C6F6E67 		.ascii	"long int\000"
+ 1041      20696E74 
+ 1041      00
+ 1042              	.LASF10:
+ 1043 0203 6C6F6E67 		.ascii	"long double\000"
+ 1043      20646F75 
+ 1043      626C6500 
+ 1044              	.LASF20:
+ 1045 020f 6D656469 		.ascii	"median\000"
+ 1045      616E00
+ 1046              	.LASF1:
+ 1047 0216 7369676E 		.ascii	"signed char\000"
+ 1047      65642063 
+ 1047      68617200 
+ 1048              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cczfsuwO.s 			page 22
+
+
