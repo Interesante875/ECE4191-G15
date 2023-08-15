@@ -1,0 +1,897 @@
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cccqaPnj.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"motor_control.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.motor_move,"ax",%progbits
+  20              		.align	2
+  21              		.global	motor_move
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	motor_move, %function
+  25              	motor_move:
+  26              	.LFB63:
+  27              		.file 1 "motor_control.c"
+   1:motor_control.c **** /* ========================================
+   2:motor_control.c ****  *
+   3:motor_control.c ****  * Copyright YOUR COMPANY, THE YEAR
+   4:motor_control.c ****  * All Rights Reserved
+   5:motor_control.c ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:motor_control.c ****  *
+   7:motor_control.c ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:motor_control.c ****  * WHICH IS THE PROPERTY OF your company.
+   9:motor_control.c ****  *
+  10:motor_control.c ****  * ========================================
+  11:motor_control.c **** */
+  12:motor_control.c **** 
+  13:motor_control.c **** /* [] END OF FILE */
+  14:motor_control.c **** #include "motor_control.h"
+  15:motor_control.c **** #include "project.h" // Include the necessary project-specific header file
+  16:motor_control.c **** 
+  17:motor_control.c **** void motor_move(int mode, int direction, int speed) {
+  28              		.loc 1 17 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              	.LVL0:
+  33 0000 38B5     		push	{r3, r4, r5, lr}
+  34              		.cfi_def_cfa_offset 16
+  35              		.cfi_offset 3, -16
+  36              		.cfi_offset 4, -12
+  37              		.cfi_offset 5, -8
+  38              		.cfi_offset 14, -4
+  39 0002 0C46     		mov	r4, r1
+  18:motor_control.c ****     if (mode == ENABLE) {
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cccqaPnj.s 			page 2
+
+
+  40              		.loc 1 18 0
+  41 0004 0128     		cmp	r0, #1
+  42 0006 06D1     		bne	.L2
+  43 0008 1546     		mov	r5, r2
+  19:motor_control.c ****         PWM_1_Start();
+  44              		.loc 1 19 0
+  45 000a FFF7FEFF 		bl	PWM_1_Start
+  46              	.LVL1:
+  20:motor_control.c ****         PWM_1_WriteCompare(speed);
+  47              		.loc 1 20 0
+  48 000e E8B2     		uxtb	r0, r5
+  49 0010 FFF7FEFF 		bl	PWM_1_WriteCompare
+  50              	.LVL2:
+  51 0014 02E0     		b	.L3
+  52              	.LVL3:
+  53              	.L2:
+  21:motor_control.c ****     } else if (mode == DISABLE) {
+  54              		.loc 1 21 0
+  55 0016 08B9     		cbnz	r0, .L3
+  22:motor_control.c ****         PWM_1_Stop();
+  56              		.loc 1 22 0
+  57 0018 FFF7FEFF 		bl	PWM_1_Stop
+  58              	.LVL4:
+  59              	.L3:
+  23:motor_control.c ****     }
+  24:motor_control.c **** 
+  25:motor_control.c ****     if (direction == FORWARD || direction == BACKWARD) {
+  60              		.loc 1 25 0
+  61 001c 012C     		cmp	r4, #1
+  62 001e 10D8     		bhi	.L4
+  26:motor_control.c ****         MOTOR_1_IN_LEFT_Write(direction);
+  63              		.loc 1 26 0
+  64 0020 E0B2     		uxtb	r0, r4
+  65 0022 FFF7FEFF 		bl	MOTOR_1_IN_LEFT_Write
+  66              	.LVL5:
+  27:motor_control.c ****         MOTOR_1_IN_RIGHT_Write(!direction);
+  67              		.loc 1 27 0
+  68 0026 B4FA84F0 		clz	r0, r4
+  69 002a 4009     		lsrs	r0, r0, #5
+  70 002c FFF7FEFF 		bl	MOTOR_1_IN_RIGHT_Write
+  71              	.LVL6:
+  28:motor_control.c **** 
+  29:motor_control.c ****         MOTOR_2_IN_LEFT_Write(MOTOR_1_IN_LEFT_Read());
+  72              		.loc 1 29 0
+  73 0030 FFF7FEFF 		bl	MOTOR_1_IN_LEFT_Read
+  74              	.LVL7:
+  75 0034 FFF7FEFF 		bl	MOTOR_2_IN_LEFT_Write
+  76              	.LVL8:
+  30:motor_control.c ****         MOTOR_2_IN_RIGHT_Write(MOTOR_1_IN_RIGHT_Read());
+  77              		.loc 1 30 0
+  78 0038 FFF7FEFF 		bl	MOTOR_1_IN_RIGHT_Read
+  79              	.LVL9:
+  80 003c FFF7FEFF 		bl	MOTOR_2_IN_RIGHT_Write
+  81              	.LVL10:
+  82 0040 38BD     		pop	{r3, r4, r5, pc}
+  83              	.LVL11:
+  84              	.L4:
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cccqaPnj.s 			page 3
+
+
+  31:motor_control.c ****     } else {
+  32:motor_control.c ****         direction -= 2;
+  33:motor_control.c ****         MOTOR_1_IN_LEFT_Write(!direction);
+  85              		.loc 1 33 0
+  86 0042 A51E     		subs	r5, r4, #2
+  87              	.LVL12:
+  88 0044 022C     		cmp	r4, #2
+  89 0046 14BF     		ite	ne
+  90 0048 0020     		movne	r0, #0
+  91 004a 0120     		moveq	r0, #1
+  92 004c FFF7FEFF 		bl	MOTOR_1_IN_LEFT_Write
+  93              	.LVL13:
+  34:motor_control.c ****         MOTOR_1_IN_RIGHT_Write(direction);
+  94              		.loc 1 34 0
+  95 0050 E8B2     		uxtb	r0, r5
+  96 0052 FFF7FEFF 		bl	MOTOR_1_IN_RIGHT_Write
+  97              	.LVL14:
+  35:motor_control.c **** 
+  36:motor_control.c ****         MOTOR_2_IN_LEFT_Write(!MOTOR_1_IN_LEFT_Read());
+  98              		.loc 1 36 0
+  99 0056 FFF7FEFF 		bl	MOTOR_1_IN_LEFT_Read
+ 100              	.LVL15:
+ 101 005a B0FA80F0 		clz	r0, r0
+ 102 005e 4009     		lsrs	r0, r0, #5
+ 103 0060 FFF7FEFF 		bl	MOTOR_2_IN_LEFT_Write
+ 104              	.LVL16:
+  37:motor_control.c ****         MOTOR_2_IN_RIGHT_Write(!MOTOR_1_IN_RIGHT_Read());
+ 105              		.loc 1 37 0
+ 106 0064 FFF7FEFF 		bl	MOTOR_1_IN_RIGHT_Read
+ 107              	.LVL17:
+ 108 0068 B0FA80F0 		clz	r0, r0
+ 109 006c 4009     		lsrs	r0, r0, #5
+ 110 006e FFF7FEFF 		bl	MOTOR_2_IN_RIGHT_Write
+ 111              	.LVL18:
+ 112 0072 38BD     		pop	{r3, r4, r5, pc}
+ 113              		.cfi_endproc
+ 114              	.LFE63:
+ 115              		.size	motor_move, .-motor_move
+ 116              		.text
+ 117              	.Letext0:
+ 118              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 119              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 120              		.file 4 "Generated_Source\\PSoC5/PWM_1.h"
+ 121              		.file 5 "Generated_Source\\PSoC5/MOTOR_1_IN_LEFT.h"
+ 122              		.file 6 "Generated_Source\\PSoC5/MOTOR_1_IN_RIGHT.h"
+ 123              		.file 7 "Generated_Source\\PSoC5/MOTOR_2_IN_LEFT.h"
+ 124              		.file 8 "Generated_Source\\PSoC5/MOTOR_2_IN_RIGHT.h"
+ 125              		.file 9 "Generated_Source\\PSoC5/core_cm3.h"
+ 126              		.section	.debug_info,"",%progbits
+ 127              	.Ldebug_info0:
+ 128 0000 0D020000 		.4byte	0x20d
+ 129 0004 0400     		.2byte	0x4
+ 130 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 131 000a 04       		.byte	0x4
+ 132 000b 01       		.uleb128 0x1
+ 133 000c D8000000 		.4byte	.LASF28
+ 134 0010 0C       		.byte	0xc
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cccqaPnj.s 			page 4
+
+
+ 135 0011 F3010000 		.4byte	.LASF29
+ 136 0015 15000000 		.4byte	.LASF30
+ 137 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 138 001d 00000000 		.4byte	0
+ 139 0021 00000000 		.4byte	.Ldebug_line0
+ 140 0025 02       		.uleb128 0x2
+ 141 0026 01       		.byte	0x1
+ 142 0027 06       		.byte	0x6
+ 143 0028 88020000 		.4byte	.LASF0
+ 144 002c 02       		.uleb128 0x2
+ 145 002d 01       		.byte	0x1
+ 146 002e 08       		.byte	0x8
+ 147 002f CA000000 		.4byte	.LASF1
+ 148 0033 02       		.uleb128 0x2
+ 149 0034 02       		.byte	0x2
+ 150 0035 05       		.byte	0x5
+ 151 0036 52020000 		.4byte	.LASF2
+ 152 003a 02       		.uleb128 0x2
+ 153 003b 02       		.byte	0x2
+ 154 003c 07       		.byte	0x7
+ 155 003d 94020000 		.4byte	.LASF3
+ 156 0041 03       		.uleb128 0x3
+ 157 0042 0B000000 		.4byte	.LASF9
+ 158 0046 02       		.byte	0x2
+ 159 0047 3F       		.byte	0x3f
+ 160 0048 4C000000 		.4byte	0x4c
+ 161 004c 02       		.uleb128 0x2
+ 162 004d 04       		.byte	0x4
+ 163 004e 05       		.byte	0x5
+ 164 004f 73020000 		.4byte	.LASF4
+ 165 0053 02       		.uleb128 0x2
+ 166 0054 04       		.byte	0x4
+ 167 0055 07       		.byte	0x7
+ 168 0056 66010000 		.4byte	.LASF5
+ 169 005a 02       		.uleb128 0x2
+ 170 005b 08       		.byte	0x8
+ 171 005c 05       		.byte	0x5
+ 172 005d 2A020000 		.4byte	.LASF6
+ 173 0061 02       		.uleb128 0x2
+ 174 0062 08       		.byte	0x8
+ 175 0063 07       		.byte	0x7
+ 176 0064 DC010000 		.4byte	.LASF7
+ 177 0068 04       		.uleb128 0x4
+ 178 0069 04       		.byte	0x4
+ 179 006a 05       		.byte	0x5
+ 180 006b 696E7400 		.ascii	"int\000"
+ 181 006f 02       		.uleb128 0x2
+ 182 0070 04       		.byte	0x4
+ 183 0071 07       		.byte	0x7
+ 184 0072 CF010000 		.4byte	.LASF8
+ 185 0076 03       		.uleb128 0x3
+ 186 0077 BC000000 		.4byte	.LASF10
+ 187 007b 03       		.byte	0x3
+ 188 007c 2C       		.byte	0x2c
+ 189 007d 41000000 		.4byte	0x41
+ 190 0081 02       		.uleb128 0x2
+ 191 0082 04       		.byte	0x4
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cccqaPnj.s 			page 5
+
+
+ 192 0083 04       		.byte	0x4
+ 193 0084 C4000000 		.4byte	.LASF11
+ 194 0088 02       		.uleb128 0x2
+ 195 0089 08       		.byte	0x8
+ 196 008a 04       		.byte	0x4
+ 197 008b A7010000 		.4byte	.LASF12
+ 198 008f 02       		.uleb128 0x2
+ 199 0090 01       		.byte	0x1
+ 200 0091 08       		.byte	0x8
+ 201 0092 38020000 		.4byte	.LASF13
+ 202 0096 02       		.uleb128 0x2
+ 203 0097 08       		.byte	0x8
+ 204 0098 04       		.byte	0x4
+ 205 0099 7C020000 		.4byte	.LASF14
+ 206 009d 02       		.uleb128 0x2
+ 207 009e 04       		.byte	0x4
+ 208 009f 07       		.byte	0x7
+ 209 00a0 0E020000 		.4byte	.LASF15
+ 210 00a4 05       		.uleb128 0x5
+ 211 00a5 00000000 		.4byte	.LASF31
+ 212 00a9 01       		.byte	0x1
+ 213 00aa 11       		.byte	0x11
+ 214 00ab 00000000 		.4byte	.LFB63
+ 215 00af 74000000 		.4byte	.LFE63-.LFB63
+ 216 00b3 01       		.uleb128 0x1
+ 217 00b4 9C       		.byte	0x9c
+ 218 00b5 9C010000 		.4byte	0x19c
+ 219 00b9 06       		.uleb128 0x6
+ 220 00ba 03020000 		.4byte	.LASF16
+ 221 00be 01       		.byte	0x1
+ 222 00bf 11       		.byte	0x11
+ 223 00c0 68000000 		.4byte	0x68
+ 224 00c4 00000000 		.4byte	.LLST0
+ 225 00c8 06       		.uleb128 0x6
+ 226 00c9 B2000000 		.4byte	.LASF17
+ 227 00cd 01       		.byte	0x1
+ 228 00ce 11       		.byte	0x11
+ 229 00cf 68000000 		.4byte	0x68
+ 230 00d3 3A000000 		.4byte	.LLST1
+ 231 00d7 06       		.uleb128 0x6
+ 232 00d8 08020000 		.4byte	.LASF18
+ 233 00dc 01       		.byte	0x1
+ 234 00dd 11       		.byte	0x11
+ 235 00de 68000000 		.4byte	0x68
+ 236 00e2 86000000 		.4byte	.LLST2
+ 237 00e6 07       		.uleb128 0x7
+ 238 00e7 0E000000 		.4byte	.LVL1
+ 239 00eb AD010000 		.4byte	0x1ad
+ 240 00ef 08       		.uleb128 0x8
+ 241 00f0 14000000 		.4byte	.LVL2
+ 242 00f4 B8010000 		.4byte	0x1b8
+ 243 00f8 03010000 		.4byte	0x103
+ 244 00fc 09       		.uleb128 0x9
+ 245 00fd 01       		.uleb128 0x1
+ 246 00fe 50       		.byte	0x50
+ 247 00ff 02       		.uleb128 0x2
+ 248 0100 75       		.byte	0x75
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cccqaPnj.s 			page 6
+
+
+ 249 0101 00       		.sleb128 0
+ 250 0102 00       		.byte	0
+ 251 0103 07       		.uleb128 0x7
+ 252 0104 1C000000 		.4byte	.LVL4
+ 253 0108 C3010000 		.4byte	0x1c3
+ 254 010c 08       		.uleb128 0x8
+ 255 010d 26000000 		.4byte	.LVL5
+ 256 0111 CE010000 		.4byte	0x1ce
+ 257 0115 20010000 		.4byte	0x120
+ 258 0119 09       		.uleb128 0x9
+ 259 011a 01       		.uleb128 0x1
+ 260 011b 50       		.byte	0x50
+ 261 011c 02       		.uleb128 0x2
+ 262 011d 74       		.byte	0x74
+ 263 011e 00       		.sleb128 0
+ 264 011f 00       		.byte	0
+ 265 0120 08       		.uleb128 0x8
+ 266 0121 30000000 		.4byte	.LVL6
+ 267 0125 D9010000 		.4byte	0x1d9
+ 268 0129 36010000 		.4byte	0x136
+ 269 012d 09       		.uleb128 0x9
+ 270 012e 01       		.uleb128 0x1
+ 271 012f 50       		.byte	0x50
+ 272 0130 04       		.uleb128 0x4
+ 273 0131 74       		.byte	0x74
+ 274 0132 00       		.sleb128 0
+ 275 0133 30       		.byte	0x30
+ 276 0134 29       		.byte	0x29
+ 277 0135 00       		.byte	0
+ 278 0136 07       		.uleb128 0x7
+ 279 0137 34000000 		.4byte	.LVL7
+ 280 013b E4010000 		.4byte	0x1e4
+ 281 013f 07       		.uleb128 0x7
+ 282 0140 38000000 		.4byte	.LVL8
+ 283 0144 EF010000 		.4byte	0x1ef
+ 284 0148 07       		.uleb128 0x7
+ 285 0149 3C000000 		.4byte	.LVL9
+ 286 014d FA010000 		.4byte	0x1fa
+ 287 0151 07       		.uleb128 0x7
+ 288 0152 40000000 		.4byte	.LVL10
+ 289 0156 05020000 		.4byte	0x205
+ 290 015a 07       		.uleb128 0x7
+ 291 015b 50000000 		.4byte	.LVL13
+ 292 015f CE010000 		.4byte	0x1ce
+ 293 0163 08       		.uleb128 0x8
+ 294 0164 56000000 		.4byte	.LVL14
+ 295 0168 D9010000 		.4byte	0x1d9
+ 296 016c 77010000 		.4byte	0x177
+ 297 0170 09       		.uleb128 0x9
+ 298 0171 01       		.uleb128 0x1
+ 299 0172 50       		.byte	0x50
+ 300 0173 02       		.uleb128 0x2
+ 301 0174 75       		.byte	0x75
+ 302 0175 00       		.sleb128 0
+ 303 0176 00       		.byte	0
+ 304 0177 07       		.uleb128 0x7
+ 305 0178 5A000000 		.4byte	.LVL15
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cccqaPnj.s 			page 7
+
+
+ 306 017c E4010000 		.4byte	0x1e4
+ 307 0180 07       		.uleb128 0x7
+ 308 0181 64000000 		.4byte	.LVL16
+ 309 0185 EF010000 		.4byte	0x1ef
+ 310 0189 07       		.uleb128 0x7
+ 311 018a 68000000 		.4byte	.LVL17
+ 312 018e FA010000 		.4byte	0x1fa
+ 313 0192 07       		.uleb128 0x7
+ 314 0193 72000000 		.4byte	.LVL18
+ 315 0197 05020000 		.4byte	0x205
+ 316 019b 00       		.byte	0
+ 317 019c 0A       		.uleb128 0xa
+ 318 019d 9A010000 		.4byte	.LASF32
+ 319 01a1 09       		.byte	0x9
+ 320 01a2 1207     		.2byte	0x712
+ 321 01a4 A8010000 		.4byte	0x1a8
+ 322 01a8 0B       		.uleb128 0xb
+ 323 01a9 76000000 		.4byte	0x76
+ 324 01ad 0C       		.uleb128 0xc
+ 325 01ae 78010000 		.4byte	.LASF19
+ 326 01b2 78010000 		.4byte	.LASF19
+ 327 01b6 04       		.byte	0x4
+ 328 01b7 92       		.byte	0x92
+ 329 01b8 0C       		.uleb128 0xc
+ 330 01b9 17020000 		.4byte	.LASF20
+ 331 01bd 17020000 		.4byte	.LASF20
+ 332 01c1 04       		.byte	0x4
+ 333 01c2 C3       		.byte	0xc3
+ 334 01c3 0C       		.uleb128 0xc
+ 335 01c4 C4010000 		.4byte	.LASF21
+ 336 01c8 C4010000 		.4byte	.LASF21
+ 337 01cc 04       		.byte	0x4
+ 338 01cd 93       		.byte	0x93
+ 339 01ce 0C       		.uleb128 0xc
+ 340 01cf AE010000 		.4byte	.LASF22
+ 341 01d3 AE010000 		.4byte	.LASF22
+ 342 01d7 05       		.byte	0x5
+ 343 01d8 26       		.byte	0x26
+ 344 01d9 0C       		.uleb128 0xc
+ 345 01da 5C020000 		.4byte	.LASF23
+ 346 01de 5C020000 		.4byte	.LASF23
+ 347 01e2 06       		.byte	0x6
+ 348 01e3 26       		.byte	0x26
+ 349 01e4 0C       		.uleb128 0xc
+ 350 01e5 3D020000 		.4byte	.LASF24
+ 351 01e9 3D020000 		.4byte	.LASF24
+ 352 01ed 05       		.byte	0x5
+ 353 01ee 29       		.byte	0x29
+ 354 01ef 0C       		.uleb128 0xc
+ 355 01f0 84010000 		.4byte	.LASF25
+ 356 01f4 84010000 		.4byte	.LASF25
+ 357 01f8 07       		.byte	0x7
+ 358 01f9 26       		.byte	0x26
+ 359 01fa 0C       		.uleb128 0xc
+ 360 01fb 85000000 		.4byte	.LASF26
+ 361 01ff 85000000 		.4byte	.LASF26
+ 362 0203 06       		.byte	0x6
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cccqaPnj.s 			page 8
+
+
+ 363 0204 29       		.byte	0x29
+ 364 0205 0C       		.uleb128 0xc
+ 365 0206 9B000000 		.4byte	.LASF27
+ 366 020a 9B000000 		.4byte	.LASF27
+ 367 020e 08       		.byte	0x8
+ 368 020f 26       		.byte	0x26
+ 369 0210 00       		.byte	0
+ 370              		.section	.debug_abbrev,"",%progbits
+ 371              	.Ldebug_abbrev0:
+ 372 0000 01       		.uleb128 0x1
+ 373 0001 11       		.uleb128 0x11
+ 374 0002 01       		.byte	0x1
+ 375 0003 25       		.uleb128 0x25
+ 376 0004 0E       		.uleb128 0xe
+ 377 0005 13       		.uleb128 0x13
+ 378 0006 0B       		.uleb128 0xb
+ 379 0007 03       		.uleb128 0x3
+ 380 0008 0E       		.uleb128 0xe
+ 381 0009 1B       		.uleb128 0x1b
+ 382 000a 0E       		.uleb128 0xe
+ 383 000b 55       		.uleb128 0x55
+ 384 000c 17       		.uleb128 0x17
+ 385 000d 11       		.uleb128 0x11
+ 386 000e 01       		.uleb128 0x1
+ 387 000f 10       		.uleb128 0x10
+ 388 0010 17       		.uleb128 0x17
+ 389 0011 00       		.byte	0
+ 390 0012 00       		.byte	0
+ 391 0013 02       		.uleb128 0x2
+ 392 0014 24       		.uleb128 0x24
+ 393 0015 00       		.byte	0
+ 394 0016 0B       		.uleb128 0xb
+ 395 0017 0B       		.uleb128 0xb
+ 396 0018 3E       		.uleb128 0x3e
+ 397 0019 0B       		.uleb128 0xb
+ 398 001a 03       		.uleb128 0x3
+ 399 001b 0E       		.uleb128 0xe
+ 400 001c 00       		.byte	0
+ 401 001d 00       		.byte	0
+ 402 001e 03       		.uleb128 0x3
+ 403 001f 16       		.uleb128 0x16
+ 404 0020 00       		.byte	0
+ 405 0021 03       		.uleb128 0x3
+ 406 0022 0E       		.uleb128 0xe
+ 407 0023 3A       		.uleb128 0x3a
+ 408 0024 0B       		.uleb128 0xb
+ 409 0025 3B       		.uleb128 0x3b
+ 410 0026 0B       		.uleb128 0xb
+ 411 0027 49       		.uleb128 0x49
+ 412 0028 13       		.uleb128 0x13
+ 413 0029 00       		.byte	0
+ 414 002a 00       		.byte	0
+ 415 002b 04       		.uleb128 0x4
+ 416 002c 24       		.uleb128 0x24
+ 417 002d 00       		.byte	0
+ 418 002e 0B       		.uleb128 0xb
+ 419 002f 0B       		.uleb128 0xb
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cccqaPnj.s 			page 9
+
+
+ 420 0030 3E       		.uleb128 0x3e
+ 421 0031 0B       		.uleb128 0xb
+ 422 0032 03       		.uleb128 0x3
+ 423 0033 08       		.uleb128 0x8
+ 424 0034 00       		.byte	0
+ 425 0035 00       		.byte	0
+ 426 0036 05       		.uleb128 0x5
+ 427 0037 2E       		.uleb128 0x2e
+ 428 0038 01       		.byte	0x1
+ 429 0039 3F       		.uleb128 0x3f
+ 430 003a 19       		.uleb128 0x19
+ 431 003b 03       		.uleb128 0x3
+ 432 003c 0E       		.uleb128 0xe
+ 433 003d 3A       		.uleb128 0x3a
+ 434 003e 0B       		.uleb128 0xb
+ 435 003f 3B       		.uleb128 0x3b
+ 436 0040 0B       		.uleb128 0xb
+ 437 0041 27       		.uleb128 0x27
+ 438 0042 19       		.uleb128 0x19
+ 439 0043 11       		.uleb128 0x11
+ 440 0044 01       		.uleb128 0x1
+ 441 0045 12       		.uleb128 0x12
+ 442 0046 06       		.uleb128 0x6
+ 443 0047 40       		.uleb128 0x40
+ 444 0048 18       		.uleb128 0x18
+ 445 0049 9742     		.uleb128 0x2117
+ 446 004b 19       		.uleb128 0x19
+ 447 004c 01       		.uleb128 0x1
+ 448 004d 13       		.uleb128 0x13
+ 449 004e 00       		.byte	0
+ 450 004f 00       		.byte	0
+ 451 0050 06       		.uleb128 0x6
+ 452 0051 05       		.uleb128 0x5
+ 453 0052 00       		.byte	0
+ 454 0053 03       		.uleb128 0x3
+ 455 0054 0E       		.uleb128 0xe
+ 456 0055 3A       		.uleb128 0x3a
+ 457 0056 0B       		.uleb128 0xb
+ 458 0057 3B       		.uleb128 0x3b
+ 459 0058 0B       		.uleb128 0xb
+ 460 0059 49       		.uleb128 0x49
+ 461 005a 13       		.uleb128 0x13
+ 462 005b 02       		.uleb128 0x2
+ 463 005c 17       		.uleb128 0x17
+ 464 005d 00       		.byte	0
+ 465 005e 00       		.byte	0
+ 466 005f 07       		.uleb128 0x7
+ 467 0060 898201   		.uleb128 0x4109
+ 468 0063 00       		.byte	0
+ 469 0064 11       		.uleb128 0x11
+ 470 0065 01       		.uleb128 0x1
+ 471 0066 31       		.uleb128 0x31
+ 472 0067 13       		.uleb128 0x13
+ 473 0068 00       		.byte	0
+ 474 0069 00       		.byte	0
+ 475 006a 08       		.uleb128 0x8
+ 476 006b 898201   		.uleb128 0x4109
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cccqaPnj.s 			page 10
+
+
+ 477 006e 01       		.byte	0x1
+ 478 006f 11       		.uleb128 0x11
+ 479 0070 01       		.uleb128 0x1
+ 480 0071 31       		.uleb128 0x31
+ 481 0072 13       		.uleb128 0x13
+ 482 0073 01       		.uleb128 0x1
+ 483 0074 13       		.uleb128 0x13
+ 484 0075 00       		.byte	0
+ 485 0076 00       		.byte	0
+ 486 0077 09       		.uleb128 0x9
+ 487 0078 8A8201   		.uleb128 0x410a
+ 488 007b 00       		.byte	0
+ 489 007c 02       		.uleb128 0x2
+ 490 007d 18       		.uleb128 0x18
+ 491 007e 9142     		.uleb128 0x2111
+ 492 0080 18       		.uleb128 0x18
+ 493 0081 00       		.byte	0
+ 494 0082 00       		.byte	0
+ 495 0083 0A       		.uleb128 0xa
+ 496 0084 34       		.uleb128 0x34
+ 497 0085 00       		.byte	0
+ 498 0086 03       		.uleb128 0x3
+ 499 0087 0E       		.uleb128 0xe
+ 500 0088 3A       		.uleb128 0x3a
+ 501 0089 0B       		.uleb128 0xb
+ 502 008a 3B       		.uleb128 0x3b
+ 503 008b 05       		.uleb128 0x5
+ 504 008c 49       		.uleb128 0x49
+ 505 008d 13       		.uleb128 0x13
+ 506 008e 3F       		.uleb128 0x3f
+ 507 008f 19       		.uleb128 0x19
+ 508 0090 3C       		.uleb128 0x3c
+ 509 0091 19       		.uleb128 0x19
+ 510 0092 00       		.byte	0
+ 511 0093 00       		.byte	0
+ 512 0094 0B       		.uleb128 0xb
+ 513 0095 35       		.uleb128 0x35
+ 514 0096 00       		.byte	0
+ 515 0097 49       		.uleb128 0x49
+ 516 0098 13       		.uleb128 0x13
+ 517 0099 00       		.byte	0
+ 518 009a 00       		.byte	0
+ 519 009b 0C       		.uleb128 0xc
+ 520 009c 2E       		.uleb128 0x2e
+ 521 009d 00       		.byte	0
+ 522 009e 3F       		.uleb128 0x3f
+ 523 009f 19       		.uleb128 0x19
+ 524 00a0 3C       		.uleb128 0x3c
+ 525 00a1 19       		.uleb128 0x19
+ 526 00a2 6E       		.uleb128 0x6e
+ 527 00a3 0E       		.uleb128 0xe
+ 528 00a4 03       		.uleb128 0x3
+ 529 00a5 0E       		.uleb128 0xe
+ 530 00a6 3A       		.uleb128 0x3a
+ 531 00a7 0B       		.uleb128 0xb
+ 532 00a8 3B       		.uleb128 0x3b
+ 533 00a9 0B       		.uleb128 0xb
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cccqaPnj.s 			page 11
+
+
+ 534 00aa 00       		.byte	0
+ 535 00ab 00       		.byte	0
+ 536 00ac 00       		.byte	0
+ 537              		.section	.debug_loc,"",%progbits
+ 538              	.Ldebug_loc0:
+ 539              	.LLST0:
+ 540 0000 00000000 		.4byte	.LVL0
+ 541 0004 0D000000 		.4byte	.LVL1-1
+ 542 0008 0100     		.2byte	0x1
+ 543 000a 50       		.byte	0x50
+ 544 000b 0D000000 		.4byte	.LVL1-1
+ 545 000f 16000000 		.4byte	.LVL3
+ 546 0013 0400     		.2byte	0x4
+ 547 0015 F3       		.byte	0xf3
+ 548 0016 01       		.uleb128 0x1
+ 549 0017 50       		.byte	0x50
+ 550 0018 9F       		.byte	0x9f
+ 551 0019 16000000 		.4byte	.LVL3
+ 552 001d 1B000000 		.4byte	.LVL4-1
+ 553 0021 0100     		.2byte	0x1
+ 554 0023 50       		.byte	0x50
+ 555 0024 1B000000 		.4byte	.LVL4-1
+ 556 0028 74000000 		.4byte	.LFE63
+ 557 002c 0400     		.2byte	0x4
+ 558 002e F3       		.byte	0xf3
+ 559 002f 01       		.uleb128 0x1
+ 560 0030 50       		.byte	0x50
+ 561 0031 9F       		.byte	0x9f
+ 562 0032 00000000 		.4byte	0
+ 563 0036 00000000 		.4byte	0
+ 564              	.LLST1:
+ 565 003a 00000000 		.4byte	.LVL0
+ 566 003e 0D000000 		.4byte	.LVL1-1
+ 567 0042 0100     		.2byte	0x1
+ 568 0044 51       		.byte	0x51
+ 569 0045 0D000000 		.4byte	.LVL1-1
+ 570 0049 16000000 		.4byte	.LVL3
+ 571 004d 0100     		.2byte	0x1
+ 572 004f 54       		.byte	0x54
+ 573 0050 16000000 		.4byte	.LVL3
+ 574 0054 1B000000 		.4byte	.LVL4-1
+ 575 0058 0100     		.2byte	0x1
+ 576 005a 51       		.byte	0x51
+ 577 005b 1B000000 		.4byte	.LVL4-1
+ 578 005f 42000000 		.4byte	.LVL11
+ 579 0063 0100     		.2byte	0x1
+ 580 0065 54       		.byte	0x54
+ 581 0066 42000000 		.4byte	.LVL11
+ 582 006a 44000000 		.4byte	.LVL12
+ 583 006e 0300     		.2byte	0x3
+ 584 0070 74       		.byte	0x74
+ 585 0071 7E       		.sleb128 -2
+ 586 0072 9F       		.byte	0x9f
+ 587 0073 44000000 		.4byte	.LVL12
+ 588 0077 74000000 		.4byte	.LFE63
+ 589 007b 0100     		.2byte	0x1
+ 590 007d 55       		.byte	0x55
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cccqaPnj.s 			page 12
+
+
+ 591 007e 00000000 		.4byte	0
+ 592 0082 00000000 		.4byte	0
+ 593              	.LLST2:
+ 594 0086 00000000 		.4byte	.LVL0
+ 595 008a 0D000000 		.4byte	.LVL1-1
+ 596 008e 0100     		.2byte	0x1
+ 597 0090 52       		.byte	0x52
+ 598 0091 0D000000 		.4byte	.LVL1-1
+ 599 0095 16000000 		.4byte	.LVL3
+ 600 0099 0100     		.2byte	0x1
+ 601 009b 55       		.byte	0x55
+ 602 009c 16000000 		.4byte	.LVL3
+ 603 00a0 1B000000 		.4byte	.LVL4-1
+ 604 00a4 0100     		.2byte	0x1
+ 605 00a6 52       		.byte	0x52
+ 606 00a7 1B000000 		.4byte	.LVL4-1
+ 607 00ab 74000000 		.4byte	.LFE63
+ 608 00af 0400     		.2byte	0x4
+ 609 00b1 F3       		.byte	0xf3
+ 610 00b2 01       		.uleb128 0x1
+ 611 00b3 52       		.byte	0x52
+ 612 00b4 9F       		.byte	0x9f
+ 613 00b5 00000000 		.4byte	0
+ 614 00b9 00000000 		.4byte	0
+ 615              		.section	.debug_aranges,"",%progbits
+ 616 0000 1C000000 		.4byte	0x1c
+ 617 0004 0200     		.2byte	0x2
+ 618 0006 00000000 		.4byte	.Ldebug_info0
+ 619 000a 04       		.byte	0x4
+ 620 000b 00       		.byte	0
+ 621 000c 0000     		.2byte	0
+ 622 000e 0000     		.2byte	0
+ 623 0010 00000000 		.4byte	.LFB63
+ 624 0014 74000000 		.4byte	.LFE63-.LFB63
+ 625 0018 00000000 		.4byte	0
+ 626 001c 00000000 		.4byte	0
+ 627              		.section	.debug_ranges,"",%progbits
+ 628              	.Ldebug_ranges0:
+ 629 0000 00000000 		.4byte	.LFB63
+ 630 0004 74000000 		.4byte	.LFE63
+ 631 0008 00000000 		.4byte	0
+ 632 000c 00000000 		.4byte	0
+ 633              		.section	.debug_line,"",%progbits
+ 634              	.Ldebug_line0:
+ 635 0000 CC010000 		.section	.debug_str,"MS",%progbits,1
+ 635      0200A901 
+ 635      00000201 
+ 635      FB0E0D00 
+ 635      01010101 
+ 636              	.LASF31:
+ 637 0000 6D6F746F 		.ascii	"motor_move\000"
+ 637      725F6D6F 
+ 637      766500
+ 638              	.LASF9:
+ 639 000b 5F5F696E 		.ascii	"__int32_t\000"
+ 639      7433325F 
+ 639      7400
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cccqaPnj.s 			page 13
+
+
+ 640              	.LASF30:
+ 641 0015 433A5C55 		.ascii	"C:\\Users\\Chong Yen Juin\\Desktop\\Monash\\ECE4191"
+ 641      73657273 
+ 641      5C43686F 
+ 641      6E672059 
+ 641      656E204A 
+ 642 0043 5C303920 		.ascii	"\\09 - Implementation\\ECE4191-G15\\ECE4191\\ColorB"
+ 642      2D20496D 
+ 642      706C656D 
+ 642      656E7461 
+ 642      74696F6E 
+ 643 0072 6F776C52 		.ascii	"owlRobot_G15.cydsn\000"
+ 643      6F626F74 
+ 643      5F473135 
+ 643      2E637964 
+ 643      736E00
+ 644              	.LASF26:
+ 645 0085 4D4F544F 		.ascii	"MOTOR_1_IN_RIGHT_Read\000"
+ 645      525F315F 
+ 645      494E5F52 
+ 645      49474854 
+ 645      5F526561 
+ 646              	.LASF27:
+ 647 009b 4D4F544F 		.ascii	"MOTOR_2_IN_RIGHT_Write\000"
+ 647      525F325F 
+ 647      494E5F52 
+ 647      49474854 
+ 647      5F577269 
+ 648              	.LASF17:
+ 649 00b2 64697265 		.ascii	"direction\000"
+ 649      6374696F 
+ 649      6E00
+ 650              	.LASF10:
+ 651 00bc 696E7433 		.ascii	"int32_t\000"
+ 651      325F7400 
+ 652              	.LASF11:
+ 653 00c4 666C6F61 		.ascii	"float\000"
+ 653      7400
+ 654              	.LASF1:
+ 655 00ca 756E7369 		.ascii	"unsigned char\000"
+ 655      676E6564 
+ 655      20636861 
+ 655      7200
+ 656              	.LASF28:
+ 657 00d8 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 657      43313120 
+ 657      352E342E 
+ 657      31203230 
+ 657      31363036 
+ 658 010b 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 658      20726576 
+ 658      6973696F 
+ 658      6E203233 
+ 658      37373135 
+ 659 013e 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 659      66756E63 
+ 659      74696F6E 
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cccqaPnj.s 			page 14
+
+
+ 659      2D736563 
+ 659      74696F6E 
+ 660              	.LASF5:
+ 661 0166 6C6F6E67 		.ascii	"long unsigned int\000"
+ 661      20756E73 
+ 661      69676E65 
+ 661      6420696E 
+ 661      7400
+ 662              	.LASF19:
+ 663 0178 50574D5F 		.ascii	"PWM_1_Start\000"
+ 663      315F5374 
+ 663      61727400 
+ 664              	.LASF25:
+ 665 0184 4D4F544F 		.ascii	"MOTOR_2_IN_LEFT_Write\000"
+ 665      525F325F 
+ 665      494E5F4C 
+ 665      4546545F 
+ 665      57726974 
+ 666              	.LASF32:
+ 667 019a 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 667      52784275 
+ 667      66666572 
+ 667      00
+ 668              	.LASF12:
+ 669 01a7 646F7562 		.ascii	"double\000"
+ 669      6C6500
+ 670              	.LASF22:
+ 671 01ae 4D4F544F 		.ascii	"MOTOR_1_IN_LEFT_Write\000"
+ 671      525F315F 
+ 671      494E5F4C 
+ 671      4546545F 
+ 671      57726974 
+ 672              	.LASF21:
+ 673 01c4 50574D5F 		.ascii	"PWM_1_Stop\000"
+ 673      315F5374 
+ 673      6F7000
+ 674              	.LASF8:
+ 675 01cf 756E7369 		.ascii	"unsigned int\000"
+ 675      676E6564 
+ 675      20696E74 
+ 675      00
+ 676              	.LASF7:
+ 677 01dc 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 677      206C6F6E 
+ 677      6720756E 
+ 677      7369676E 
+ 677      65642069 
+ 678              	.LASF29:
+ 679 01f3 6D6F746F 		.ascii	"motor_control.c\000"
+ 679      725F636F 
+ 679      6E74726F 
+ 679      6C2E6300 
+ 680              	.LASF16:
+ 681 0203 6D6F6465 		.ascii	"mode\000"
+ 681      00
+ 682              	.LASF18:
+ 683 0208 73706565 		.ascii	"speed\000"
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cccqaPnj.s 			page 15
+
+
+ 683      6400
+ 684              	.LASF15:
+ 685 020e 73697A65 		.ascii	"sizetype\000"
+ 685      74797065 
+ 685      00
+ 686              	.LASF20:
+ 687 0217 50574D5F 		.ascii	"PWM_1_WriteCompare\000"
+ 687      315F5772 
+ 687      69746543 
+ 687      6F6D7061 
+ 687      726500
+ 688              	.LASF6:
+ 689 022a 6C6F6E67 		.ascii	"long long int\000"
+ 689      206C6F6E 
+ 689      6720696E 
+ 689      7400
+ 690              	.LASF13:
+ 691 0238 63686172 		.ascii	"char\000"
+ 691      00
+ 692              	.LASF24:
+ 693 023d 4D4F544F 		.ascii	"MOTOR_1_IN_LEFT_Read\000"
+ 693      525F315F 
+ 693      494E5F4C 
+ 693      4546545F 
+ 693      52656164 
+ 694              	.LASF2:
+ 695 0252 73686F72 		.ascii	"short int\000"
+ 695      7420696E 
+ 695      7400
+ 696              	.LASF23:
+ 697 025c 4D4F544F 		.ascii	"MOTOR_1_IN_RIGHT_Write\000"
+ 697      525F315F 
+ 697      494E5F52 
+ 697      49474854 
+ 697      5F577269 
+ 698              	.LASF4:
+ 699 0273 6C6F6E67 		.ascii	"long int\000"
+ 699      20696E74 
+ 699      00
+ 700              	.LASF14:
+ 701 027c 6C6F6E67 		.ascii	"long double\000"
+ 701      20646F75 
+ 701      626C6500 
+ 702              	.LASF0:
+ 703 0288 7369676E 		.ascii	"signed char\000"
+ 703      65642063 
+ 703      68617200 
+ 704              	.LASF3:
+ 705 0294 73686F72 		.ascii	"short unsigned int\000"
+ 705      7420756E 
+ 705      7369676E 
+ 705      65642069 
+ 705      6E7400
+ 706              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

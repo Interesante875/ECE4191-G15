@@ -1,0 +1,10 @@
+--------------- Rebuild Started: 08/15/2023 10:21:44 Project: motor_control.c, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/motor_control.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c motor_control.c -o .\CortexM3\ARM_GCC_541\Debug\motor_control.o
+motor_control.c: In function 'motor_move':
+motor_control.c:29:9: warning: implicit declaration of function 'MOTOR_2_IN_3_Write' [-Wimplicit-function-declaration]
+         MOTOR_2_IN_3_Write(MOTOR_1_IN_1_Read());
+         ^
+motor_control.c:30:9: warning: implicit declaration of function 'MOTOR_2_IN_4_Write' [-Wimplicit-function-declaration]
+         MOTOR_2_IN_4_Write(MOTOR_1_IN_2_Read());
+         ^
+--------------- Rebuild Succeeded: 08/15/2023 10:21:45 ---------------
