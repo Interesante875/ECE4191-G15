@@ -42,6 +42,7 @@
 #include "MOTOR_RIGHT_PHASE_B_aliases.h"
 #include "MOTOR_RIGHT_PHASE_B.h"
 #include "UART_1.h"
+#include "Wheel_Timer.h"
 #include "QuadDec_1_Cnt16.h"
 #include "QuadDec_2_Cnt16.h"
 #include "UART_1_IntClock.h"

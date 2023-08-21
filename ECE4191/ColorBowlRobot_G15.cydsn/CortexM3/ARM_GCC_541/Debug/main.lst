@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccfmBup6.s 			page 1
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccwQ9V70.s 			page 1
 
 
    1              		.syntax unified
@@ -42,10 +42,11 @@ ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccfmBup6.s 			page 1
   12:main.c        **** #include "project.h"
   13:main.c        **** #include "motor_control.h"
   14:main.c        **** #include <stdio.h>
-  15:main.c        **** 
-  16:main.c        **** int main(void)
-  17:main.c        **** {
-  28              		.loc 1 17 0
+  15:main.c        **** #include <math.h>
+  16:main.c        **** 
+  17:main.c        **** int main(void)
+  18:main.c        **** {
+  28              		.loc 1 18 0
   29              		.cfi_startproc
   30              		@ args = 0, pretend = 0, frame = 40
   31              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -56,93 +57,93 @@ ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccfmBup6.s 			page 1
   36              		.cfi_offset 14, -4
   37 0002 8BB0     		sub	sp, sp, #44
   38              		.cfi_def_cfa_offset 56
-  18:main.c        ****     CyGlobalIntEnable; /* Enable global interrupts. */
-  39              		.loc 1 18 0
-ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccfmBup6.s 			page 2
+  19:main.c        ****     CyGlobalIntEnable; /* Enable global interrupts. */
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccwQ9V70.s 			page 2
 
 
+  39              		.loc 1 19 0
   40              		.syntax unified
-  41              	@ 18 "main.c" 1
+  41              	@ 19 "main.c" 1
   42 0004 62B6     		CPSIE   i
   43              	@ 0 "" 2
-  19:main.c        **** 
-  20:main.c        ****     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
-  21:main.c        ****     UART_1_Start();
-  44              		.loc 1 21 0
+  20:main.c        **** 
+  21:main.c        ****     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
+  22:main.c        ****     UART_1_Start();
+  44              		.loc 1 22 0
   45              		.thumb
   46              		.syntax unified
   47 0006 FFF7FEFF 		bl	UART_1_Start
   48              	.LVL0:
-  22:main.c        ****     QuadDec_1_Start();
-  49              		.loc 1 22 0
+  23:main.c        ****     QuadDec_1_Start();
+  49              		.loc 1 23 0
   50 000a FFF7FEFF 		bl	QuadDec_1_Start
   51              	.LVL1:
-  23:main.c        ****     QuadDec_2_Start();
-  52              		.loc 1 23 0
+  24:main.c        ****     QuadDec_2_Start();
+  52              		.loc 1 24 0
   53 000e FFF7FEFF 		bl	QuadDec_2_Start
   54              	.LVL2:
-  24:main.c        ****     
-  25:main.c        ****     motor_move(ENABLE, RIGHT, WHEEL_FULL_SPEED);
-  55              		.loc 1 25 0
+  25:main.c        ****     
+  26:main.c        ****     motor_move(ENABLE, RIGHT, WHEEL_FULL_SPEED);
+  55              		.loc 1 26 0
   56 0012 FF22     		movs	r2, #255
   57 0014 0321     		movs	r1, #3
   58 0016 0120     		movs	r0, #1
   59 0018 FFF7FEFF 		bl	motor_move
   60              	.LVL3:
   61              	.L2:
-  26:main.c        ****     int counter_1 = 0;
-  27:main.c        ****     int counter_2 = 0;
-  28:main.c        ****     char string_1[20];
-  29:main.c        ****     char string_2[20];
-  30:main.c        **** 
-  31:main.c        ****     for(;;)
-  32:main.c        ****     {
-  33:main.c        ****         /* Place your application code here. */
-  34:main.c        ****         counter_1 = QuadDec_1_GetCounter();
-  62              		.loc 1 34 0 discriminator 1
+  27:main.c        ****     int counter_1 = 0;
+  28:main.c        ****     int counter_2 = 0;
+  29:main.c        ****     char string_1[20];
+  30:main.c        ****     char string_2[20];
+  31:main.c        **** 
+  32:main.c        ****     for(;;)
+  33:main.c        ****     {
+  34:main.c        ****         /* Place your application code here. */
+  35:main.c        ****         counter_1 = QuadDec_1_GetCounter();
+  62              		.loc 1 35 0 discriminator 1
   63 001c FFF7FEFF 		bl	QuadDec_1_GetCounter
   64              	.LVL4:
   65 0020 0546     		mov	r5, r0
   66              	.LVL5:
-  35:main.c        ****         counter_2 = QuadDec_2_GetCounter();
-  67              		.loc 1 35 0 discriminator 1
+  36:main.c        ****         counter_2 = QuadDec_2_GetCounter();
+  67              		.loc 1 36 0 discriminator 1
   68 0022 FFF7FEFF 		bl	QuadDec_2_GetCounter
   69              	.LVL6:
   70 0026 0446     		mov	r4, r0
   71              	.LVL7:
-  36:main.c        ****         
-  37:main.c        ****         sprintf(string_1, "m1 %d\n", counter_1);
-  72              		.loc 1 37 0 discriminator 1
+  37:main.c        ****         
+  38:main.c        ****         sprintf(string_1, "m1 %d\n", counter_1);
+  72              		.loc 1 38 0 discriminator 1
   73 0028 2A46     		mov	r2, r5
   74 002a 0949     		ldr	r1, .L4
   75 002c 05A8     		add	r0, sp, #20
   76              	.LVL8:
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccwQ9V70.s 			page 3
+
+
   77 002e FFF7FEFF 		bl	sprintf
-ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccfmBup6.s 			page 3
-
-
   78              	.LVL9:
-  38:main.c        ****         sprintf(string_2, "m2 %d\n", counter_2);
-  79              		.loc 1 38 0 discriminator 1
+  39:main.c        ****         sprintf(string_2, "m2 %d\n", counter_2);
+  79              		.loc 1 39 0 discriminator 1
   80 0032 2246     		mov	r2, r4
   81 0034 0749     		ldr	r1, .L4+4
   82 0036 6846     		mov	r0, sp
   83 0038 FFF7FEFF 		bl	sprintf
   84              	.LVL10:
-  39:main.c        ****         
-  40:main.c        ****         UART_1_PutString(string_1);
-  85              		.loc 1 40 0 discriminator 1
+  40:main.c        ****         
+  41:main.c        ****         UART_1_PutString(string_1);
+  85              		.loc 1 41 0 discriminator 1
   86 003c 05A8     		add	r0, sp, #20
   87 003e FFF7FEFF 		bl	UART_1_PutString
   88              	.LVL11:
-  41:main.c        ****         UART_1_PutString(string_2);
-  89              		.loc 1 41 0 discriminator 1
+  42:main.c        ****         UART_1_PutString(string_2);
+  89              		.loc 1 42 0 discriminator 1
   90 0042 6846     		mov	r0, sp
   91 0044 FFF7FEFF 		bl	UART_1_PutString
   92              	.LVL12:
-  42:main.c        ****         
-  43:main.c        ****         CyDelay(100);
-  93              		.loc 1 43 0 discriminator 1
+  43:main.c        ****         
+  44:main.c        ****         CyDelay(100);
+  93              		.loc 1 44 0 discriminator 1
   94 0048 6420     		movs	r0, #100
   95 004a FFF7FEFF 		bl	CyDelay
   96              	.LVL13:
@@ -177,10 +178,10 @@ ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccfmBup6.s 			page 1
  123              		.file 10 "Generated_Source\\PSoC5/core_cm3.h"
  124              		.section	.debug_info,"",%progbits
  125              	.Ldebug_info0:
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccwQ9V70.s 			page 4
+
+
  126 0000 42020000 		.4byte	0x242
-ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccfmBup6.s 			page 4
-
-
  127 0004 0400     		.2byte	0x4
  128 0006 00000000 		.4byte	.Ldebug_abbrev0
  129 000a 04       		.byte	0x4
@@ -237,10 +238,10 @@ ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccfmBup6.s 			page 1
  180 0070 04       		.byte	0x4
  181 0071 07       		.byte	0x7
  182 0072 B5010000 		.4byte	.LASF8
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccwQ9V70.s 			page 5
+
+
  183 0076 03       		.uleb128 0x3
-ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccfmBup6.s 			page 5
-
-
  184 0077 EE010000 		.4byte	.LASF10
  185 007b 03       		.byte	0x3
  186 007c 2C       		.byte	0x2c
@@ -268,7 +269,7 @@ ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccfmBup6.s 			page 1
  208 00a4 05       		.uleb128 0x5
  209 00a5 B0010000 		.4byte	.LASF32
  210 00a9 01       		.byte	0x1
- 211 00aa 10       		.byte	0x10
+ 211 00aa 11       		.byte	0x11
  212 00ab 68000000 		.4byte	0x68
  213 00af 00000000 		.4byte	.LFB64
  214 00b3 58000000 		.4byte	.LFE64-.LFB64
@@ -278,30 +279,30 @@ ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccfmBup6.s 			page 1
  218 00bd 06       		.uleb128 0x6
  219 00be 38020000 		.4byte	.LASF16
  220 00c2 01       		.byte	0x1
- 221 00c3 1A       		.byte	0x1a
+ 221 00c3 1B       		.byte	0x1b
  222 00c4 68000000 		.4byte	0x68
  223 00c8 00000000 		.4byte	.LLST0
  224 00cc 06       		.uleb128 0x6
  225 00cd 42020000 		.4byte	.LASF17
  226 00d1 01       		.byte	0x1
- 227 00d2 1B       		.byte	0x1b
+ 227 00d2 1C       		.byte	0x1c
  228 00d3 68000000 		.4byte	0x68
  229 00d7 1E000000 		.4byte	.LLST1
  230 00db 07       		.uleb128 0x7
  231 00dc B7000000 		.4byte	.LASF18
  232 00e0 01       		.byte	0x1
- 233 00e1 1C       		.byte	0x1c
+ 233 00e1 1D       		.byte	0x1d
  234 00e2 C1010000 		.4byte	0x1c1
  235 00e6 02       		.uleb128 0x2
  236 00e7 91       		.byte	0x91
  237 00e8 5C       		.sleb128 -36
  238 00e9 07       		.uleb128 0x7
  239 00ea C0000000 		.4byte	.LASF19
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccwQ9V70.s 			page 6
+
+
  240 00ee 01       		.byte	0x1
-ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccfmBup6.s 			page 6
-
-
- 241 00ef 1D       		.byte	0x1d
+ 241 00ef 1E       		.byte	0x1e
  242 00f0 C1010000 		.4byte	0x1c1
  243 00f4 02       		.uleb128 0x2
  244 00f5 91       		.byte	0x91
@@ -357,10 +358,10 @@ ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccfmBup6.s 			page 1
  294 0157 51       		.byte	0x51
  295 0158 05       		.uleb128 0x5
  296 0159 03       		.byte	0x3
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccwQ9V70.s 			page 7
+
+
  297 015a 00000000 		.4byte	.LC0
-ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccfmBup6.s 			page 7
-
-
  298 015e 0A       		.uleb128 0xa
  299 015f 01       		.uleb128 0x1
  300 0160 52       		.byte	0x52
@@ -417,10 +418,10 @@ ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccfmBup6.s 			page 1
  351 01b1 4E000000 		.4byte	.LVL13
  352 01b5 3A020000 		.4byte	0x23a
  353 01b9 0A       		.uleb128 0xa
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccwQ9V70.s 			page 8
+
+
  354 01ba 01       		.uleb128 0x1
-ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccfmBup6.s 			page 8
-
-
  355 01bb 50       		.byte	0x50
  356 01bc 02       		.uleb128 0x2
  357 01bd 08       		.byte	0x8
@@ -460,7 +461,7 @@ ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccfmBup6.s 			page 1
  391 0204 1D000000 		.4byte	.LASF23
  392 0208 1D000000 		.4byte	.LASF23
  393 020c 07       		.byte	0x7
- 394 020d 1C       		.byte	0x1c
+ 394 020d 33       		.byte	0x33
  395 020e 10       		.uleb128 0x10
  396 020f A2000000 		.4byte	.LASF24
  397 0213 A2000000 		.4byte	.LASF24
@@ -477,10 +478,10 @@ ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccfmBup6.s 			page 1
  408 022d 08       		.byte	0x8
  409 022e E7       		.byte	0xe7
  410 022f 10       		.uleb128 0x10
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccwQ9V70.s 			page 9
+
+
  411 0230 4C020000 		.4byte	.LASF27
-ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccfmBup6.s 			page 9
-
-
  412 0234 4C020000 		.4byte	.LASF27
  413 0238 04       		.byte	0x4
  414 0239 8B       		.byte	0x8b
@@ -537,10 +538,10 @@ ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccfmBup6.s 			page 1
  465 002a 00       		.byte	0
  466 002b 04       		.uleb128 0x4
  467 002c 24       		.uleb128 0x24
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccwQ9V70.s 			page 10
+
+
  468 002d 00       		.byte	0
-ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccfmBup6.s 			page 10
-
-
  469 002e 0B       		.uleb128 0xb
  470 002f 0B       		.uleb128 0xb
  471 0030 3E       		.uleb128 0x3e
@@ -597,10 +598,10 @@ ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccfmBup6.s 			page 1
  522 0065 34       		.uleb128 0x34
  523 0066 00       		.byte	0
  524 0067 03       		.uleb128 0x3
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccwQ9V70.s 			page 11
+
+
  525 0068 0E       		.uleb128 0xe
-ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccfmBup6.s 			page 11
-
-
  526 0069 3A       		.uleb128 0x3a
  527 006a 0B       		.uleb128 0xb
  528 006b 3B       		.uleb128 0x3b
@@ -657,10 +658,10 @@ ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccfmBup6.s 			page 1
  579 00a7 01       		.uleb128 0x1
  580 00a8 13       		.uleb128 0x13
  581 00a9 00       		.byte	0
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccwQ9V70.s 			page 12
+
+
  582 00aa 00       		.byte	0
-ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccfmBup6.s 			page 12
-
-
  583 00ab 0D       		.uleb128 0xd
  584 00ac 21       		.uleb128 0x21
  585 00ad 00       		.byte	0
@@ -717,10 +718,10 @@ ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccfmBup6.s 			page 1
  636              	.LLST0:
  637 0000 22000000 		.4byte	.LVL5
  638 0004 25000000 		.4byte	.LVL6-1
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccwQ9V70.s 			page 13
+
+
  639 0008 0100     		.2byte	0x1
-ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccfmBup6.s 			page 13
-
-
  640 000a 50       		.byte	0x50
  641 000b 25000000 		.4byte	.LVL6-1
  642 000f 58000000 		.4byte	.LFE64
@@ -777,10 +778,10 @@ ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccfmBup6.s 			page 1
  683              	.LASF23:
  684 001d 6D6F746F 		.ascii	"motor_move\000"
  684      725F6D6F 
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccwQ9V70.s 			page 14
+
+
  684      766500
-ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccfmBup6.s 			page 14
-
-
  685              	.LASF9:
  686 0028 5F5F696E 		.ascii	"__int32_t\000"
  686      7433325F 
@@ -837,10 +838,10 @@ ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccfmBup6.s 			page 1
  705      20726576 
  705      6973696F 
  705      6E203233 
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccwQ9V70.s 			page 15
+
+
  705      37373135 
-ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccfmBup6.s 			page 15
-
-
  706 014f 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
  706      66756E63 
  706      74696F6E 
@@ -897,10 +898,10 @@ ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccfmBup6.s 			page 1
  728 01ff 6C6F6E67 		.ascii	"long long int\000"
  728      206C6F6E 
  728      6720696E 
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccwQ9V70.s 			page 16
+
+
  728      7400
-ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccfmBup6.s 			page 16
-
-
  729              	.LASF30:
  730 020d 6D61696E 		.ascii	"main.c\000"
  730      2E6300
