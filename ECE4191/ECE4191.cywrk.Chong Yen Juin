@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="ECE4191\ColorBowlRobot_G15\Header Files\motor_control.h">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="ECE4191\ColorBowlRobot_G15\TopDesign">
 <ExpandedNodeIds>
 <v>ECE4191</v>
 <v>ECE4191\ColorBowlRobot_G15</v>
@@ -189,18 +189,6 @@
 <v>ECE4191\ColorBowlRobot_G15\PSoC 5LP Architecture TRM</v>
 <v>ECE4191\ColorBowlRobot_G15\CY8C58LP Family Datasheet</v>
 <v>ECE4191\ColorBowlRobot_G15\System Reference Guides</v>
-<v>ECE4191\ColorBowlRobot_G15\System Reference Guides\cy_boot_v6_0</v>
-<v>ECE4191\ColorBowlRobot_G15\cy_clock_v2_20.pdf</v>
-<v>ECE4191\ColorBowlRobot_G15\cy_constant_v1_0</v>
-<v>ECE4191\ColorBowlRobot_G15\cy_constant_v1_0\cy_constant_v1_0.pdf</v>
-<v>ECE4191\ColorBowlRobot_G15\cy_pins_v2_20</v>
-<v>ECE4191\ColorBowlRobot_G15\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
-<v>ECE4191\ColorBowlRobot_G15\PWM_v3_30.pdf</v>
-<v>ECE4191\ColorBowlRobot_G15\QuadDec_v3_0</v>
-<v>ECE4191\ColorBowlRobot_G15\QuadDec_v3_0\QuadDec_v3_0.pdf</v>
-<v>ECE4191\ColorBowlRobot_G15\Timer_v2_80.pdf</v>
-<v>ECE4191\ColorBowlRobot_G15\UART_v2_50.pdf</v>
-<v>ECE4191\ColorBowlRobot_G15\ZeroTerminal.pdf</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
 <v>ECE4191</v>
@@ -208,18 +196,6 @@
 <v>ECE4191\ColorBowlRobot_G15\PSoC 5LP Architecture TRM</v>
 <v>ECE4191\ColorBowlRobot_G15\CY8C58LP Family Datasheet</v>
 <v>ECE4191\ColorBowlRobot_G15\System Reference Guides</v>
-<v>ECE4191\ColorBowlRobot_G15\System Reference Guides\cy_boot_v6_0</v>
-<v>ECE4191\ColorBowlRobot_G15\cy_clock_v2_20.pdf</v>
-<v>ECE4191\ColorBowlRobot_G15\cy_constant_v1_0</v>
-<v>ECE4191\ColorBowlRobot_G15\cy_constant_v1_0\cy_constant_v1_0.pdf</v>
-<v>ECE4191\ColorBowlRobot_G15\cy_pins_v2_20</v>
-<v>ECE4191\ColorBowlRobot_G15\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
-<v>ECE4191\ColorBowlRobot_G15\PWM_v3_30.pdf</v>
-<v>ECE4191\ColorBowlRobot_G15\QuadDec_v3_0</v>
-<v>ECE4191\ColorBowlRobot_G15\QuadDec_v3_0\QuadDec_v3_0.pdf</v>
-<v>ECE4191\ColorBowlRobot_G15\Timer_v2_80.pdf</v>
-<v>ECE4191\ColorBowlRobot_G15\UART_v2_50.pdf</v>
-<v>ECE4191\ColorBowlRobot_G15\ZeroTerminal.pdf</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStatesV2>
@@ -230,6 +206,8 @@
 <Unloaded />
 <OpenDocs>
 <name v=".\ColorBowlRobot_G15.cydsn\motor_control.h" />
+<name v=".\ColorBowlRobot_G15.cydsn\motor_control.c" />
+<name v=".\ColorBowlRobot_G15.cydsn\TopDesign\TopDesign.cysch" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -237,7 +215,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="805, 415" SelectedTabbedMdiWindow="ca6ba69b-f536-4ca4-ae43-d112dc3dd2a5"><DocumentWindow Key="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\motor_control.h" Guid="ca6ba69b-f536-4ca4-ae43-d112dc3dd2a5" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="860, 415" SelectedTabbedMdiWindow="7fb6fffb-e04b-4e64-bfd6-dde444be5584"><DocumentWindow Key="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\motor_control.h" Guid="ca6ba69b-f536-4ca4-ae43-d112dc3dd2a5" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="b534b6ea-1ad7-4e1a-b4e0-6ec571c980f3" /><DocumentWindow Key="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\motor_control.c" Guid="7fb6fffb-e04b-4e64-bfd6-dde444be5584" /><DocumentWindow Key="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\TopDesign\TopDesign.cysch" Guid="8dda2a1e-7e4f-4b96-a448-53d1d96d3ae0" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
