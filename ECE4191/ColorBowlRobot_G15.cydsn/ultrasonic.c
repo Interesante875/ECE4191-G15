@@ -70,8 +70,15 @@ void ultrasonic_transmit() {
             Trigger_Write(0);
             CyDelayUs(2);
         } 
-    } else {
+    } else if (udsState == 3) {
         while (!Echo_FRIGHT_Read()) {
+            Trigger_Write(1);
+            CyDelayUs(10);
+            Trigger_Write(0);
+            CyDelayUs(2);
+        }
+    } else if (udsState == 4) {
+        while (!Echo_BACK_Read()) {
             Trigger_Write(1);
             CyDelayUs(10);
             Trigger_Write(0);
@@ -84,7 +91,7 @@ void ultrasonic_get_distance() {
     int idx = Control_Reg_Ultrasonic_Read();
     Timer_Ultrasonic_ReadStatusRegister();
     int counter = Timer_Ultrasonic_ReadCounter();
-    double distance = (double)(65535 - count)/58;
+    double distance = (double)(65535 - counter)/58;
     kaldist_measure[idx] = kalman_filter(distance, idx);
 }
 
@@ -105,18 +112,17 @@ double kalman_filter(double U, int idx) {
 }
 
 void ultrasonic_measuring() {
-    ultrasonic_select(0);
-    ultrasonic_transmit();
     
-    ultrasonic_select(1);
-    ultrasonic_transmit();
+    ultrasonic_setup();
     
-    ultrasonic_select(2);
-    ultrasonic_transmit();
+    for (int i = 0; i < N; i++) {
+        ultrasonic_select(i);
+        for (int burst = 0; burst < ULTRASONIC_BURSTS; burst++) {
+            ultrasonic_transmit();
+        }  
+    }
     
-    ultrasonic_select(3);
-    ultrasonic_transmit();
-    
+    ultrasonic_off();
 }
 
 

@@ -241,10 +241,44 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\IR_Sensor_RIGHT.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Clock_4.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Clock_4.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\isr_ir_left.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\isr_ir_left.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\isr_ir_right.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\isr_ir_right.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Echo_BACK_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Echo_BACK.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Echo_BACK.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\isr_IR_Sensor_LEFT.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\isr_IR_Sensor_LEFT.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\isr_IR_Sensor_RIGHT.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\isr_IR_Sensor_RIGHT.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\isr_puck.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\isr_puck.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\PWM_Servo_Gripper.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\PWM_Servo_Gripper.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\PWM_Servo_Gripper_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Clock_5.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Clock_5.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\PWM_Servo_Gripper_Arm.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\PWM_Servo_Gripper_Arm.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\PWM_Servo_Gripper_Arm_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\PWM_Servo_Lifter.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\PWM_Servo_Lifter.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\PWM_Servo_Lifter_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\PWM_Servo_Trunk.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\PWM_Servo_Trunk.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\PWM_Servo_Trunk_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\MOTOR_GRIPPER_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\MOTOR_GRIPPER.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\MOTOR_GRIPPER.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\MOTOR_GRIPPER_ARM_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\MOTOR_GRIPPER_ARM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\MOTOR_GRIPPER_ARM.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\MOTOR_LIFTER_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\MOTOR_LIFTER.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\MOTOR_LIFTER.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\MOTOR_TRUNK_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\MOTOR_TRUNK.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\MOTOR_TRUNK.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Timer_Servo.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Timer_Servo.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Timer_Servo_PM.c</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\Export\ARM_GCC_Generic">

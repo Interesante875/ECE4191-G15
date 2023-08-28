@@ -55,6 +55,16 @@
 </file>
 <file name=".\Generated_Source\PSoC5\Clock_4.c" />
 <file name=".\Generated_Source\PSoC5\Clock_4.h" />
+<file name=".\CortexM3\ARM_GCC_541\Debug\Clock_5.o">
+<dep name=".\Generated_Source\PSoC5\Clock_5.c" />
+<dep name=".\Generated_Source\PSoC5\Clock_5.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC5\cytypes.h" />
+</file>
+<file name=".\Generated_Source\PSoC5\Clock_5.c" />
+<file name=".\Generated_Source\PSoC5\Clock_5.h" />
 <file name=".\CortexM3\ARM_GCC_541\Debug\Cm3Start.o">
 <dep name=".\Generated_Source\PSoC5\Cm3Start.c" />
 <dep name=".\Generated_Source\PSoC5\CyDmac.h" />
@@ -205,6 +215,19 @@
 <dep name=".\Generated_Source\PSoC5\cytypes.h" />
 </file>
 <file name=".\Generated_Source\PSoC5\CySpc.c" />
+<file name=".\CortexM3\ARM_GCC_541\Debug\Echo_BACK.o">
+<dep name=".\Generated_Source\PSoC5\Echo_BACK.c" />
+<dep name=".\Generated_Source\PSoC5\Echo_BACK.h" />
+<dep name=".\Generated_Source\PSoC5\Echo_BACK_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC5\cypins.h" />
+<dep name=".\Generated_Source\PSoC5\cytypes.h" />
+</file>
+<file name=".\Generated_Source\PSoC5\Echo_BACK.c" />
+<file name=".\Generated_Source\PSoC5\Echo_BACK.h" />
+<file name=".\Generated_Source\PSoC5\Echo_BACK_aliases.h" />
 <file name=".\CortexM3\ARM_GCC_541\Debug\Echo_FLEFT.o">
 <dep name=".\Generated_Source\PSoC5\Echo_FLEFT.c" />
 <dep name=".\Generated_Source\PSoC5\Echo_FLEFT.h" />
@@ -322,6 +345,32 @@
 <file name=".\Generated_Source\PSoC5\MOTOR_EN_RIGHT.c" />
 <file name=".\Generated_Source\PSoC5\MOTOR_EN_RIGHT.h" />
 <file name=".\Generated_Source\PSoC5\MOTOR_EN_RIGHT_aliases.h" />
+<file name=".\CortexM3\ARM_GCC_541\Debug\MOTOR_GRIPPER.o">
+<dep name=".\Generated_Source\PSoC5\MOTOR_GRIPPER.c" />
+<dep name=".\Generated_Source\PSoC5\MOTOR_GRIPPER.h" />
+<dep name=".\Generated_Source\PSoC5\MOTOR_GRIPPER_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC5\cypins.h" />
+<dep name=".\Generated_Source\PSoC5\cytypes.h" />
+</file>
+<file name=".\Generated_Source\PSoC5\MOTOR_GRIPPER.c" />
+<file name=".\Generated_Source\PSoC5\MOTOR_GRIPPER.h" />
+<file name=".\Generated_Source\PSoC5\MOTOR_GRIPPER_aliases.h" />
+<file name=".\CortexM3\ARM_GCC_541\Debug\MOTOR_GRIPPER_ARM.o">
+<dep name=".\Generated_Source\PSoC5\MOTOR_GRIPPER_ARM.c" />
+<dep name=".\Generated_Source\PSoC5\MOTOR_GRIPPER_ARM.h" />
+<dep name=".\Generated_Source\PSoC5\MOTOR_GRIPPER_ARM_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC5\cypins.h" />
+<dep name=".\Generated_Source\PSoC5\cytypes.h" />
+</file>
+<file name=".\Generated_Source\PSoC5\MOTOR_GRIPPER_ARM.c" />
+<file name=".\Generated_Source\PSoC5\MOTOR_GRIPPER_ARM.h" />
+<file name=".\Generated_Source\PSoC5\MOTOR_GRIPPER_ARM_aliases.h" />
 <file name=".\CortexM3\ARM_GCC_541\Debug\MOTOR_LEFT_IN_1.o">
 <dep name=".\Generated_Source\PSoC5\MOTOR_LEFT_IN_1.c" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_LEFT_IN_1.h" />
@@ -374,6 +423,19 @@
 <file name=".\Generated_Source\PSoC5\MOTOR_LEFT_PHASE_B.c" />
 <file name=".\Generated_Source\PSoC5\MOTOR_LEFT_PHASE_B.h" />
 <file name=".\Generated_Source\PSoC5\MOTOR_LEFT_PHASE_B_aliases.h" />
+<file name=".\CortexM3\ARM_GCC_541\Debug\MOTOR_LIFTER.o">
+<dep name=".\Generated_Source\PSoC5\MOTOR_LIFTER.c" />
+<dep name=".\Generated_Source\PSoC5\MOTOR_LIFTER.h" />
+<dep name=".\Generated_Source\PSoC5\MOTOR_LIFTER_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC5\cypins.h" />
+<dep name=".\Generated_Source\PSoC5\cytypes.h" />
+</file>
+<file name=".\Generated_Source\PSoC5\MOTOR_LIFTER.c" />
+<file name=".\Generated_Source\PSoC5\MOTOR_LIFTER.h" />
+<file name=".\Generated_Source\PSoC5\MOTOR_LIFTER_aliases.h" />
 <file name=".\CortexM3\ARM_GCC_541\Debug\MOTOR_RIGHT_IN_3.o">
 <dep name=".\Generated_Source\PSoC5\MOTOR_RIGHT_IN_3.c" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_RIGHT_IN_3.h" />
@@ -426,6 +488,19 @@
 <file name=".\Generated_Source\PSoC5\MOTOR_RIGHT_PHASE_B.c" />
 <file name=".\Generated_Source\PSoC5\MOTOR_RIGHT_PHASE_B.h" />
 <file name=".\Generated_Source\PSoC5\MOTOR_RIGHT_PHASE_B_aliases.h" />
+<file name=".\CortexM3\ARM_GCC_541\Debug\MOTOR_TRUNK.o">
+<dep name=".\Generated_Source\PSoC5\MOTOR_TRUNK.c" />
+<dep name=".\Generated_Source\PSoC5\MOTOR_TRUNK.h" />
+<dep name=".\Generated_Source\PSoC5\MOTOR_TRUNK_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC5\cypins.h" />
+<dep name=".\Generated_Source\PSoC5\cytypes.h" />
+</file>
+<file name=".\Generated_Source\PSoC5\MOTOR_TRUNK.c" />
+<file name=".\Generated_Source\PSoC5\MOTOR_TRUNK.h" />
+<file name=".\Generated_Source\PSoC5\MOTOR_TRUNK_aliases.h" />
 <file name=".\CortexM3\ARM_GCC_541\Debug\PWM_Color_Sensor.o">
 <dep name=".\Generated_Source\PSoC5\CyFlash.h" />
 <dep name=".\Generated_Source\PSoC5\CyLib.h" />
@@ -507,6 +582,114 @@
 <dep name=".\Generated_Source\PSoC5\cytypes.h" />
 </file>
 <file name=".\Generated_Source\PSoC5\PWM_RIGHT_PM.c" />
+<file name=".\CortexM3\ARM_GCC_541\Debug\PWM_Servo_Gripper.o">
+<dep name=".\Generated_Source\PSoC5\CyFlash.h" />
+<dep name=".\Generated_Source\PSoC5\CyLib.h" />
+<dep name=".\Generated_Source\PSoC5\CySpc.h" />
+<dep name=".\Generated_Source\PSoC5\PWM_Servo_Gripper.c" />
+<dep name=".\Generated_Source\PSoC5\PWM_Servo_Gripper.h" />
+<dep name=".\Generated_Source\PSoC5\cyPm.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC5\cytypes.h" />
+</file>
+<file name=".\Generated_Source\PSoC5\PWM_Servo_Gripper.c" />
+<file name=".\Generated_Source\PSoC5\PWM_Servo_Gripper.h" />
+<file name=".\CortexM3\ARM_GCC_541\Debug\PWM_Servo_Gripper_Arm.o">
+<dep name=".\Generated_Source\PSoC5\CyFlash.h" />
+<dep name=".\Generated_Source\PSoC5\CyLib.h" />
+<dep name=".\Generated_Source\PSoC5\CySpc.h" />
+<dep name=".\Generated_Source\PSoC5\PWM_Servo_Gripper_Arm.c" />
+<dep name=".\Generated_Source\PSoC5\PWM_Servo_Gripper_Arm.h" />
+<dep name=".\Generated_Source\PSoC5\cyPm.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC5\cytypes.h" />
+</file>
+<file name=".\Generated_Source\PSoC5\PWM_Servo_Gripper_Arm.c" />
+<file name=".\Generated_Source\PSoC5\PWM_Servo_Gripper_Arm.h" />
+<file name=".\CortexM3\ARM_GCC_541\Debug\PWM_Servo_Gripper_Arm_PM.o">
+<dep name=".\Generated_Source\PSoC5\CyFlash.h" />
+<dep name=".\Generated_Source\PSoC5\CyLib.h" />
+<dep name=".\Generated_Source\PSoC5\CySpc.h" />
+<dep name=".\Generated_Source\PSoC5\PWM_Servo_Gripper_Arm.h" />
+<dep name=".\Generated_Source\PSoC5\PWM_Servo_Gripper_Arm_PM.c" />
+<dep name=".\Generated_Source\PSoC5\cyPm.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC5\cytypes.h" />
+</file>
+<file name=".\Generated_Source\PSoC5\PWM_Servo_Gripper_Arm_PM.c" />
+<file name=".\CortexM3\ARM_GCC_541\Debug\PWM_Servo_Gripper_PM.o">
+<dep name=".\Generated_Source\PSoC5\CyFlash.h" />
+<dep name=".\Generated_Source\PSoC5\CyLib.h" />
+<dep name=".\Generated_Source\PSoC5\CySpc.h" />
+<dep name=".\Generated_Source\PSoC5\PWM_Servo_Gripper.h" />
+<dep name=".\Generated_Source\PSoC5\PWM_Servo_Gripper_PM.c" />
+<dep name=".\Generated_Source\PSoC5\cyPm.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC5\cytypes.h" />
+</file>
+<file name=".\Generated_Source\PSoC5\PWM_Servo_Gripper_PM.c" />
+<file name=".\CortexM3\ARM_GCC_541\Debug\PWM_Servo_Lifter.o">
+<dep name=".\Generated_Source\PSoC5\CyFlash.h" />
+<dep name=".\Generated_Source\PSoC5\CyLib.h" />
+<dep name=".\Generated_Source\PSoC5\CySpc.h" />
+<dep name=".\Generated_Source\PSoC5\PWM_Servo_Lifter.c" />
+<dep name=".\Generated_Source\PSoC5\PWM_Servo_Lifter.h" />
+<dep name=".\Generated_Source\PSoC5\cyPm.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC5\cytypes.h" />
+</file>
+<file name=".\Generated_Source\PSoC5\PWM_Servo_Lifter.c" />
+<file name=".\Generated_Source\PSoC5\PWM_Servo_Lifter.h" />
+<file name=".\CortexM3\ARM_GCC_541\Debug\PWM_Servo_Lifter_PM.o">
+<dep name=".\Generated_Source\PSoC5\CyFlash.h" />
+<dep name=".\Generated_Source\PSoC5\CyLib.h" />
+<dep name=".\Generated_Source\PSoC5\CySpc.h" />
+<dep name=".\Generated_Source\PSoC5\PWM_Servo_Lifter.h" />
+<dep name=".\Generated_Source\PSoC5\PWM_Servo_Lifter_PM.c" />
+<dep name=".\Generated_Source\PSoC5\cyPm.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC5\cytypes.h" />
+</file>
+<file name=".\Generated_Source\PSoC5\PWM_Servo_Lifter_PM.c" />
+<file name=".\CortexM3\ARM_GCC_541\Debug\PWM_Servo_Trunk.o">
+<dep name=".\Generated_Source\PSoC5\CyFlash.h" />
+<dep name=".\Generated_Source\PSoC5\CyLib.h" />
+<dep name=".\Generated_Source\PSoC5\CySpc.h" />
+<dep name=".\Generated_Source\PSoC5\PWM_Servo_Trunk.c" />
+<dep name=".\Generated_Source\PSoC5\PWM_Servo_Trunk.h" />
+<dep name=".\Generated_Source\PSoC5\cyPm.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC5\cytypes.h" />
+</file>
+<file name=".\Generated_Source\PSoC5\PWM_Servo_Trunk.c" />
+<file name=".\Generated_Source\PSoC5\PWM_Servo_Trunk.h" />
+<file name=".\CortexM3\ARM_GCC_541\Debug\PWM_Servo_Trunk_PM.o">
+<dep name=".\Generated_Source\PSoC5\CyFlash.h" />
+<dep name=".\Generated_Source\PSoC5\CyLib.h" />
+<dep name=".\Generated_Source\PSoC5\CySpc.h" />
+<dep name=".\Generated_Source\PSoC5\PWM_Servo_Trunk.h" />
+<dep name=".\Generated_Source\PSoC5\PWM_Servo_Trunk_PM.c" />
+<dep name=".\Generated_Source\PSoC5\cyPm.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC5\cytypes.h" />
+</file>
+<file name=".\Generated_Source\PSoC5\PWM_Servo_Trunk_PM.c" />
 <file name=".\CortexM3\ARM_GCC_541\Debug\QuadDec_LEFT.o">
 <dep name=".\Generated_Source\PSoC5\CyFlash.h" />
 <dep name=".\Generated_Source\PSoC5\CyLib.h" />
@@ -737,6 +920,33 @@
 <file name=".\Generated_Source\PSoC5\S3.c" />
 <file name=".\Generated_Source\PSoC5\S3.h" />
 <file name=".\Generated_Source\PSoC5\S3_aliases.h" />
+<file name=".\CortexM3\ARM_GCC_541\Debug\Timer_Servo.o">
+<dep name=".\Generated_Source\PSoC5\CyFlash.h" />
+<dep name=".\Generated_Source\PSoC5\CyLib.h" />
+<dep name=".\Generated_Source\PSoC5\CySpc.h" />
+<dep name=".\Generated_Source\PSoC5\Timer_Servo.c" />
+<dep name=".\Generated_Source\PSoC5\Timer_Servo.h" />
+<dep name=".\Generated_Source\PSoC5\cyPm.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC5\cytypes.h" />
+</file>
+<file name=".\Generated_Source\PSoC5\Timer_Servo.c" />
+<file name=".\Generated_Source\PSoC5\Timer_Servo.h" />
+<file name=".\CortexM3\ARM_GCC_541\Debug\Timer_Servo_PM.o">
+<dep name=".\Generated_Source\PSoC5\CyFlash.h" />
+<dep name=".\Generated_Source\PSoC5\CyLib.h" />
+<dep name=".\Generated_Source\PSoC5\CySpc.h" />
+<dep name=".\Generated_Source\PSoC5\Timer_Servo.h" />
+<dep name=".\Generated_Source\PSoC5\Timer_Servo_PM.c" />
+<dep name=".\Generated_Source\PSoC5\cyPm.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC5\cytypes.h" />
+</file>
+<file name=".\Generated_Source\PSoC5\Timer_Servo_PM.c" />
 <file name=".\CortexM3\ARM_GCC_541\Debug\Timer_Ultrasonic.o">
 <dep name=".\Generated_Source\PSoC5\CyFlash.h" />
 <dep name=".\Generated_Source\PSoC5\CyLib.h" />
@@ -922,6 +1132,36 @@
 <dep name=".\Generated_Source\PSoC5\cyutils.c" />
 </file>
 <file name=".\Generated_Source\PSoC5\cyutils.c" />
+<file name=".\CortexM3\ARM_GCC_541\Debug\isr_IR_Sensor_LEFT.o">
+<dep name=".\Generated_Source\PSoC5\CyFlash.h" />
+<dep name=".\Generated_Source\PSoC5\CyLib.h" />
+<dep name=".\Generated_Source\PSoC5\CySpc.h" />
+<dep name=".\Generated_Source\PSoC5\cyPm.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC5\cytypes.h" />
+<dep name=".\Generated_Source\PSoC5\isr_IR_Sensor_LEFT.c" />
+<dep name=".\Generated_Source\PSoC5\isr_IR_Sensor_LEFT.h" />
+<dep name=".\cyapicallbacks.h" />
+</file>
+<file name=".\Generated_Source\PSoC5\isr_IR_Sensor_LEFT.c" />
+<file name=".\Generated_Source\PSoC5\isr_IR_Sensor_LEFT.h" />
+<file name=".\CortexM3\ARM_GCC_541\Debug\isr_IR_Sensor_RIGHT.o">
+<dep name=".\Generated_Source\PSoC5\CyFlash.h" />
+<dep name=".\Generated_Source\PSoC5\CyLib.h" />
+<dep name=".\Generated_Source\PSoC5\CySpc.h" />
+<dep name=".\Generated_Source\PSoC5\cyPm.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC5\cytypes.h" />
+<dep name=".\Generated_Source\PSoC5\isr_IR_Sensor_RIGHT.c" />
+<dep name=".\Generated_Source\PSoC5\isr_IR_Sensor_RIGHT.h" />
+<dep name=".\cyapicallbacks.h" />
+</file>
+<file name=".\Generated_Source\PSoC5\isr_IR_Sensor_RIGHT.c" />
+<file name=".\Generated_Source\PSoC5\isr_IR_Sensor_RIGHT.h" />
 <file name=".\CortexM3\ARM_GCC_541\Debug\isr_color_sensor.o">
 <dep name=".\Generated_Source\PSoC5\CyFlash.h" />
 <dep name=".\Generated_Source\PSoC5\CyLib.h" />
@@ -952,7 +1192,7 @@
 </file>
 <file name=".\Generated_Source\PSoC5\isr_input.c" />
 <file name=".\Generated_Source\PSoC5\isr_input.h" />
-<file name=".\CortexM3\ARM_GCC_541\Debug\isr_ir_left.o">
+<file name=".\CortexM3\ARM_GCC_541\Debug\isr_puck.o">
 <dep name=".\Generated_Source\PSoC5\CyFlash.h" />
 <dep name=".\Generated_Source\PSoC5\CyLib.h" />
 <dep name=".\Generated_Source\PSoC5\CySpc.h" />
@@ -961,27 +1201,12 @@
 <dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
 <dep name=".\Generated_Source\PSoC5\cyfitter.h" />
 <dep name=".\Generated_Source\PSoC5\cytypes.h" />
-<dep name=".\Generated_Source\PSoC5\isr_ir_left.c" />
-<dep name=".\Generated_Source\PSoC5\isr_ir_left.h" />
+<dep name=".\Generated_Source\PSoC5\isr_puck.c" />
+<dep name=".\Generated_Source\PSoC5\isr_puck.h" />
 <dep name=".\cyapicallbacks.h" />
 </file>
-<file name=".\Generated_Source\PSoC5\isr_ir_left.c" />
-<file name=".\Generated_Source\PSoC5\isr_ir_left.h" />
-<file name=".\CortexM3\ARM_GCC_541\Debug\isr_ir_right.o">
-<dep name=".\Generated_Source\PSoC5\CyFlash.h" />
-<dep name=".\Generated_Source\PSoC5\CyLib.h" />
-<dep name=".\Generated_Source\PSoC5\CySpc.h" />
-<dep name=".\Generated_Source\PSoC5\cyPm.h" />
-<dep name=".\Generated_Source\PSoC5\cydevice.h" />
-<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
-<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
-<dep name=".\Generated_Source\PSoC5\cytypes.h" />
-<dep name=".\Generated_Source\PSoC5\isr_ir_right.c" />
-<dep name=".\Generated_Source\PSoC5\isr_ir_right.h" />
-<dep name=".\cyapicallbacks.h" />
-</file>
-<file name=".\Generated_Source\PSoC5\isr_ir_right.c" />
-<file name=".\Generated_Source\PSoC5\isr_ir_right.h" />
+<file name=".\Generated_Source\PSoC5\isr_puck.c" />
+<file name=".\Generated_Source\PSoC5\isr_puck.h" />
 <file name=".\CortexM3\ARM_GCC_541\Debug\isr_ultrasonic.o">
 <dep name=".\Generated_Source\PSoC5\CyFlash.h" />
 <dep name=".\Generated_Source\PSoC5\CyLib.h" />
@@ -1009,6 +1234,7 @@
 <dep name=".\Generated_Source\PSoC5\Clock_2.h" />
 <dep name=".\Generated_Source\PSoC5\Clock_3.h" />
 <dep name=".\Generated_Source\PSoC5\Clock_4.h" />
+<dep name=".\Generated_Source\PSoC5\Clock_5.h" />
 <dep name=".\Generated_Source\PSoC5\Control_Reg_Color_Sensor.h" />
 <dep name=".\Generated_Source\PSoC5\Control_Reg_Ultrasonic.h" />
 <dep name=".\Generated_Source\PSoC5\Count.h" />
@@ -1018,6 +1244,8 @@
 <dep name=".\Generated_Source\PSoC5\CyFlash.h" />
 <dep name=".\Generated_Source\PSoC5\CyLib.h" />
 <dep name=".\Generated_Source\PSoC5\CySpc.h" />
+<dep name=".\Generated_Source\PSoC5\Echo_BACK.h" />
+<dep name=".\Generated_Source\PSoC5\Echo_BACK_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\Echo_FLEFT.h" />
 <dep name=".\Generated_Source\PSoC5\Echo_FLEFT_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\Echo_FRIGHT.h" />
@@ -1036,6 +1264,10 @@
 <dep name=".\Generated_Source\PSoC5\MOTOR_EN_LEFT_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_EN_RIGHT.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_EN_RIGHT_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\MOTOR_GRIPPER.h" />
+<dep name=".\Generated_Source\PSoC5\MOTOR_GRIPPER_ARM.h" />
+<dep name=".\Generated_Source\PSoC5\MOTOR_GRIPPER_ARM_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\MOTOR_GRIPPER_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_LEFT_IN_1.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_LEFT_IN_1_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_LEFT_IN_2.h" />
@@ -1044,6 +1276,8 @@
 <dep name=".\Generated_Source\PSoC5\MOTOR_LEFT_PHASE_A_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_LEFT_PHASE_B.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_LEFT_PHASE_B_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\MOTOR_LIFTER.h" />
+<dep name=".\Generated_Source\PSoC5\MOTOR_LIFTER_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_RIGHT_IN_3.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_RIGHT_IN_3_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_RIGHT_IN_4.h" />
@@ -1052,9 +1286,15 @@
 <dep name=".\Generated_Source\PSoC5\MOTOR_RIGHT_PHASE_A_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_RIGHT_PHASE_B.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_RIGHT_PHASE_B_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\MOTOR_TRUNK.h" />
+<dep name=".\Generated_Source\PSoC5\MOTOR_TRUNK_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\PWM_Color_Sensor.h" />
 <dep name=".\Generated_Source\PSoC5\PWM_LEFT.h" />
 <dep name=".\Generated_Source\PSoC5\PWM_RIGHT.h" />
+<dep name=".\Generated_Source\PSoC5\PWM_Servo_Gripper.h" />
+<dep name=".\Generated_Source\PSoC5\PWM_Servo_Gripper_Arm.h" />
+<dep name=".\Generated_Source\PSoC5\PWM_Servo_Lifter.h" />
+<dep name=".\Generated_Source\PSoC5\PWM_Servo_Trunk.h" />
 <dep name=".\Generated_Source\PSoC5\QuadDec_LEFT.h" />
 <dep name=".\Generated_Source\PSoC5\QuadDec_LEFT_Cnt16.h" />
 <dep name=".\Generated_Source\PSoC5\QuadDec_LEFT_PVT.h" />
@@ -1071,6 +1311,7 @@
 <dep name=".\Generated_Source\PSoC5\S2_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\S3.h" />
 <dep name=".\Generated_Source\PSoC5\S3_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\Timer_Servo.h" />
 <dep name=".\Generated_Source\PSoC5\Timer_Ultrasonic.h" />
 <dep name=".\Generated_Source\PSoC5\Trigger.h" />
 <dep name=".\Generated_Source\PSoC5\Trigger_aliases.h" />
@@ -1085,10 +1326,11 @@
 <dep name=".\Generated_Source\PSoC5\cyfitter_cfg.h" />
 <dep name=".\Generated_Source\PSoC5\cypins.h" />
 <dep name=".\Generated_Source\PSoC5\cytypes.h" />
+<dep name=".\Generated_Source\PSoC5\isr_IR_Sensor_LEFT.h" />
+<dep name=".\Generated_Source\PSoC5\isr_IR_Sensor_RIGHT.h" />
 <dep name=".\Generated_Source\PSoC5\isr_color_sensor.h" />
 <dep name=".\Generated_Source\PSoC5\isr_input.h" />
-<dep name=".\Generated_Source\PSoC5\isr_ir_left.h" />
-<dep name=".\Generated_Source\PSoC5\isr_ir_right.h" />
+<dep name=".\Generated_Source\PSoC5\isr_puck.h" />
 <dep name=".\Generated_Source\PSoC5\isr_ultrasonic.h" />
 <dep name=".\bluetooth.c" />
 </file>
@@ -1112,6 +1354,7 @@
 <dep name=".\Generated_Source\PSoC5\Clock_2.h" />
 <dep name=".\Generated_Source\PSoC5\Clock_3.h" />
 <dep name=".\Generated_Source\PSoC5\Clock_4.h" />
+<dep name=".\Generated_Source\PSoC5\Clock_5.h" />
 <dep name=".\Generated_Source\PSoC5\Control_Reg_Color_Sensor.h" />
 <dep name=".\Generated_Source\PSoC5\Control_Reg_Ultrasonic.h" />
 <dep name=".\Generated_Source\PSoC5\Count.h" />
@@ -1121,6 +1364,8 @@
 <dep name=".\Generated_Source\PSoC5\CyFlash.h" />
 <dep name=".\Generated_Source\PSoC5\CyLib.h" />
 <dep name=".\Generated_Source\PSoC5\CySpc.h" />
+<dep name=".\Generated_Source\PSoC5\Echo_BACK.h" />
+<dep name=".\Generated_Source\PSoC5\Echo_BACK_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\Echo_FLEFT.h" />
 <dep name=".\Generated_Source\PSoC5\Echo_FLEFT_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\Echo_FRIGHT.h" />
@@ -1139,6 +1384,10 @@
 <dep name=".\Generated_Source\PSoC5\MOTOR_EN_LEFT_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_EN_RIGHT.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_EN_RIGHT_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\MOTOR_GRIPPER.h" />
+<dep name=".\Generated_Source\PSoC5\MOTOR_GRIPPER_ARM.h" />
+<dep name=".\Generated_Source\PSoC5\MOTOR_GRIPPER_ARM_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\MOTOR_GRIPPER_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_LEFT_IN_1.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_LEFT_IN_1_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_LEFT_IN_2.h" />
@@ -1147,6 +1396,8 @@
 <dep name=".\Generated_Source\PSoC5\MOTOR_LEFT_PHASE_A_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_LEFT_PHASE_B.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_LEFT_PHASE_B_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\MOTOR_LIFTER.h" />
+<dep name=".\Generated_Source\PSoC5\MOTOR_LIFTER_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_RIGHT_IN_3.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_RIGHT_IN_3_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_RIGHT_IN_4.h" />
@@ -1155,9 +1406,15 @@
 <dep name=".\Generated_Source\PSoC5\MOTOR_RIGHT_PHASE_A_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_RIGHT_PHASE_B.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_RIGHT_PHASE_B_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\MOTOR_TRUNK.h" />
+<dep name=".\Generated_Source\PSoC5\MOTOR_TRUNK_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\PWM_Color_Sensor.h" />
 <dep name=".\Generated_Source\PSoC5\PWM_LEFT.h" />
 <dep name=".\Generated_Source\PSoC5\PWM_RIGHT.h" />
+<dep name=".\Generated_Source\PSoC5\PWM_Servo_Gripper.h" />
+<dep name=".\Generated_Source\PSoC5\PWM_Servo_Gripper_Arm.h" />
+<dep name=".\Generated_Source\PSoC5\PWM_Servo_Lifter.h" />
+<dep name=".\Generated_Source\PSoC5\PWM_Servo_Trunk.h" />
 <dep name=".\Generated_Source\PSoC5\QuadDec_LEFT.h" />
 <dep name=".\Generated_Source\PSoC5\QuadDec_LEFT_Cnt16.h" />
 <dep name=".\Generated_Source\PSoC5\QuadDec_LEFT_PVT.h" />
@@ -1174,6 +1431,7 @@
 <dep name=".\Generated_Source\PSoC5\S2_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\S3.h" />
 <dep name=".\Generated_Source\PSoC5\S3_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\Timer_Servo.h" />
 <dep name=".\Generated_Source\PSoC5\Timer_Ultrasonic.h" />
 <dep name=".\Generated_Source\PSoC5\Trigger.h" />
 <dep name=".\Generated_Source\PSoC5\Trigger_aliases.h" />
@@ -1188,10 +1446,11 @@
 <dep name=".\Generated_Source\PSoC5\cyfitter_cfg.h" />
 <dep name=".\Generated_Source\PSoC5\cypins.h" />
 <dep name=".\Generated_Source\PSoC5\cytypes.h" />
+<dep name=".\Generated_Source\PSoC5\isr_IR_Sensor_LEFT.h" />
+<dep name=".\Generated_Source\PSoC5\isr_IR_Sensor_RIGHT.h" />
 <dep name=".\Generated_Source\PSoC5\isr_color_sensor.h" />
 <dep name=".\Generated_Source\PSoC5\isr_input.h" />
-<dep name=".\Generated_Source\PSoC5\isr_ir_left.h" />
-<dep name=".\Generated_Source\PSoC5\isr_ir_right.h" />
+<dep name=".\Generated_Source\PSoC5\isr_puck.h" />
 <dep name=".\Generated_Source\PSoC5\isr_ultrasonic.h" />
 <dep name=".\color_detection.c" />
 <dep name=".\color_detection.h" />
@@ -1210,6 +1469,7 @@
 <dep name=".\Generated_Source\PSoC5\Clock_2.h" />
 <dep name=".\Generated_Source\PSoC5\Clock_3.h" />
 <dep name=".\Generated_Source\PSoC5\Clock_4.h" />
+<dep name=".\Generated_Source\PSoC5\Clock_5.h" />
 <dep name=".\Generated_Source\PSoC5\Control_Reg_Color_Sensor.h" />
 <dep name=".\Generated_Source\PSoC5\Control_Reg_Ultrasonic.h" />
 <dep name=".\Generated_Source\PSoC5\Count.h" />
@@ -1219,6 +1479,8 @@
 <dep name=".\Generated_Source\PSoC5\CyFlash.h" />
 <dep name=".\Generated_Source\PSoC5\CyLib.h" />
 <dep name=".\Generated_Source\PSoC5\CySpc.h" />
+<dep name=".\Generated_Source\PSoC5\Echo_BACK.h" />
+<dep name=".\Generated_Source\PSoC5\Echo_BACK_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\Echo_FLEFT.h" />
 <dep name=".\Generated_Source\PSoC5\Echo_FLEFT_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\Echo_FRIGHT.h" />
@@ -1237,6 +1499,10 @@
 <dep name=".\Generated_Source\PSoC5\MOTOR_EN_LEFT_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_EN_RIGHT.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_EN_RIGHT_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\MOTOR_GRIPPER.h" />
+<dep name=".\Generated_Source\PSoC5\MOTOR_GRIPPER_ARM.h" />
+<dep name=".\Generated_Source\PSoC5\MOTOR_GRIPPER_ARM_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\MOTOR_GRIPPER_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_LEFT_IN_1.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_LEFT_IN_1_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_LEFT_IN_2.h" />
@@ -1245,6 +1511,8 @@
 <dep name=".\Generated_Source\PSoC5\MOTOR_LEFT_PHASE_A_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_LEFT_PHASE_B.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_LEFT_PHASE_B_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\MOTOR_LIFTER.h" />
+<dep name=".\Generated_Source\PSoC5\MOTOR_LIFTER_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_RIGHT_IN_3.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_RIGHT_IN_3_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_RIGHT_IN_4.h" />
@@ -1253,9 +1521,15 @@
 <dep name=".\Generated_Source\PSoC5\MOTOR_RIGHT_PHASE_A_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_RIGHT_PHASE_B.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_RIGHT_PHASE_B_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\MOTOR_TRUNK.h" />
+<dep name=".\Generated_Source\PSoC5\MOTOR_TRUNK_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\PWM_Color_Sensor.h" />
 <dep name=".\Generated_Source\PSoC5\PWM_LEFT.h" />
 <dep name=".\Generated_Source\PSoC5\PWM_RIGHT.h" />
+<dep name=".\Generated_Source\PSoC5\PWM_Servo_Gripper.h" />
+<dep name=".\Generated_Source\PSoC5\PWM_Servo_Gripper_Arm.h" />
+<dep name=".\Generated_Source\PSoC5\PWM_Servo_Lifter.h" />
+<dep name=".\Generated_Source\PSoC5\PWM_Servo_Trunk.h" />
 <dep name=".\Generated_Source\PSoC5\QuadDec_LEFT.h" />
 <dep name=".\Generated_Source\PSoC5\QuadDec_LEFT_Cnt16.h" />
 <dep name=".\Generated_Source\PSoC5\QuadDec_LEFT_PVT.h" />
@@ -1272,6 +1546,7 @@
 <dep name=".\Generated_Source\PSoC5\S2_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\S3.h" />
 <dep name=".\Generated_Source\PSoC5\S3_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\Timer_Servo.h" />
 <dep name=".\Generated_Source\PSoC5\Timer_Ultrasonic.h" />
 <dep name=".\Generated_Source\PSoC5\Trigger.h" />
 <dep name=".\Generated_Source\PSoC5\Trigger_aliases.h" />
@@ -1286,10 +1561,11 @@
 <dep name=".\Generated_Source\PSoC5\cyfitter_cfg.h" />
 <dep name=".\Generated_Source\PSoC5\cypins.h" />
 <dep name=".\Generated_Source\PSoC5\cytypes.h" />
+<dep name=".\Generated_Source\PSoC5\isr_IR_Sensor_LEFT.h" />
+<dep name=".\Generated_Source\PSoC5\isr_IR_Sensor_RIGHT.h" />
 <dep name=".\Generated_Source\PSoC5\isr_color_sensor.h" />
 <dep name=".\Generated_Source\PSoC5\isr_input.h" />
-<dep name=".\Generated_Source\PSoC5\isr_ir_left.h" />
-<dep name=".\Generated_Source\PSoC5\isr_ir_right.h" />
+<dep name=".\Generated_Source\PSoC5\isr_puck.h" />
 <dep name=".\Generated_Source\PSoC5\isr_ultrasonic.h" />
 <dep name=".\controller.c" />
 <dep name=".\controller.h" />
@@ -1308,6 +1584,7 @@
 <dep name=".\Generated_Source\PSoC5\Clock_2.h" />
 <dep name=".\Generated_Source\PSoC5\Clock_3.h" />
 <dep name=".\Generated_Source\PSoC5\Clock_4.h" />
+<dep name=".\Generated_Source\PSoC5\Clock_5.h" />
 <dep name=".\Generated_Source\PSoC5\Control_Reg_Color_Sensor.h" />
 <dep name=".\Generated_Source\PSoC5\Control_Reg_Ultrasonic.h" />
 <dep name=".\Generated_Source\PSoC5\Count.h" />
@@ -1317,6 +1594,8 @@
 <dep name=".\Generated_Source\PSoC5\CyFlash.h" />
 <dep name=".\Generated_Source\PSoC5\CyLib.h" />
 <dep name=".\Generated_Source\PSoC5\CySpc.h" />
+<dep name=".\Generated_Source\PSoC5\Echo_BACK.h" />
+<dep name=".\Generated_Source\PSoC5\Echo_BACK_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\Echo_FLEFT.h" />
 <dep name=".\Generated_Source\PSoC5\Echo_FLEFT_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\Echo_FRIGHT.h" />
@@ -1335,6 +1614,10 @@
 <dep name=".\Generated_Source\PSoC5\MOTOR_EN_LEFT_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_EN_RIGHT.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_EN_RIGHT_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\MOTOR_GRIPPER.h" />
+<dep name=".\Generated_Source\PSoC5\MOTOR_GRIPPER_ARM.h" />
+<dep name=".\Generated_Source\PSoC5\MOTOR_GRIPPER_ARM_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\MOTOR_GRIPPER_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_LEFT_IN_1.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_LEFT_IN_1_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_LEFT_IN_2.h" />
@@ -1343,6 +1626,8 @@
 <dep name=".\Generated_Source\PSoC5\MOTOR_LEFT_PHASE_A_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_LEFT_PHASE_B.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_LEFT_PHASE_B_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\MOTOR_LIFTER.h" />
+<dep name=".\Generated_Source\PSoC5\MOTOR_LIFTER_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_RIGHT_IN_3.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_RIGHT_IN_3_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_RIGHT_IN_4.h" />
@@ -1351,9 +1636,15 @@
 <dep name=".\Generated_Source\PSoC5\MOTOR_RIGHT_PHASE_A_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_RIGHT_PHASE_B.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_RIGHT_PHASE_B_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\MOTOR_TRUNK.h" />
+<dep name=".\Generated_Source\PSoC5\MOTOR_TRUNK_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\PWM_Color_Sensor.h" />
 <dep name=".\Generated_Source\PSoC5\PWM_LEFT.h" />
 <dep name=".\Generated_Source\PSoC5\PWM_RIGHT.h" />
+<dep name=".\Generated_Source\PSoC5\PWM_Servo_Gripper.h" />
+<dep name=".\Generated_Source\PSoC5\PWM_Servo_Gripper_Arm.h" />
+<dep name=".\Generated_Source\PSoC5\PWM_Servo_Lifter.h" />
+<dep name=".\Generated_Source\PSoC5\PWM_Servo_Trunk.h" />
 <dep name=".\Generated_Source\PSoC5\QuadDec_LEFT.h" />
 <dep name=".\Generated_Source\PSoC5\QuadDec_LEFT_Cnt16.h" />
 <dep name=".\Generated_Source\PSoC5\QuadDec_LEFT_PVT.h" />
@@ -1370,6 +1661,7 @@
 <dep name=".\Generated_Source\PSoC5\S2_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\S3.h" />
 <dep name=".\Generated_Source\PSoC5\S3_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\Timer_Servo.h" />
 <dep name=".\Generated_Source\PSoC5\Timer_Ultrasonic.h" />
 <dep name=".\Generated_Source\PSoC5\Trigger.h" />
 <dep name=".\Generated_Source\PSoC5\Trigger_aliases.h" />
@@ -1384,14 +1676,17 @@
 <dep name=".\Generated_Source\PSoC5\cyfitter_cfg.h" />
 <dep name=".\Generated_Source\PSoC5\cypins.h" />
 <dep name=".\Generated_Source\PSoC5\cytypes.h" />
+<dep name=".\Generated_Source\PSoC5\isr_IR_Sensor_LEFT.h" />
+<dep name=".\Generated_Source\PSoC5\isr_IR_Sensor_RIGHT.h" />
 <dep name=".\Generated_Source\PSoC5\isr_color_sensor.h" />
 <dep name=".\Generated_Source\PSoC5\isr_input.h" />
-<dep name=".\Generated_Source\PSoC5\isr_ir_left.h" />
-<dep name=".\Generated_Source\PSoC5\isr_ir_right.h" />
+<dep name=".\Generated_Source\PSoC5\isr_puck.h" />
 <dep name=".\Generated_Source\PSoC5\isr_ultrasonic.h" />
 <dep name=".\irsensor.c" />
+<dep name=".\irsensor.h" />
 </file>
 <file name=".\irsensor.c" />
+<file name=".\irsensor.h" />
 <file name=".\CortexM3\ARM_GCC_541\Debug\locomotion.o">
 <dep name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_compiler.h" />
@@ -1404,6 +1699,7 @@
 <dep name=".\Generated_Source\PSoC5\Clock_2.h" />
 <dep name=".\Generated_Source\PSoC5\Clock_3.h" />
 <dep name=".\Generated_Source\PSoC5\Clock_4.h" />
+<dep name=".\Generated_Source\PSoC5\Clock_5.h" />
 <dep name=".\Generated_Source\PSoC5\Control_Reg_Color_Sensor.h" />
 <dep name=".\Generated_Source\PSoC5\Control_Reg_Ultrasonic.h" />
 <dep name=".\Generated_Source\PSoC5\Count.h" />
@@ -1413,6 +1709,8 @@
 <dep name=".\Generated_Source\PSoC5\CyFlash.h" />
 <dep name=".\Generated_Source\PSoC5\CyLib.h" />
 <dep name=".\Generated_Source\PSoC5\CySpc.h" />
+<dep name=".\Generated_Source\PSoC5\Echo_BACK.h" />
+<dep name=".\Generated_Source\PSoC5\Echo_BACK_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\Echo_FLEFT.h" />
 <dep name=".\Generated_Source\PSoC5\Echo_FLEFT_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\Echo_FRIGHT.h" />
@@ -1431,6 +1729,10 @@
 <dep name=".\Generated_Source\PSoC5\MOTOR_EN_LEFT_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_EN_RIGHT.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_EN_RIGHT_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\MOTOR_GRIPPER.h" />
+<dep name=".\Generated_Source\PSoC5\MOTOR_GRIPPER_ARM.h" />
+<dep name=".\Generated_Source\PSoC5\MOTOR_GRIPPER_ARM_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\MOTOR_GRIPPER_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_LEFT_IN_1.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_LEFT_IN_1_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_LEFT_IN_2.h" />
@@ -1439,6 +1741,8 @@
 <dep name=".\Generated_Source\PSoC5\MOTOR_LEFT_PHASE_A_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_LEFT_PHASE_B.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_LEFT_PHASE_B_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\MOTOR_LIFTER.h" />
+<dep name=".\Generated_Source\PSoC5\MOTOR_LIFTER_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_RIGHT_IN_3.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_RIGHT_IN_3_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_RIGHT_IN_4.h" />
@@ -1447,9 +1751,15 @@
 <dep name=".\Generated_Source\PSoC5\MOTOR_RIGHT_PHASE_A_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_RIGHT_PHASE_B.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_RIGHT_PHASE_B_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\MOTOR_TRUNK.h" />
+<dep name=".\Generated_Source\PSoC5\MOTOR_TRUNK_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\PWM_Color_Sensor.h" />
 <dep name=".\Generated_Source\PSoC5\PWM_LEFT.h" />
 <dep name=".\Generated_Source\PSoC5\PWM_RIGHT.h" />
+<dep name=".\Generated_Source\PSoC5\PWM_Servo_Gripper.h" />
+<dep name=".\Generated_Source\PSoC5\PWM_Servo_Gripper_Arm.h" />
+<dep name=".\Generated_Source\PSoC5\PWM_Servo_Lifter.h" />
+<dep name=".\Generated_Source\PSoC5\PWM_Servo_Trunk.h" />
 <dep name=".\Generated_Source\PSoC5\QuadDec_LEFT.h" />
 <dep name=".\Generated_Source\PSoC5\QuadDec_LEFT_Cnt16.h" />
 <dep name=".\Generated_Source\PSoC5\QuadDec_LEFT_PVT.h" />
@@ -1466,6 +1776,7 @@
 <dep name=".\Generated_Source\PSoC5\S2_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\S3.h" />
 <dep name=".\Generated_Source\PSoC5\S3_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\Timer_Servo.h" />
 <dep name=".\Generated_Source\PSoC5\Timer_Ultrasonic.h" />
 <dep name=".\Generated_Source\PSoC5\Trigger.h" />
 <dep name=".\Generated_Source\PSoC5\Trigger_aliases.h" />
@@ -1480,10 +1791,11 @@
 <dep name=".\Generated_Source\PSoC5\cyfitter_cfg.h" />
 <dep name=".\Generated_Source\PSoC5\cypins.h" />
 <dep name=".\Generated_Source\PSoC5\cytypes.h" />
+<dep name=".\Generated_Source\PSoC5\isr_IR_Sensor_LEFT.h" />
+<dep name=".\Generated_Source\PSoC5\isr_IR_Sensor_RIGHT.h" />
 <dep name=".\Generated_Source\PSoC5\isr_color_sensor.h" />
 <dep name=".\Generated_Source\PSoC5\isr_input.h" />
-<dep name=".\Generated_Source\PSoC5\isr_ir_left.h" />
-<dep name=".\Generated_Source\PSoC5\isr_ir_right.h" />
+<dep name=".\Generated_Source\PSoC5\isr_puck.h" />
 <dep name=".\Generated_Source\PSoC5\isr_ultrasonic.h" />
 <dep name=".\controller.h" />
 <dep name=".\locomotion.c" />
@@ -1503,6 +1815,7 @@
 <dep name=".\Generated_Source\PSoC5\Clock_2.h" />
 <dep name=".\Generated_Source\PSoC5\Clock_3.h" />
 <dep name=".\Generated_Source\PSoC5\Clock_4.h" />
+<dep name=".\Generated_Source\PSoC5\Clock_5.h" />
 <dep name=".\Generated_Source\PSoC5\Control_Reg_Color_Sensor.h" />
 <dep name=".\Generated_Source\PSoC5\Control_Reg_Ultrasonic.h" />
 <dep name=".\Generated_Source\PSoC5\Count.h" />
@@ -1512,6 +1825,8 @@
 <dep name=".\Generated_Source\PSoC5\CyFlash.h" />
 <dep name=".\Generated_Source\PSoC5\CyLib.h" />
 <dep name=".\Generated_Source\PSoC5\CySpc.h" />
+<dep name=".\Generated_Source\PSoC5\Echo_BACK.h" />
+<dep name=".\Generated_Source\PSoC5\Echo_BACK_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\Echo_FLEFT.h" />
 <dep name=".\Generated_Source\PSoC5\Echo_FLEFT_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\Echo_FRIGHT.h" />
@@ -1530,6 +1845,10 @@
 <dep name=".\Generated_Source\PSoC5\MOTOR_EN_LEFT_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_EN_RIGHT.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_EN_RIGHT_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\MOTOR_GRIPPER.h" />
+<dep name=".\Generated_Source\PSoC5\MOTOR_GRIPPER_ARM.h" />
+<dep name=".\Generated_Source\PSoC5\MOTOR_GRIPPER_ARM_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\MOTOR_GRIPPER_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_LEFT_IN_1.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_LEFT_IN_1_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_LEFT_IN_2.h" />
@@ -1538,6 +1857,8 @@
 <dep name=".\Generated_Source\PSoC5\MOTOR_LEFT_PHASE_A_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_LEFT_PHASE_B.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_LEFT_PHASE_B_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\MOTOR_LIFTER.h" />
+<dep name=".\Generated_Source\PSoC5\MOTOR_LIFTER_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_RIGHT_IN_3.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_RIGHT_IN_3_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_RIGHT_IN_4.h" />
@@ -1546,9 +1867,15 @@
 <dep name=".\Generated_Source\PSoC5\MOTOR_RIGHT_PHASE_A_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_RIGHT_PHASE_B.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_RIGHT_PHASE_B_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\MOTOR_TRUNK.h" />
+<dep name=".\Generated_Source\PSoC5\MOTOR_TRUNK_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\PWM_Color_Sensor.h" />
 <dep name=".\Generated_Source\PSoC5\PWM_LEFT.h" />
 <dep name=".\Generated_Source\PSoC5\PWM_RIGHT.h" />
+<dep name=".\Generated_Source\PSoC5\PWM_Servo_Gripper.h" />
+<dep name=".\Generated_Source\PSoC5\PWM_Servo_Gripper_Arm.h" />
+<dep name=".\Generated_Source\PSoC5\PWM_Servo_Lifter.h" />
+<dep name=".\Generated_Source\PSoC5\PWM_Servo_Trunk.h" />
 <dep name=".\Generated_Source\PSoC5\QuadDec_LEFT.h" />
 <dep name=".\Generated_Source\PSoC5\QuadDec_LEFT_Cnt16.h" />
 <dep name=".\Generated_Source\PSoC5\QuadDec_LEFT_PVT.h" />
@@ -1565,6 +1892,7 @@
 <dep name=".\Generated_Source\PSoC5\S2_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\S3.h" />
 <dep name=".\Generated_Source\PSoC5\S3_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\Timer_Servo.h" />
 <dep name=".\Generated_Source\PSoC5\Timer_Ultrasonic.h" />
 <dep name=".\Generated_Source\PSoC5\Trigger.h" />
 <dep name=".\Generated_Source\PSoC5\Trigger_aliases.h" />
@@ -1579,10 +1907,11 @@
 <dep name=".\Generated_Source\PSoC5\cyfitter_cfg.h" />
 <dep name=".\Generated_Source\PSoC5\cypins.h" />
 <dep name=".\Generated_Source\PSoC5\cytypes.h" />
+<dep name=".\Generated_Source\PSoC5\isr_IR_Sensor_LEFT.h" />
+<dep name=".\Generated_Source\PSoC5\isr_IR_Sensor_RIGHT.h" />
 <dep name=".\Generated_Source\PSoC5\isr_color_sensor.h" />
 <dep name=".\Generated_Source\PSoC5\isr_input.h" />
-<dep name=".\Generated_Source\PSoC5\isr_ir_left.h" />
-<dep name=".\Generated_Source\PSoC5\isr_ir_right.h" />
+<dep name=".\Generated_Source\PSoC5\isr_puck.h" />
 <dep name=".\Generated_Source\PSoC5\isr_ultrasonic.h" />
 <dep name=".\main.c" />
 </file>
@@ -1599,6 +1928,7 @@
 <dep name=".\Generated_Source\PSoC5\Clock_2.h" />
 <dep name=".\Generated_Source\PSoC5\Clock_3.h" />
 <dep name=".\Generated_Source\PSoC5\Clock_4.h" />
+<dep name=".\Generated_Source\PSoC5\Clock_5.h" />
 <dep name=".\Generated_Source\PSoC5\Control_Reg_Color_Sensor.h" />
 <dep name=".\Generated_Source\PSoC5\Control_Reg_Ultrasonic.h" />
 <dep name=".\Generated_Source\PSoC5\Count.h" />
@@ -1608,6 +1938,8 @@
 <dep name=".\Generated_Source\PSoC5\CyFlash.h" />
 <dep name=".\Generated_Source\PSoC5\CyLib.h" />
 <dep name=".\Generated_Source\PSoC5\CySpc.h" />
+<dep name=".\Generated_Source\PSoC5\Echo_BACK.h" />
+<dep name=".\Generated_Source\PSoC5\Echo_BACK_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\Echo_FLEFT.h" />
 <dep name=".\Generated_Source\PSoC5\Echo_FLEFT_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\Echo_FRIGHT.h" />
@@ -1626,6 +1958,10 @@
 <dep name=".\Generated_Source\PSoC5\MOTOR_EN_LEFT_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_EN_RIGHT.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_EN_RIGHT_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\MOTOR_GRIPPER.h" />
+<dep name=".\Generated_Source\PSoC5\MOTOR_GRIPPER_ARM.h" />
+<dep name=".\Generated_Source\PSoC5\MOTOR_GRIPPER_ARM_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\MOTOR_GRIPPER_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_LEFT_IN_1.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_LEFT_IN_1_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_LEFT_IN_2.h" />
@@ -1634,6 +1970,8 @@
 <dep name=".\Generated_Source\PSoC5\MOTOR_LEFT_PHASE_A_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_LEFT_PHASE_B.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_LEFT_PHASE_B_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\MOTOR_LIFTER.h" />
+<dep name=".\Generated_Source\PSoC5\MOTOR_LIFTER_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_RIGHT_IN_3.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_RIGHT_IN_3_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_RIGHT_IN_4.h" />
@@ -1642,9 +1980,15 @@
 <dep name=".\Generated_Source\PSoC5\MOTOR_RIGHT_PHASE_A_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_RIGHT_PHASE_B.h" />
 <dep name=".\Generated_Source\PSoC5\MOTOR_RIGHT_PHASE_B_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\MOTOR_TRUNK.h" />
+<dep name=".\Generated_Source\PSoC5\MOTOR_TRUNK_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\PWM_Color_Sensor.h" />
 <dep name=".\Generated_Source\PSoC5\PWM_LEFT.h" />
 <dep name=".\Generated_Source\PSoC5\PWM_RIGHT.h" />
+<dep name=".\Generated_Source\PSoC5\PWM_Servo_Gripper.h" />
+<dep name=".\Generated_Source\PSoC5\PWM_Servo_Gripper_Arm.h" />
+<dep name=".\Generated_Source\PSoC5\PWM_Servo_Lifter.h" />
+<dep name=".\Generated_Source\PSoC5\PWM_Servo_Trunk.h" />
 <dep name=".\Generated_Source\PSoC5\QuadDec_LEFT.h" />
 <dep name=".\Generated_Source\PSoC5\QuadDec_LEFT_Cnt16.h" />
 <dep name=".\Generated_Source\PSoC5\QuadDec_LEFT_PVT.h" />
@@ -1661,6 +2005,7 @@
 <dep name=".\Generated_Source\PSoC5\S2_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\S3.h" />
 <dep name=".\Generated_Source\PSoC5\S3_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\Timer_Servo.h" />
 <dep name=".\Generated_Source\PSoC5\Timer_Ultrasonic.h" />
 <dep name=".\Generated_Source\PSoC5\Trigger.h" />
 <dep name=".\Generated_Source\PSoC5\Trigger_aliases.h" />
@@ -1675,10 +2020,11 @@
 <dep name=".\Generated_Source\PSoC5\cyfitter_cfg.h" />
 <dep name=".\Generated_Source\PSoC5\cypins.h" />
 <dep name=".\Generated_Source\PSoC5\cytypes.h" />
+<dep name=".\Generated_Source\PSoC5\isr_IR_Sensor_LEFT.h" />
+<dep name=".\Generated_Source\PSoC5\isr_IR_Sensor_RIGHT.h" />
 <dep name=".\Generated_Source\PSoC5\isr_color_sensor.h" />
 <dep name=".\Generated_Source\PSoC5\isr_input.h" />
-<dep name=".\Generated_Source\PSoC5\isr_ir_left.h" />
-<dep name=".\Generated_Source\PSoC5\isr_ir_right.h" />
+<dep name=".\Generated_Source\PSoC5\isr_puck.h" />
 <dep name=".\Generated_Source\PSoC5\isr_ultrasonic.h" />
 <dep name=".\ultrasonic.c" />
 <dep name=".\ultrasonic.h" />
@@ -1695,6 +2041,51 @@
 <file name=".\Generated_Source\PSoC5\cydevicegnu.inc" />
 <file name=".\Generated_Source\PSoC5\cydevicegnu_trm.inc" />
 <file name=".\Generated_Source\PSoC5\cyfittergnu.inc" />
+<file name=".\CortexM3\ARM_GCC_541\Debug\isr_obstacle.o">
+<dep name=".\Generated_Source\PSoC5\CyFlash.h" />
+<dep name=".\Generated_Source\PSoC5\CyLib.h" />
+<dep name=".\Generated_Source\PSoC5\CySpc.h" />
+<dep name=".\Generated_Source\PSoC5\cyPm.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC5\cytypes.h" />
+<dep name=".\Generated_Source\PSoC5\isr_obstacle.c" />
+<dep name=".\Generated_Source\PSoC5\isr_obstacle.h" />
+<dep name=".\cyapicallbacks.h" />
+</file>
+<file name=".\Generated_Source\PSoC5\isr_obstacle.c" />
+<file name=".\Generated_Source\PSoC5\isr_obstacle.h" />
+<file name=".\CortexM3\ARM_GCC_541\Debug\isr_IR_LEFT.o">
+<dep name=".\Generated_Source\PSoC5\CyFlash.h" />
+<dep name=".\Generated_Source\PSoC5\CyLib.h" />
+<dep name=".\Generated_Source\PSoC5\CySpc.h" />
+<dep name=".\Generated_Source\PSoC5\cyPm.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC5\cytypes.h" />
+<dep name=".\Generated_Source\PSoC5\isr_IR_LEFT.c" />
+<dep name=".\Generated_Source\PSoC5\isr_IR_LEFT.h" />
+<dep name=".\cyapicallbacks.h" />
+</file>
+<file name=".\Generated_Source\PSoC5\isr_IR_LEFT.c" />
+<file name=".\Generated_Source\PSoC5\isr_IR_LEFT.h" />
+<file name=".\CortexM3\ARM_GCC_541\Debug\isr_IR_RIGHT.o">
+<dep name=".\Generated_Source\PSoC5\CyFlash.h" />
+<dep name=".\Generated_Source\PSoC5\CyLib.h" />
+<dep name=".\Generated_Source\PSoC5\CySpc.h" />
+<dep name=".\Generated_Source\PSoC5\cyPm.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC5\cytypes.h" />
+<dep name=".\Generated_Source\PSoC5\isr_IR_RIGHT.c" />
+<dep name=".\Generated_Source\PSoC5\isr_IR_RIGHT.h" />
+<dep name=".\cyapicallbacks.h" />
+</file>
+<file name=".\Generated_Source\PSoC5\isr_IR_RIGHT.c" />
+<file name=".\Generated_Source\PSoC5\isr_IR_RIGHT.h" />
 <file name=".\CortexM3\ARM_GCC_541\Debug\IR_Sensor_0.o">
 <dep name=".\Generated_Source\PSoC5\IR_Sensor_0.c" />
 <dep name=".\Generated_Source\PSoC5\IR_Sensor_0.h" />
@@ -2839,8 +3230,25 @@
 <dep name=".\CortexM3\ARM_GCC_541\Debug\IR_Sensor_LEFT.o" />
 <dep name=".\CortexM3\ARM_GCC_541\Debug\IR_Sensor_RIGHT.o" />
 <dep name=".\CortexM3\ARM_GCC_541\Debug\Clock_4.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\isr_ir_left.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\isr_ir_right.o" />
+<dep name=".\CortexM3\ARM_GCC_541\Debug\Echo_BACK.o" />
+<dep name=".\CortexM3\ARM_GCC_541\Debug\isr_IR_Sensor_LEFT.o" />
+<dep name=".\CortexM3\ARM_GCC_541\Debug\isr_IR_Sensor_RIGHT.o" />
+<dep name=".\CortexM3\ARM_GCC_541\Debug\isr_puck.o" />
+<dep name=".\CortexM3\ARM_GCC_541\Debug\PWM_Servo_Gripper.o" />
+<dep name=".\CortexM3\ARM_GCC_541\Debug\PWM_Servo_Gripper_PM.o" />
+<dep name=".\CortexM3\ARM_GCC_541\Debug\Clock_5.o" />
+<dep name=".\CortexM3\ARM_GCC_541\Debug\PWM_Servo_Gripper_Arm.o" />
+<dep name=".\CortexM3\ARM_GCC_541\Debug\PWM_Servo_Gripper_Arm_PM.o" />
+<dep name=".\CortexM3\ARM_GCC_541\Debug\PWM_Servo_Lifter.o" />
+<dep name=".\CortexM3\ARM_GCC_541\Debug\PWM_Servo_Lifter_PM.o" />
+<dep name=".\CortexM3\ARM_GCC_541\Debug\PWM_Servo_Trunk.o" />
+<dep name=".\CortexM3\ARM_GCC_541\Debug\PWM_Servo_Trunk_PM.o" />
+<dep name=".\CortexM3\ARM_GCC_541\Debug\MOTOR_GRIPPER.o" />
+<dep name=".\CortexM3\ARM_GCC_541\Debug\MOTOR_GRIPPER_ARM.o" />
+<dep name=".\CortexM3\ARM_GCC_541\Debug\MOTOR_LIFTER.o" />
+<dep name=".\CortexM3\ARM_GCC_541\Debug\MOTOR_TRUNK.o" />
+<dep name=".\CortexM3\ARM_GCC_541\Debug\Timer_Servo.o" />
+<dep name=".\CortexM3\ARM_GCC_541\Debug\Timer_Servo_PM.o" />
 <dep name=".\CortexM3\ARM_GCC_541\Debug\ColorBowlRobot_G15.a" />
 <dep name="${CyRoot}\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM3\ARM_GCC_541\Debug\CyComponentLibrary.a" />
 </file>
@@ -3015,6 +3423,28 @@
 <name_val_pair name="Generated_Source\PSoC5\Clock_4.c" v="-mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og" />
 <name_val_pair name="Generated_Source\PSoC5\isr_ir_left.c" v="-mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og" />
 <name_val_pair name="Generated_Source\PSoC5\isr_ir_right.c" v="-mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og" />
+<name_val_pair name="Generated_Source\PSoC5\Echo_BACK.c" v="-mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og" />
+<name_val_pair name="Generated_Source\PSoC5\isr_IR_LEFT.c" v="-mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og" />
+<name_val_pair name="Generated_Source\PSoC5\isr_IR_RIGHT.c" v="-mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og" />
+<name_val_pair name="Generated_Source\PSoC5\isr_obstacle.c" v="-mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og" />
+<name_val_pair name="Generated_Source\PSoC5\isr_IR_Sensor_LEFT.c" v="-mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og" />
+<name_val_pair name="Generated_Source\PSoC5\isr_IR_Sensor_RIGHT.c" v="-mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og" />
+<name_val_pair name="Generated_Source\PSoC5\isr_puck.c" v="-mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og" />
+<name_val_pair name="Generated_Source\PSoC5\PWM_Servo_Gripper.c" v="-mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og" />
+<name_val_pair name="Generated_Source\PSoC5\PWM_Servo_Gripper_PM.c" v="-mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og" />
+<name_val_pair name="Generated_Source\PSoC5\Clock_5.c" v="-mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og" />
+<name_val_pair name="Generated_Source\PSoC5\PWM_Servo_Gripper_Arm.c" v="-mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og" />
+<name_val_pair name="Generated_Source\PSoC5\PWM_Servo_Gripper_Arm_PM.c" v="-mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og" />
+<name_val_pair name="Generated_Source\PSoC5\PWM_Servo_Lifter.c" v="-mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og" />
+<name_val_pair name="Generated_Source\PSoC5\PWM_Servo_Lifter_PM.c" v="-mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og" />
+<name_val_pair name="Generated_Source\PSoC5\PWM_Servo_Trunk.c" v="-mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og" />
+<name_val_pair name="Generated_Source\PSoC5\PWM_Servo_Trunk_PM.c" v="-mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og" />
+<name_val_pair name="Generated_Source\PSoC5\MOTOR_GRIPPER.c" v="-mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og" />
+<name_val_pair name="Generated_Source\PSoC5\MOTOR_GRIPPER_ARM.c" v="-mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og" />
+<name_val_pair name="Generated_Source\PSoC5\MOTOR_LIFTER.c" v="-mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og" />
+<name_val_pair name="Generated_Source\PSoC5\MOTOR_TRUNK.c" v="-mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og" />
+<name_val_pair name="Generated_Source\PSoC5\Timer_Servo.c" v="-mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og" />
+<name_val_pair name="Generated_Source\PSoC5\Timer_Servo_PM.c" v="-mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og" />
 </name>
 </genericCmdLineData>
 <codeGenCmdLineTag v="-.appdatapath &quot;C:\Users\Chong Yen Juin\AppData\Local\Cypress Semiconductor\PSoC Creator\4.4&quot; -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p &quot;C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\ColorBowlRobot_G15.cyprj&quot; -d CY8C5888LTI-LP097 -s &quot;C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\Generated_Source\PSoC5&quot; -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE" />
@@ -3279,6 +3709,11 @@
 <v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\Debouncer_v1_0\Custom\Resources.Designer.cs</v>
 <v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\Debouncer_v1_0\Custom\Tabs\cygeneraltab.resx</v>
 <v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\Debouncer_v1_0\Custom\Resources.resx</v>
+<v>${CyRoot}\psoc\content\CyPrimitives\cyprimitives.cylib\or_v1_0\or_v1_0.cysym</v>
+<v>${CyRoot}\psoc\content\CyPrimitives\cyprimitives.cylib\or_v1_0\or_v1_0.pdf</v>
+<v>${CyRoot}\psoc\content\CyPrimitives\cyprimitives.cylib\or_v1_0\or_v1_0.v</v>
+<v>${CyRoot}\psoc\content\CyPrimitives\cyprimitives.cylib\or_v1_0\version.cypatch</v>
+<v>${CyRoot}\psoc\content\CyPrimitives\cyprimitives.cylib\or_v1_0\Custom\custom.cs</v>
 <v>.\ColorBowlRobot_G15.cydwr</v>
 <v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\cy_boot_v6_0\PSoC5\API\cm3gcc.ld</v>
 <v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\cy_boot_v6_0\PSoC5\API\Cm3RealView.scat</v>
@@ -3647,10 +4082,50 @@
 <v>Generated_Source\PSoC5\IR_Sensor_RIGHT.h</v>
 <v>Generated_Source\PSoC5\Clock_4.c</v>
 <v>Generated_Source\PSoC5\Clock_4.h</v>
-<v>Generated_Source\PSoC5\isr_ir_left.c</v>
-<v>Generated_Source\PSoC5\isr_ir_left.h</v>
-<v>Generated_Source\PSoC5\isr_ir_right.c</v>
-<v>Generated_Source\PSoC5\isr_ir_right.h</v>
+<v>Generated_Source\PSoC5\isr_IR_LEFT.c</v>
+<v>Generated_Source\PSoC5\isr_IR_LEFT.h</v>
+<v>Generated_Source\PSoC5\isr_IR_RIGHT.c</v>
+<v>Generated_Source\PSoC5\isr_IR_RIGHT.h</v>
+<v>Generated_Source\PSoC5\Echo_BACK_aliases.h</v>
+<v>Generated_Source\PSoC5\Echo_BACK.c</v>
+<v>Generated_Source\PSoC5\Echo_BACK.h</v>
+<v>Generated_Source\PSoC5\isr_obstacle.c</v>
+<v>Generated_Source\PSoC5\isr_obstacle.h</v>
+<v>Generated_Source\PSoC5\isr_IR_Sensor_LEFT.c</v>
+<v>Generated_Source\PSoC5\isr_IR_Sensor_LEFT.h</v>
+<v>Generated_Source\PSoC5\isr_IR_Sensor_RIGHT.c</v>
+<v>Generated_Source\PSoC5\isr_IR_Sensor_RIGHT.h</v>
+<v>Generated_Source\PSoC5\isr_puck.c</v>
+<v>Generated_Source\PSoC5\isr_puck.h</v>
+<v>Generated_Source\PSoC5\PWM_Servo_Gripper.c</v>
+<v>Generated_Source\PSoC5\PWM_Servo_Gripper.h</v>
+<v>Generated_Source\PSoC5\PWM_Servo_Gripper_PM.c</v>
+<v>Generated_Source\PSoC5\Clock_5.c</v>
+<v>Generated_Source\PSoC5\Clock_5.h</v>
+<v>Generated_Source\PSoC5\PWM_Servo_Gripper_Arm.c</v>
+<v>Generated_Source\PSoC5\PWM_Servo_Gripper_Arm.h</v>
+<v>Generated_Source\PSoC5\PWM_Servo_Gripper_Arm_PM.c</v>
+<v>Generated_Source\PSoC5\PWM_Servo_Lifter.c</v>
+<v>Generated_Source\PSoC5\PWM_Servo_Lifter.h</v>
+<v>Generated_Source\PSoC5\PWM_Servo_Lifter_PM.c</v>
+<v>Generated_Source\PSoC5\PWM_Servo_Trunk.c</v>
+<v>Generated_Source\PSoC5\PWM_Servo_Trunk.h</v>
+<v>Generated_Source\PSoC5\PWM_Servo_Trunk_PM.c</v>
+<v>Generated_Source\PSoC5\MOTOR_GRIPPER_aliases.h</v>
+<v>Generated_Source\PSoC5\MOTOR_GRIPPER.c</v>
+<v>Generated_Source\PSoC5\MOTOR_GRIPPER.h</v>
+<v>Generated_Source\PSoC5\MOTOR_GRIPPER_ARM_aliases.h</v>
+<v>Generated_Source\PSoC5\MOTOR_GRIPPER_ARM.c</v>
+<v>Generated_Source\PSoC5\MOTOR_GRIPPER_ARM.h</v>
+<v>Generated_Source\PSoC5\MOTOR_LIFTER_aliases.h</v>
+<v>Generated_Source\PSoC5\MOTOR_LIFTER.c</v>
+<v>Generated_Source\PSoC5\MOTOR_LIFTER.h</v>
+<v>Generated_Source\PSoC5\MOTOR_TRUNK_aliases.h</v>
+<v>Generated_Source\PSoC5\MOTOR_TRUNK.c</v>
+<v>Generated_Source\PSoC5\MOTOR_TRUNK.h</v>
+<v>Generated_Source\PSoC5\Timer_Servo.c</v>
+<v>Generated_Source\PSoC5\Timer_Servo.h</v>
+<v>Generated_Source\PSoC5\Timer_Servo_PM.c</v>
 </gen_list>
 <warp_dep>
 <v>C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\ieee\work\stdlogic.vif</v>
@@ -3660,7 +4135,7 @@
 <v>C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif</v>
 <v>C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3.vif</v>
 </warp_dep>
-<deps_time v="133376948715297631" />
+<deps_time v="133377110995520291" />
 <top_block v="TopDesign" />
 <last_generation v="0" />
 <pdl_path v="" />
@@ -3670,12 +4145,12 @@
 <dataGuid v="769d31ea-68b1-4f0c-b90a-7c10a43ee563">
 <CyGuid_769d31ea-68b1-4f0c-b90a-7c10a43ee563 type_name="CyDesigner.Common.ProjMgmt.Model.CyLinkCustomData" version="1">
 <link_deps_times>
-<name_val_pair name="c9323d49-d323-40b8-9b59-cc008d68a989@Debug@CortexM3" v="133376948861033346" />
+<name_val_pair name="c9323d49-d323-40b8-9b59-cc008d68a989@Debug@CortexM3" v="133377111168286505" />
 </link_deps_times>
 </CyGuid_769d31ea-68b1-4f0c-b90a-7c10a43ee563>
 </dataGuid>
 <dataGuid v="237c8ed1-e161-4c9d-af97-582eda6d6952">
-<CyGuid_d442b0b8-dd66-4eee-b5be-1cb213792b31 type_name="CyDesigner.Device.FitterPSoC.Common.DesignWideResources.DeviceEditor.CyCustomAnalogDevData" version="1" ZoomToPage="True" ZoomScale="0.291497" ScrollX="0" ScrollY="1">
+<CyGuid_d442b0b8-dd66-4eee-b5be-1cb213792b31 type_name="CyDesigner.Device.FitterPSoC.Common.DesignWideResources.DeviceEditor.CyCustomAnalogDevData" version="1" ZoomToPage="True" ZoomScale="0.279868126" ScrollX="-172" ScrollY="1">
 <ComponentStates />
 </CyGuid_d442b0b8-dd66-4eee-b5be-1cb213792b31>
 </dataGuid>
@@ -3701,21 +4176,21 @@
 <v>Cypress Component Catalog\Thermal Management</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
-<v>Cypress Component Catalog\Display\4 Digit 7-Segment LED Driver [v1.10]</v>
-<v>Cypress Component Catalog\Display\Character LCD [v2.20]</v>
-<v>Cypress Component Catalog\Display\Character LCD with I2C interface [v1.20]</v>
-<v>Cypress Component Catalog\Display\Graphic LCD 8-bit Parallel Interface Macro [v1.80]</v>
-<v>Cypress Component Catalog\Display\Graphic LCD 16-bit Parallel Interface Macro [v1.80]</v>
-<v>Cypress Component Catalog\Display\Graphic LCD Controller [v1.80]</v>
-<v>Cypress Component Catalog\Display\Graphic LCD Controller Macro [v1.80]</v>
-<v>Cypress Component Catalog\Display\Graphic LCD Parallel Interface [v1.80]</v>
-<v>Cypress Component Catalog\Display\LED Segment and Matrix Driver [v1.10]</v>
-<v>Cypress Component Catalog\Display\ResistiveTouch [v2.0]</v>
-<v>Cypress Component Catalog\Display\Segment LCD - Static [v2.30]</v>
-<v>Cypress Component Catalog\Display\Segment LCD [v3.40]</v>
-<v>Cypress Component Catalog\Filters</v>
-<v>Cypress Component Catalog\Filters\Digital Filter Block (DFB) Assembler [v1.40]</v>
-<v>Cypress Component Catalog\Filters\Filter [v2.30]</v>
+<v>Cypress Component Catalog\Analog\VRef [v1.70]</v>
+<v>Cypress Component Catalog\CapSense</v>
+<v>Cypress Component Catalog\CapSense\CapSense_CSD [v3.50]</v>
+<v>Cypress Component Catalog\Communications</v>
+<v>Cypress Component Catalog\Digital</v>
+<v>Cypress Component Catalog\Digital\Functions</v>
+<v>Cypress Component Catalog\Digital\Logic</v>
+<v>Cypress Component Catalog\Digital\Registers</v>
+<v>Cypress Component Catalog\Digital\Utility</v>
+<v>Cypress Component Catalog\Digital\Utility\Basic Counter [v1.0]</v>
+<v>Cypress Component Catalog\Digital\Utility\Debouncer [v1.0]</v>
+<v>Cypress Component Catalog\Digital\Utility\Digital Comparator [v1.0]</v>
+<v>Cypress Component Catalog\Digital\Utility\Down Counter (7-bit) [v1.0]</v>
+<v>Cypress Component Catalog\Digital\Utility\Edge Detector [v1.0]</v>
+<v>Cypress Component Catalog\Digital\Utility\Frequency Divider [v1.0]</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">

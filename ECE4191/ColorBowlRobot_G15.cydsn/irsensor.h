@@ -23,10 +23,12 @@
     DETECTED ir_LEFT = ABSENCE;
     DETECTED ir_RIGHT = ABSENCE;
     
-    void ir_read();
-    void ir_read_left();
-    void ir_read_right();
+    void ir_start();
+    void ir_stop();
     
+    CY_ISR (ISR_Handler_IR_LEFT);
+    CY_ISR (ISR_Handler_IR_RIGHT);
+    CY_ISR (ISR_Handler_puck);
     
 #endif /* IRSENSOR_H */
 /* [] END OF FILE */

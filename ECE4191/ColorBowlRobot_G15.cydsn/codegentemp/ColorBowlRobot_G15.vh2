@@ -2,7 +2,7 @@
 --	Conversion of ColorBowlRobot_G15.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Mon Aug 28 19:14:18 2023
+--	Mon Aug 28 23:44:46 2023
 --
 
 USE cypress.cypress.all;
@@ -1715,13 +1715,13 @@ SIGNAL tmpIO_0__Trigger_net_0 : bit;
 TERMINAL tmpSIOVREF__Trigger_net_0 : bit;
 SIGNAL tmpINTERRUPT_0__Trigger_net_0 : bit;
 SIGNAL tmpOE__Echo_LEFT_net_0 : bit;
-SIGNAL Net_1051 : bit;
+SIGNAL Net_1115 : bit;
 SIGNAL tmpIO_0__Echo_LEFT_net_0 : bit;
 TERMINAL tmpSIOVREF__Echo_LEFT_net_0 : bit;
 SIGNAL tmpINTERRUPT_0__Echo_LEFT_net_0 : bit;
 SIGNAL Net_1086 : bit;
 SIGNAL tmpOE__Echo_RIGHT_net_0 : bit;
-SIGNAL Net_1052 : bit;
+SIGNAL Net_1116 : bit;
 SIGNAL tmpIO_0__Echo_RIGHT_net_0 : bit;
 TERMINAL tmpSIOVREF__Echo_RIGHT_net_0 : bit;
 SIGNAL tmpINTERRUPT_0__Echo_RIGHT_net_0 : bit;
@@ -1742,8 +1742,7 @@ SIGNAL \Control_Reg_Ultrasonic:control_out_4\ : bit;
 SIGNAL \Control_Reg_Ultrasonic:control_bus_3\ : bit;
 ATTRIBUTE port_state_att of \Control_Reg_Ultrasonic:control_bus_3\:SIGNAL IS 2;
 SIGNAL \Control_Reg_Ultrasonic:control_out_3\ : bit;
-SIGNAL \Control_Reg_Ultrasonic:control_bus_2\ : bit;
-ATTRIBUTE port_state_att of \Control_Reg_Ultrasonic:control_bus_2\:SIGNAL IS 2;
+SIGNAL Net_1035_2 : bit;
 SIGNAL \Control_Reg_Ultrasonic:control_out_2\ : bit;
 SIGNAL Net_1035_1 : bit;
 SIGNAL \Control_Reg_Ultrasonic:control_out_1\ : bit;
@@ -1763,16 +1762,17 @@ SIGNAL tmpIO_0__IR_Sensor_RIGHT_net_0 : bit;
 TERMINAL tmpSIOVREF__IR_Sensor_RIGHT_net_0 : bit;
 SIGNAL tmpINTERRUPT_0__IR_Sensor_RIGHT_net_0 : bit;
 SIGNAL tmpOE__Echo_FLEFT_net_0 : bit;
-SIGNAL Net_1053 : bit;
+SIGNAL Net_1051 : bit;
 SIGNAL tmpIO_0__Echo_FLEFT_net_0 : bit;
 TERMINAL tmpSIOVREF__Echo_FLEFT_net_0 : bit;
 SIGNAL tmpINTERRUPT_0__Echo_FLEFT_net_0 : bit;
 SIGNAL tmpOE__Echo_FRIGHT_net_0 : bit;
-SIGNAL Net_1071 : bit;
+SIGNAL Net_1052 : bit;
 SIGNAL tmpIO_0__Echo_FRIGHT_net_0 : bit;
 TERMINAL tmpSIOVREF__Echo_FRIGHT_net_0 : bit;
 SIGNAL tmpINTERRUPT_0__Echo_FRIGHT_net_0 : bit;
 SIGNAL \mux_1:tmp__mux_1_reg\ : bit;
+SIGNAL Net_1053 : bit;
 SIGNAL Net_1042 : bit;
 SIGNAL \Timer_Ultrasonic:Net_260\ : bit;
 SIGNAL \Timer_Ultrasonic:Net_55\ : bit;
@@ -2035,17 +2035,1742 @@ SIGNAL Net_1100 : bit;
 SIGNAL \Debouncer_IR_LEFT:op_clk\ : bit;
 SIGNAL \Debouncer_IR_LEFT:DEBOUNCER[0]:d_sync_0\ : bit;
 SIGNAL \Debouncer_IR_LEFT:DEBOUNCER[0]:d_sync_1\ : bit;
-SIGNAL Net_1101 : bit;
-SIGNAL Net_1104 : bit;
-SIGNAL Net_1102 : bit;
+SIGNAL Net_1134 : bit;
+SIGNAL Net_1126 : bit;
+SIGNAL Net_1121 : bit;
 SIGNAL Net_1103 : bit;
 SIGNAL \Debouncer_IR_RIGHT:op_clk\ : bit;
 SIGNAL \Debouncer_IR_RIGHT:DEBOUNCER[0]:d_sync_0\ : bit;
 SIGNAL \Debouncer_IR_RIGHT:DEBOUNCER[0]:d_sync_1\ : bit;
-SIGNAL Net_1109 : bit;
-SIGNAL Net_1108 : bit;
+SIGNAL Net_1131 : bit;
+SIGNAL Net_1130 : bit;
 SIGNAL Net_1107 : bit;
 SIGNAL Net_1106 : bit;
+SIGNAL Net_1127 : bit;
+SIGNAL Net_1129 : bit;
+SIGNAL tmpOE__Echo_BACK_net_0 : bit;
+SIGNAL tmpIO_0__Echo_BACK_net_0 : bit;
+TERMINAL tmpSIOVREF__Echo_BACK_net_0 : bit;
+SIGNAL tmpINTERRUPT_0__Echo_BACK_net_0 : bit;
+SIGNAL Net_1133 : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:km_run\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:min_kill_reg\ : bit;
+SIGNAL Net_1150 : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:ClockOutFromEnBlock\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:control_7\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:control_6\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:control_5\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:control_4\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:control_3\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:control_2\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:control_1\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:control_0\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:ctrl_enable\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:ctrl_cmpmode2_2\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:ctrl_cmpmode2_1\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:ctrl_cmpmode2_0\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:ctrl_cmpmode1_2\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:ctrl_cmpmode1_1\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:ctrl_cmpmode1_0\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:prevCapture\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:capt_rising\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:capt_falling\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:hwCapture\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:hwEnable\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:trig_last\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:trig_rise\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:trig_fall\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:trig_out\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:runmode_enable\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:runmode_enable\\R\ : bit;
+SIGNAL Net_1276 : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:runmode_enable\\S\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:final_enable\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:sc_kill_tmp\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:tc_i\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:ltch_kill_reg\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:ltch_kill_reg\\R\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:ltch_kill_reg\\S\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:min_kill_reg\\R\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:min_kill_reg\\S\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:sc_kill\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:min_kill\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:final_kill\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:km_tc\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:db_tc\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:dith_count_1\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:add_vi_vv_MODGEN_9_1\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:dith_count_0\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:add_vi_vv_MODGEN_9_0\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:dith_count_1\\R\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:dith_count_1\\S\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:dith_count_0\\R\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:dith_count_0\\S\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:dith_sel\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:status_6\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:status_5\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:status_4\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:status_3\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:status_2\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:status_1\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:status_0\ : bit;
+SIGNAL \PWM_Servo_Gripper:Net_55\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:prevCompare1\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:cmp1\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:cmp1_status\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:cmp2_status\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:cmp2\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:cmp1_status_reg\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:cmp2_status_reg\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:final_kill_reg\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:cmp1_status_reg\\R\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:cmp1_status_reg\\S\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:cmp2_status_reg\\R\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:cmp2_status_reg\\S\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:final_kill_reg\\R\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:final_kill_reg\\S\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:fifo_full\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:cs_addr_2\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:cs_addr_1\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:cs_addr_0\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:final_capture\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:nc2\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:nc3\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:nc1\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:ff0_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:ff0_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:nc4\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:nc5\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:z1_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:z1_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:ff1_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:ff1_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:ov_msb_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:ov_msb_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:co_msb_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:co_msb_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:cmsb_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:cmsb_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:so_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:so_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:f0_bus_stat_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:f0_bus_stat_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:f0_blk_stat_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:f0_blk_stat_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:nc6\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:nc7\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:ce0_reg_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:ce0_reg_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:cl0_reg_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:cl0_reg_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:z0_reg_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:z0_reg_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:ff0_reg_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:ff0_reg_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:ce1_reg_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:ce1_reg_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:cl1_reg_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:cl1_reg_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:z1_reg_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:z1_reg_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:ff1_reg_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:ff1_reg_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:ov_msb_reg_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:ov_msb_reg_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:co_msb_reg_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:co_msb_reg_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:cmsb_reg_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:cmsb_reg_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:so_reg_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:so_reg_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:f0_bus_stat_reg_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:f0_bus_stat_reg_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:f0_blk_stat_reg_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:f0_blk_stat_reg_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:f1_bus_stat_reg_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:f1_bus_stat_reg_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:f1_blk_stat_reg_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:f1_blk_stat_reg_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:carry\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:sh_right\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:sh_left\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:msb\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:cmp_eq_1\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:cmp_eq_0\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:cmp_lt_1\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:cmp_lt_0\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:cmp_zero_1\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:cmp_zero_0\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:cmp_ff_1\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:cmp_ff_0\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:cap_1\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:cap_0\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:cfb\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:cmp1_eq\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:cmp1_less\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:ff0_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:ff0_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:cmp2_eq\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:cmp2_less\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:z1_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:z1_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:ff1_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:ff1_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:ov_msb_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:ov_msb_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:co_msb_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:co_msb_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:cmsb_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:cmsb_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:so_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:so_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:f0_bus_stat_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:f0_bus_stat_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:f0_blk_stat_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:f0_blk_stat_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:fifo_nempty\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:ce0_reg_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:ce0_reg_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:cl0_reg_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:cl0_reg_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:z0_reg_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:z0_reg_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:ff0_reg_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:ff0_reg_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:ce1_reg_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:ce1_reg_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:cl1_reg_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:cl1_reg_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:z1_reg_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:z1_reg_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:ff1_reg_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:ff1_reg_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:ov_msb_reg_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:ov_msb_reg_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:co_msb_reg_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:co_msb_reg_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:cmsb_reg_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:cmsb_reg_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:so_reg_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:so_reg_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:f0_bus_stat_reg_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:f0_bus_stat_reg_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:f0_blk_stat_reg_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:f0_blk_stat_reg_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:f1_bus_stat_reg_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:f1_bus_stat_reg_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:f1_blk_stat_reg_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:f1_blk_stat_reg_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:compare1\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:compare2\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:pwm_i_reg\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:pwm_i\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:pwm1_i_reg\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:pwm1_i\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:pwm2_i_reg\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:pwm2_i\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:tc_i_reg\ : bit;
+SIGNAL \PWM_Servo_Gripper:Net_101\ : bit;
+SIGNAL \PWM_Servo_Gripper:Net_96\ : bit;
+SIGNAL Net_1158 : bit;
+SIGNAL Net_1159 : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:pwm_temp\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:b_31\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:b_30\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:b_29\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:b_28\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:b_27\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:b_26\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:b_25\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:b_24\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:b_23\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:b_22\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:b_21\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:b_20\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:b_19\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:b_18\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:b_17\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:b_16\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:b_15\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:b_14\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:b_13\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:b_12\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:b_11\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:b_10\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:b_9\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:b_8\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:b_7\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:b_6\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:b_5\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:b_4\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:b_3\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:b_2\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:b_1\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:b_0\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:a_31\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:a_30\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:a_29\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:a_28\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:a_27\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:a_26\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:a_25\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:a_24\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:a_23\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:a_22\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:a_21\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:a_20\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:a_19\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:a_18\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:a_17\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:a_16\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:a_15\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:a_14\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:a_13\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:a_12\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:a_11\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:a_10\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:a_9\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:a_8\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:a_7\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:a_6\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:a_5\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:a_4\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:a_3\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:a_2\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:a_1\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODIN9_1\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:a_0\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODIN9_0\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:b_31\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:b_30\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:b_29\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:b_28\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:b_27\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:b_26\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:b_25\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:b_24\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:b_23\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:b_22\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:b_21\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:b_20\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:b_19\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:b_18\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:b_17\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:b_16\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:b_15\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:b_14\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:b_13\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:b_12\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:b_11\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:b_10\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:b_9\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:b_8\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:b_7\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:b_6\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:b_5\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:b_4\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:b_3\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:b_2\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:b_1\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:b_0\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:add_vi_vv_MODGEN_9_31\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:s_31\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:add_vi_vv_MODGEN_9_30\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:s_30\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:add_vi_vv_MODGEN_9_29\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:s_29\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:add_vi_vv_MODGEN_9_28\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:s_28\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:add_vi_vv_MODGEN_9_27\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:s_27\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:add_vi_vv_MODGEN_9_26\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:s_26\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:add_vi_vv_MODGEN_9_25\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:s_25\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:add_vi_vv_MODGEN_9_24\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:s_24\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:add_vi_vv_MODGEN_9_23\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:s_23\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:add_vi_vv_MODGEN_9_22\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:s_22\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:add_vi_vv_MODGEN_9_21\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:s_21\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:add_vi_vv_MODGEN_9_20\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:s_20\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:add_vi_vv_MODGEN_9_19\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:s_19\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:add_vi_vv_MODGEN_9_18\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:s_18\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:add_vi_vv_MODGEN_9_17\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:s_17\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:add_vi_vv_MODGEN_9_16\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:s_16\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:add_vi_vv_MODGEN_9_15\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:s_15\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:add_vi_vv_MODGEN_9_14\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:s_14\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:add_vi_vv_MODGEN_9_13\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:s_13\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:add_vi_vv_MODGEN_9_12\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:s_12\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:add_vi_vv_MODGEN_9_11\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:s_11\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:add_vi_vv_MODGEN_9_10\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:s_10\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:add_vi_vv_MODGEN_9_9\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:s_9\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:add_vi_vv_MODGEN_9_8\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:s_8\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:add_vi_vv_MODGEN_9_7\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:s_7\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:add_vi_vv_MODGEN_9_6\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:s_6\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:add_vi_vv_MODGEN_9_5\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:s_5\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:add_vi_vv_MODGEN_9_4\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:s_4\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:add_vi_vv_MODGEN_9_3\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:s_3\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:add_vi_vv_MODGEN_9_2\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:s_2\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:s_1\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:s_0\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:g1:z1:s0:g1:u0:c_31\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:g1:z1:s0:g1:u0:c_30\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:g1:z1:s0:g1:u0:c_29\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:g1:z1:s0:g1:u0:c_28\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:g1:z1:s0:g1:u0:c_27\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:g1:z1:s0:g1:u0:c_26\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:g1:z1:s0:g1:u0:c_25\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:g1:z1:s0:g1:u0:c_24\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:g1:z1:s0:g1:u0:b_24\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:g1:z1:s0:g1:u0:c_23\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:g1:z1:s0:g1:u0:c_22\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:g1:z1:s0:g1:u0:c_21\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:g1:z1:s0:g1:u0:c_20\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:g1:z1:s0:g1:u0:c_19\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:g1:z1:s0:g1:u0:c_18\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:g1:z1:s0:g1:u0:c_17\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:g1:z1:s0:g1:u0:c_16\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:g1:z1:s0:g1:u0:b_16\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:g1:z1:s0:g1:u0:c_15\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:g1:z1:s0:g1:u0:c_14\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:g1:z1:s0:g1:u0:c_13\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:g1:z1:s0:g1:u0:c_12\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:g1:z1:s0:g1:u0:c_11\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:g1:z1:s0:g1:u0:c_10\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:g1:z1:s0:g1:u0:c_9\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:g1:z1:s0:g1:u0:c_8\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:g1:z1:s0:g1:u0:b_8\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:g1:z1:s0:g1:u0:c_7\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:g1:z1:s0:g1:u0:c_6\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:g1:z1:s0:g1:u0:c_5\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:g1:z1:s0:g1:u0:c_4\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:g1:z1:s0:g1:u0:c_3\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:g1:z1:s0:g1:u0:c_2\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:g1:z1:s0:g1:u0:c_1\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:g1:z1:s0:g1:u0:c_0\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:g1:z1:s0:g1:u0:b_0\ : bit;
+SIGNAL Net_1157 : bit;
+SIGNAL Net_1153 : bit;
+SIGNAL Net_1161 : bit;
+SIGNAL \PWM_Servo_Gripper:Net_113\ : bit;
+SIGNAL \PWM_Servo_Gripper:Net_107\ : bit;
+SIGNAL \PWM_Servo_Gripper:Net_114\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:km_run\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:min_kill_reg\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:ClockOutFromEnBlock\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:control_7\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:control_6\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:control_5\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:control_4\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:control_3\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:control_2\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:control_1\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:control_0\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:ctrl_enable\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:ctrl_cmpmode2_2\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:ctrl_cmpmode2_1\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:ctrl_cmpmode2_0\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:ctrl_cmpmode1_2\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:ctrl_cmpmode1_1\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:ctrl_cmpmode1_0\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:prevCapture\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:capt_rising\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:capt_falling\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:hwCapture\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:hwEnable\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:trig_last\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:trig_rise\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:trig_fall\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:trig_out\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:runmode_enable\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:runmode_enable\\R\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:runmode_enable\\S\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:final_enable\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:sc_kill_tmp\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:tc_i\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:ltch_kill_reg\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:ltch_kill_reg\\R\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:ltch_kill_reg\\S\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:min_kill_reg\\R\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:min_kill_reg\\S\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:sc_kill\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:min_kill\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:final_kill\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:km_tc\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:db_tc\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:dith_count_1\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:add_vi_vv_MODGEN_10_1\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:dith_count_0\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:add_vi_vv_MODGEN_10_0\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:dith_count_1\\R\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:dith_count_1\\S\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:dith_count_0\\R\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:dith_count_0\\S\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:dith_sel\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:status_6\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:status_5\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:status_4\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:status_3\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:status_2\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:status_1\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:status_0\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:Net_55\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:prevCompare1\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:cmp1\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:cmp1_status\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:cmp2_status\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:cmp2\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:cmp1_status_reg\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:cmp2_status_reg\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:final_kill_reg\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:cmp1_status_reg\\R\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:cmp1_status_reg\\S\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:cmp2_status_reg\\R\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:cmp2_status_reg\\S\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:final_kill_reg\\R\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:final_kill_reg\\S\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:fifo_full\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:cs_addr_2\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:cs_addr_1\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:cs_addr_0\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:final_capture\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:nc2\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:nc3\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:nc1\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:ff0_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:ff0_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:nc4\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:nc5\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:z1_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:z1_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:ff1_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:ff1_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:ov_msb_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:ov_msb_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:co_msb_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:co_msb_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:cmsb_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:cmsb_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:so_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:so_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:f0_bus_stat_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:f0_bus_stat_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:f0_blk_stat_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:f0_blk_stat_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:nc6\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:nc7\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:ce0_reg_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:ce0_reg_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:cl0_reg_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:cl0_reg_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:z0_reg_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:z0_reg_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:ff0_reg_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:ff0_reg_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:ce1_reg_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:ce1_reg_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:cl1_reg_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:cl1_reg_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:z1_reg_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:z1_reg_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:ff1_reg_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:ff1_reg_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:ov_msb_reg_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:ov_msb_reg_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:co_msb_reg_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:co_msb_reg_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:cmsb_reg_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:cmsb_reg_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:so_reg_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:so_reg_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:f0_bus_stat_reg_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:f0_bus_stat_reg_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:f0_blk_stat_reg_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:f0_blk_stat_reg_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:f1_bus_stat_reg_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:f1_bus_stat_reg_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:f1_blk_stat_reg_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:f1_blk_stat_reg_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:carry\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:sh_right\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:sh_left\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:msb\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:cmp_eq_1\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:cmp_eq_0\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:cmp_lt_1\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:cmp_lt_0\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:cmp_zero_1\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:cmp_zero_0\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:cmp_ff_1\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:cmp_ff_0\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:cap_1\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:cap_0\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:cfb\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:cmp1_eq\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:cmp1_less\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:ff0_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:ff0_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:cmp2_eq\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:cmp2_less\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:z1_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:z1_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:ff1_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:ff1_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:ov_msb_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:ov_msb_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:co_msb_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:co_msb_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:cmsb_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:cmsb_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:so_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:so_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:f0_bus_stat_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:f0_bus_stat_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:f0_blk_stat_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:f0_blk_stat_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:fifo_nempty\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:ce0_reg_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:ce0_reg_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:cl0_reg_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:cl0_reg_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:z0_reg_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:z0_reg_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:ff0_reg_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:ff0_reg_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:ce1_reg_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:ce1_reg_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:cl1_reg_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:cl1_reg_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:z1_reg_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:z1_reg_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:ff1_reg_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:ff1_reg_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:ov_msb_reg_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:ov_msb_reg_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:co_msb_reg_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:co_msb_reg_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:cmsb_reg_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:cmsb_reg_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:so_reg_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:so_reg_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:f0_bus_stat_reg_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:f0_bus_stat_reg_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:f0_blk_stat_reg_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:f0_blk_stat_reg_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:f1_bus_stat_reg_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:f1_bus_stat_reg_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:f1_blk_stat_reg_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:f1_blk_stat_reg_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:compare1\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:compare2\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:pwm_i_reg\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:pwm_i\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:pwm1_i_reg\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:pwm1_i\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:pwm2_i_reg\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:pwm2_i\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:tc_i_reg\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:Net_101\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:Net_96\ : bit;
+SIGNAL Net_1205 : bit;
+SIGNAL Net_1206 : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:pwm_temp\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:b_31\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:b_30\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:b_29\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:b_28\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:b_27\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:b_26\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:b_25\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:b_24\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:b_23\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:b_22\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:b_21\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:b_20\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:b_19\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:b_18\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:b_17\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:b_16\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:b_15\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:b_14\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:b_13\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:b_12\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:b_11\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:b_10\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:b_9\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:b_8\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:b_7\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:b_6\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:b_5\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:b_4\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:b_3\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:b_2\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:b_1\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:b_0\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:a_31\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:a_30\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:a_29\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:a_28\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:a_27\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:a_26\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:a_25\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:a_24\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:a_23\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:a_22\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:a_21\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:a_20\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:a_19\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:a_18\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:a_17\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:a_16\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:a_15\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:a_14\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:a_13\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:a_12\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:a_11\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:a_10\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:a_9\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:a_8\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:a_7\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:a_6\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:a_5\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:a_4\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:a_3\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:a_2\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:a_1\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODIN10_1\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:a_0\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODIN10_0\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:b_31\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:b_30\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:b_29\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:b_28\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:b_27\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:b_26\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:b_25\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:b_24\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:b_23\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:b_22\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:b_21\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:b_20\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:b_19\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:b_18\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:b_17\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:b_16\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:b_15\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:b_14\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:b_13\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:b_12\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:b_11\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:b_10\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:b_9\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:b_8\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:b_7\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:b_6\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:b_5\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:b_4\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:b_3\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:b_2\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:b_1\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:b_0\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:add_vi_vv_MODGEN_10_31\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:s_31\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:add_vi_vv_MODGEN_10_30\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:s_30\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:add_vi_vv_MODGEN_10_29\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:s_29\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:add_vi_vv_MODGEN_10_28\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:s_28\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:add_vi_vv_MODGEN_10_27\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:s_27\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:add_vi_vv_MODGEN_10_26\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:s_26\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:add_vi_vv_MODGEN_10_25\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:s_25\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:add_vi_vv_MODGEN_10_24\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:s_24\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:add_vi_vv_MODGEN_10_23\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:s_23\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:add_vi_vv_MODGEN_10_22\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:s_22\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:add_vi_vv_MODGEN_10_21\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:s_21\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:add_vi_vv_MODGEN_10_20\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:s_20\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:add_vi_vv_MODGEN_10_19\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:s_19\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:add_vi_vv_MODGEN_10_18\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:s_18\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:add_vi_vv_MODGEN_10_17\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:s_17\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:add_vi_vv_MODGEN_10_16\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:s_16\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:add_vi_vv_MODGEN_10_15\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:s_15\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:add_vi_vv_MODGEN_10_14\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:s_14\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:add_vi_vv_MODGEN_10_13\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:s_13\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:add_vi_vv_MODGEN_10_12\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:s_12\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:add_vi_vv_MODGEN_10_11\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:s_11\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:add_vi_vv_MODGEN_10_10\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:s_10\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:add_vi_vv_MODGEN_10_9\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:s_9\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:add_vi_vv_MODGEN_10_8\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:s_8\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:add_vi_vv_MODGEN_10_7\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:s_7\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:add_vi_vv_MODGEN_10_6\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:s_6\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:add_vi_vv_MODGEN_10_5\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:s_5\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:add_vi_vv_MODGEN_10_4\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:s_4\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:add_vi_vv_MODGEN_10_3\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:s_3\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:add_vi_vv_MODGEN_10_2\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:s_2\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:s_1\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:s_0\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:g1:z1:s0:g1:u0:c_31\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:g1:z1:s0:g1:u0:c_30\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:g1:z1:s0:g1:u0:c_29\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:g1:z1:s0:g1:u0:c_28\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:g1:z1:s0:g1:u0:c_27\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:g1:z1:s0:g1:u0:c_26\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:g1:z1:s0:g1:u0:c_25\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:g1:z1:s0:g1:u0:c_24\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:g1:z1:s0:g1:u0:b_24\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:g1:z1:s0:g1:u0:c_23\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:g1:z1:s0:g1:u0:c_22\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:g1:z1:s0:g1:u0:c_21\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:g1:z1:s0:g1:u0:c_20\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:g1:z1:s0:g1:u0:c_19\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:g1:z1:s0:g1:u0:c_18\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:g1:z1:s0:g1:u0:c_17\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:g1:z1:s0:g1:u0:c_16\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:g1:z1:s0:g1:u0:b_16\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:g1:z1:s0:g1:u0:c_15\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:g1:z1:s0:g1:u0:c_14\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:g1:z1:s0:g1:u0:c_13\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:g1:z1:s0:g1:u0:c_12\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:g1:z1:s0:g1:u0:c_11\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:g1:z1:s0:g1:u0:c_10\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:g1:z1:s0:g1:u0:c_9\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:g1:z1:s0:g1:u0:c_8\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:g1:z1:s0:g1:u0:b_8\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:g1:z1:s0:g1:u0:c_7\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:g1:z1:s0:g1:u0:c_6\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:g1:z1:s0:g1:u0:c_5\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:g1:z1:s0:g1:u0:c_4\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:g1:z1:s0:g1:u0:c_3\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:g1:z1:s0:g1:u0:c_2\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:g1:z1:s0:g1:u0:c_1\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:g1:z1:s0:g1:u0:c_0\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:g1:z1:s0:g1:u0:b_0\ : bit;
+SIGNAL Net_1204 : bit;
+SIGNAL Net_1200 : bit;
+SIGNAL Net_1208 : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:Net_113\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:Net_107\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:Net_114\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:km_run\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:min_kill_reg\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:ClockOutFromEnBlock\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:control_7\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:control_6\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:control_5\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:control_4\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:control_3\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:control_2\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:control_1\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:control_0\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:ctrl_enable\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:ctrl_cmpmode2_2\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:ctrl_cmpmode2_1\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:ctrl_cmpmode2_0\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:ctrl_cmpmode1_2\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:ctrl_cmpmode1_1\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:ctrl_cmpmode1_0\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:prevCapture\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:capt_rising\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:capt_falling\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:hwCapture\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:hwEnable\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:trig_last\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:trig_rise\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:trig_fall\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:trig_out\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:runmode_enable\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:runmode_enable\\R\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:runmode_enable\\S\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:final_enable\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:sc_kill_tmp\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:tc_i\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:ltch_kill_reg\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:ltch_kill_reg\\R\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:ltch_kill_reg\\S\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:min_kill_reg\\R\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:min_kill_reg\\S\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:sc_kill\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:min_kill\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:final_kill\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:km_tc\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:db_tc\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:dith_count_1\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:add_vi_vv_MODGEN_11_1\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:dith_count_0\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:add_vi_vv_MODGEN_11_0\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:dith_count_1\\R\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:dith_count_1\\S\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:dith_count_0\\R\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:dith_count_0\\S\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:dith_sel\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:status_6\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:status_5\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:status_4\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:status_3\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:status_2\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:status_1\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:status_0\ : bit;
+SIGNAL \PWM_Servo_Lifter:Net_55\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:prevCompare1\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:cmp1\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:cmp1_status\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:cmp2_status\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:cmp2\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:cmp1_status_reg\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:cmp2_status_reg\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:final_kill_reg\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:cmp1_status_reg\\R\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:cmp1_status_reg\\S\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:cmp2_status_reg\\R\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:cmp2_status_reg\\S\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:final_kill_reg\\R\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:final_kill_reg\\S\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:fifo_full\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:cs_addr_2\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:cs_addr_1\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:cs_addr_0\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:final_capture\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:nc2\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:nc3\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:nc1\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:ff0_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:ff0_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:nc4\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:nc5\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:z1_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:z1_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:ff1_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:ff1_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:ov_msb_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:ov_msb_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:co_msb_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:co_msb_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:cmsb_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:cmsb_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:so_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:so_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:f0_bus_stat_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:f0_bus_stat_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:f0_blk_stat_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:f0_blk_stat_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:nc6\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:nc7\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:ce0_reg_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:ce0_reg_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:cl0_reg_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:cl0_reg_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:z0_reg_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:z0_reg_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:ff0_reg_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:ff0_reg_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:ce1_reg_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:ce1_reg_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:cl1_reg_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:cl1_reg_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:z1_reg_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:z1_reg_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:ff1_reg_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:ff1_reg_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:ov_msb_reg_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:ov_msb_reg_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:co_msb_reg_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:co_msb_reg_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:cmsb_reg_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:cmsb_reg_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:so_reg_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:so_reg_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:f0_bus_stat_reg_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:f0_bus_stat_reg_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:f0_blk_stat_reg_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:f0_blk_stat_reg_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:f1_bus_stat_reg_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:f1_bus_stat_reg_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:f1_blk_stat_reg_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:f1_blk_stat_reg_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:carry\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:sh_right\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:sh_left\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:msb\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:cmp_eq_1\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:cmp_eq_0\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:cmp_lt_1\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:cmp_lt_0\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:cmp_zero_1\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:cmp_zero_0\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:cmp_ff_1\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:cmp_ff_0\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:cap_1\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:cap_0\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:cfb\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:cmp1_eq\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:cmp1_less\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:ff0_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:ff0_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:cmp2_eq\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:cmp2_less\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:z1_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:z1_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:ff1_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:ff1_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:ov_msb_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:ov_msb_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:co_msb_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:co_msb_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:cmsb_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:cmsb_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:so_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:so_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:f0_bus_stat_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:f0_bus_stat_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:f0_blk_stat_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:f0_blk_stat_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:fifo_nempty\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:ce0_reg_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:ce0_reg_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:cl0_reg_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:cl0_reg_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:z0_reg_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:z0_reg_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:ff0_reg_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:ff0_reg_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:ce1_reg_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:ce1_reg_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:cl1_reg_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:cl1_reg_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:z1_reg_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:z1_reg_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:ff1_reg_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:ff1_reg_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:ov_msb_reg_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:ov_msb_reg_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:co_msb_reg_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:co_msb_reg_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:cmsb_reg_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:cmsb_reg_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:so_reg_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:so_reg_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:f0_bus_stat_reg_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:f0_bus_stat_reg_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:f0_blk_stat_reg_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:f0_blk_stat_reg_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:f1_bus_stat_reg_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:f1_bus_stat_reg_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:f1_blk_stat_reg_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:f1_blk_stat_reg_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:compare1\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:compare2\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:pwm_i_reg\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:pwm_i\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:pwm1_i_reg\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:pwm1_i\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:pwm2_i_reg\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:pwm2_i\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:tc_i_reg\ : bit;
+SIGNAL \PWM_Servo_Lifter:Net_101\ : bit;
+SIGNAL \PWM_Servo_Lifter:Net_96\ : bit;
+SIGNAL Net_1246 : bit;
+SIGNAL Net_1247 : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:pwm_temp\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:b_31\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:b_30\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:b_29\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:b_28\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:b_27\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:b_26\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:b_25\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:b_24\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:b_23\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:b_22\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:b_21\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:b_20\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:b_19\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:b_18\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:b_17\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:b_16\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:b_15\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:b_14\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:b_13\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:b_12\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:b_11\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:b_10\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:b_9\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:b_8\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:b_7\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:b_6\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:b_5\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:b_4\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:b_3\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:b_2\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:b_1\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:b_0\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:a_31\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:a_30\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:a_29\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:a_28\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:a_27\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:a_26\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:a_25\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:a_24\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:a_23\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:a_22\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:a_21\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:a_20\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:a_19\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:a_18\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:a_17\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:a_16\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:a_15\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:a_14\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:a_13\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:a_12\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:a_11\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:a_10\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:a_9\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:a_8\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:a_7\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:a_6\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:a_5\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:a_4\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:a_3\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:a_2\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:a_1\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODIN11_1\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:a_0\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODIN11_0\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:b_31\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:b_30\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:b_29\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:b_28\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:b_27\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:b_26\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:b_25\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:b_24\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:b_23\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:b_22\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:b_21\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:b_20\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:b_19\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:b_18\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:b_17\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:b_16\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:b_15\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:b_14\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:b_13\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:b_12\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:b_11\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:b_10\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:b_9\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:b_8\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:b_7\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:b_6\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:b_5\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:b_4\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:b_3\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:b_2\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:b_1\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:b_0\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:add_vi_vv_MODGEN_11_31\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:s_31\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:add_vi_vv_MODGEN_11_30\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:s_30\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:add_vi_vv_MODGEN_11_29\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:s_29\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:add_vi_vv_MODGEN_11_28\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:s_28\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:add_vi_vv_MODGEN_11_27\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:s_27\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:add_vi_vv_MODGEN_11_26\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:s_26\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:add_vi_vv_MODGEN_11_25\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:s_25\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:add_vi_vv_MODGEN_11_24\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:s_24\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:add_vi_vv_MODGEN_11_23\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:s_23\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:add_vi_vv_MODGEN_11_22\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:s_22\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:add_vi_vv_MODGEN_11_21\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:s_21\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:add_vi_vv_MODGEN_11_20\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:s_20\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:add_vi_vv_MODGEN_11_19\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:s_19\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:add_vi_vv_MODGEN_11_18\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:s_18\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:add_vi_vv_MODGEN_11_17\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:s_17\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:add_vi_vv_MODGEN_11_16\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:s_16\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:add_vi_vv_MODGEN_11_15\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:s_15\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:add_vi_vv_MODGEN_11_14\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:s_14\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:add_vi_vv_MODGEN_11_13\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:s_13\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:add_vi_vv_MODGEN_11_12\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:s_12\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:add_vi_vv_MODGEN_11_11\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:s_11\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:add_vi_vv_MODGEN_11_10\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:s_10\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:add_vi_vv_MODGEN_11_9\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:s_9\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:add_vi_vv_MODGEN_11_8\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:s_8\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:add_vi_vv_MODGEN_11_7\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:s_7\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:add_vi_vv_MODGEN_11_6\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:s_6\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:add_vi_vv_MODGEN_11_5\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:s_5\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:add_vi_vv_MODGEN_11_4\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:s_4\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:add_vi_vv_MODGEN_11_3\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:s_3\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:add_vi_vv_MODGEN_11_2\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:s_2\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:s_1\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:s_0\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:g1:z1:s0:g1:u0:c_31\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:g1:z1:s0:g1:u0:c_30\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:g1:z1:s0:g1:u0:c_29\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:g1:z1:s0:g1:u0:c_28\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:g1:z1:s0:g1:u0:c_27\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:g1:z1:s0:g1:u0:c_26\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:g1:z1:s0:g1:u0:c_25\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:g1:z1:s0:g1:u0:c_24\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:g1:z1:s0:g1:u0:b_24\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:g1:z1:s0:g1:u0:c_23\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:g1:z1:s0:g1:u0:c_22\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:g1:z1:s0:g1:u0:c_21\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:g1:z1:s0:g1:u0:c_20\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:g1:z1:s0:g1:u0:c_19\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:g1:z1:s0:g1:u0:c_18\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:g1:z1:s0:g1:u0:c_17\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:g1:z1:s0:g1:u0:c_16\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:g1:z1:s0:g1:u0:b_16\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:g1:z1:s0:g1:u0:c_15\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:g1:z1:s0:g1:u0:c_14\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:g1:z1:s0:g1:u0:c_13\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:g1:z1:s0:g1:u0:c_12\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:g1:z1:s0:g1:u0:c_11\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:g1:z1:s0:g1:u0:c_10\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:g1:z1:s0:g1:u0:c_9\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:g1:z1:s0:g1:u0:c_8\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:g1:z1:s0:g1:u0:b_8\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:g1:z1:s0:g1:u0:c_7\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:g1:z1:s0:g1:u0:c_6\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:g1:z1:s0:g1:u0:c_5\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:g1:z1:s0:g1:u0:c_4\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:g1:z1:s0:g1:u0:c_3\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:g1:z1:s0:g1:u0:c_2\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:g1:z1:s0:g1:u0:c_1\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:g1:z1:s0:g1:u0:c_0\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:g1:z1:s0:g1:u0:b_0\ : bit;
+SIGNAL Net_1245 : bit;
+SIGNAL Net_1241 : bit;
+SIGNAL Net_1249 : bit;
+SIGNAL \PWM_Servo_Lifter:Net_113\ : bit;
+SIGNAL \PWM_Servo_Lifter:Net_107\ : bit;
+SIGNAL \PWM_Servo_Lifter:Net_114\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:km_run\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:min_kill_reg\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:ClockOutFromEnBlock\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:control_7\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:control_6\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:control_5\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:control_4\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:control_3\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:control_2\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:control_1\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:control_0\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:ctrl_enable\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:ctrl_cmpmode2_2\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:ctrl_cmpmode2_1\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:ctrl_cmpmode2_0\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:ctrl_cmpmode1_2\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:ctrl_cmpmode1_1\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:ctrl_cmpmode1_0\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:prevCapture\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:capt_rising\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:capt_falling\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:hwCapture\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:hwEnable\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:trig_last\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:trig_rise\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:trig_fall\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:trig_out\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:runmode_enable\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:runmode_enable\\R\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:runmode_enable\\S\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:final_enable\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:sc_kill_tmp\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:tc_i\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:ltch_kill_reg\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:ltch_kill_reg\\R\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:ltch_kill_reg\\S\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:min_kill_reg\\R\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:min_kill_reg\\S\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:sc_kill\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:min_kill\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:final_kill\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:km_tc\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:db_tc\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:dith_count_1\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:add_vi_vv_MODGEN_12_1\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:dith_count_0\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:add_vi_vv_MODGEN_12_0\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:dith_count_1\\R\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:dith_count_1\\S\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:dith_count_0\\R\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:dith_count_0\\S\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:dith_sel\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:status_6\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:status_5\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:status_4\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:status_3\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:status_2\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:status_1\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:status_0\ : bit;
+SIGNAL \PWM_Servo_Trunk:Net_55\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:prevCompare1\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:cmp1\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:cmp1_status\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:cmp2_status\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:cmp2\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:cmp1_status_reg\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:cmp2_status_reg\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:final_kill_reg\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:cmp1_status_reg\\R\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:cmp1_status_reg\\S\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:cmp2_status_reg\\R\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:cmp2_status_reg\\S\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:final_kill_reg\\R\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:final_kill_reg\\S\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:fifo_full\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:cs_addr_2\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:cs_addr_1\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:cs_addr_0\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:final_capture\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:nc2\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:nc3\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:nc1\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:ff0_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:ff0_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:nc4\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:nc5\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:z1_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:z1_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:ff1_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:ff1_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:ov_msb_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:ov_msb_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:co_msb_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:co_msb_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:cmsb_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:cmsb_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:so_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:so_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:f0_bus_stat_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:f0_bus_stat_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:f0_blk_stat_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:f0_blk_stat_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:nc6\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:nc7\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:ce0_reg_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:ce0_reg_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:cl0_reg_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:cl0_reg_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:z0_reg_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:z0_reg_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:ff0_reg_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:ff0_reg_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:ce1_reg_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:ce1_reg_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:cl1_reg_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:cl1_reg_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:z1_reg_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:z1_reg_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:ff1_reg_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:ff1_reg_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:ov_msb_reg_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:ov_msb_reg_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:co_msb_reg_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:co_msb_reg_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:cmsb_reg_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:cmsb_reg_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:so_reg_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:so_reg_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:f0_bus_stat_reg_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:f0_bus_stat_reg_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:f0_blk_stat_reg_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:f0_blk_stat_reg_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:f1_bus_stat_reg_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:f1_bus_stat_reg_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:f1_blk_stat_reg_0\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:f1_blk_stat_reg_0\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:carry\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:sh_right\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:sh_left\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:msb\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:cmp_eq_1\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:cmp_eq_0\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:cmp_lt_1\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:cmp_lt_0\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:cmp_zero_1\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:cmp_zero_0\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:cmp_ff_1\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:cmp_ff_0\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:cap_1\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:cap_0\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:cfb\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:cmp1_eq\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:cmp1_less\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:ff0_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:ff0_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:cmp2_eq\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:cmp2_less\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:z1_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:z1_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:ff1_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:ff1_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:ov_msb_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:ov_msb_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:co_msb_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:co_msb_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:cmsb_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:cmsb_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:so_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:so_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:f0_bus_stat_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:f0_bus_stat_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:f0_blk_stat_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:f0_blk_stat_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:fifo_nempty\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:ce0_reg_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:ce0_reg_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:cl0_reg_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:cl0_reg_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:z0_reg_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:z0_reg_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:ff0_reg_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:ff0_reg_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:ce1_reg_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:ce1_reg_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:cl1_reg_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:cl1_reg_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:z1_reg_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:z1_reg_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:ff1_reg_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:ff1_reg_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:ov_msb_reg_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:ov_msb_reg_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:co_msb_reg_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:co_msb_reg_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:cmsb_reg_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:cmsb_reg_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:so_reg_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:so_reg_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:f0_bus_stat_reg_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:f0_bus_stat_reg_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:f0_blk_stat_reg_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:f0_blk_stat_reg_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:f1_bus_stat_reg_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:f1_bus_stat_reg_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:f1_blk_stat_reg_1\ : bit;
+ATTRIBUTE port_state_att of \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:f1_blk_stat_reg_1\:SIGNAL IS 2;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:compare1\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:compare2\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:pwm_i_reg\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:pwm_i\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:pwm1_i_reg\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:pwm1_i\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:pwm2_i_reg\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:pwm2_i\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:tc_i_reg\ : bit;
+SIGNAL \PWM_Servo_Trunk:Net_101\ : bit;
+SIGNAL \PWM_Servo_Trunk:Net_96\ : bit;
+SIGNAL Net_1274 : bit;
+SIGNAL Net_1275 : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:pwm_temp\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:b_31\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:b_30\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:b_29\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:b_28\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:b_27\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:b_26\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:b_25\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:b_24\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:b_23\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:b_22\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:b_21\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:b_20\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:b_19\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:b_18\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:b_17\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:b_16\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:b_15\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:b_14\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:b_13\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:b_12\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:b_11\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:b_10\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:b_9\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:b_8\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:b_7\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:b_6\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:b_5\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:b_4\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:b_3\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:b_2\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:b_1\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:b_0\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:a_31\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:a_30\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:a_29\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:a_28\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:a_27\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:a_26\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:a_25\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:a_24\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:a_23\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:a_22\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:a_21\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:a_20\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:a_19\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:a_18\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:a_17\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:a_16\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:a_15\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:a_14\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:a_13\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:a_12\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:a_11\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:a_10\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:a_9\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:a_8\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:a_7\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:a_6\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:a_5\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:a_4\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:a_3\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:a_2\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:a_1\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODIN12_1\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:a_0\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODIN12_0\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:b_31\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:b_30\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:b_29\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:b_28\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:b_27\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:b_26\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:b_25\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:b_24\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:b_23\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:b_22\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:b_21\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:b_20\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:b_19\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:b_18\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:b_17\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:b_16\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:b_15\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:b_14\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:b_13\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:b_12\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:b_11\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:b_10\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:b_9\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:b_8\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:b_7\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:b_6\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:b_5\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:b_4\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:b_3\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:b_2\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:b_1\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:b_0\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:add_vi_vv_MODGEN_12_31\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:s_31\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:add_vi_vv_MODGEN_12_30\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:s_30\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:add_vi_vv_MODGEN_12_29\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:s_29\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:add_vi_vv_MODGEN_12_28\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:s_28\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:add_vi_vv_MODGEN_12_27\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:s_27\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:add_vi_vv_MODGEN_12_26\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:s_26\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:add_vi_vv_MODGEN_12_25\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:s_25\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:add_vi_vv_MODGEN_12_24\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:s_24\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:add_vi_vv_MODGEN_12_23\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:s_23\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:add_vi_vv_MODGEN_12_22\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:s_22\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:add_vi_vv_MODGEN_12_21\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:s_21\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:add_vi_vv_MODGEN_12_20\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:s_20\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:add_vi_vv_MODGEN_12_19\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:s_19\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:add_vi_vv_MODGEN_12_18\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:s_18\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:add_vi_vv_MODGEN_12_17\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:s_17\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:add_vi_vv_MODGEN_12_16\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:s_16\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:add_vi_vv_MODGEN_12_15\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:s_15\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:add_vi_vv_MODGEN_12_14\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:s_14\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:add_vi_vv_MODGEN_12_13\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:s_13\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:add_vi_vv_MODGEN_12_12\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:s_12\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:add_vi_vv_MODGEN_12_11\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:s_11\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:add_vi_vv_MODGEN_12_10\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:s_10\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:add_vi_vv_MODGEN_12_9\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:s_9\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:add_vi_vv_MODGEN_12_8\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:s_8\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:add_vi_vv_MODGEN_12_7\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:s_7\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:add_vi_vv_MODGEN_12_6\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:s_6\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:add_vi_vv_MODGEN_12_5\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:s_5\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:add_vi_vv_MODGEN_12_4\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:s_4\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:add_vi_vv_MODGEN_12_3\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:s_3\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:add_vi_vv_MODGEN_12_2\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:s_2\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:s_1\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:s_0\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:g1:z1:s0:g1:u0:c_31\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:g1:z1:s0:g1:u0:c_30\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:g1:z1:s0:g1:u0:c_29\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:g1:z1:s0:g1:u0:c_28\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:g1:z1:s0:g1:u0:c_27\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:g1:z1:s0:g1:u0:c_26\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:g1:z1:s0:g1:u0:c_25\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:g1:z1:s0:g1:u0:c_24\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:g1:z1:s0:g1:u0:b_24\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:g1:z1:s0:g1:u0:c_23\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:g1:z1:s0:g1:u0:c_22\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:g1:z1:s0:g1:u0:c_21\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:g1:z1:s0:g1:u0:c_20\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:g1:z1:s0:g1:u0:c_19\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:g1:z1:s0:g1:u0:c_18\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:g1:z1:s0:g1:u0:c_17\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:g1:z1:s0:g1:u0:c_16\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:g1:z1:s0:g1:u0:b_16\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:g1:z1:s0:g1:u0:c_15\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:g1:z1:s0:g1:u0:c_14\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:g1:z1:s0:g1:u0:c_13\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:g1:z1:s0:g1:u0:c_12\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:g1:z1:s0:g1:u0:c_11\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:g1:z1:s0:g1:u0:c_10\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:g1:z1:s0:g1:u0:c_9\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:g1:z1:s0:g1:u0:c_8\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:g1:z1:s0:g1:u0:b_8\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:g1:z1:s0:g1:u0:c_7\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:g1:z1:s0:g1:u0:c_6\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:g1:z1:s0:g1:u0:c_5\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:g1:z1:s0:g1:u0:c_4\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:g1:z1:s0:g1:u0:c_3\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:g1:z1:s0:g1:u0:c_2\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:g1:z1:s0:g1:u0:c_1\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:g1:z1:s0:g1:u0:c_0\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:g1:z1:s0:g1:u0:b_0\ : bit;
+SIGNAL Net_1280 : bit;
+SIGNAL Net_1269 : bit;
+SIGNAL Net_1277 : bit;
+SIGNAL \PWM_Servo_Trunk:Net_113\ : bit;
+SIGNAL \PWM_Servo_Trunk:Net_107\ : bit;
+SIGNAL \PWM_Servo_Trunk:Net_114\ : bit;
+SIGNAL tmpOE__MOTOR_GRIPPER_net_0 : bit;
+SIGNAL tmpFB_0__MOTOR_GRIPPER_net_0 : bit;
+SIGNAL tmpIO_0__MOTOR_GRIPPER_net_0 : bit;
+TERMINAL tmpSIOVREF__MOTOR_GRIPPER_net_0 : bit;
+SIGNAL tmpINTERRUPT_0__MOTOR_GRIPPER_net_0 : bit;
+SIGNAL tmpOE__MOTOR_GRIPPER_ARM_net_0 : bit;
+SIGNAL tmpFB_0__MOTOR_GRIPPER_ARM_net_0 : bit;
+SIGNAL tmpIO_0__MOTOR_GRIPPER_ARM_net_0 : bit;
+TERMINAL tmpSIOVREF__MOTOR_GRIPPER_ARM_net_0 : bit;
+SIGNAL tmpINTERRUPT_0__MOTOR_GRIPPER_ARM_net_0 : bit;
+SIGNAL tmpOE__MOTOR_LIFTER_net_0 : bit;
+SIGNAL tmpFB_0__MOTOR_LIFTER_net_0 : bit;
+SIGNAL tmpIO_0__MOTOR_LIFTER_net_0 : bit;
+TERMINAL tmpSIOVREF__MOTOR_LIFTER_net_0 : bit;
+SIGNAL tmpINTERRUPT_0__MOTOR_LIFTER_net_0 : bit;
+SIGNAL tmpOE__MOTOR_TRUNK_net_0 : bit;
+SIGNAL tmpFB_0__MOTOR_TRUNK_net_0 : bit;
+SIGNAL tmpIO_0__MOTOR_TRUNK_net_0 : bit;
+TERMINAL tmpSIOVREF__MOTOR_TRUNK_net_0 : bit;
+SIGNAL tmpINTERRUPT_0__MOTOR_TRUNK_net_0 : bit;
+SIGNAL \Timer_Servo:Net_260\ : bit;
+SIGNAL \Timer_Servo:Net_266\ : bit;
+SIGNAL \Timer_Servo:Net_51\ : bit;
+SIGNAL \Timer_Servo:Net_261\ : bit;
+SIGNAL \Timer_Servo:Net_57\ : bit;
+SIGNAL Net_1285 : bit;
+SIGNAL Net_1286 : bit;
+SIGNAL \Timer_Servo:Net_102\ : bit;
 SIGNAL \QuadDec_RIGHT:Net_1251\\D\ : bit;
 SIGNAL \QuadDec_RIGHT:Cnt16:CounterUDB:prevCapture\\D\ : bit;
 SIGNAL \QuadDec_RIGHT:Cnt16:CounterUDB:overflow_reg_i\\D\ : bit;
@@ -2141,14 +3866,78 @@ SIGNAL \Timer_Ultrasonic:TimerUDB:runmode_enable\\D\ : bit;
 SIGNAL \Timer_Ultrasonic:TimerUDB:trig_disable\\D\ : bit;
 SIGNAL \Debouncer_IR_LEFT:DEBOUNCER[0]:d_sync_0\\D\ : bit;
 SIGNAL \Debouncer_IR_LEFT:DEBOUNCER[0]:d_sync_1\\D\ : bit;
-SIGNAL Net_1104D : bit;
-SIGNAL Net_1102D : bit;
+SIGNAL Net_1126D : bit;
+SIGNAL Net_1121D : bit;
 SIGNAL Net_1103D : bit;
 SIGNAL \Debouncer_IR_RIGHT:DEBOUNCER[0]:d_sync_0\\D\ : bit;
 SIGNAL \Debouncer_IR_RIGHT:DEBOUNCER[0]:d_sync_1\\D\ : bit;
-SIGNAL Net_1108D : bit;
+SIGNAL Net_1130D : bit;
 SIGNAL Net_1107D : bit;
 SIGNAL Net_1106D : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:min_kill_reg\\D\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:prevCapture\\D\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:trig_last\\D\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:runmode_enable\\D\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:sc_kill_tmp\\D\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:ltch_kill_reg\\D\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:dith_count_1\\D\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:dith_count_0\\D\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:prevCompare1\\D\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:cmp1_status_reg\\D\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:cmp2_status_reg\\D\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:final_kill_reg\\D\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:pwm_i_reg\\D\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:pwm1_i_reg\\D\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:pwm2_i_reg\\D\ : bit;
+SIGNAL \PWM_Servo_Gripper:PWMUDB:tc_i_reg\\D\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:min_kill_reg\\D\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:prevCapture\\D\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:trig_last\\D\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:runmode_enable\\D\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:sc_kill_tmp\\D\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:ltch_kill_reg\\D\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:dith_count_1\\D\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:dith_count_0\\D\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:prevCompare1\\D\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:cmp1_status_reg\\D\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:cmp2_status_reg\\D\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:final_kill_reg\\D\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:pwm_i_reg\\D\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:pwm1_i_reg\\D\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:pwm2_i_reg\\D\ : bit;
+SIGNAL \PWM_Servo_Gripper_Arm:PWMUDB:tc_i_reg\\D\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:min_kill_reg\\D\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:prevCapture\\D\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:trig_last\\D\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:runmode_enable\\D\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:sc_kill_tmp\\D\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:ltch_kill_reg\\D\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:dith_count_1\\D\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:dith_count_0\\D\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:prevCompare1\\D\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:cmp1_status_reg\\D\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:cmp2_status_reg\\D\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:final_kill_reg\\D\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:pwm_i_reg\\D\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:pwm1_i_reg\\D\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:pwm2_i_reg\\D\ : bit;
+SIGNAL \PWM_Servo_Lifter:PWMUDB:tc_i_reg\\D\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:min_kill_reg\\D\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:prevCapture\\D\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:trig_last\\D\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:runmode_enable\\D\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:sc_kill_tmp\\D\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:ltch_kill_reg\\D\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:dith_count_1\\D\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:dith_count_0\\D\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:prevCompare1\\D\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:cmp1_status_reg\\D\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:cmp2_status_reg\\D\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:final_kill_reg\\D\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:pwm_i_reg\\D\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:pwm1_i_reg\\D\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:pwm2_i_reg\\D\ : bit;
+SIGNAL \PWM_Servo_Trunk:PWMUDB:tc_i_reg\\D\ : bit;
 BEGIN
 
 zero <=  ('0') ;
@@ -2443,22 +4232,27 @@ Net_979D <= ((not \UART_1:BUART:reset_reg\ and \UART_1:BUART:tx_state_2\)
 
 \UART_1:BUART:rx_address_detected\\D\ <= ((not \UART_1:BUART:reset_reg\ and \UART_1:BUART:rx_address_detected\));
 
-Net_1042 <= ((Net_1035_1 and Net_1035_0 and Net_1071)
-	OR (not Net_1035_0 and Net_1035_1 and Net_1053)
-	OR (not Net_1035_1 and not Net_1035_0 and Net_1051)
-	OR (not Net_1035_1 and Net_1052 and Net_1035_0));
+Net_1042 <= ((not Net_1035_1 and not Net_1035_0 and Net_1035_2 and Net_1053)
+	OR (not Net_1035_2 and Net_1035_1 and Net_1035_0 and Net_1052)
+	OR (not Net_1035_2 and not Net_1035_0 and Net_1035_1 and Net_1051)
+	OR (not Net_1035_2 and not Net_1035_1 and Net_1116 and Net_1035_0)
+	OR (not Net_1035_2 and not Net_1035_1 and not Net_1035_0 and Net_1115));
 
-\Timer_Ultrasonic:TimerUDB:capt_fifo_load\ <= ((not Net_1071 and Net_1035_1 and Net_1035_0 and \Timer_Ultrasonic:TimerUDB:capture_last\ and \Timer_Ultrasonic:TimerUDB:timer_enable\)
-	OR (not Net_1035_0 and not Net_1053 and Net_1035_1 and \Timer_Ultrasonic:TimerUDB:capture_last\ and \Timer_Ultrasonic:TimerUDB:timer_enable\)
-	OR (not Net_1051 and not Net_1035_1 and not Net_1035_0 and \Timer_Ultrasonic:TimerUDB:capture_last\ and \Timer_Ultrasonic:TimerUDB:timer_enable\)
-	OR (not Net_1052 and not Net_1035_1 and Net_1035_0 and \Timer_Ultrasonic:TimerUDB:capture_last\ and \Timer_Ultrasonic:TimerUDB:timer_enable\));
+\Timer_Ultrasonic:TimerUDB:capt_fifo_load\ <= ((not Net_1115 and not Net_1035_2 and not Net_1035_1 and not Net_1035_0 and \Timer_Ultrasonic:TimerUDB:capture_last\ and \Timer_Ultrasonic:TimerUDB:timer_enable\)
+	OR (not Net_1035_0 and not Net_1051 and Net_1035_1 and \Timer_Ultrasonic:TimerUDB:capture_last\ and \Timer_Ultrasonic:TimerUDB:timer_enable\)
+	OR (not Net_1116 and not Net_1035_1 and Net_1035_0 and \Timer_Ultrasonic:TimerUDB:capture_last\ and \Timer_Ultrasonic:TimerUDB:timer_enable\)
+	OR (not Net_1052 and Net_1035_1 and Net_1035_0 and \Timer_Ultrasonic:TimerUDB:capture_last\ and \Timer_Ultrasonic:TimerUDB:timer_enable\)
+	OR (not Net_1053 and Net_1035_2 and \Timer_Ultrasonic:TimerUDB:capture_last\ and \Timer_Ultrasonic:TimerUDB:timer_enable\)
+	OR (Net_1035_2 and Net_1035_0 and \Timer_Ultrasonic:TimerUDB:capture_last\ and \Timer_Ultrasonic:TimerUDB:timer_enable\)
+	OR (Net_1035_2 and Net_1035_1 and \Timer_Ultrasonic:TimerUDB:capture_last\ and \Timer_Ultrasonic:TimerUDB:timer_enable\));
 
 \Timer_Ultrasonic:TimerUDB:status_tc\ <= ((\Timer_Ultrasonic:TimerUDB:run_mode\ and \Timer_Ultrasonic:TimerUDB:per_zero\));
 
-\Timer_Ultrasonic:TimerUDB:hwEnable\ <= ((Net_1035_1 and Net_1035_0 and Net_1071 and \Timer_Ultrasonic:TimerUDB:control_7\)
-	OR (not Net_1035_0 and Net_1035_1 and Net_1053 and \Timer_Ultrasonic:TimerUDB:control_7\)
-	OR (not Net_1035_1 and not Net_1035_0 and Net_1051 and \Timer_Ultrasonic:TimerUDB:control_7\)
-	OR (not Net_1035_1 and Net_1052 and Net_1035_0 and \Timer_Ultrasonic:TimerUDB:control_7\));
+\Timer_Ultrasonic:TimerUDB:hwEnable\ <= ((not Net_1035_1 and not Net_1035_0 and Net_1035_2 and Net_1053 and \Timer_Ultrasonic:TimerUDB:control_7\)
+	OR (not Net_1035_2 and Net_1035_1 and Net_1035_0 and Net_1052 and \Timer_Ultrasonic:TimerUDB:control_7\)
+	OR (not Net_1035_2 and not Net_1035_0 and Net_1035_1 and Net_1051 and \Timer_Ultrasonic:TimerUDB:control_7\)
+	OR (not Net_1035_2 and not Net_1035_1 and Net_1116 and Net_1035_0 and \Timer_Ultrasonic:TimerUDB:control_7\)
+	OR (not Net_1035_2 and not Net_1035_1 and not Net_1035_0 and Net_1115 and \Timer_Ultrasonic:TimerUDB:control_7\));
 
 \Timer_Ultrasonic:TimerUDB:int_capt_count_1\\D\ <= ((not Net_1085 and not \Timer_Ultrasonic:TimerUDB:control_0\ and not \Timer_Ultrasonic:TimerUDB:int_capt_count_1\ and \Timer_Ultrasonic:TimerUDB:capt_fifo_load\ and \Timer_Ultrasonic:TimerUDB:int_capt_count_0\)
 	OR (not Net_1085 and not \Timer_Ultrasonic:TimerUDB:int_capt_count_1\ and \Timer_Ultrasonic:TimerUDB:control_1\ and \Timer_Ultrasonic:TimerUDB:capt_fifo_load\ and \Timer_Ultrasonic:TimerUDB:int_capt_count_0\)
@@ -2476,25 +4270,108 @@ Net_1042 <= ((Net_1035_1 and Net_1035_0 and Net_1071)
 	OR (not Net_1085 and not \Timer_Ultrasonic:TimerUDB:control_1\ and not \Timer_Ultrasonic:TimerUDB:int_capt_count_1\ and \Timer_Ultrasonic:TimerUDB:control_0\ and \Timer_Ultrasonic:TimerUDB:capt_fifo_load\ and \Timer_Ultrasonic:TimerUDB:int_capt_count_0\)
 	OR (not Net_1085 and \Timer_Ultrasonic:TimerUDB:control_1\ and \Timer_Ultrasonic:TimerUDB:control_0\ and \Timer_Ultrasonic:TimerUDB:capt_fifo_load\ and \Timer_Ultrasonic:TimerUDB:int_capt_count_1\ and \Timer_Ultrasonic:TimerUDB:int_capt_count_0\));
 
-\Timer_Ultrasonic:TimerUDB:runmode_enable\\D\ <= ((not Net_1085 and not \Timer_Ultrasonic:TimerUDB:per_zero\ and not \Timer_Ultrasonic:TimerUDB:trig_disable\ and Net_1035_1 and Net_1035_0 and Net_1071 and \Timer_Ultrasonic:TimerUDB:control_7\)
-	OR (not Net_1085 and not Net_1035_0 and not \Timer_Ultrasonic:TimerUDB:per_zero\ and not \Timer_Ultrasonic:TimerUDB:trig_disable\ and Net_1035_1 and Net_1053 and \Timer_Ultrasonic:TimerUDB:control_7\)
-	OR (not Net_1085 and not Net_1035_1 and not Net_1035_0 and not \Timer_Ultrasonic:TimerUDB:per_zero\ and not \Timer_Ultrasonic:TimerUDB:trig_disable\ and Net_1051 and \Timer_Ultrasonic:TimerUDB:control_7\)
-	OR (not Net_1085 and not Net_1035_1 and not \Timer_Ultrasonic:TimerUDB:per_zero\ and not \Timer_Ultrasonic:TimerUDB:trig_disable\ and Net_1052 and Net_1035_0 and \Timer_Ultrasonic:TimerUDB:control_7\)
-	OR (not Net_1085 and not \Timer_Ultrasonic:TimerUDB:run_mode\ and not \Timer_Ultrasonic:TimerUDB:trig_disable\ and Net_1035_1 and Net_1035_0 and Net_1071 and \Timer_Ultrasonic:TimerUDB:control_7\)
-	OR (not Net_1085 and not Net_1035_0 and not \Timer_Ultrasonic:TimerUDB:run_mode\ and not \Timer_Ultrasonic:TimerUDB:trig_disable\ and Net_1035_1 and Net_1053 and \Timer_Ultrasonic:TimerUDB:control_7\)
-	OR (not Net_1085 and not Net_1035_1 and not Net_1035_0 and not \Timer_Ultrasonic:TimerUDB:run_mode\ and not \Timer_Ultrasonic:TimerUDB:trig_disable\ and Net_1051 and \Timer_Ultrasonic:TimerUDB:control_7\)
-	OR (not Net_1085 and not Net_1035_1 and not \Timer_Ultrasonic:TimerUDB:run_mode\ and not \Timer_Ultrasonic:TimerUDB:trig_disable\ and Net_1052 and Net_1035_0 and \Timer_Ultrasonic:TimerUDB:control_7\)
-	OR (not Net_1085 and not \Timer_Ultrasonic:TimerUDB:timer_enable\ and not \Timer_Ultrasonic:TimerUDB:trig_disable\ and Net_1035_1 and Net_1035_0 and Net_1071 and \Timer_Ultrasonic:TimerUDB:control_7\)
-	OR (not Net_1085 and not Net_1035_0 and not \Timer_Ultrasonic:TimerUDB:timer_enable\ and not \Timer_Ultrasonic:TimerUDB:trig_disable\ and Net_1035_1 and Net_1053 and \Timer_Ultrasonic:TimerUDB:control_7\)
-	OR (not Net_1085 and not Net_1035_1 and not Net_1035_0 and not \Timer_Ultrasonic:TimerUDB:timer_enable\ and not \Timer_Ultrasonic:TimerUDB:trig_disable\ and Net_1051 and \Timer_Ultrasonic:TimerUDB:control_7\)
-	OR (not Net_1085 and not Net_1035_1 and not \Timer_Ultrasonic:TimerUDB:timer_enable\ and not \Timer_Ultrasonic:TimerUDB:trig_disable\ and Net_1052 and Net_1035_0 and \Timer_Ultrasonic:TimerUDB:control_7\));
+\Timer_Ultrasonic:TimerUDB:runmode_enable\\D\ <= ((not Net_1085 and not Net_1035_1 and not Net_1035_0 and not \Timer_Ultrasonic:TimerUDB:per_zero\ and not \Timer_Ultrasonic:TimerUDB:trig_disable\ and Net_1035_2 and Net_1053 and \Timer_Ultrasonic:TimerUDB:control_7\)
+	OR (not Net_1085 and not Net_1035_1 and not Net_1035_0 and not \Timer_Ultrasonic:TimerUDB:run_mode\ and not \Timer_Ultrasonic:TimerUDB:trig_disable\ and Net_1035_2 and Net_1053 and \Timer_Ultrasonic:TimerUDB:control_7\)
+	OR (not Net_1085 and not Net_1035_1 and not Net_1035_0 and not \Timer_Ultrasonic:TimerUDB:timer_enable\ and not \Timer_Ultrasonic:TimerUDB:trig_disable\ and Net_1035_2 and Net_1053 and \Timer_Ultrasonic:TimerUDB:control_7\)
+	OR (not Net_1085 and not Net_1035_2 and not \Timer_Ultrasonic:TimerUDB:per_zero\ and not \Timer_Ultrasonic:TimerUDB:trig_disable\ and Net_1035_1 and Net_1035_0 and Net_1052 and \Timer_Ultrasonic:TimerUDB:control_7\)
+	OR (not Net_1085 and not Net_1035_2 and not \Timer_Ultrasonic:TimerUDB:run_mode\ and not \Timer_Ultrasonic:TimerUDB:trig_disable\ and Net_1035_1 and Net_1035_0 and Net_1052 and \Timer_Ultrasonic:TimerUDB:control_7\)
+	OR (not Net_1085 and not Net_1035_2 and not \Timer_Ultrasonic:TimerUDB:timer_enable\ and not \Timer_Ultrasonic:TimerUDB:trig_disable\ and Net_1035_1 and Net_1035_0 and Net_1052 and \Timer_Ultrasonic:TimerUDB:control_7\)
+	OR (not Net_1085 and not Net_1035_2 and not Net_1035_0 and not \Timer_Ultrasonic:TimerUDB:per_zero\ and not \Timer_Ultrasonic:TimerUDB:trig_disable\ and Net_1035_1 and Net_1051 and \Timer_Ultrasonic:TimerUDB:control_7\)
+	OR (not Net_1085 and not Net_1035_2 and not Net_1035_1 and not \Timer_Ultrasonic:TimerUDB:per_zero\ and not \Timer_Ultrasonic:TimerUDB:trig_disable\ and Net_1116 and Net_1035_0 and \Timer_Ultrasonic:TimerUDB:control_7\)
+	OR (not Net_1085 and not Net_1035_2 and not Net_1035_0 and not \Timer_Ultrasonic:TimerUDB:run_mode\ and not \Timer_Ultrasonic:TimerUDB:trig_disable\ and Net_1035_1 and Net_1051 and \Timer_Ultrasonic:TimerUDB:control_7\)
+	OR (not Net_1085 and not Net_1035_2 and not Net_1035_1 and not \Timer_Ultrasonic:TimerUDB:run_mode\ and not \Timer_Ultrasonic:TimerUDB:trig_disable\ and Net_1116 and Net_1035_0 and \Timer_Ultrasonic:TimerUDB:control_7\)
+	OR (not Net_1085 and not Net_1035_2 and not Net_1035_0 and not \Timer_Ultrasonic:TimerUDB:timer_enable\ and not \Timer_Ultrasonic:TimerUDB:trig_disable\ and Net_1035_1 and Net_1051 and \Timer_Ultrasonic:TimerUDB:control_7\)
+	OR (not Net_1085 and not Net_1035_2 and not Net_1035_1 and not \Timer_Ultrasonic:TimerUDB:timer_enable\ and not \Timer_Ultrasonic:TimerUDB:trig_disable\ and Net_1116 and Net_1035_0 and \Timer_Ultrasonic:TimerUDB:control_7\)
+	OR (not Net_1085 and not Net_1035_2 and not Net_1035_1 and not Net_1035_0 and not \Timer_Ultrasonic:TimerUDB:per_zero\ and not \Timer_Ultrasonic:TimerUDB:trig_disable\ and Net_1115 and \Timer_Ultrasonic:TimerUDB:control_7\)
+	OR (not Net_1085 and not Net_1035_2 and not Net_1035_1 and not Net_1035_0 and not \Timer_Ultrasonic:TimerUDB:run_mode\ and not \Timer_Ultrasonic:TimerUDB:trig_disable\ and Net_1115 and \Timer_Ultrasonic:TimerUDB:control_7\)
+	OR (not Net_1085 and not Net_1035_2 and not Net_1035_1 and not Net_1035_0 and not \Timer_Ultrasonic:TimerUDB:timer_enable\ and not \Timer_Ultrasonic:TimerUDB:trig_disable\ and Net_1115 and \Timer_Ultrasonic:TimerUDB:control_7\));
 
 \Timer_Ultrasonic:TimerUDB:trig_disable\\D\ <= ((not Net_1085 and \Timer_Ultrasonic:TimerUDB:timer_enable\ and \Timer_Ultrasonic:TimerUDB:run_mode\ and \Timer_Ultrasonic:TimerUDB:per_zero\)
 	OR (not Net_1085 and \Timer_Ultrasonic:TimerUDB:trig_disable\));
 
-Net_1102D <= ((not \Debouncer_IR_LEFT:DEBOUNCER[0]:d_sync_0\ and \Debouncer_IR_LEFT:DEBOUNCER[0]:d_sync_1\));
+Net_1126D <= ((not \Debouncer_IR_LEFT:DEBOUNCER[0]:d_sync_1\ and Net_1134));
 
-Net_1107D <= ((not \Debouncer_IR_RIGHT:DEBOUNCER[0]:d_sync_0\ and \Debouncer_IR_RIGHT:DEBOUNCER[0]:d_sync_1\));
+Net_1121D <= ((not Net_1134 and \Debouncer_IR_LEFT:DEBOUNCER[0]:d_sync_1\));
+
+Net_1130D <= ((not \Debouncer_IR_RIGHT:DEBOUNCER[0]:d_sync_1\ and Net_1131));
+
+Net_1107D <= ((not Net_1131 and \Debouncer_IR_RIGHT:DEBOUNCER[0]:d_sync_1\));
+
+Net_1133 <= ((Net_1134 and Net_1131));
+
+Net_1127 <= (Net_1121
+	OR Net_1126);
+
+Net_1129 <= (Net_1107
+	OR Net_1130);
+
+\PWM_Servo_Gripper:PWMUDB:sc_kill_tmp\\D\ <= (not \PWM_Servo_Gripper:PWMUDB:tc_i\);
+
+\PWM_Servo_Gripper:PWMUDB:dith_count_1\\D\ <= ((not \PWM_Servo_Gripper:PWMUDB:dith_count_1\ and \PWM_Servo_Gripper:PWMUDB:tc_i\ and \PWM_Servo_Gripper:PWMUDB:dith_count_0\)
+	OR (not \PWM_Servo_Gripper:PWMUDB:dith_count_0\ and \PWM_Servo_Gripper:PWMUDB:dith_count_1\)
+	OR (not \PWM_Servo_Gripper:PWMUDB:tc_i\ and \PWM_Servo_Gripper:PWMUDB:dith_count_1\));
+
+\PWM_Servo_Gripper:PWMUDB:dith_count_0\\D\ <= ((not \PWM_Servo_Gripper:PWMUDB:dith_count_0\ and \PWM_Servo_Gripper:PWMUDB:tc_i\)
+	OR (not \PWM_Servo_Gripper:PWMUDB:tc_i\ and \PWM_Servo_Gripper:PWMUDB:dith_count_0\));
+
+\PWM_Servo_Gripper:PWMUDB:cmp1_status\ <= ((not \PWM_Servo_Gripper:PWMUDB:prevCompare1\ and not \PWM_Servo_Gripper:PWMUDB:cmp1_less\));
+
+\PWM_Servo_Gripper:PWMUDB:status_2\ <= ((\PWM_Servo_Gripper:PWMUDB:runmode_enable\ and \PWM_Servo_Gripper:PWMUDB:tc_i\));
+
+\PWM_Servo_Gripper:PWMUDB:pwm_i\ <= ((not \PWM_Servo_Gripper:PWMUDB:cmp1_less\ and \PWM_Servo_Gripper:PWMUDB:runmode_enable\));
+
+\PWM_Servo_Gripper:PWMUDB:cmp1\ <= (not \PWM_Servo_Gripper:PWMUDB:cmp1_less\);
+
+\PWM_Servo_Gripper_Arm:PWMUDB:sc_kill_tmp\\D\ <= (not \PWM_Servo_Gripper_Arm:PWMUDB:tc_i\);
+
+\PWM_Servo_Gripper_Arm:PWMUDB:dith_count_1\\D\ <= ((not \PWM_Servo_Gripper_Arm:PWMUDB:dith_count_1\ and \PWM_Servo_Gripper_Arm:PWMUDB:tc_i\ and \PWM_Servo_Gripper_Arm:PWMUDB:dith_count_0\)
+	OR (not \PWM_Servo_Gripper_Arm:PWMUDB:dith_count_0\ and \PWM_Servo_Gripper_Arm:PWMUDB:dith_count_1\)
+	OR (not \PWM_Servo_Gripper_Arm:PWMUDB:tc_i\ and \PWM_Servo_Gripper_Arm:PWMUDB:dith_count_1\));
+
+\PWM_Servo_Gripper_Arm:PWMUDB:dith_count_0\\D\ <= ((not \PWM_Servo_Gripper_Arm:PWMUDB:dith_count_0\ and \PWM_Servo_Gripper_Arm:PWMUDB:tc_i\)
+	OR (not \PWM_Servo_Gripper_Arm:PWMUDB:tc_i\ and \PWM_Servo_Gripper_Arm:PWMUDB:dith_count_0\));
+
+\PWM_Servo_Gripper_Arm:PWMUDB:cmp1_status\ <= ((not \PWM_Servo_Gripper_Arm:PWMUDB:prevCompare1\ and not \PWM_Servo_Gripper_Arm:PWMUDB:cmp1_less\));
+
+\PWM_Servo_Gripper_Arm:PWMUDB:status_2\ <= ((\PWM_Servo_Gripper_Arm:PWMUDB:runmode_enable\ and \PWM_Servo_Gripper_Arm:PWMUDB:tc_i\));
+
+\PWM_Servo_Gripper_Arm:PWMUDB:pwm_i\ <= ((not \PWM_Servo_Gripper_Arm:PWMUDB:cmp1_less\ and \PWM_Servo_Gripper_Arm:PWMUDB:runmode_enable\));
+
+\PWM_Servo_Gripper_Arm:PWMUDB:cmp1\ <= (not \PWM_Servo_Gripper_Arm:PWMUDB:cmp1_less\);
+
+\PWM_Servo_Lifter:PWMUDB:sc_kill_tmp\\D\ <= (not \PWM_Servo_Lifter:PWMUDB:tc_i\);
+
+\PWM_Servo_Lifter:PWMUDB:dith_count_1\\D\ <= ((not \PWM_Servo_Lifter:PWMUDB:dith_count_1\ and \PWM_Servo_Lifter:PWMUDB:tc_i\ and \PWM_Servo_Lifter:PWMUDB:dith_count_0\)
+	OR (not \PWM_Servo_Lifter:PWMUDB:dith_count_0\ and \PWM_Servo_Lifter:PWMUDB:dith_count_1\)
+	OR (not \PWM_Servo_Lifter:PWMUDB:tc_i\ and \PWM_Servo_Lifter:PWMUDB:dith_count_1\));
+
+\PWM_Servo_Lifter:PWMUDB:dith_count_0\\D\ <= ((not \PWM_Servo_Lifter:PWMUDB:dith_count_0\ and \PWM_Servo_Lifter:PWMUDB:tc_i\)
+	OR (not \PWM_Servo_Lifter:PWMUDB:tc_i\ and \PWM_Servo_Lifter:PWMUDB:dith_count_0\));
+
+\PWM_Servo_Lifter:PWMUDB:cmp1_status\ <= ((not \PWM_Servo_Lifter:PWMUDB:prevCompare1\ and not \PWM_Servo_Lifter:PWMUDB:cmp1_less\));
+
+\PWM_Servo_Lifter:PWMUDB:status_2\ <= ((\PWM_Servo_Lifter:PWMUDB:runmode_enable\ and \PWM_Servo_Lifter:PWMUDB:tc_i\));
+
+\PWM_Servo_Lifter:PWMUDB:pwm_i\ <= ((not \PWM_Servo_Lifter:PWMUDB:cmp1_less\ and \PWM_Servo_Lifter:PWMUDB:runmode_enable\));
+
+\PWM_Servo_Lifter:PWMUDB:cmp1\ <= (not \PWM_Servo_Lifter:PWMUDB:cmp1_less\);
+
+\PWM_Servo_Trunk:PWMUDB:sc_kill_tmp\\D\ <= (not \PWM_Servo_Trunk:PWMUDB:tc_i\);
+
+\PWM_Servo_Trunk:PWMUDB:dith_count_1\\D\ <= ((not \PWM_Servo_Trunk:PWMUDB:dith_count_1\ and \PWM_Servo_Trunk:PWMUDB:tc_i\ and \PWM_Servo_Trunk:PWMUDB:dith_count_0\)
+	OR (not \PWM_Servo_Trunk:PWMUDB:dith_count_0\ and \PWM_Servo_Trunk:PWMUDB:dith_count_1\)
+	OR (not \PWM_Servo_Trunk:PWMUDB:tc_i\ and \PWM_Servo_Trunk:PWMUDB:dith_count_1\));
+
+\PWM_Servo_Trunk:PWMUDB:dith_count_0\\D\ <= ((not \PWM_Servo_Trunk:PWMUDB:dith_count_0\ and \PWM_Servo_Trunk:PWMUDB:tc_i\)
+	OR (not \PWM_Servo_Trunk:PWMUDB:tc_i\ and \PWM_Servo_Trunk:PWMUDB:dith_count_0\));
+
+\PWM_Servo_Trunk:PWMUDB:cmp1_status\ <= ((not \PWM_Servo_Trunk:PWMUDB:prevCompare1\ and not \PWM_Servo_Trunk:PWMUDB:cmp1_less\));
+
+\PWM_Servo_Trunk:PWMUDB:status_2\ <= ((\PWM_Servo_Trunk:PWMUDB:runmode_enable\ and \PWM_Servo_Trunk:PWMUDB:tc_i\));
+
+\PWM_Servo_Trunk:PWMUDB:pwm_i\ <= ((not \PWM_Servo_Trunk:PWMUDB:cmp1_less\ and \PWM_Servo_Trunk:PWMUDB:runmode_enable\));
+
+\PWM_Servo_Trunk:PWMUDB:cmp1\ <= (not \PWM_Servo_Trunk:PWMUDB:cmp1_less\);
 
 MOTOR_EN_RIGHT:cy_psoc3_pins_v1_10
 	GENERIC MAP(id=>"0fe143c2-f701-4dc0-8d09-6c4cbde55272",
@@ -5401,7 +7278,7 @@ Echo_LEFT:cy_psoc3_pins_v1_10
 		input_buffer_sel=>"00")
 	PORT MAP(oe=>(tmpOE__MOTOR_EN_RIGHT_net_0),
 		y=>(zero),
-		fb=>Net_1051,
+		fb=>Net_1115,
 		analog=>(open),
 		io=>(tmpIO_0__Echo_LEFT_net_0),
 		siovref=>(tmpSIOVREF__Echo_LEFT_net_0),
@@ -5475,7 +7352,7 @@ Echo_RIGHT:cy_psoc3_pins_v1_10
 		input_buffer_sel=>"00")
 	PORT MAP(oe=>(tmpOE__MOTOR_EN_RIGHT_net_0),
 		y=>(zero),
-		fb=>Net_1052,
+		fb=>Net_1116,
 		analog=>(open),
 		io=>(tmpIO_0__Echo_RIGHT_net_0),
 		siovref=>(tmpSIOVREF__Echo_RIGHT_net_0),
@@ -5496,7 +7373,7 @@ Echo_RIGHT:cy_psoc3_pins_v1_10
 	PORT MAP(reset=>zero,
 		clock=>zero,
 		control=>(\Control_Reg_Ultrasonic:control_7\, \Control_Reg_Ultrasonic:control_6\, \Control_Reg_Ultrasonic:control_5\, \Control_Reg_Ultrasonic:control_4\,
-			\Control_Reg_Ultrasonic:control_3\, \Control_Reg_Ultrasonic:control_2\, Net_1035_1, Net_1035_0));
+			\Control_Reg_Ultrasonic:control_3\, Net_1035_2, Net_1035_1, Net_1035_0));
 IR_Sensor_RIGHT:cy_psoc3_pins_v1_10
 	GENERIC MAP(id=>"678290cf-51d6-42c3-b253-a0a626a2926f",
 		drive_mode=>"001",
@@ -5625,7 +7502,7 @@ Echo_FLEFT:cy_psoc3_pins_v1_10
 		input_buffer_sel=>"00")
 	PORT MAP(oe=>(tmpOE__MOTOR_EN_RIGHT_net_0),
 		y=>(zero),
-		fb=>Net_1053,
+		fb=>Net_1051,
 		analog=>(open),
 		io=>(tmpIO_0__Echo_FLEFT_net_0),
 		siovref=>(tmpSIOVREF__Echo_FLEFT_net_0),
@@ -5695,7 +7572,7 @@ Echo_FRIGHT:cy_psoc3_pins_v1_10
 		input_buffer_sel=>"00")
 	PORT MAP(oe=>(tmpOE__MOTOR_EN_RIGHT_net_0),
 		y=>(zero),
-		fb=>Net_1071,
+		fb=>Net_1052,
 		analog=>(open),
 		io=>(tmpIO_0__Echo_FRIGHT_net_0),
 		siovref=>(tmpSIOVREF__Echo_FRIGHT_net_0),
@@ -5923,19 +7800,1213 @@ Clock_4:cy_clock_v1_0
 		id=>"f6c9da27-3a17-447b-9b02-39ce8b7f604e",
 		source_clock_id=>"",
 		divisor=>0,
-		period=>"1000000000000",
+		period=>"10000000000000",
 		is_direct=>'0',
 		is_digital=>'1')
 	PORT MAP(clock_out=>Net_1100,
 		dig_domain_out=>open);
-isr_ir_left:cy_isr_v1_0
+isr_IR_Sensor_LEFT:cy_isr_v1_0
 	GENERIC MAP(int_type=>"10",
 		is_nmi=>'0')
-	PORT MAP(int_signal=>Net_1102);
-isr_ir_right:cy_isr_v1_0
+	PORT MAP(int_signal=>Net_1127);
+isr_IR_Sensor_RIGHT:cy_isr_v1_0
 	GENERIC MAP(int_type=>"10",
 		is_nmi=>'0')
-	PORT MAP(int_signal=>Net_1107);
+	PORT MAP(int_signal=>Net_1129);
+Echo_BACK:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"8ffeebf3-1518-4238-be25-8ac9785eecfe",
+		drive_mode=>"001",
+		ibuf_enabled=>"1",
+		init_dr_st=>"0",
+		input_sync=>"0",
+		input_clk_en=>'0',
+		input_sync_mode=>"0",
+		intr_mode=>"00",
+		invert_in_clock=>'0',
+		invert_in_clock_en=>'0',
+		invert_in_reset=>'0',
+		invert_out_clock=>'0',
+		invert_out_clock_en=>'0',
+		invert_out_reset=>'0',
+		io_voltage=>"",
+		layout_mode=>"CONTIGUOUS",
+		output_conn=>"0",
+		output_sync=>"0",
+		output_clk_en=>'0',
+		output_mode=>"0",
+		output_reset=>'0',
+		output_clock_mode=>"0",
+		oe_sync=>"0",
+		oe_conn=>"0",
+		oe_reset=>'0',
+		pin_aliases=>"",
+		pin_mode=>"I",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"00000000",
+		sio_hyst=>"1",
+		sio_ibuf=>"00000000",
+		sio_info=>"00",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		sio_vohsel=>"00000000",
+		slew_rate=>"0",
+		spanning=>'0',
+		sw_only=>'0',
+		vtrip=>"00",
+		width=>1,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"0",
+		pa_in_clock=>-1,
+		pa_in_clock_en=>-1,
+		pa_in_reset=>-1,
+		pa_out_clock=>-1,
+		pa_out_clock_en=>-1,
+		pa_out_reset=>-1,
+		ovt_needed=>"0",
+		ovt_slew_control=>"00",
+		ovt_hyst_trim=>"0",
+		input_buffer_sel=>"00")
+	PORT MAP(oe=>(tmpOE__MOTOR_EN_RIGHT_net_0),
+		y=>(zero),
+		fb=>Net_1053,
+		analog=>(open),
+		io=>(tmpIO_0__Echo_BACK_net_0),
+		siovref=>(tmpSIOVREF__Echo_BACK_net_0),
+		annotation=>(open),
+		in_clock=>zero,
+		in_clock_en=>tmpOE__MOTOR_EN_RIGHT_net_0,
+		in_reset=>zero,
+		out_clock=>zero,
+		out_clock_en=>tmpOE__MOTOR_EN_RIGHT_net_0,
+		out_reset=>zero,
+		interrupt=>tmpINTERRUPT_0__Echo_BACK_net_0);
+isr_puck:cy_isr_v1_0
+	GENERIC MAP(int_type=>"10",
+		is_nmi=>'0')
+	PORT MAP(int_signal=>Net_1133);
+\PWM_Servo_Gripper:PWMUDB:clock_enable_block\:cy_psoc3_udb_clock_enable_v1_0
+	GENERIC MAP(sync_mode=>'1')
+	PORT MAP(clock_in=>Net_1150,
+		enable=>tmpOE__MOTOR_EN_RIGHT_net_0,
+		clock_out=>\PWM_Servo_Gripper:PWMUDB:ClockOutFromEnBlock\);
+\PWM_Servo_Gripper:PWMUDB:genblk1:ctrlreg\:cy_psoc3_control
+	GENERIC MAP(cy_init_value=>"00000000",
+		cy_force_order=>'1',
+		cy_ctrl_mode_1=>"00000000",
+		cy_ctrl_mode_0=>"11111111",
+		cy_ext_reset=>'0')
+	PORT MAP(reset=>zero,
+		clock=>\PWM_Servo_Gripper:PWMUDB:ClockOutFromEnBlock\,
+		control=>(\PWM_Servo_Gripper:PWMUDB:control_7\, \PWM_Servo_Gripper:PWMUDB:control_6\, \PWM_Servo_Gripper:PWMUDB:control_5\, \PWM_Servo_Gripper:PWMUDB:control_4\,
+			\PWM_Servo_Gripper:PWMUDB:control_3\, \PWM_Servo_Gripper:PWMUDB:control_2\, \PWM_Servo_Gripper:PWMUDB:control_1\, \PWM_Servo_Gripper:PWMUDB:control_0\));
+\PWM_Servo_Gripper:PWMUDB:genblk8:stsreg\:cy_psoc3_statusi
+	GENERIC MAP(cy_force_order=>'1',
+		cy_md_select=>"0100111",
+		cy_int_mask=>"1111111")
+	PORT MAP(reset=>zero,
+		clock=>\PWM_Servo_Gripper:PWMUDB:ClockOutFromEnBlock\,
+		status=>(zero, \PWM_Servo_Gripper:PWMUDB:status_5\, zero, \PWM_Servo_Gripper:PWMUDB:status_3\,
+			\PWM_Servo_Gripper:PWMUDB:status_2\, \PWM_Servo_Gripper:PWMUDB:status_1\, \PWM_Servo_Gripper:PWMUDB:status_0\),
+		interrupt=>\PWM_Servo_Gripper:Net_55\);
+\PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:u0\:cy_psoc3_dp
+	GENERIC MAP(cy_dpconfig=>"0000000001000000000000001100000001000000010000000000000011000000000000001100000000000000110000000000000011000000000000001100000011111111000000001111111111111111101000000000000000000100000000000000000000011000",
+		d0_init=>"00000000",
+		d1_init=>"00000000",
+		a0_init=>"00000000",
+		a1_init=>"00000000",
+		ce0_sync=>'1',
+		cl0_sync=>'1',
+		z0_sync=>'1',
+		ff0_sync=>'1',
+		ce1_sync=>'1',
+		cl1_sync=>'1',
+		z1_sync=>'1',
+		ff1_sync=>'1',
+		ov_msb_sync=>'1',
+		co_msb_sync=>'1',
+		cmsb_sync=>'1',
+		so_sync=>'1',
+		f0_bus_sync=>'1',
+		f0_blk_sync=>'1',
+		f1_bus_sync=>'1',
+		f1_blk_sync=>'1')
+	PORT MAP(reset=>zero,
+		clk=>\PWM_Servo_Gripper:PWMUDB:ClockOutFromEnBlock\,
+		cs_addr=>(\PWM_Servo_Gripper:PWMUDB:tc_i\, \PWM_Servo_Gripper:PWMUDB:runmode_enable\, zero),
+		route_si=>zero,
+		route_ci=>zero,
+		f0_load=>zero,
+		f1_load=>zero,
+		d0_load=>zero,
+		d1_load=>zero,
+		ce0=>\PWM_Servo_Gripper:PWMUDB:nc2\,
+		cl0=>\PWM_Servo_Gripper:PWMUDB:nc3\,
+		z0=>\PWM_Servo_Gripper:PWMUDB:nc1\,
+		ff0=>open,
+		ce1=>\PWM_Servo_Gripper:PWMUDB:nc4\,
+		cl1=>\PWM_Servo_Gripper:PWMUDB:nc5\,
+		z1=>open,
+		ff1=>open,
+		ov_msb=>open,
+		co_msb=>open,
+		cmsb=>open,
+		so=>open,
+		f0_bus_stat=>open,
+		f0_blk_stat=>open,
+		f1_bus_stat=>\PWM_Servo_Gripper:PWMUDB:nc6\,
+		f1_blk_stat=>\PWM_Servo_Gripper:PWMUDB:nc7\,
+		ce0_reg=>open,
+		cl0_reg=>open,
+		z0_reg=>open,
+		ff0_reg=>open,
+		ce1_reg=>open,
+		cl1_reg=>open,
+		z1_reg=>open,
+		ff1_reg=>open,
+		ov_msb_reg=>open,
+		co_msb_reg=>open,
+		cmsb_reg=>open,
+		so_reg=>open,
+		f0_bus_stat_reg=>open,
+		f0_blk_stat_reg=>open,
+		f1_bus_stat_reg=>open,
+		f1_blk_stat_reg=>open,
+		ci=>zero,
+		co=>\PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:carry\,
+		sir=>zero,
+		sor=>open,
+		sil=>\PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:sh_right\,
+		sol=>\PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:sh_left\,
+		msbi=>\PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:msb\,
+		msbo=>open,
+		cei=>(zero, zero),
+		ceo=>(\PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:cmp_eq_1\, \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:cmp_eq_0\),
+		cli=>(zero, zero),
+		clo=>(\PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:cmp_lt_1\, \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:cmp_lt_0\),
+		zi=>(zero, zero),
+		zo=>(\PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:cmp_zero_1\, \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:cmp_zero_0\),
+		fi=>(zero, zero),
+		fo=>(\PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:cmp_ff_1\, \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:cmp_ff_0\),
+		capi=>(zero, zero),
+		capo=>(\PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:cap_1\, \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:cap_0\),
+		cfbi=>zero,
+		cfbo=>\PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:cfb\,
+		pi=>(zero, zero, zero, zero,
+			zero, zero, zero, zero),
+		po=>open);
+\PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:u1\:cy_psoc3_dp
+	GENERIC MAP(cy_dpconfig=>"0000000001000000000000001100000001000000010000000000000011000000000000001100000000000000110000000000000011000000000000001100000011111111000000001111111111111111101011110000000000000100000011110000000000011000",
+		d0_init=>"00000000",
+		d1_init=>"00000000",
+		a0_init=>"00000000",
+		a1_init=>"00000000",
+		ce0_sync=>'1',
+		cl0_sync=>'1',
+		z0_sync=>'1',
+		ff0_sync=>'1',
+		ce1_sync=>'1',
+		cl1_sync=>'1',
+		z1_sync=>'1',
+		ff1_sync=>'1',
+		ov_msb_sync=>'1',
+		co_msb_sync=>'1',
+		cmsb_sync=>'1',
+		so_sync=>'1',
+		f0_bus_sync=>'1',
+		f0_blk_sync=>'1',
+		f1_bus_sync=>'1',
+		f1_blk_sync=>'1')
+	PORT MAP(reset=>zero,
+		clk=>\PWM_Servo_Gripper:PWMUDB:ClockOutFromEnBlock\,
+		cs_addr=>(\PWM_Servo_Gripper:PWMUDB:tc_i\, \PWM_Servo_Gripper:PWMUDB:runmode_enable\, zero),
+		route_si=>zero,
+		route_ci=>zero,
+		f0_load=>zero,
+		f1_load=>zero,
+		d0_load=>zero,
+		d1_load=>zero,
+		ce0=>\PWM_Servo_Gripper:PWMUDB:cmp1_eq\,
+		cl0=>\PWM_Servo_Gripper:PWMUDB:cmp1_less\,
+		z0=>\PWM_Servo_Gripper:PWMUDB:tc_i\,
+		ff0=>open,
+		ce1=>\PWM_Servo_Gripper:PWMUDB:cmp2_eq\,
+		cl1=>\PWM_Servo_Gripper:PWMUDB:cmp2_less\,
+		z1=>open,
+		ff1=>open,
+		ov_msb=>open,
+		co_msb=>open,
+		cmsb=>open,
+		so=>open,
+		f0_bus_stat=>open,
+		f0_blk_stat=>open,
+		f1_bus_stat=>\PWM_Servo_Gripper:PWMUDB:fifo_nempty\,
+		f1_blk_stat=>\PWM_Servo_Gripper:PWMUDB:status_3\,
+		ce0_reg=>open,
+		cl0_reg=>open,
+		z0_reg=>open,
+		ff0_reg=>open,
+		ce1_reg=>open,
+		cl1_reg=>open,
+		z1_reg=>open,
+		ff1_reg=>open,
+		ov_msb_reg=>open,
+		co_msb_reg=>open,
+		cmsb_reg=>open,
+		so_reg=>open,
+		f0_bus_stat_reg=>open,
+		f0_blk_stat_reg=>open,
+		f1_bus_stat_reg=>open,
+		f1_blk_stat_reg=>open,
+		ci=>\PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:carry\,
+		co=>open,
+		sir=>\PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:sh_left\,
+		sor=>\PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:sh_right\,
+		sil=>zero,
+		sol=>open,
+		msbi=>zero,
+		msbo=>\PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:msb\,
+		cei=>(\PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:cmp_eq_1\, \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:cmp_eq_0\),
+		ceo=>open,
+		cli=>(\PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:cmp_lt_1\, \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:cmp_lt_0\),
+		clo=>open,
+		zi=>(\PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:cmp_zero_1\, \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:cmp_zero_0\),
+		zo=>open,
+		fi=>(\PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:cmp_ff_1\, \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:cmp_ff_0\),
+		fo=>open,
+		capi=>(\PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:cap_1\, \PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:cap_0\),
+		capo=>open,
+		cfbi=>\PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:cfb\,
+		cfbo=>open,
+		pi=>(zero, zero, zero, zero,
+			zero, zero, zero, zero),
+		po=>open);
+\PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:g1:z1:s0:g1:u0:gs(24):g2:g3:ub\:cy_buf
+	PORT MAP(x=>zero,
+		y=>\PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:g1:z1:s0:g1:u0:c_24\);
+\PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:g1:z1:s0:g1:u0:gs(16):g2:g3:ub\:cy_buf
+	PORT MAP(x=>zero,
+		y=>\PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:g1:z1:s0:g1:u0:c_16\);
+\PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:g1:z1:s0:g1:u0:gs(8):g2:g3:ub\:cy_buf
+	PORT MAP(x=>zero,
+		y=>\PWM_Servo_Gripper:PWMUDB:MODULE_9:g2:a0:g1:z1:s0:g1:u0:c_8\);
+Clock_5:cy_clock_v1_0
+	GENERIC MAP(cy_registers=>"",
+		id=>"e763cc6d-9b72-4d0e-b9e6-2fdf3669002d",
+		source_clock_id=>"",
+		divisor=>0,
+		period=>"20000000000",
+		is_direct=>'0',
+		is_digital=>'1')
+	PORT MAP(clock_out=>Net_1150,
+		dig_domain_out=>open);
+\PWM_Servo_Gripper_Arm:PWMUDB:clock_enable_block\:cy_psoc3_udb_clock_enable_v1_0
+	GENERIC MAP(sync_mode=>'1')
+	PORT MAP(clock_in=>Net_1150,
+		enable=>tmpOE__MOTOR_EN_RIGHT_net_0,
+		clock_out=>\PWM_Servo_Gripper_Arm:PWMUDB:ClockOutFromEnBlock\);
+\PWM_Servo_Gripper_Arm:PWMUDB:genblk1:ctrlreg\:cy_psoc3_control
+	GENERIC MAP(cy_init_value=>"00000000",
+		cy_force_order=>'1',
+		cy_ctrl_mode_1=>"00000000",
+		cy_ctrl_mode_0=>"11111111",
+		cy_ext_reset=>'0')
+	PORT MAP(reset=>zero,
+		clock=>\PWM_Servo_Gripper_Arm:PWMUDB:ClockOutFromEnBlock\,
+		control=>(\PWM_Servo_Gripper_Arm:PWMUDB:control_7\, \PWM_Servo_Gripper_Arm:PWMUDB:control_6\, \PWM_Servo_Gripper_Arm:PWMUDB:control_5\, \PWM_Servo_Gripper_Arm:PWMUDB:control_4\,
+			\PWM_Servo_Gripper_Arm:PWMUDB:control_3\, \PWM_Servo_Gripper_Arm:PWMUDB:control_2\, \PWM_Servo_Gripper_Arm:PWMUDB:control_1\, \PWM_Servo_Gripper_Arm:PWMUDB:control_0\));
+\PWM_Servo_Gripper_Arm:PWMUDB:genblk8:stsreg\:cy_psoc3_statusi
+	GENERIC MAP(cy_force_order=>'1',
+		cy_md_select=>"0100111",
+		cy_int_mask=>"1111111")
+	PORT MAP(reset=>zero,
+		clock=>\PWM_Servo_Gripper_Arm:PWMUDB:ClockOutFromEnBlock\,
+		status=>(zero, \PWM_Servo_Gripper_Arm:PWMUDB:status_5\, zero, \PWM_Servo_Gripper_Arm:PWMUDB:status_3\,
+			\PWM_Servo_Gripper_Arm:PWMUDB:status_2\, \PWM_Servo_Gripper_Arm:PWMUDB:status_1\, \PWM_Servo_Gripper_Arm:PWMUDB:status_0\),
+		interrupt=>\PWM_Servo_Gripper_Arm:Net_55\);
+\PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:u0\:cy_psoc3_dp
+	GENERIC MAP(cy_dpconfig=>"0000000001000000000000001100000001000000010000000000000011000000000000001100000000000000110000000000000011000000000000001100000011111111000000001111111111111111101000000000000000000100000000000000000000011000",
+		d0_init=>"00000000",
+		d1_init=>"00000000",
+		a0_init=>"00000000",
+		a1_init=>"00000000",
+		ce0_sync=>'1',
+		cl0_sync=>'1',
+		z0_sync=>'1',
+		ff0_sync=>'1',
+		ce1_sync=>'1',
+		cl1_sync=>'1',
+		z1_sync=>'1',
+		ff1_sync=>'1',
+		ov_msb_sync=>'1',
+		co_msb_sync=>'1',
+		cmsb_sync=>'1',
+		so_sync=>'1',
+		f0_bus_sync=>'1',
+		f0_blk_sync=>'1',
+		f1_bus_sync=>'1',
+		f1_blk_sync=>'1')
+	PORT MAP(reset=>zero,
+		clk=>\PWM_Servo_Gripper_Arm:PWMUDB:ClockOutFromEnBlock\,
+		cs_addr=>(\PWM_Servo_Gripper_Arm:PWMUDB:tc_i\, \PWM_Servo_Gripper_Arm:PWMUDB:runmode_enable\, zero),
+		route_si=>zero,
+		route_ci=>zero,
+		f0_load=>zero,
+		f1_load=>zero,
+		d0_load=>zero,
+		d1_load=>zero,
+		ce0=>\PWM_Servo_Gripper_Arm:PWMUDB:nc2\,
+		cl0=>\PWM_Servo_Gripper_Arm:PWMUDB:nc3\,
+		z0=>\PWM_Servo_Gripper_Arm:PWMUDB:nc1\,
+		ff0=>open,
+		ce1=>\PWM_Servo_Gripper_Arm:PWMUDB:nc4\,
+		cl1=>\PWM_Servo_Gripper_Arm:PWMUDB:nc5\,
+		z1=>open,
+		ff1=>open,
+		ov_msb=>open,
+		co_msb=>open,
+		cmsb=>open,
+		so=>open,
+		f0_bus_stat=>open,
+		f0_blk_stat=>open,
+		f1_bus_stat=>\PWM_Servo_Gripper_Arm:PWMUDB:nc6\,
+		f1_blk_stat=>\PWM_Servo_Gripper_Arm:PWMUDB:nc7\,
+		ce0_reg=>open,
+		cl0_reg=>open,
+		z0_reg=>open,
+		ff0_reg=>open,
+		ce1_reg=>open,
+		cl1_reg=>open,
+		z1_reg=>open,
+		ff1_reg=>open,
+		ov_msb_reg=>open,
+		co_msb_reg=>open,
+		cmsb_reg=>open,
+		so_reg=>open,
+		f0_bus_stat_reg=>open,
+		f0_blk_stat_reg=>open,
+		f1_bus_stat_reg=>open,
+		f1_blk_stat_reg=>open,
+		ci=>zero,
+		co=>\PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:carry\,
+		sir=>zero,
+		sor=>open,
+		sil=>\PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:sh_right\,
+		sol=>\PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:sh_left\,
+		msbi=>\PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:msb\,
+		msbo=>open,
+		cei=>(zero, zero),
+		ceo=>(\PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:cmp_eq_1\, \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:cmp_eq_0\),
+		cli=>(zero, zero),
+		clo=>(\PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:cmp_lt_1\, \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:cmp_lt_0\),
+		zi=>(zero, zero),
+		zo=>(\PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:cmp_zero_1\, \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:cmp_zero_0\),
+		fi=>(zero, zero),
+		fo=>(\PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:cmp_ff_1\, \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:cmp_ff_0\),
+		capi=>(zero, zero),
+		capo=>(\PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:cap_1\, \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:cap_0\),
+		cfbi=>zero,
+		cfbo=>\PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:cfb\,
+		pi=>(zero, zero, zero, zero,
+			zero, zero, zero, zero),
+		po=>open);
+\PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:u1\:cy_psoc3_dp
+	GENERIC MAP(cy_dpconfig=>"0000000001000000000000001100000001000000010000000000000011000000000000001100000000000000110000000000000011000000000000001100000011111111000000001111111111111111101011110000000000000100000011110000000000011000",
+		d0_init=>"00000000",
+		d1_init=>"00000000",
+		a0_init=>"00000000",
+		a1_init=>"00000000",
+		ce0_sync=>'1',
+		cl0_sync=>'1',
+		z0_sync=>'1',
+		ff0_sync=>'1',
+		ce1_sync=>'1',
+		cl1_sync=>'1',
+		z1_sync=>'1',
+		ff1_sync=>'1',
+		ov_msb_sync=>'1',
+		co_msb_sync=>'1',
+		cmsb_sync=>'1',
+		so_sync=>'1',
+		f0_bus_sync=>'1',
+		f0_blk_sync=>'1',
+		f1_bus_sync=>'1',
+		f1_blk_sync=>'1')
+	PORT MAP(reset=>zero,
+		clk=>\PWM_Servo_Gripper_Arm:PWMUDB:ClockOutFromEnBlock\,
+		cs_addr=>(\PWM_Servo_Gripper_Arm:PWMUDB:tc_i\, \PWM_Servo_Gripper_Arm:PWMUDB:runmode_enable\, zero),
+		route_si=>zero,
+		route_ci=>zero,
+		f0_load=>zero,
+		f1_load=>zero,
+		d0_load=>zero,
+		d1_load=>zero,
+		ce0=>\PWM_Servo_Gripper_Arm:PWMUDB:cmp1_eq\,
+		cl0=>\PWM_Servo_Gripper_Arm:PWMUDB:cmp1_less\,
+		z0=>\PWM_Servo_Gripper_Arm:PWMUDB:tc_i\,
+		ff0=>open,
+		ce1=>\PWM_Servo_Gripper_Arm:PWMUDB:cmp2_eq\,
+		cl1=>\PWM_Servo_Gripper_Arm:PWMUDB:cmp2_less\,
+		z1=>open,
+		ff1=>open,
+		ov_msb=>open,
+		co_msb=>open,
+		cmsb=>open,
+		so=>open,
+		f0_bus_stat=>open,
+		f0_blk_stat=>open,
+		f1_bus_stat=>\PWM_Servo_Gripper_Arm:PWMUDB:fifo_nempty\,
+		f1_blk_stat=>\PWM_Servo_Gripper_Arm:PWMUDB:status_3\,
+		ce0_reg=>open,
+		cl0_reg=>open,
+		z0_reg=>open,
+		ff0_reg=>open,
+		ce1_reg=>open,
+		cl1_reg=>open,
+		z1_reg=>open,
+		ff1_reg=>open,
+		ov_msb_reg=>open,
+		co_msb_reg=>open,
+		cmsb_reg=>open,
+		so_reg=>open,
+		f0_bus_stat_reg=>open,
+		f0_blk_stat_reg=>open,
+		f1_bus_stat_reg=>open,
+		f1_blk_stat_reg=>open,
+		ci=>\PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:carry\,
+		co=>open,
+		sir=>\PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:sh_left\,
+		sor=>\PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:sh_right\,
+		sil=>zero,
+		sol=>open,
+		msbi=>zero,
+		msbo=>\PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:msb\,
+		cei=>(\PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:cmp_eq_1\, \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:cmp_eq_0\),
+		ceo=>open,
+		cli=>(\PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:cmp_lt_1\, \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:cmp_lt_0\),
+		clo=>open,
+		zi=>(\PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:cmp_zero_1\, \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:cmp_zero_0\),
+		zo=>open,
+		fi=>(\PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:cmp_ff_1\, \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:cmp_ff_0\),
+		fo=>open,
+		capi=>(\PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:cap_1\, \PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:cap_0\),
+		capo=>open,
+		cfbi=>\PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:cfb\,
+		cfbo=>open,
+		pi=>(zero, zero, zero, zero,
+			zero, zero, zero, zero),
+		po=>open);
+\PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:g1:z1:s0:g1:u0:gs(24):g2:g3:ub\:cy_buf
+	PORT MAP(x=>zero,
+		y=>\PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:g1:z1:s0:g1:u0:c_24\);
+\PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:g1:z1:s0:g1:u0:gs(16):g2:g3:ub\:cy_buf
+	PORT MAP(x=>zero,
+		y=>\PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:g1:z1:s0:g1:u0:c_16\);
+\PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:g1:z1:s0:g1:u0:gs(8):g2:g3:ub\:cy_buf
+	PORT MAP(x=>zero,
+		y=>\PWM_Servo_Gripper_Arm:PWMUDB:MODULE_10:g2:a0:g1:z1:s0:g1:u0:c_8\);
+\PWM_Servo_Lifter:PWMUDB:clock_enable_block\:cy_psoc3_udb_clock_enable_v1_0
+	GENERIC MAP(sync_mode=>'1')
+	PORT MAP(clock_in=>Net_1150,
+		enable=>tmpOE__MOTOR_EN_RIGHT_net_0,
+		clock_out=>\PWM_Servo_Lifter:PWMUDB:ClockOutFromEnBlock\);
+\PWM_Servo_Lifter:PWMUDB:genblk1:ctrlreg\:cy_psoc3_control
+	GENERIC MAP(cy_init_value=>"00000000",
+		cy_force_order=>'1',
+		cy_ctrl_mode_1=>"00000000",
+		cy_ctrl_mode_0=>"11111111",
+		cy_ext_reset=>'0')
+	PORT MAP(reset=>zero,
+		clock=>\PWM_Servo_Lifter:PWMUDB:ClockOutFromEnBlock\,
+		control=>(\PWM_Servo_Lifter:PWMUDB:control_7\, \PWM_Servo_Lifter:PWMUDB:control_6\, \PWM_Servo_Lifter:PWMUDB:control_5\, \PWM_Servo_Lifter:PWMUDB:control_4\,
+			\PWM_Servo_Lifter:PWMUDB:control_3\, \PWM_Servo_Lifter:PWMUDB:control_2\, \PWM_Servo_Lifter:PWMUDB:control_1\, \PWM_Servo_Lifter:PWMUDB:control_0\));
+\PWM_Servo_Lifter:PWMUDB:genblk8:stsreg\:cy_psoc3_statusi
+	GENERIC MAP(cy_force_order=>'1',
+		cy_md_select=>"0100111",
+		cy_int_mask=>"1111111")
+	PORT MAP(reset=>zero,
+		clock=>\PWM_Servo_Lifter:PWMUDB:ClockOutFromEnBlock\,
+		status=>(zero, \PWM_Servo_Lifter:PWMUDB:status_5\, zero, \PWM_Servo_Lifter:PWMUDB:status_3\,
+			\PWM_Servo_Lifter:PWMUDB:status_2\, \PWM_Servo_Lifter:PWMUDB:status_1\, \PWM_Servo_Lifter:PWMUDB:status_0\),
+		interrupt=>\PWM_Servo_Lifter:Net_55\);
+\PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:u0\:cy_psoc3_dp
+	GENERIC MAP(cy_dpconfig=>"0000000001000000000000001100000001000000010000000000000011000000000000001100000000000000110000000000000011000000000000001100000011111111000000001111111111111111101000000000000000000100000000000000000000011000",
+		d0_init=>"00000000",
+		d1_init=>"00000000",
+		a0_init=>"00000000",
+		a1_init=>"00000000",
+		ce0_sync=>'1',
+		cl0_sync=>'1',
+		z0_sync=>'1',
+		ff0_sync=>'1',
+		ce1_sync=>'1',
+		cl1_sync=>'1',
+		z1_sync=>'1',
+		ff1_sync=>'1',
+		ov_msb_sync=>'1',
+		co_msb_sync=>'1',
+		cmsb_sync=>'1',
+		so_sync=>'1',
+		f0_bus_sync=>'1',
+		f0_blk_sync=>'1',
+		f1_bus_sync=>'1',
+		f1_blk_sync=>'1')
+	PORT MAP(reset=>zero,
+		clk=>\PWM_Servo_Lifter:PWMUDB:ClockOutFromEnBlock\,
+		cs_addr=>(\PWM_Servo_Lifter:PWMUDB:tc_i\, \PWM_Servo_Lifter:PWMUDB:runmode_enable\, zero),
+		route_si=>zero,
+		route_ci=>zero,
+		f0_load=>zero,
+		f1_load=>zero,
+		d0_load=>zero,
+		d1_load=>zero,
+		ce0=>\PWM_Servo_Lifter:PWMUDB:nc2\,
+		cl0=>\PWM_Servo_Lifter:PWMUDB:nc3\,
+		z0=>\PWM_Servo_Lifter:PWMUDB:nc1\,
+		ff0=>open,
+		ce1=>\PWM_Servo_Lifter:PWMUDB:nc4\,
+		cl1=>\PWM_Servo_Lifter:PWMUDB:nc5\,
+		z1=>open,
+		ff1=>open,
+		ov_msb=>open,
+		co_msb=>open,
+		cmsb=>open,
+		so=>open,
+		f0_bus_stat=>open,
+		f0_blk_stat=>open,
+		f1_bus_stat=>\PWM_Servo_Lifter:PWMUDB:nc6\,
+		f1_blk_stat=>\PWM_Servo_Lifter:PWMUDB:nc7\,
+		ce0_reg=>open,
+		cl0_reg=>open,
+		z0_reg=>open,
+		ff0_reg=>open,
+		ce1_reg=>open,
+		cl1_reg=>open,
+		z1_reg=>open,
+		ff1_reg=>open,
+		ov_msb_reg=>open,
+		co_msb_reg=>open,
+		cmsb_reg=>open,
+		so_reg=>open,
+		f0_bus_stat_reg=>open,
+		f0_blk_stat_reg=>open,
+		f1_bus_stat_reg=>open,
+		f1_blk_stat_reg=>open,
+		ci=>zero,
+		co=>\PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:carry\,
+		sir=>zero,
+		sor=>open,
+		sil=>\PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:sh_right\,
+		sol=>\PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:sh_left\,
+		msbi=>\PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:msb\,
+		msbo=>open,
+		cei=>(zero, zero),
+		ceo=>(\PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:cmp_eq_1\, \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:cmp_eq_0\),
+		cli=>(zero, zero),
+		clo=>(\PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:cmp_lt_1\, \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:cmp_lt_0\),
+		zi=>(zero, zero),
+		zo=>(\PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:cmp_zero_1\, \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:cmp_zero_0\),
+		fi=>(zero, zero),
+		fo=>(\PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:cmp_ff_1\, \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:cmp_ff_0\),
+		capi=>(zero, zero),
+		capo=>(\PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:cap_1\, \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:cap_0\),
+		cfbi=>zero,
+		cfbo=>\PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:cfb\,
+		pi=>(zero, zero, zero, zero,
+			zero, zero, zero, zero),
+		po=>open);
+\PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:u1\:cy_psoc3_dp
+	GENERIC MAP(cy_dpconfig=>"0000000001000000000000001100000001000000010000000000000011000000000000001100000000000000110000000000000011000000000000001100000011111111000000001111111111111111101011110000000000000100000011110000000000011000",
+		d0_init=>"00000000",
+		d1_init=>"00000000",
+		a0_init=>"00000000",
+		a1_init=>"00000000",
+		ce0_sync=>'1',
+		cl0_sync=>'1',
+		z0_sync=>'1',
+		ff0_sync=>'1',
+		ce1_sync=>'1',
+		cl1_sync=>'1',
+		z1_sync=>'1',
+		ff1_sync=>'1',
+		ov_msb_sync=>'1',
+		co_msb_sync=>'1',
+		cmsb_sync=>'1',
+		so_sync=>'1',
+		f0_bus_sync=>'1',
+		f0_blk_sync=>'1',
+		f1_bus_sync=>'1',
+		f1_blk_sync=>'1')
+	PORT MAP(reset=>zero,
+		clk=>\PWM_Servo_Lifter:PWMUDB:ClockOutFromEnBlock\,
+		cs_addr=>(\PWM_Servo_Lifter:PWMUDB:tc_i\, \PWM_Servo_Lifter:PWMUDB:runmode_enable\, zero),
+		route_si=>zero,
+		route_ci=>zero,
+		f0_load=>zero,
+		f1_load=>zero,
+		d0_load=>zero,
+		d1_load=>zero,
+		ce0=>\PWM_Servo_Lifter:PWMUDB:cmp1_eq\,
+		cl0=>\PWM_Servo_Lifter:PWMUDB:cmp1_less\,
+		z0=>\PWM_Servo_Lifter:PWMUDB:tc_i\,
+		ff0=>open,
+		ce1=>\PWM_Servo_Lifter:PWMUDB:cmp2_eq\,
+		cl1=>\PWM_Servo_Lifter:PWMUDB:cmp2_less\,
+		z1=>open,
+		ff1=>open,
+		ov_msb=>open,
+		co_msb=>open,
+		cmsb=>open,
+		so=>open,
+		f0_bus_stat=>open,
+		f0_blk_stat=>open,
+		f1_bus_stat=>\PWM_Servo_Lifter:PWMUDB:fifo_nempty\,
+		f1_blk_stat=>\PWM_Servo_Lifter:PWMUDB:status_3\,
+		ce0_reg=>open,
+		cl0_reg=>open,
+		z0_reg=>open,
+		ff0_reg=>open,
+		ce1_reg=>open,
+		cl1_reg=>open,
+		z1_reg=>open,
+		ff1_reg=>open,
+		ov_msb_reg=>open,
+		co_msb_reg=>open,
+		cmsb_reg=>open,
+		so_reg=>open,
+		f0_bus_stat_reg=>open,
+		f0_blk_stat_reg=>open,
+		f1_bus_stat_reg=>open,
+		f1_blk_stat_reg=>open,
+		ci=>\PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:carry\,
+		co=>open,
+		sir=>\PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:sh_left\,
+		sor=>\PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:sh_right\,
+		sil=>zero,
+		sol=>open,
+		msbi=>zero,
+		msbo=>\PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:msb\,
+		cei=>(\PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:cmp_eq_1\, \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:cmp_eq_0\),
+		ceo=>open,
+		cli=>(\PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:cmp_lt_1\, \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:cmp_lt_0\),
+		clo=>open,
+		zi=>(\PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:cmp_zero_1\, \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:cmp_zero_0\),
+		zo=>open,
+		fi=>(\PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:cmp_ff_1\, \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:cmp_ff_0\),
+		fo=>open,
+		capi=>(\PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:cap_1\, \PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:cap_0\),
+		capo=>open,
+		cfbi=>\PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:cfb\,
+		cfbo=>open,
+		pi=>(zero, zero, zero, zero,
+			zero, zero, zero, zero),
+		po=>open);
+\PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:g1:z1:s0:g1:u0:gs(24):g2:g3:ub\:cy_buf
+	PORT MAP(x=>zero,
+		y=>\PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:g1:z1:s0:g1:u0:c_24\);
+\PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:g1:z1:s0:g1:u0:gs(16):g2:g3:ub\:cy_buf
+	PORT MAP(x=>zero,
+		y=>\PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:g1:z1:s0:g1:u0:c_16\);
+\PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:g1:z1:s0:g1:u0:gs(8):g2:g3:ub\:cy_buf
+	PORT MAP(x=>zero,
+		y=>\PWM_Servo_Lifter:PWMUDB:MODULE_11:g2:a0:g1:z1:s0:g1:u0:c_8\);
+\PWM_Servo_Trunk:PWMUDB:clock_enable_block\:cy_psoc3_udb_clock_enable_v1_0
+	GENERIC MAP(sync_mode=>'1')
+	PORT MAP(clock_in=>Net_1150,
+		enable=>tmpOE__MOTOR_EN_RIGHT_net_0,
+		clock_out=>\PWM_Servo_Trunk:PWMUDB:ClockOutFromEnBlock\);
+\PWM_Servo_Trunk:PWMUDB:genblk1:ctrlreg\:cy_psoc3_control
+	GENERIC MAP(cy_init_value=>"00000000",
+		cy_force_order=>'1',
+		cy_ctrl_mode_1=>"00000000",
+		cy_ctrl_mode_0=>"11111111",
+		cy_ext_reset=>'0')
+	PORT MAP(reset=>zero,
+		clock=>\PWM_Servo_Trunk:PWMUDB:ClockOutFromEnBlock\,
+		control=>(\PWM_Servo_Trunk:PWMUDB:control_7\, \PWM_Servo_Trunk:PWMUDB:control_6\, \PWM_Servo_Trunk:PWMUDB:control_5\, \PWM_Servo_Trunk:PWMUDB:control_4\,
+			\PWM_Servo_Trunk:PWMUDB:control_3\, \PWM_Servo_Trunk:PWMUDB:control_2\, \PWM_Servo_Trunk:PWMUDB:control_1\, \PWM_Servo_Trunk:PWMUDB:control_0\));
+\PWM_Servo_Trunk:PWMUDB:genblk8:stsreg\:cy_psoc3_statusi
+	GENERIC MAP(cy_force_order=>'1',
+		cy_md_select=>"0100111",
+		cy_int_mask=>"1111111")
+	PORT MAP(reset=>zero,
+		clock=>\PWM_Servo_Trunk:PWMUDB:ClockOutFromEnBlock\,
+		status=>(zero, \PWM_Servo_Trunk:PWMUDB:status_5\, zero, \PWM_Servo_Trunk:PWMUDB:status_3\,
+			\PWM_Servo_Trunk:PWMUDB:status_2\, \PWM_Servo_Trunk:PWMUDB:status_1\, \PWM_Servo_Trunk:PWMUDB:status_0\),
+		interrupt=>\PWM_Servo_Trunk:Net_55\);
+\PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:u0\:cy_psoc3_dp
+	GENERIC MAP(cy_dpconfig=>"0000000001000000000000001100000001000000010000000000000011000000000000001100000000000000110000000000000011000000000000001100000011111111000000001111111111111111101000000000000000000100000000000000000000011000",
+		d0_init=>"00000000",
+		d1_init=>"00000000",
+		a0_init=>"00000000",
+		a1_init=>"00000000",
+		ce0_sync=>'1',
+		cl0_sync=>'1',
+		z0_sync=>'1',
+		ff0_sync=>'1',
+		ce1_sync=>'1',
+		cl1_sync=>'1',
+		z1_sync=>'1',
+		ff1_sync=>'1',
+		ov_msb_sync=>'1',
+		co_msb_sync=>'1',
+		cmsb_sync=>'1',
+		so_sync=>'1',
+		f0_bus_sync=>'1',
+		f0_blk_sync=>'1',
+		f1_bus_sync=>'1',
+		f1_blk_sync=>'1')
+	PORT MAP(reset=>zero,
+		clk=>\PWM_Servo_Trunk:PWMUDB:ClockOutFromEnBlock\,
+		cs_addr=>(\PWM_Servo_Trunk:PWMUDB:tc_i\, \PWM_Servo_Trunk:PWMUDB:runmode_enable\, zero),
+		route_si=>zero,
+		route_ci=>zero,
+		f0_load=>zero,
+		f1_load=>zero,
+		d0_load=>zero,
+		d1_load=>zero,
+		ce0=>\PWM_Servo_Trunk:PWMUDB:nc2\,
+		cl0=>\PWM_Servo_Trunk:PWMUDB:nc3\,
+		z0=>\PWM_Servo_Trunk:PWMUDB:nc1\,
+		ff0=>open,
+		ce1=>\PWM_Servo_Trunk:PWMUDB:nc4\,
+		cl1=>\PWM_Servo_Trunk:PWMUDB:nc5\,
+		z1=>open,
+		ff1=>open,
+		ov_msb=>open,
+		co_msb=>open,
+		cmsb=>open,
+		so=>open,
+		f0_bus_stat=>open,
+		f0_blk_stat=>open,
+		f1_bus_stat=>\PWM_Servo_Trunk:PWMUDB:nc6\,
+		f1_blk_stat=>\PWM_Servo_Trunk:PWMUDB:nc7\,
+		ce0_reg=>open,
+		cl0_reg=>open,
+		z0_reg=>open,
+		ff0_reg=>open,
+		ce1_reg=>open,
+		cl1_reg=>open,
+		z1_reg=>open,
+		ff1_reg=>open,
+		ov_msb_reg=>open,
+		co_msb_reg=>open,
+		cmsb_reg=>open,
+		so_reg=>open,
+		f0_bus_stat_reg=>open,
+		f0_blk_stat_reg=>open,
+		f1_bus_stat_reg=>open,
+		f1_blk_stat_reg=>open,
+		ci=>zero,
+		co=>\PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:carry\,
+		sir=>zero,
+		sor=>open,
+		sil=>\PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:sh_right\,
+		sol=>\PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:sh_left\,
+		msbi=>\PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:msb\,
+		msbo=>open,
+		cei=>(zero, zero),
+		ceo=>(\PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:cmp_eq_1\, \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:cmp_eq_0\),
+		cli=>(zero, zero),
+		clo=>(\PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:cmp_lt_1\, \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:cmp_lt_0\),
+		zi=>(zero, zero),
+		zo=>(\PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:cmp_zero_1\, \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:cmp_zero_0\),
+		fi=>(zero, zero),
+		fo=>(\PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:cmp_ff_1\, \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:cmp_ff_0\),
+		capi=>(zero, zero),
+		capo=>(\PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:cap_1\, \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:cap_0\),
+		cfbi=>zero,
+		cfbo=>\PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:cfb\,
+		pi=>(zero, zero, zero, zero,
+			zero, zero, zero, zero),
+		po=>open);
+\PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:u1\:cy_psoc3_dp
+	GENERIC MAP(cy_dpconfig=>"0000000001000000000000001100000001000000010000000000000011000000000000001100000000000000110000000000000011000000000000001100000011111111000000001111111111111111101011110000000000000100000011110000000000011000",
+		d0_init=>"00000000",
+		d1_init=>"00000000",
+		a0_init=>"00000000",
+		a1_init=>"00000000",
+		ce0_sync=>'1',
+		cl0_sync=>'1',
+		z0_sync=>'1',
+		ff0_sync=>'1',
+		ce1_sync=>'1',
+		cl1_sync=>'1',
+		z1_sync=>'1',
+		ff1_sync=>'1',
+		ov_msb_sync=>'1',
+		co_msb_sync=>'1',
+		cmsb_sync=>'1',
+		so_sync=>'1',
+		f0_bus_sync=>'1',
+		f0_blk_sync=>'1',
+		f1_bus_sync=>'1',
+		f1_blk_sync=>'1')
+	PORT MAP(reset=>zero,
+		clk=>\PWM_Servo_Trunk:PWMUDB:ClockOutFromEnBlock\,
+		cs_addr=>(\PWM_Servo_Trunk:PWMUDB:tc_i\, \PWM_Servo_Trunk:PWMUDB:runmode_enable\, zero),
+		route_si=>zero,
+		route_ci=>zero,
+		f0_load=>zero,
+		f1_load=>zero,
+		d0_load=>zero,
+		d1_load=>zero,
+		ce0=>\PWM_Servo_Trunk:PWMUDB:cmp1_eq\,
+		cl0=>\PWM_Servo_Trunk:PWMUDB:cmp1_less\,
+		z0=>\PWM_Servo_Trunk:PWMUDB:tc_i\,
+		ff0=>open,
+		ce1=>\PWM_Servo_Trunk:PWMUDB:cmp2_eq\,
+		cl1=>\PWM_Servo_Trunk:PWMUDB:cmp2_less\,
+		z1=>open,
+		ff1=>open,
+		ov_msb=>open,
+		co_msb=>open,
+		cmsb=>open,
+		so=>open,
+		f0_bus_stat=>open,
+		f0_blk_stat=>open,
+		f1_bus_stat=>\PWM_Servo_Trunk:PWMUDB:fifo_nempty\,
+		f1_blk_stat=>\PWM_Servo_Trunk:PWMUDB:status_3\,
+		ce0_reg=>open,
+		cl0_reg=>open,
+		z0_reg=>open,
+		ff0_reg=>open,
+		ce1_reg=>open,
+		cl1_reg=>open,
+		z1_reg=>open,
+		ff1_reg=>open,
+		ov_msb_reg=>open,
+		co_msb_reg=>open,
+		cmsb_reg=>open,
+		so_reg=>open,
+		f0_bus_stat_reg=>open,
+		f0_blk_stat_reg=>open,
+		f1_bus_stat_reg=>open,
+		f1_blk_stat_reg=>open,
+		ci=>\PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:carry\,
+		co=>open,
+		sir=>\PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:sh_left\,
+		sor=>\PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:sh_right\,
+		sil=>zero,
+		sol=>open,
+		msbi=>zero,
+		msbo=>\PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:msb\,
+		cei=>(\PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:cmp_eq_1\, \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:cmp_eq_0\),
+		ceo=>open,
+		cli=>(\PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:cmp_lt_1\, \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:cmp_lt_0\),
+		clo=>open,
+		zi=>(\PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:cmp_zero_1\, \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:cmp_zero_0\),
+		zo=>open,
+		fi=>(\PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:cmp_ff_1\, \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:cmp_ff_0\),
+		fo=>open,
+		capi=>(\PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:cap_1\, \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:cap_0\),
+		capo=>open,
+		cfbi=>\PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:cfb\,
+		cfbo=>open,
+		pi=>(zero, zero, zero, zero,
+			zero, zero, zero, zero),
+		po=>open);
+\PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:g1:z1:s0:g1:u0:gs(24):g2:g3:ub\:cy_buf
+	PORT MAP(x=>zero,
+		y=>\PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:g1:z1:s0:g1:u0:c_24\);
+\PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:g1:z1:s0:g1:u0:gs(16):g2:g3:ub\:cy_buf
+	PORT MAP(x=>zero,
+		y=>\PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:g1:z1:s0:g1:u0:c_16\);
+\PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:g1:z1:s0:g1:u0:gs(8):g2:g3:ub\:cy_buf
+	PORT MAP(x=>zero,
+		y=>\PWM_Servo_Trunk:PWMUDB:MODULE_12:g2:a0:g1:z1:s0:g1:u0:c_8\);
+MOTOR_GRIPPER:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"a0aa757e-9e0b-4d4c-974d-510ad3fb0758",
+		drive_mode=>"110",
+		ibuf_enabled=>"1",
+		init_dr_st=>"0",
+		input_sync=>"1",
+		input_clk_en=>'0',
+		input_sync_mode=>"0",
+		intr_mode=>"00",
+		invert_in_clock=>'0',
+		invert_in_clock_en=>'0',
+		invert_in_reset=>'0',
+		invert_out_clock=>'0',
+		invert_out_clock_en=>'0',
+		invert_out_reset=>'0',
+		io_voltage=>"",
+		layout_mode=>"CONTIGUOUS",
+		output_conn=>"1",
+		output_sync=>"0",
+		output_clk_en=>'0',
+		output_mode=>"0",
+		output_reset=>'0',
+		output_clock_mode=>"0",
+		oe_sync=>"0",
+		oe_conn=>"0",
+		oe_reset=>'0',
+		pin_aliases=>"",
+		pin_mode=>"O",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"00000000",
+		sio_hyst=>"1",
+		sio_ibuf=>"00000000",
+		sio_info=>"00",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		sio_vohsel=>"00000000",
+		slew_rate=>"0",
+		spanning=>'0',
+		sw_only=>'0',
+		vtrip=>"10",
+		width=>1,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"0",
+		pa_in_clock=>-1,
+		pa_in_clock_en=>-1,
+		pa_in_reset=>-1,
+		pa_out_clock=>-1,
+		pa_out_clock_en=>-1,
+		pa_out_reset=>-1,
+		ovt_needed=>"0",
+		ovt_slew_control=>"00",
+		ovt_hyst_trim=>"0",
+		input_buffer_sel=>"00")
+	PORT MAP(oe=>(tmpOE__MOTOR_EN_RIGHT_net_0),
+		y=>Net_1157,
+		fb=>(tmpFB_0__MOTOR_GRIPPER_net_0),
+		analog=>(open),
+		io=>(tmpIO_0__MOTOR_GRIPPER_net_0),
+		siovref=>(tmpSIOVREF__MOTOR_GRIPPER_net_0),
+		annotation=>(open),
+		in_clock=>zero,
+		in_clock_en=>tmpOE__MOTOR_EN_RIGHT_net_0,
+		in_reset=>zero,
+		out_clock=>zero,
+		out_clock_en=>tmpOE__MOTOR_EN_RIGHT_net_0,
+		out_reset=>zero,
+		interrupt=>tmpINTERRUPT_0__MOTOR_GRIPPER_net_0);
+MOTOR_GRIPPER_ARM:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"a54c00ca-78da-4fbf-9ec1-632a4067c982",
+		drive_mode=>"110",
+		ibuf_enabled=>"1",
+		init_dr_st=>"0",
+		input_sync=>"1",
+		input_clk_en=>'0',
+		input_sync_mode=>"0",
+		intr_mode=>"00",
+		invert_in_clock=>'0',
+		invert_in_clock_en=>'0',
+		invert_in_reset=>'0',
+		invert_out_clock=>'0',
+		invert_out_clock_en=>'0',
+		invert_out_reset=>'0',
+		io_voltage=>"",
+		layout_mode=>"CONTIGUOUS",
+		output_conn=>"1",
+		output_sync=>"0",
+		output_clk_en=>'0',
+		output_mode=>"0",
+		output_reset=>'0',
+		output_clock_mode=>"0",
+		oe_sync=>"0",
+		oe_conn=>"0",
+		oe_reset=>'0',
+		pin_aliases=>"",
+		pin_mode=>"O",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"00000000",
+		sio_hyst=>"1",
+		sio_ibuf=>"00000000",
+		sio_info=>"00",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		sio_vohsel=>"00000000",
+		slew_rate=>"0",
+		spanning=>'0',
+		sw_only=>'0',
+		vtrip=>"10",
+		width=>1,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"0",
+		pa_in_clock=>-1,
+		pa_in_clock_en=>-1,
+		pa_in_reset=>-1,
+		pa_out_clock=>-1,
+		pa_out_clock_en=>-1,
+		pa_out_reset=>-1,
+		ovt_needed=>"0",
+		ovt_slew_control=>"00",
+		ovt_hyst_trim=>"0",
+		input_buffer_sel=>"00")
+	PORT MAP(oe=>(tmpOE__MOTOR_EN_RIGHT_net_0),
+		y=>Net_1204,
+		fb=>(tmpFB_0__MOTOR_GRIPPER_ARM_net_0),
+		analog=>(open),
+		io=>(tmpIO_0__MOTOR_GRIPPER_ARM_net_0),
+		siovref=>(tmpSIOVREF__MOTOR_GRIPPER_ARM_net_0),
+		annotation=>(open),
+		in_clock=>zero,
+		in_clock_en=>tmpOE__MOTOR_EN_RIGHT_net_0,
+		in_reset=>zero,
+		out_clock=>zero,
+		out_clock_en=>tmpOE__MOTOR_EN_RIGHT_net_0,
+		out_reset=>zero,
+		interrupt=>tmpINTERRUPT_0__MOTOR_GRIPPER_ARM_net_0);
+MOTOR_LIFTER:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"5d1f37b1-3d2b-4594-aaae-9c72033b9fcc",
+		drive_mode=>"110",
+		ibuf_enabled=>"1",
+		init_dr_st=>"0",
+		input_sync=>"1",
+		input_clk_en=>'0',
+		input_sync_mode=>"0",
+		intr_mode=>"00",
+		invert_in_clock=>'0',
+		invert_in_clock_en=>'0',
+		invert_in_reset=>'0',
+		invert_out_clock=>'0',
+		invert_out_clock_en=>'0',
+		invert_out_reset=>'0',
+		io_voltage=>"",
+		layout_mode=>"CONTIGUOUS",
+		output_conn=>"1",
+		output_sync=>"0",
+		output_clk_en=>'0',
+		output_mode=>"0",
+		output_reset=>'0',
+		output_clock_mode=>"0",
+		oe_sync=>"0",
+		oe_conn=>"0",
+		oe_reset=>'0',
+		pin_aliases=>"",
+		pin_mode=>"O",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"00000000",
+		sio_hyst=>"1",
+		sio_ibuf=>"00000000",
+		sio_info=>"00",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		sio_vohsel=>"00000000",
+		slew_rate=>"0",
+		spanning=>'0',
+		sw_only=>'0',
+		vtrip=>"10",
+		width=>1,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"0",
+		pa_in_clock=>-1,
+		pa_in_clock_en=>-1,
+		pa_in_reset=>-1,
+		pa_out_clock=>-1,
+		pa_out_clock_en=>-1,
+		pa_out_reset=>-1,
+		ovt_needed=>"0",
+		ovt_slew_control=>"00",
+		ovt_hyst_trim=>"0",
+		input_buffer_sel=>"00")
+	PORT MAP(oe=>(tmpOE__MOTOR_EN_RIGHT_net_0),
+		y=>Net_1245,
+		fb=>(tmpFB_0__MOTOR_LIFTER_net_0),
+		analog=>(open),
+		io=>(tmpIO_0__MOTOR_LIFTER_net_0),
+		siovref=>(tmpSIOVREF__MOTOR_LIFTER_net_0),
+		annotation=>(open),
+		in_clock=>zero,
+		in_clock_en=>tmpOE__MOTOR_EN_RIGHT_net_0,
+		in_reset=>zero,
+		out_clock=>zero,
+		out_clock_en=>tmpOE__MOTOR_EN_RIGHT_net_0,
+		out_reset=>zero,
+		interrupt=>tmpINTERRUPT_0__MOTOR_LIFTER_net_0);
+MOTOR_TRUNK:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"3a9189f0-9236-4dd1-a8d9-4f174ac93ae9",
+		drive_mode=>"110",
+		ibuf_enabled=>"1",
+		init_dr_st=>"0",
+		input_sync=>"1",
+		input_clk_en=>'0',
+		input_sync_mode=>"0",
+		intr_mode=>"00",
+		invert_in_clock=>'0',
+		invert_in_clock_en=>'0',
+		invert_in_reset=>'0',
+		invert_out_clock=>'0',
+		invert_out_clock_en=>'0',
+		invert_out_reset=>'0',
+		io_voltage=>"",
+		layout_mode=>"CONTIGUOUS",
+		output_conn=>"1",
+		output_sync=>"0",
+		output_clk_en=>'0',
+		output_mode=>"0",
+		output_reset=>'0',
+		output_clock_mode=>"0",
+		oe_sync=>"0",
+		oe_conn=>"0",
+		oe_reset=>'0',
+		pin_aliases=>"",
+		pin_mode=>"O",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"00000000",
+		sio_hyst=>"1",
+		sio_ibuf=>"00000000",
+		sio_info=>"00",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		sio_vohsel=>"00000000",
+		slew_rate=>"0",
+		spanning=>'0',
+		sw_only=>'0',
+		vtrip=>"10",
+		width=>1,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"0",
+		pa_in_clock=>-1,
+		pa_in_clock_en=>-1,
+		pa_in_reset=>-1,
+		pa_out_clock=>-1,
+		pa_out_clock_en=>-1,
+		pa_out_reset=>-1,
+		ovt_needed=>"0",
+		ovt_slew_control=>"00",
+		ovt_hyst_trim=>"0",
+		input_buffer_sel=>"00")
+	PORT MAP(oe=>(tmpOE__MOTOR_EN_RIGHT_net_0),
+		y=>Net_1280,
+		fb=>(tmpFB_0__MOTOR_TRUNK_net_0),
+		analog=>(open),
+		io=>(tmpIO_0__MOTOR_TRUNK_net_0),
+		siovref=>(tmpSIOVREF__MOTOR_TRUNK_net_0),
+		annotation=>(open),
+		in_clock=>zero,
+		in_clock_en=>tmpOE__MOTOR_EN_RIGHT_net_0,
+		in_reset=>zero,
+		out_clock=>zero,
+		out_clock_en=>tmpOE__MOTOR_EN_RIGHT_net_0,
+		out_reset=>zero,
+		interrupt=>tmpINTERRUPT_0__MOTOR_TRUNK_net_0);
+\Timer_Servo:TimerHW\:cy_psoc3_timer_v1_0
+	GENERIC MAP(cy_registers=>"")
+	PORT MAP(clock=>Net_1150,
+		kill=>zero,
+		enable=>tmpOE__MOTOR_EN_RIGHT_net_0,
+		capture=>zero,
+		timer_reset=>zero,
+		tc=>\Timer_Servo:Net_51\,
+		compare=>\Timer_Servo:Net_261\,
+		interrupt=>\Timer_Servo:Net_57\);
 \QuadDec_RIGHT:Net_1251\:cy_dff
 	PORT MAP(d=>\QuadDec_RIGHT:Net_1251\\D\,
 		clk=>\QuadDec_RIGHT:bQuadDec:sync_clock\,
@@ -6329,19 +9400,19 @@ Net_979:cy_dff
 \Debouncer_IR_LEFT:DEBOUNCER[0]:d_sync_0\:cy_dff
 	PORT MAP(d=>Net_1099,
 		clk=>\Debouncer_IR_LEFT:op_clk\,
-		q=>\Debouncer_IR_LEFT:DEBOUNCER[0]:d_sync_0\);
+		q=>Net_1134);
 \Debouncer_IR_LEFT:DEBOUNCER[0]:d_sync_1\:cy_dff
-	PORT MAP(d=>\Debouncer_IR_LEFT:DEBOUNCER[0]:d_sync_0\,
+	PORT MAP(d=>Net_1134,
 		clk=>\Debouncer_IR_LEFT:op_clk\,
 		q=>\Debouncer_IR_LEFT:DEBOUNCER[0]:d_sync_1\);
-Net_1104:cy_dff
-	PORT MAP(d=>zero,
+Net_1126:cy_dff
+	PORT MAP(d=>Net_1126D,
 		clk=>\Debouncer_IR_LEFT:op_clk\,
-		q=>Net_1104);
-Net_1102:cy_dff
-	PORT MAP(d=>Net_1102D,
+		q=>Net_1126);
+Net_1121:cy_dff
+	PORT MAP(d=>Net_1121D,
 		clk=>\Debouncer_IR_LEFT:op_clk\,
-		q=>Net_1102);
+		q=>Net_1121);
 Net_1103:cy_dff
 	PORT MAP(d=>zero,
 		clk=>\Debouncer_IR_LEFT:op_clk\,
@@ -6349,15 +9420,15 @@ Net_1103:cy_dff
 \Debouncer_IR_RIGHT:DEBOUNCER[0]:d_sync_0\:cy_dff
 	PORT MAP(d=>Net_1111,
 		clk=>\Debouncer_IR_RIGHT:op_clk\,
-		q=>\Debouncer_IR_RIGHT:DEBOUNCER[0]:d_sync_0\);
+		q=>Net_1131);
 \Debouncer_IR_RIGHT:DEBOUNCER[0]:d_sync_1\:cy_dff
-	PORT MAP(d=>\Debouncer_IR_RIGHT:DEBOUNCER[0]:d_sync_0\,
+	PORT MAP(d=>Net_1131,
 		clk=>\Debouncer_IR_RIGHT:op_clk\,
 		q=>\Debouncer_IR_RIGHT:DEBOUNCER[0]:d_sync_1\);
-Net_1108:cy_dff
-	PORT MAP(d=>zero,
+Net_1130:cy_dff
+	PORT MAP(d=>Net_1130D,
 		clk=>\Debouncer_IR_RIGHT:op_clk\,
-		q=>Net_1108);
+		q=>Net_1130);
 Net_1107:cy_dff
 	PORT MAP(d=>Net_1107D,
 		clk=>\Debouncer_IR_RIGHT:op_clk\,
@@ -6366,5 +9437,325 @@ Net_1106:cy_dff
 	PORT MAP(d=>zero,
 		clk=>\Debouncer_IR_RIGHT:op_clk\,
 		q=>Net_1106);
+\PWM_Servo_Gripper:PWMUDB:min_kill_reg\:cy_dsrff
+	PORT MAP(d=>tmpOE__MOTOR_EN_RIGHT_net_0,
+		s=>zero,
+		r=>zero,
+		clk=>\PWM_Servo_Gripper:PWMUDB:ClockOutFromEnBlock\,
+		q=>\PWM_Servo_Gripper:PWMUDB:min_kill_reg\);
+\PWM_Servo_Gripper:PWMUDB:prevCapture\:cy_dff
+	PORT MAP(d=>zero,
+		clk=>\PWM_Servo_Gripper:PWMUDB:ClockOutFromEnBlock\,
+		q=>\PWM_Servo_Gripper:PWMUDB:prevCapture\);
+\PWM_Servo_Gripper:PWMUDB:trig_last\:cy_dff
+	PORT MAP(d=>zero,
+		clk=>\PWM_Servo_Gripper:PWMUDB:ClockOutFromEnBlock\,
+		q=>\PWM_Servo_Gripper:PWMUDB:trig_last\);
+\PWM_Servo_Gripper:PWMUDB:runmode_enable\:cy_dsrff
+	PORT MAP(d=>\PWM_Servo_Gripper:PWMUDB:control_7\,
+		s=>zero,
+		r=>zero,
+		clk=>\PWM_Servo_Gripper:PWMUDB:ClockOutFromEnBlock\,
+		q=>\PWM_Servo_Gripper:PWMUDB:runmode_enable\);
+\PWM_Servo_Gripper:PWMUDB:sc_kill_tmp\:cy_dff
+	PORT MAP(d=>\PWM_Servo_Gripper:PWMUDB:sc_kill_tmp\\D\,
+		clk=>\PWM_Servo_Gripper:PWMUDB:ClockOutFromEnBlock\,
+		q=>\PWM_Servo_Gripper:PWMUDB:sc_kill_tmp\);
+\PWM_Servo_Gripper:PWMUDB:ltch_kill_reg\:cy_dsrff
+	PORT MAP(d=>tmpOE__MOTOR_EN_RIGHT_net_0,
+		s=>zero,
+		r=>zero,
+		clk=>\PWM_Servo_Gripper:PWMUDB:ClockOutFromEnBlock\,
+		q=>\PWM_Servo_Gripper:PWMUDB:ltch_kill_reg\);
+\PWM_Servo_Gripper:PWMUDB:dith_count_1\:cy_dsrff
+	PORT MAP(d=>\PWM_Servo_Gripper:PWMUDB:dith_count_1\\D\,
+		s=>zero,
+		r=>zero,
+		clk=>\PWM_Servo_Gripper:PWMUDB:ClockOutFromEnBlock\,
+		q=>\PWM_Servo_Gripper:PWMUDB:dith_count_1\);
+\PWM_Servo_Gripper:PWMUDB:dith_count_0\:cy_dsrff
+	PORT MAP(d=>\PWM_Servo_Gripper:PWMUDB:dith_count_0\\D\,
+		s=>zero,
+		r=>zero,
+		clk=>\PWM_Servo_Gripper:PWMUDB:ClockOutFromEnBlock\,
+		q=>\PWM_Servo_Gripper:PWMUDB:dith_count_0\);
+\PWM_Servo_Gripper:PWMUDB:prevCompare1\:cy_dff
+	PORT MAP(d=>\PWM_Servo_Gripper:PWMUDB:cmp1\,
+		clk=>\PWM_Servo_Gripper:PWMUDB:ClockOutFromEnBlock\,
+		q=>\PWM_Servo_Gripper:PWMUDB:prevCompare1\);
+\PWM_Servo_Gripper:PWMUDB:cmp1_status_reg\:cy_dsrff
+	PORT MAP(d=>\PWM_Servo_Gripper:PWMUDB:cmp1_status\,
+		s=>zero,
+		r=>zero,
+		clk=>\PWM_Servo_Gripper:PWMUDB:ClockOutFromEnBlock\,
+		q=>\PWM_Servo_Gripper:PWMUDB:status_0\);
+\PWM_Servo_Gripper:PWMUDB:cmp2_status_reg\:cy_dsrff
+	PORT MAP(d=>zero,
+		s=>zero,
+		r=>zero,
+		clk=>\PWM_Servo_Gripper:PWMUDB:ClockOutFromEnBlock\,
+		q=>\PWM_Servo_Gripper:PWMUDB:status_1\);
+\PWM_Servo_Gripper:PWMUDB:final_kill_reg\:cy_dsrff
+	PORT MAP(d=>zero,
+		s=>zero,
+		r=>zero,
+		clk=>\PWM_Servo_Gripper:PWMUDB:ClockOutFromEnBlock\,
+		q=>\PWM_Servo_Gripper:PWMUDB:status_5\);
+\PWM_Servo_Gripper:PWMUDB:pwm_i_reg\:cy_dff
+	PORT MAP(d=>\PWM_Servo_Gripper:PWMUDB:pwm_i\,
+		clk=>\PWM_Servo_Gripper:PWMUDB:ClockOutFromEnBlock\,
+		q=>Net_1157);
+\PWM_Servo_Gripper:PWMUDB:pwm1_i_reg\:cy_dff
+	PORT MAP(d=>zero,
+		clk=>\PWM_Servo_Gripper:PWMUDB:ClockOutFromEnBlock\,
+		q=>\PWM_Servo_Gripper:PWMUDB:pwm1_i_reg\);
+\PWM_Servo_Gripper:PWMUDB:pwm2_i_reg\:cy_dff
+	PORT MAP(d=>zero,
+		clk=>\PWM_Servo_Gripper:PWMUDB:ClockOutFromEnBlock\,
+		q=>\PWM_Servo_Gripper:PWMUDB:pwm2_i_reg\);
+\PWM_Servo_Gripper:PWMUDB:tc_i_reg\:cy_dff
+	PORT MAP(d=>\PWM_Servo_Gripper:PWMUDB:status_2\,
+		clk=>\PWM_Servo_Gripper:PWMUDB:ClockOutFromEnBlock\,
+		q=>\PWM_Servo_Gripper:PWMUDB:tc_i_reg\);
+\PWM_Servo_Gripper_Arm:PWMUDB:min_kill_reg\:cy_dsrff
+	PORT MAP(d=>tmpOE__MOTOR_EN_RIGHT_net_0,
+		s=>zero,
+		r=>zero,
+		clk=>\PWM_Servo_Gripper_Arm:PWMUDB:ClockOutFromEnBlock\,
+		q=>\PWM_Servo_Gripper_Arm:PWMUDB:min_kill_reg\);
+\PWM_Servo_Gripper_Arm:PWMUDB:prevCapture\:cy_dff
+	PORT MAP(d=>zero,
+		clk=>\PWM_Servo_Gripper_Arm:PWMUDB:ClockOutFromEnBlock\,
+		q=>\PWM_Servo_Gripper_Arm:PWMUDB:prevCapture\);
+\PWM_Servo_Gripper_Arm:PWMUDB:trig_last\:cy_dff
+	PORT MAP(d=>zero,
+		clk=>\PWM_Servo_Gripper_Arm:PWMUDB:ClockOutFromEnBlock\,
+		q=>\PWM_Servo_Gripper_Arm:PWMUDB:trig_last\);
+\PWM_Servo_Gripper_Arm:PWMUDB:runmode_enable\:cy_dsrff
+	PORT MAP(d=>\PWM_Servo_Gripper_Arm:PWMUDB:control_7\,
+		s=>zero,
+		r=>zero,
+		clk=>\PWM_Servo_Gripper_Arm:PWMUDB:ClockOutFromEnBlock\,
+		q=>\PWM_Servo_Gripper_Arm:PWMUDB:runmode_enable\);
+\PWM_Servo_Gripper_Arm:PWMUDB:sc_kill_tmp\:cy_dff
+	PORT MAP(d=>\PWM_Servo_Gripper_Arm:PWMUDB:sc_kill_tmp\\D\,
+		clk=>\PWM_Servo_Gripper_Arm:PWMUDB:ClockOutFromEnBlock\,
+		q=>\PWM_Servo_Gripper_Arm:PWMUDB:sc_kill_tmp\);
+\PWM_Servo_Gripper_Arm:PWMUDB:ltch_kill_reg\:cy_dsrff
+	PORT MAP(d=>tmpOE__MOTOR_EN_RIGHT_net_0,
+		s=>zero,
+		r=>zero,
+		clk=>\PWM_Servo_Gripper_Arm:PWMUDB:ClockOutFromEnBlock\,
+		q=>\PWM_Servo_Gripper_Arm:PWMUDB:ltch_kill_reg\);
+\PWM_Servo_Gripper_Arm:PWMUDB:dith_count_1\:cy_dsrff
+	PORT MAP(d=>\PWM_Servo_Gripper_Arm:PWMUDB:dith_count_1\\D\,
+		s=>zero,
+		r=>zero,
+		clk=>\PWM_Servo_Gripper_Arm:PWMUDB:ClockOutFromEnBlock\,
+		q=>\PWM_Servo_Gripper_Arm:PWMUDB:dith_count_1\);
+\PWM_Servo_Gripper_Arm:PWMUDB:dith_count_0\:cy_dsrff
+	PORT MAP(d=>\PWM_Servo_Gripper_Arm:PWMUDB:dith_count_0\\D\,
+		s=>zero,
+		r=>zero,
+		clk=>\PWM_Servo_Gripper_Arm:PWMUDB:ClockOutFromEnBlock\,
+		q=>\PWM_Servo_Gripper_Arm:PWMUDB:dith_count_0\);
+\PWM_Servo_Gripper_Arm:PWMUDB:prevCompare1\:cy_dff
+	PORT MAP(d=>\PWM_Servo_Gripper_Arm:PWMUDB:cmp1\,
+		clk=>\PWM_Servo_Gripper_Arm:PWMUDB:ClockOutFromEnBlock\,
+		q=>\PWM_Servo_Gripper_Arm:PWMUDB:prevCompare1\);
+\PWM_Servo_Gripper_Arm:PWMUDB:cmp1_status_reg\:cy_dsrff
+	PORT MAP(d=>\PWM_Servo_Gripper_Arm:PWMUDB:cmp1_status\,
+		s=>zero,
+		r=>zero,
+		clk=>\PWM_Servo_Gripper_Arm:PWMUDB:ClockOutFromEnBlock\,
+		q=>\PWM_Servo_Gripper_Arm:PWMUDB:status_0\);
+\PWM_Servo_Gripper_Arm:PWMUDB:cmp2_status_reg\:cy_dsrff
+	PORT MAP(d=>zero,
+		s=>zero,
+		r=>zero,
+		clk=>\PWM_Servo_Gripper_Arm:PWMUDB:ClockOutFromEnBlock\,
+		q=>\PWM_Servo_Gripper_Arm:PWMUDB:status_1\);
+\PWM_Servo_Gripper_Arm:PWMUDB:final_kill_reg\:cy_dsrff
+	PORT MAP(d=>zero,
+		s=>zero,
+		r=>zero,
+		clk=>\PWM_Servo_Gripper_Arm:PWMUDB:ClockOutFromEnBlock\,
+		q=>\PWM_Servo_Gripper_Arm:PWMUDB:status_5\);
+\PWM_Servo_Gripper_Arm:PWMUDB:pwm_i_reg\:cy_dff
+	PORT MAP(d=>\PWM_Servo_Gripper_Arm:PWMUDB:pwm_i\,
+		clk=>\PWM_Servo_Gripper_Arm:PWMUDB:ClockOutFromEnBlock\,
+		q=>Net_1204);
+\PWM_Servo_Gripper_Arm:PWMUDB:pwm1_i_reg\:cy_dff
+	PORT MAP(d=>zero,
+		clk=>\PWM_Servo_Gripper_Arm:PWMUDB:ClockOutFromEnBlock\,
+		q=>\PWM_Servo_Gripper_Arm:PWMUDB:pwm1_i_reg\);
+\PWM_Servo_Gripper_Arm:PWMUDB:pwm2_i_reg\:cy_dff
+	PORT MAP(d=>zero,
+		clk=>\PWM_Servo_Gripper_Arm:PWMUDB:ClockOutFromEnBlock\,
+		q=>\PWM_Servo_Gripper_Arm:PWMUDB:pwm2_i_reg\);
+\PWM_Servo_Gripper_Arm:PWMUDB:tc_i_reg\:cy_dff
+	PORT MAP(d=>\PWM_Servo_Gripper_Arm:PWMUDB:status_2\,
+		clk=>\PWM_Servo_Gripper_Arm:PWMUDB:ClockOutFromEnBlock\,
+		q=>\PWM_Servo_Gripper_Arm:PWMUDB:tc_i_reg\);
+\PWM_Servo_Lifter:PWMUDB:min_kill_reg\:cy_dsrff
+	PORT MAP(d=>tmpOE__MOTOR_EN_RIGHT_net_0,
+		s=>zero,
+		r=>zero,
+		clk=>\PWM_Servo_Lifter:PWMUDB:ClockOutFromEnBlock\,
+		q=>\PWM_Servo_Lifter:PWMUDB:min_kill_reg\);
+\PWM_Servo_Lifter:PWMUDB:prevCapture\:cy_dff
+	PORT MAP(d=>zero,
+		clk=>\PWM_Servo_Lifter:PWMUDB:ClockOutFromEnBlock\,
+		q=>\PWM_Servo_Lifter:PWMUDB:prevCapture\);
+\PWM_Servo_Lifter:PWMUDB:trig_last\:cy_dff
+	PORT MAP(d=>zero,
+		clk=>\PWM_Servo_Lifter:PWMUDB:ClockOutFromEnBlock\,
+		q=>\PWM_Servo_Lifter:PWMUDB:trig_last\);
+\PWM_Servo_Lifter:PWMUDB:runmode_enable\:cy_dsrff
+	PORT MAP(d=>\PWM_Servo_Lifter:PWMUDB:control_7\,
+		s=>zero,
+		r=>zero,
+		clk=>\PWM_Servo_Lifter:PWMUDB:ClockOutFromEnBlock\,
+		q=>\PWM_Servo_Lifter:PWMUDB:runmode_enable\);
+\PWM_Servo_Lifter:PWMUDB:sc_kill_tmp\:cy_dff
+	PORT MAP(d=>\PWM_Servo_Lifter:PWMUDB:sc_kill_tmp\\D\,
+		clk=>\PWM_Servo_Lifter:PWMUDB:ClockOutFromEnBlock\,
+		q=>\PWM_Servo_Lifter:PWMUDB:sc_kill_tmp\);
+\PWM_Servo_Lifter:PWMUDB:ltch_kill_reg\:cy_dsrff
+	PORT MAP(d=>tmpOE__MOTOR_EN_RIGHT_net_0,
+		s=>zero,
+		r=>zero,
+		clk=>\PWM_Servo_Lifter:PWMUDB:ClockOutFromEnBlock\,
+		q=>\PWM_Servo_Lifter:PWMUDB:ltch_kill_reg\);
+\PWM_Servo_Lifter:PWMUDB:dith_count_1\:cy_dsrff
+	PORT MAP(d=>\PWM_Servo_Lifter:PWMUDB:dith_count_1\\D\,
+		s=>zero,
+		r=>zero,
+		clk=>\PWM_Servo_Lifter:PWMUDB:ClockOutFromEnBlock\,
+		q=>\PWM_Servo_Lifter:PWMUDB:dith_count_1\);
+\PWM_Servo_Lifter:PWMUDB:dith_count_0\:cy_dsrff
+	PORT MAP(d=>\PWM_Servo_Lifter:PWMUDB:dith_count_0\\D\,
+		s=>zero,
+		r=>zero,
+		clk=>\PWM_Servo_Lifter:PWMUDB:ClockOutFromEnBlock\,
+		q=>\PWM_Servo_Lifter:PWMUDB:dith_count_0\);
+\PWM_Servo_Lifter:PWMUDB:prevCompare1\:cy_dff
+	PORT MAP(d=>\PWM_Servo_Lifter:PWMUDB:cmp1\,
+		clk=>\PWM_Servo_Lifter:PWMUDB:ClockOutFromEnBlock\,
+		q=>\PWM_Servo_Lifter:PWMUDB:prevCompare1\);
+\PWM_Servo_Lifter:PWMUDB:cmp1_status_reg\:cy_dsrff
+	PORT MAP(d=>\PWM_Servo_Lifter:PWMUDB:cmp1_status\,
+		s=>zero,
+		r=>zero,
+		clk=>\PWM_Servo_Lifter:PWMUDB:ClockOutFromEnBlock\,
+		q=>\PWM_Servo_Lifter:PWMUDB:status_0\);
+\PWM_Servo_Lifter:PWMUDB:cmp2_status_reg\:cy_dsrff
+	PORT MAP(d=>zero,
+		s=>zero,
+		r=>zero,
+		clk=>\PWM_Servo_Lifter:PWMUDB:ClockOutFromEnBlock\,
+		q=>\PWM_Servo_Lifter:PWMUDB:status_1\);
+\PWM_Servo_Lifter:PWMUDB:final_kill_reg\:cy_dsrff
+	PORT MAP(d=>zero,
+		s=>zero,
+		r=>zero,
+		clk=>\PWM_Servo_Lifter:PWMUDB:ClockOutFromEnBlock\,
+		q=>\PWM_Servo_Lifter:PWMUDB:status_5\);
+\PWM_Servo_Lifter:PWMUDB:pwm_i_reg\:cy_dff
+	PORT MAP(d=>\PWM_Servo_Lifter:PWMUDB:pwm_i\,
+		clk=>\PWM_Servo_Lifter:PWMUDB:ClockOutFromEnBlock\,
+		q=>Net_1245);
+\PWM_Servo_Lifter:PWMUDB:pwm1_i_reg\:cy_dff
+	PORT MAP(d=>zero,
+		clk=>\PWM_Servo_Lifter:PWMUDB:ClockOutFromEnBlock\,
+		q=>\PWM_Servo_Lifter:PWMUDB:pwm1_i_reg\);
+\PWM_Servo_Lifter:PWMUDB:pwm2_i_reg\:cy_dff
+	PORT MAP(d=>zero,
+		clk=>\PWM_Servo_Lifter:PWMUDB:ClockOutFromEnBlock\,
+		q=>\PWM_Servo_Lifter:PWMUDB:pwm2_i_reg\);
+\PWM_Servo_Lifter:PWMUDB:tc_i_reg\:cy_dff
+	PORT MAP(d=>\PWM_Servo_Lifter:PWMUDB:status_2\,
+		clk=>\PWM_Servo_Lifter:PWMUDB:ClockOutFromEnBlock\,
+		q=>\PWM_Servo_Lifter:PWMUDB:tc_i_reg\);
+\PWM_Servo_Trunk:PWMUDB:min_kill_reg\:cy_dsrff
+	PORT MAP(d=>tmpOE__MOTOR_EN_RIGHT_net_0,
+		s=>zero,
+		r=>zero,
+		clk=>\PWM_Servo_Trunk:PWMUDB:ClockOutFromEnBlock\,
+		q=>\PWM_Servo_Trunk:PWMUDB:min_kill_reg\);
+\PWM_Servo_Trunk:PWMUDB:prevCapture\:cy_dff
+	PORT MAP(d=>zero,
+		clk=>\PWM_Servo_Trunk:PWMUDB:ClockOutFromEnBlock\,
+		q=>\PWM_Servo_Trunk:PWMUDB:prevCapture\);
+\PWM_Servo_Trunk:PWMUDB:trig_last\:cy_dff
+	PORT MAP(d=>zero,
+		clk=>\PWM_Servo_Trunk:PWMUDB:ClockOutFromEnBlock\,
+		q=>\PWM_Servo_Trunk:PWMUDB:trig_last\);
+\PWM_Servo_Trunk:PWMUDB:runmode_enable\:cy_dsrff
+	PORT MAP(d=>\PWM_Servo_Trunk:PWMUDB:control_7\,
+		s=>zero,
+		r=>zero,
+		clk=>\PWM_Servo_Trunk:PWMUDB:ClockOutFromEnBlock\,
+		q=>\PWM_Servo_Trunk:PWMUDB:runmode_enable\);
+\PWM_Servo_Trunk:PWMUDB:sc_kill_tmp\:cy_dff
+	PORT MAP(d=>\PWM_Servo_Trunk:PWMUDB:sc_kill_tmp\\D\,
+		clk=>\PWM_Servo_Trunk:PWMUDB:ClockOutFromEnBlock\,
+		q=>\PWM_Servo_Trunk:PWMUDB:sc_kill_tmp\);
+\PWM_Servo_Trunk:PWMUDB:ltch_kill_reg\:cy_dsrff
+	PORT MAP(d=>tmpOE__MOTOR_EN_RIGHT_net_0,
+		s=>zero,
+		r=>zero,
+		clk=>\PWM_Servo_Trunk:PWMUDB:ClockOutFromEnBlock\,
+		q=>\PWM_Servo_Trunk:PWMUDB:ltch_kill_reg\);
+\PWM_Servo_Trunk:PWMUDB:dith_count_1\:cy_dsrff
+	PORT MAP(d=>\PWM_Servo_Trunk:PWMUDB:dith_count_1\\D\,
+		s=>zero,
+		r=>zero,
+		clk=>\PWM_Servo_Trunk:PWMUDB:ClockOutFromEnBlock\,
+		q=>\PWM_Servo_Trunk:PWMUDB:dith_count_1\);
+\PWM_Servo_Trunk:PWMUDB:dith_count_0\:cy_dsrff
+	PORT MAP(d=>\PWM_Servo_Trunk:PWMUDB:dith_count_0\\D\,
+		s=>zero,
+		r=>zero,
+		clk=>\PWM_Servo_Trunk:PWMUDB:ClockOutFromEnBlock\,
+		q=>\PWM_Servo_Trunk:PWMUDB:dith_count_0\);
+\PWM_Servo_Trunk:PWMUDB:prevCompare1\:cy_dff
+	PORT MAP(d=>\PWM_Servo_Trunk:PWMUDB:cmp1\,
+		clk=>\PWM_Servo_Trunk:PWMUDB:ClockOutFromEnBlock\,
+		q=>\PWM_Servo_Trunk:PWMUDB:prevCompare1\);
+\PWM_Servo_Trunk:PWMUDB:cmp1_status_reg\:cy_dsrff
+	PORT MAP(d=>\PWM_Servo_Trunk:PWMUDB:cmp1_status\,
+		s=>zero,
+		r=>zero,
+		clk=>\PWM_Servo_Trunk:PWMUDB:ClockOutFromEnBlock\,
+		q=>\PWM_Servo_Trunk:PWMUDB:status_0\);
+\PWM_Servo_Trunk:PWMUDB:cmp2_status_reg\:cy_dsrff
+	PORT MAP(d=>zero,
+		s=>zero,
+		r=>zero,
+		clk=>\PWM_Servo_Trunk:PWMUDB:ClockOutFromEnBlock\,
+		q=>\PWM_Servo_Trunk:PWMUDB:status_1\);
+\PWM_Servo_Trunk:PWMUDB:final_kill_reg\:cy_dsrff
+	PORT MAP(d=>zero,
+		s=>zero,
+		r=>zero,
+		clk=>\PWM_Servo_Trunk:PWMUDB:ClockOutFromEnBlock\,
+		q=>\PWM_Servo_Trunk:PWMUDB:status_5\);
+\PWM_Servo_Trunk:PWMUDB:pwm_i_reg\:cy_dff
+	PORT MAP(d=>\PWM_Servo_Trunk:PWMUDB:pwm_i\,
+		clk=>\PWM_Servo_Trunk:PWMUDB:ClockOutFromEnBlock\,
+		q=>Net_1280);
+\PWM_Servo_Trunk:PWMUDB:pwm1_i_reg\:cy_dff
+	PORT MAP(d=>zero,
+		clk=>\PWM_Servo_Trunk:PWMUDB:ClockOutFromEnBlock\,
+		q=>\PWM_Servo_Trunk:PWMUDB:pwm1_i_reg\);
+\PWM_Servo_Trunk:PWMUDB:pwm2_i_reg\:cy_dff
+	PORT MAP(d=>zero,
+		clk=>\PWM_Servo_Trunk:PWMUDB:ClockOutFromEnBlock\,
+		q=>\PWM_Servo_Trunk:PWMUDB:pwm2_i_reg\);
+\PWM_Servo_Trunk:PWMUDB:tc_i_reg\:cy_dff
+	PORT MAP(d=>\PWM_Servo_Trunk:PWMUDB:status_2\,
+		clk=>\PWM_Servo_Trunk:PWMUDB:ClockOutFromEnBlock\,
+		q=>\PWM_Servo_Trunk:PWMUDB:tc_i_reg\);
 
 END R_T_L;

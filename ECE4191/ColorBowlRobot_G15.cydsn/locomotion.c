@@ -226,17 +226,6 @@ void wheel_move_by_ticks(MOTION motion, uint8 pwm, int target_ticks) {
         
     }
     
-    sprintf(string_1, "m1 %d\n", master_motor_left_ticks);
-    sprintf(string_2, "m2 %d\n", slave_motor_right_ticks);
-    
-    UART_1_PutString(string_1);
-    UART_1_PutString(string_2);
-    
-    sprintf(string_1, "m1-pwm %d\n", master_pwm);
-    sprintf(string_2, "m2-pwm %d\n", slave_pwm);
-    
-    UART_1_PutString(string_1);
-    UART_1_PutString(string_2);
     motor_stop();
 }
 
@@ -298,18 +287,7 @@ void wheel_turn_by_ticks(MOTION motion, uint8 pwm, int turn_ticks) {
         slave_motor_right_ticks = -motor_right_get_count_QuadDec();
         
     }
-    
-    sprintf(string_1, "m1 %d\n", master_motor_left_ticks);
-    sprintf(string_2, "m2 %d\n", slave_motor_right_ticks);
-    
-    UART_1_PutString(string_1);
-    UART_1_PutString(string_2);
-    
-    sprintf(string_1, "m1-pwm %d\n", master_pwm);
-    sprintf(string_2, "m2-pwm %d\n", slave_pwm);
-    
-    UART_1_PutString(string_1);
-    UART_1_PutString(string_2);
+
     motor_stop();
     
 }
@@ -322,8 +300,6 @@ void wheel_turn_by_angle(MOTION motion, uint8 pwm, double angle) {
     double ticks = TICKS_PER_REVOLUTION * n_revs;
     int turn_ticks = (int) ticks;
     
-    char string_1[30];
-    char string_2[30];
     motor_start(pwm);
     
     int master_pwm = motor_left_get_pwm();
@@ -348,17 +324,6 @@ void wheel_turn_by_angle(MOTION motion, uint8 pwm, double angle) {
         
     }
     
-    sprintf(string_1, "m1 %d\n", master_motor_left_ticks);
-    sprintf(string_2, "m2 %d\n", slave_motor_right_ticks);
-    
-    UART_1_PutString(string_1);
-    UART_1_PutString(string_2);
-    
-    sprintf(string_1, "m1-pwm %d\n", master_pwm);
-    sprintf(string_2, "m2-pwm %d\n", slave_pwm);
-    
-    UART_1_PutString(string_1);
-    UART_1_PutString(string_2);
     motor_stop();
     
 }
