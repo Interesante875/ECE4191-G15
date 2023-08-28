@@ -36,15 +36,15 @@ extern uint8 Wheel_Timer_initVar;
 *           Parameter Defaults
 **************************************/
 
-#define Wheel_Timer_Resolution                 32u
-#define Wheel_Timer_UsingFixedFunction         0u
+#define Wheel_Timer_Resolution                 16u
+#define Wheel_Timer_UsingFixedFunction         1u
 #define Wheel_Timer_UsingHWCaptureCounter      0u
 #define Wheel_Timer_SoftwareCaptureMode        0u
 #define Wheel_Timer_SoftwareTriggerMode        0u
 #define Wheel_Timer_UsingHWEnable              0u
 #define Wheel_Timer_EnableTriggerMode          0u
 #define Wheel_Timer_InterruptOnCaptureCount    0u
-#define Wheel_Timer_RunModeUsed                1u
+#define Wheel_Timer_RunModeUsed                0u
 #define Wheel_Timer_ControlRegRemoved          0u
 
 #if defined(Wheel_Timer_TimerUDB_sCTRLReg_SyncCtl_ctrlreg__CONTROL_REG)
@@ -69,7 +69,7 @@ typedef struct
     uint8 TimerEnableState;
     #if(!Wheel_Timer_UsingFixedFunction)
 
-        uint32 TimerUdb;
+        uint16 TimerUdb;
         uint8 InterruptMaskValue;
         #if (Wheel_Timer_UsingHWCaptureCounter)
             uint8 TimerCaptureCounter;
@@ -100,11 +100,11 @@ uint8   Wheel_Timer_ReadStatusRegister(void) ;
     void    Wheel_Timer_WriteControlRegister(uint8 control) ;
 #endif /* (!Wheel_Timer_UDB_CONTROL_REG_REMOVED) */
 
-uint32  Wheel_Timer_ReadPeriod(void) ;
-void    Wheel_Timer_WritePeriod(uint32 period) ;
-uint32  Wheel_Timer_ReadCounter(void) ;
-void    Wheel_Timer_WriteCounter(uint32 counter) ;
-uint32  Wheel_Timer_ReadCapture(void) ;
+uint16  Wheel_Timer_ReadPeriod(void) ;
+void    Wheel_Timer_WritePeriod(uint16 period) ;
+uint16  Wheel_Timer_ReadCounter(void) ;
+void    Wheel_Timer_WriteCounter(uint16 counter) ;
+uint16  Wheel_Timer_ReadCapture(void) ;
 void    Wheel_Timer_SoftwareCapture(void) ;
 
 #if(!Wheel_Timer_UsingFixedFunction) /* UDB Prototypes */
@@ -168,14 +168,14 @@ void Wheel_Timer_Wakeup(void)        ;
 *    Initialial Parameter Constants
 ***************************************/
 
-#define Wheel_Timer_INIT_PERIOD             9999999u
+#define Wheel_Timer_INIT_PERIOD             1999u
 #define Wheel_Timer_INIT_CAPTURE_MODE       ((uint8)((uint8)0u << Wheel_Timer_CTRL_CAP_MODE_SHIFT))
 #define Wheel_Timer_INIT_TRIGGER_MODE       ((uint8)((uint8)0u << Wheel_Timer_CTRL_TRIG_MODE_SHIFT))
 #if (Wheel_Timer_UsingFixedFunction)
-    #define Wheel_Timer_INIT_INTERRUPT_MODE (((uint8)((uint8)0u << Wheel_Timer_STATUS_TC_INT_MASK_SHIFT)) | \
+    #define Wheel_Timer_INIT_INTERRUPT_MODE (((uint8)((uint8)1u << Wheel_Timer_STATUS_TC_INT_MASK_SHIFT)) | \
                                                   ((uint8)((uint8)0 << Wheel_Timer_STATUS_CAPTURE_INT_MASK_SHIFT)))
 #else
-    #define Wheel_Timer_INIT_INTERRUPT_MODE (((uint8)((uint8)0u << Wheel_Timer_STATUS_TC_INT_MASK_SHIFT)) | \
+    #define Wheel_Timer_INIT_INTERRUPT_MODE (((uint8)((uint8)1u << Wheel_Timer_STATUS_TC_INT_MASK_SHIFT)) | \
                                                  ((uint8)((uint8)0 << Wheel_Timer_STATUS_CAPTURE_INT_MASK_SHIFT)) | \
                                                  ((uint8)((uint8)0 << Wheel_Timer_STATUS_FIFOFULL_INT_MASK_SHIFT)))
 #endif /* (Wheel_Timer_UsingFixedFunction) */
@@ -313,54 +313,54 @@ void Wheel_Timer_Wakeup(void)        ;
     #define Wheel_Timer_CONTROL             (* (reg8 *) Wheel_Timer_TimerUDB_sCTRLReg_SyncCtl_ctrlreg__CONTROL_REG )
     
     #if(Wheel_Timer_Resolution <= 8u) /* 8-bit Timer */
-        #define Wheel_Timer_CAPTURE_LSB         (* (reg8 *) Wheel_Timer_TimerUDB_sT32_timerdp_u0__F0_REG )
-        #define Wheel_Timer_CAPTURE_LSB_PTR       ((reg8 *) Wheel_Timer_TimerUDB_sT32_timerdp_u0__F0_REG )
-        #define Wheel_Timer_PERIOD_LSB          (* (reg8 *) Wheel_Timer_TimerUDB_sT32_timerdp_u0__D0_REG )
-        #define Wheel_Timer_PERIOD_LSB_PTR        ((reg8 *) Wheel_Timer_TimerUDB_sT32_timerdp_u0__D0_REG )
-        #define Wheel_Timer_COUNTER_LSB         (* (reg8 *) Wheel_Timer_TimerUDB_sT32_timerdp_u0__A0_REG )
-        #define Wheel_Timer_COUNTER_LSB_PTR       ((reg8 *) Wheel_Timer_TimerUDB_sT32_timerdp_u0__A0_REG )
+        #define Wheel_Timer_CAPTURE_LSB         (* (reg8 *) Wheel_Timer_TimerUDB_sT16_timerdp_u0__F0_REG )
+        #define Wheel_Timer_CAPTURE_LSB_PTR       ((reg8 *) Wheel_Timer_TimerUDB_sT16_timerdp_u0__F0_REG )
+        #define Wheel_Timer_PERIOD_LSB          (* (reg8 *) Wheel_Timer_TimerUDB_sT16_timerdp_u0__D0_REG )
+        #define Wheel_Timer_PERIOD_LSB_PTR        ((reg8 *) Wheel_Timer_TimerUDB_sT16_timerdp_u0__D0_REG )
+        #define Wheel_Timer_COUNTER_LSB         (* (reg8 *) Wheel_Timer_TimerUDB_sT16_timerdp_u0__A0_REG )
+        #define Wheel_Timer_COUNTER_LSB_PTR       ((reg8 *) Wheel_Timer_TimerUDB_sT16_timerdp_u0__A0_REG )
     #elif(Wheel_Timer_Resolution <= 16u) /* 8-bit Timer */
         #if(CY_PSOC3) /* 8-bit addres space */
-            #define Wheel_Timer_CAPTURE_LSB         (* (reg16 *) Wheel_Timer_TimerUDB_sT32_timerdp_u0__F0_REG )
-            #define Wheel_Timer_CAPTURE_LSB_PTR       ((reg16 *) Wheel_Timer_TimerUDB_sT32_timerdp_u0__F0_REG )
-            #define Wheel_Timer_PERIOD_LSB          (* (reg16 *) Wheel_Timer_TimerUDB_sT32_timerdp_u0__D0_REG )
-            #define Wheel_Timer_PERIOD_LSB_PTR        ((reg16 *) Wheel_Timer_TimerUDB_sT32_timerdp_u0__D0_REG )
-            #define Wheel_Timer_COUNTER_LSB         (* (reg16 *) Wheel_Timer_TimerUDB_sT32_timerdp_u0__A0_REG )
-            #define Wheel_Timer_COUNTER_LSB_PTR       ((reg16 *) Wheel_Timer_TimerUDB_sT32_timerdp_u0__A0_REG )
+            #define Wheel_Timer_CAPTURE_LSB         (* (reg16 *) Wheel_Timer_TimerUDB_sT16_timerdp_u0__F0_REG )
+            #define Wheel_Timer_CAPTURE_LSB_PTR       ((reg16 *) Wheel_Timer_TimerUDB_sT16_timerdp_u0__F0_REG )
+            #define Wheel_Timer_PERIOD_LSB          (* (reg16 *) Wheel_Timer_TimerUDB_sT16_timerdp_u0__D0_REG )
+            #define Wheel_Timer_PERIOD_LSB_PTR        ((reg16 *) Wheel_Timer_TimerUDB_sT16_timerdp_u0__D0_REG )
+            #define Wheel_Timer_COUNTER_LSB         (* (reg16 *) Wheel_Timer_TimerUDB_sT16_timerdp_u0__A0_REG )
+            #define Wheel_Timer_COUNTER_LSB_PTR       ((reg16 *) Wheel_Timer_TimerUDB_sT16_timerdp_u0__A0_REG )
         #else /* 16-bit address space */
-            #define Wheel_Timer_CAPTURE_LSB         (* (reg16 *) Wheel_Timer_TimerUDB_sT32_timerdp_u0__16BIT_F0_REG )
-            #define Wheel_Timer_CAPTURE_LSB_PTR       ((reg16 *) Wheel_Timer_TimerUDB_sT32_timerdp_u0__16BIT_F0_REG )
-            #define Wheel_Timer_PERIOD_LSB          (* (reg16 *) Wheel_Timer_TimerUDB_sT32_timerdp_u0__16BIT_D0_REG )
-            #define Wheel_Timer_PERIOD_LSB_PTR        ((reg16 *) Wheel_Timer_TimerUDB_sT32_timerdp_u0__16BIT_D0_REG )
-            #define Wheel_Timer_COUNTER_LSB         (* (reg16 *) Wheel_Timer_TimerUDB_sT32_timerdp_u0__16BIT_A0_REG )
-            #define Wheel_Timer_COUNTER_LSB_PTR       ((reg16 *) Wheel_Timer_TimerUDB_sT32_timerdp_u0__16BIT_A0_REG )
+            #define Wheel_Timer_CAPTURE_LSB         (* (reg16 *) Wheel_Timer_TimerUDB_sT16_timerdp_u0__16BIT_F0_REG )
+            #define Wheel_Timer_CAPTURE_LSB_PTR       ((reg16 *) Wheel_Timer_TimerUDB_sT16_timerdp_u0__16BIT_F0_REG )
+            #define Wheel_Timer_PERIOD_LSB          (* (reg16 *) Wheel_Timer_TimerUDB_sT16_timerdp_u0__16BIT_D0_REG )
+            #define Wheel_Timer_PERIOD_LSB_PTR        ((reg16 *) Wheel_Timer_TimerUDB_sT16_timerdp_u0__16BIT_D0_REG )
+            #define Wheel_Timer_COUNTER_LSB         (* (reg16 *) Wheel_Timer_TimerUDB_sT16_timerdp_u0__16BIT_A0_REG )
+            #define Wheel_Timer_COUNTER_LSB_PTR       ((reg16 *) Wheel_Timer_TimerUDB_sT16_timerdp_u0__16BIT_A0_REG )
         #endif /* CY_PSOC3 */
     #elif(Wheel_Timer_Resolution <= 24u)/* 24-bit Timer */
-        #define Wheel_Timer_CAPTURE_LSB         (* (reg32 *) Wheel_Timer_TimerUDB_sT32_timerdp_u0__F0_REG )
-        #define Wheel_Timer_CAPTURE_LSB_PTR       ((reg32 *) Wheel_Timer_TimerUDB_sT32_timerdp_u0__F0_REG )
-        #define Wheel_Timer_PERIOD_LSB          (* (reg32 *) Wheel_Timer_TimerUDB_sT32_timerdp_u0__D0_REG )
-        #define Wheel_Timer_PERIOD_LSB_PTR        ((reg32 *) Wheel_Timer_TimerUDB_sT32_timerdp_u0__D0_REG )
-        #define Wheel_Timer_COUNTER_LSB         (* (reg32 *) Wheel_Timer_TimerUDB_sT32_timerdp_u0__A0_REG )
-        #define Wheel_Timer_COUNTER_LSB_PTR       ((reg32 *) Wheel_Timer_TimerUDB_sT32_timerdp_u0__A0_REG )
+        #define Wheel_Timer_CAPTURE_LSB         (* (reg32 *) Wheel_Timer_TimerUDB_sT16_timerdp_u0__F0_REG )
+        #define Wheel_Timer_CAPTURE_LSB_PTR       ((reg32 *) Wheel_Timer_TimerUDB_sT16_timerdp_u0__F0_REG )
+        #define Wheel_Timer_PERIOD_LSB          (* (reg32 *) Wheel_Timer_TimerUDB_sT16_timerdp_u0__D0_REG )
+        #define Wheel_Timer_PERIOD_LSB_PTR        ((reg32 *) Wheel_Timer_TimerUDB_sT16_timerdp_u0__D0_REG )
+        #define Wheel_Timer_COUNTER_LSB         (* (reg32 *) Wheel_Timer_TimerUDB_sT16_timerdp_u0__A0_REG )
+        #define Wheel_Timer_COUNTER_LSB_PTR       ((reg32 *) Wheel_Timer_TimerUDB_sT16_timerdp_u0__A0_REG )
     #else /* 32-bit Timer */
         #if(CY_PSOC3 || CY_PSOC5) /* 8-bit address space */
-            #define Wheel_Timer_CAPTURE_LSB         (* (reg32 *) Wheel_Timer_TimerUDB_sT32_timerdp_u0__F0_REG )
-            #define Wheel_Timer_CAPTURE_LSB_PTR       ((reg32 *) Wheel_Timer_TimerUDB_sT32_timerdp_u0__F0_REG )
-            #define Wheel_Timer_PERIOD_LSB          (* (reg32 *) Wheel_Timer_TimerUDB_sT32_timerdp_u0__D0_REG )
-            #define Wheel_Timer_PERIOD_LSB_PTR        ((reg32 *) Wheel_Timer_TimerUDB_sT32_timerdp_u0__D0_REG )
-            #define Wheel_Timer_COUNTER_LSB         (* (reg32 *) Wheel_Timer_TimerUDB_sT32_timerdp_u0__A0_REG )
-            #define Wheel_Timer_COUNTER_LSB_PTR       ((reg32 *) Wheel_Timer_TimerUDB_sT32_timerdp_u0__A0_REG )
+            #define Wheel_Timer_CAPTURE_LSB         (* (reg32 *) Wheel_Timer_TimerUDB_sT16_timerdp_u0__F0_REG )
+            #define Wheel_Timer_CAPTURE_LSB_PTR       ((reg32 *) Wheel_Timer_TimerUDB_sT16_timerdp_u0__F0_REG )
+            #define Wheel_Timer_PERIOD_LSB          (* (reg32 *) Wheel_Timer_TimerUDB_sT16_timerdp_u0__D0_REG )
+            #define Wheel_Timer_PERIOD_LSB_PTR        ((reg32 *) Wheel_Timer_TimerUDB_sT16_timerdp_u0__D0_REG )
+            #define Wheel_Timer_COUNTER_LSB         (* (reg32 *) Wheel_Timer_TimerUDB_sT16_timerdp_u0__A0_REG )
+            #define Wheel_Timer_COUNTER_LSB_PTR       ((reg32 *) Wheel_Timer_TimerUDB_sT16_timerdp_u0__A0_REG )
         #else /* 32-bit address space */
-            #define Wheel_Timer_CAPTURE_LSB         (* (reg32 *) Wheel_Timer_TimerUDB_sT32_timerdp_u0__32BIT_F0_REG )
-            #define Wheel_Timer_CAPTURE_LSB_PTR       ((reg32 *) Wheel_Timer_TimerUDB_sT32_timerdp_u0__32BIT_F0_REG )
-            #define Wheel_Timer_PERIOD_LSB          (* (reg32 *) Wheel_Timer_TimerUDB_sT32_timerdp_u0__32BIT_D0_REG )
-            #define Wheel_Timer_PERIOD_LSB_PTR        ((reg32 *) Wheel_Timer_TimerUDB_sT32_timerdp_u0__32BIT_D0_REG )
-            #define Wheel_Timer_COUNTER_LSB         (* (reg32 *) Wheel_Timer_TimerUDB_sT32_timerdp_u0__32BIT_A0_REG )
-            #define Wheel_Timer_COUNTER_LSB_PTR       ((reg32 *) Wheel_Timer_TimerUDB_sT32_timerdp_u0__32BIT_A0_REG )
+            #define Wheel_Timer_CAPTURE_LSB         (* (reg32 *) Wheel_Timer_TimerUDB_sT16_timerdp_u0__32BIT_F0_REG )
+            #define Wheel_Timer_CAPTURE_LSB_PTR       ((reg32 *) Wheel_Timer_TimerUDB_sT16_timerdp_u0__32BIT_F0_REG )
+            #define Wheel_Timer_PERIOD_LSB          (* (reg32 *) Wheel_Timer_TimerUDB_sT16_timerdp_u0__32BIT_D0_REG )
+            #define Wheel_Timer_PERIOD_LSB_PTR        ((reg32 *) Wheel_Timer_TimerUDB_sT16_timerdp_u0__32BIT_D0_REG )
+            #define Wheel_Timer_COUNTER_LSB         (* (reg32 *) Wheel_Timer_TimerUDB_sT16_timerdp_u0__32BIT_A0_REG )
+            #define Wheel_Timer_COUNTER_LSB_PTR       ((reg32 *) Wheel_Timer_TimerUDB_sT16_timerdp_u0__32BIT_A0_REG )
         #endif /* CY_PSOC3 || CY_PSOC5 */ 
     #endif
 
-    #define Wheel_Timer_COUNTER_LSB_PTR_8BIT       ((reg8 *) Wheel_Timer_TimerUDB_sT32_timerdp_u0__A0_REG )
+    #define Wheel_Timer_COUNTER_LSB_PTR_8BIT       ((reg8 *) Wheel_Timer_TimerUDB_sT16_timerdp_u0__A0_REG )
     
     #if (Wheel_Timer_UsingHWCaptureCounter)
         #define Wheel_Timer_CAP_COUNT              (*(reg8 *) Wheel_Timer_TimerUDB_sCapCount_counter__PERIOD_REG )

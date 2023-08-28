@@ -251,17 +251,24 @@
   <Data key="DataVersionKey" value="2" />
   <Group key="DWRInstGuidMapping">
     <Group key="Pin">
-      <Data key="8d318d8b-cf7b-4b6b-b02c-ab1c5c49d0ba" value="MOTOR_1_IN_1" />
+      <Data key="0fe143c2-f701-4dc0-8d09-6c4cbde55272" value="MOTOR_EN_RIGHT" />
+      <Data key="8d318d8b-cf7b-4b6b-b02c-ab1c5c49d0ba" value="MOTOR_LEFT_PHASE_A" />
       <Data key="09fa09e7-273f-4b62-aebb-d402c277276f" value="MOTOR_1_IN_2" />
+      <Data key="53bdd870-b18a-4145-844f-e9267d4e033e" value="MOTOR_RIGHT_IN_4" />
       <Data key="555f9ef7-f64f-4932-a19b-0bbb92c56bfa" value="MOTOR_2_IN_1" />
       <Data key="874ff7ed-a19f-4500-a6b3-6423b4561c98" value="MOTOR_LEFT_PHASE_A" />
-      <Data key="716507ed-8825-4e8d-937b-2557580f1ae4" value="MOTOR_EN" />
+      <Data key="4475cc2d-2e31-4262-a59d-915c8794e2ef" value="MOTOR_RIGHT_IN_3" />
+      <Data key="716507ed-8825-4e8d-937b-2557580f1ae4" value="MOTOR_EN_LEFT" />
       <Data key="1425177d-0d0e-4468-8bcc-e638e5509a9b" value="Rx_1" />
+      <Data key="ad5fc877-2678-4850-bea8-02578443791e" value="Rx_1" />
       <Data key="adfef9dc-847e-4f6f-8405-adeac0c01ace" value="MOTOR_RIGHT_PHASE_A" />
       <Data key="c263bf58-c47f-4742-903f-63a3f6945ded" value="MOTOR_LEFT_PHASE_B" />
       <Data key="c534e92f-a76c-455b-8073-aa5ee2274574" value="MOTOR_2_IN_2" />
       <Data key="d304fa33-5823-4363-85f7-83ba61dc99f7" value="MOTOR_RIGHT_PHASE_B" />
+      <Data key="e96de207-7623-4d75-9347-3e7be8308e0c" value="Tx_1" />
+      <Data key="e851a3b9-efb8-48be-bbb8-b303b216c393" value="MOTOR_LEFT_IN_1" />
       <Data key="ed092b9b-d398-4703-be89-cebf998501f6" value="Tx_1" />
+      <Data key="ff605efc-d5cd-43d5-9dfd-04c3cc7fe0df" value="MOTOR_LEFT_IN_2" />
     </Group>
   </Group>
   <Group key="EEPROM">
@@ -3348,14 +3355,24 @@
     </Group>
   </Group>
   <Group key="Pin2">
+    <Group key="0fe143c2-f701-4dc0-8d09-6c4cbde55272">
+      <Group key="0">
+        <Data key="Port Format" value="3,1" />
+      </Group>
+    </Group>
     <Group key="8d318d8b-cf7b-4b6b-b02c-ab1c5c49d0ba">
       <Group key="0">
-        <Data key="Port Format" value="1,5" />
+        <Data key="Port Format" value="1,6" />
       </Group>
     </Group>
     <Group key="09fa09e7-273f-4b62-aebb-d402c277276f">
       <Group key="0">
         <Data key="Port Format" value="1,4" />
+      </Group>
+    </Group>
+    <Group key="53bdd870-b18a-4145-844f-e9267d4e033e">
+      <Group key="0">
+        <Data key="Port Format" value="3,5" />
       </Group>
     </Group>
     <Group key="555f9ef7-f64f-4932-a19b-0bbb92c56bfa">
@@ -3368,12 +3385,22 @@
         <Data key="Port Format" value="1,6" />
       </Group>
     </Group>
+    <Group key="4475cc2d-2e31-4262-a59d-915c8794e2ef">
+      <Group key="0">
+        <Data key="Port Format" value="3,4" />
+      </Group>
+    </Group>
     <Group key="716507ed-8825-4e8d-937b-2557580f1ae4">
       <Group key="0">
         <Data key="Port Format" value="3,0" />
       </Group>
     </Group>
     <Group key="1425177d-0d0e-4468-8bcc-e638e5509a9b">
+      <Group key="0">
+        <Data key="Port Format" value="12,6" />
+      </Group>
+    </Group>
+    <Group key="ad5fc877-2678-4850-bea8-02578443791e">
       <Group key="0">
         <Data key="Port Format" value="12,6" />
       </Group>
@@ -3398,11 +3425,27 @@
         <Data key="Port Format" value="2,6" />
       </Group>
     </Group>
+    <Group key="e96de207-7623-4d75-9347-3e7be8308e0c">
+      <Group key="0">
+        <Data key="Port Format" value="12,7" />
+      </Group>
+    </Group>
+    <Group key="e851a3b9-efb8-48be-bbb8-b303b216c393">
+      <Group key="0">
+        <Data key="Port Format" value="1,5" />
+      </Group>
+    </Group>
     <Group key="ed092b9b-d398-4703-be89-cebf998501f6">
       <Group key="0">
         <Data key="Port Format" value="12,7" />
       </Group>
     </Group>
+    <Group key="ff605efc-d5cd-43d5-9dfd-04c3cc7fe0df">
+      <Group key="0">
+        <Data key="Port Format" value="1,4" />
+      </Group>
+    </Group>
+    <Group key="UnAssigned Pins" />
   </Group>
   <Group key="PlaceDir">
     <Data key="count" value="0" />

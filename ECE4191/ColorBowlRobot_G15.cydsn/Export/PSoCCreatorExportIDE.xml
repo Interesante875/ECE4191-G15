@@ -39,15 +39,21 @@
           <File BuildType="BUILD" Toolchain="">main.c</File>
           <File BuildType="BUILD" Toolchain="">..\..\..\Draft\mean_filter.c</File>
           <File BuildType="BUILD" Toolchain="">..\..\..\Draft\median_filter.c</File>
-          <File BuildType="BUILD" Toolchain="">..\..\..\Draft\position.c</File>
-          <File BuildType="BUILD" Toolchain="">motor_control.c</File>
+          <File BuildType="BUILD" Toolchain="">controller.c</File>
+          <File BuildType="BUILD" Toolchain="">locomotion.c</File>
+          <File BuildType="BUILD" Toolchain="">color_detection.c</File>
+          <File BuildType="BUILD" Toolchain="">ultrasonic.c</File>
+          <File BuildType="BUILD" Toolchain="">bluetooth.c</File>
+          <File BuildType="BUILD" Toolchain="">irsensor.c</File>
           <File BuildType="BUILD" Toolchain="">cyapicallbacks.h</File>
-          <File BuildType="BUILD" Toolchain="">..\..\..\Draft\dead_reckoning.h</File>
-          <File BuildType="BUILD" Toolchain="">..\..\..\Draft\linked_list.h</File>
           <File BuildType="BUILD" Toolchain="">..\..\..\Draft\mean_filter.h</File>
-          <File BuildType="BUILD" Toolchain="">..\..\..\Draft\position.h</File>
           <File BuildType="BUILD" Toolchain="">median_filter.h</File>
-          <File BuildType="BUILD" Toolchain="">motor_control.h</File>
+          <File BuildType="BUILD" Toolchain="">controller.h</File>
+          <File BuildType="BUILD" Toolchain="">locomotion.h</File>
+          <File BuildType="BUILD" Toolchain="">color_detection.h</File>
+          <File BuildType="BUILD" Toolchain="">ultrasonic.h</File>
+          <File BuildType="BUILD" Toolchain="">bluetooth.h</File>
+          <File BuildType="BUILD" Toolchain="">irsensor.h</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\Generated_Source\PSoC5">
@@ -101,26 +107,14 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\cycodeshareimport.ld</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\cycodeshareexport.ld</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\cycodeshareimport.scat</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\PWM_1.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\PWM_1.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\PWM_1_PM.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Clock_1.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Clock_1.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\MOTOR_EN_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\MOTOR_EN.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\MOTOR_EN.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\MOTOR_LEFT_PHASE_A_aliases.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\MOTOR_LEFT_PHASE_A.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\MOTOR_LEFT_PHASE_A.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\MOTOR_LEFT_PHASE_B_aliases.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\MOTOR_LEFT_PHASE_B.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\MOTOR_LEFT_PHASE_B.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\QuadDec_1.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\QuadDec_1.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\QuadDec_1_PM.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\QuadDec_2.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\QuadDec_2.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\QuadDec_2_PM.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\MOTOR_RIGHT_PHASE_A_aliases.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\MOTOR_RIGHT_PHASE_A.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\MOTOR_RIGHT_PHASE_A.h</File>
@@ -132,26 +126,125 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\UART_1_PM.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\UART_1_INT.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\UART_1_BOOT.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\QuadDec_1_Cnt16.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\QuadDec_1_Cnt16.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\QuadDec_1_Cnt16_PM.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\QuadDec_2_Cnt16.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\QuadDec_2_Cnt16.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\QuadDec_2_Cnt16_PM.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\UART_1_IntClock.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\UART_1_IntClock.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\MOTOR_1_IN_LEFT_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\MOTOR_1_IN_LEFT.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\MOTOR_1_IN_LEFT.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\MOTOR_1_IN_RIGHT_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\MOTOR_1_IN_RIGHT.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\MOTOR_1_IN_RIGHT.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\MOTOR_2_IN_LEFT_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\MOTOR_2_IN_LEFT.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\MOTOR_2_IN_LEFT.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\MOTOR_2_IN_RIGHT_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\MOTOR_2_IN_RIGHT.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\MOTOR_2_IN_RIGHT.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Wheel_Timer.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Wheel_Timer.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Wheel_Timer_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\MOTOR_EN_RIGHT_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\MOTOR_EN_RIGHT.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\MOTOR_EN_RIGHT.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\PWM_RIGHT.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\PWM_RIGHT.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\PWM_RIGHT_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\QuadDec_RIGHT.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\QuadDec_RIGHT.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\QuadDec_RIGHT_INT.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\QuadDec_RIGHT_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\QuadDec_RIGHT_PVT.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\QuadDec_LEFT.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\QuadDec_LEFT.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\QuadDec_LEFT_INT.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\QuadDec_LEFT_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\QuadDec_LEFT_PVT.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\MOTOR_RIGHT_IN_4_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\MOTOR_RIGHT_IN_4.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\MOTOR_RIGHT_IN_4.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\MOTOR_RIGHT_IN_3_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\MOTOR_RIGHT_IN_3.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\MOTOR_RIGHT_IN_3.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\MOTOR_EN_LEFT_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\MOTOR_EN_LEFT.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\MOTOR_EN_LEFT.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\PWM_LEFT.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\PWM_LEFT.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\PWM_LEFT_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\MOTOR_LEFT_IN_2_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\MOTOR_LEFT_IN_2.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\MOTOR_LEFT_IN_2.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\MOTOR_LEFT_IN_1_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\MOTOR_LEFT_IN_1.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\MOTOR_LEFT_IN_1.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\isr_input.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\isr_input.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\QuadDec_RIGHT_isr.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\QuadDec_RIGHT_isr.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\QuadDec_RIGHT_Cnt16.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\QuadDec_RIGHT_Cnt16.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\QuadDec_RIGHT_Cnt16_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\QuadDec_LEFT_isr.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\QuadDec_LEFT_isr.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\QuadDec_LEFT_Cnt16.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\QuadDec_LEFT_Cnt16.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\QuadDec_LEFT_Cnt16_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Clock_2.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Clock_2.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\S0_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\S0.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\S0.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\S1_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\S1.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\S1.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\S2_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\S2.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\S2.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\S3_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\S3.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\S3.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\LED_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\LED.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\LED.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Count_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Count.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Count.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Clock_3.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Clock_3.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Trigger_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Trigger.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Trigger.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\isr_color_sensor.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\isr_color_sensor.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Counter_Color_Sensor.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Counter_Color_Sensor.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Counter_Color_Sensor_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\PWM_Color_Sensor.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\PWM_Color_Sensor.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\PWM_Color_Sensor_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Control_Reg_Color_Sensor.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Control_Reg_Color_Sensor.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Control_Reg_Color_Sensor_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Echo_LEFT_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Echo_LEFT.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Echo_LEFT.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Echo_RIGHT_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Echo_RIGHT.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Echo_RIGHT.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Echo_FLEFT_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Echo_FLEFT.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Echo_FLEFT.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Echo_FRIGHT_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Echo_FRIGHT.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Echo_FRIGHT.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Control_Reg_Ultrasonic.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Control_Reg_Ultrasonic.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Control_Reg_Ultrasonic_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Timer_Ultrasonic.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Timer_Ultrasonic.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Timer_Ultrasonic_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\isr_ultrasonic.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\isr_ultrasonic.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\IR_Sensor_LEFT_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\IR_Sensor_LEFT.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\IR_Sensor_LEFT.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\IR_Sensor_RIGHT_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\IR_Sensor_RIGHT.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\IR_Sensor_RIGHT.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Clock_4.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Clock_4.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\isr_ir_left.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\isr_ir_left.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\isr_ir_right.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\isr_ir_right.h</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\Export\ARM_GCC_Generic">
