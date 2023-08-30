@@ -13,7 +13,7 @@
 #define COLOR_DETECTION_H
 
     #include "project.h"
-
+    
     #define DELAY_CYCLES 200
 
     #define INIT_COLOR_DETECTION color_detection_init()
@@ -35,7 +35,7 @@
         WHITE
     } COLOR;
     
-    COLOR detectedColor = GREY;
+    extern volatile COLOR detectedColor;
 
     void color_sensor_start();
     void color_sensor_stop();

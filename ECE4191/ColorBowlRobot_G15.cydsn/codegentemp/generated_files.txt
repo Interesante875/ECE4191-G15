@@ -175,9 +175,17 @@
   <file name="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\codegentemp\MOTOR_TRUNK_aliases.h" value="HEADER;;;;;MOTOR_TRUNK" />
   <file name="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\codegentemp\MOTOR_TRUNK.c" value="SOURCE_C;CortexM3;;;;MOTOR_TRUNK" />
   <file name="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\codegentemp\MOTOR_TRUNK.h" value="HEADER;;;;;MOTOR_TRUNK" />
-  <file name="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\codegentemp\Timer_Servo.c" value="SOURCE_C;CortexM3;;;;Timer_Servo" />
-  <file name="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\codegentemp\Timer_Servo.h" value="HEADER;;;;;Timer_Servo" />
-  <file name="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\codegentemp\Timer_Servo_PM.c" value="SOURCE_C;CortexM3;;;;Timer_Servo" />
+  <file name="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\codegentemp\isr_wheel_controller.c" value="SOURCE_C;CortexM3;;;;isr_wheel_controller" />
+  <file name="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\codegentemp\isr_wheel_controller.h" value="HEADER;;;;;isr_wheel_controller" />
+  <file name="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\codegentemp\Indicator_RED_aliases.h" value="HEADER;;;;;Indicator_RED" />
+  <file name="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\codegentemp\Indicator_RED.c" value="SOURCE_C;CortexM3;;;;Indicator_RED" />
+  <file name="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\codegentemp\Indicator_RED.h" value="HEADER;;;;;Indicator_RED" />
+  <file name="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\codegentemp\Indicator_GREEN_aliases.h" value="HEADER;;;;;Indicator_GREEN" />
+  <file name="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\codegentemp\Indicator_GREEN.c" value="SOURCE_C;CortexM3;;;;Indicator_GREEN" />
+  <file name="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\codegentemp\Indicator_GREEN.h" value="HEADER;;;;;Indicator_GREEN" />
+  <file name="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\codegentemp\Indicator_BLUE_aliases.h" value="HEADER;;;;;Indicator_BLUE" />
+  <file name="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\codegentemp\Indicator_BLUE.c" value="SOURCE_C;CortexM3;;;;Indicator_BLUE" />
+  <file name="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\codegentemp\Indicator_BLUE.h" value="HEADER;;;;;Indicator_BLUE" />
   <file name="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\codegentemp\QuadDec_RIGHT_isr.c" value="SOURCE_C;CortexM3;;;;QuadDec_RIGHT_isr" />
   <file name="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\codegentemp\QuadDec_RIGHT_isr.h" value="HEADER;;;;;QuadDec_RIGHT_isr" />
   <file name="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\codegentemp\QuadDec_RIGHT_Cnt16.c" value="SOURCE_C;CortexM3;;;;QuadDec_RIGHT_Cnt16" />

@@ -45,6 +45,9 @@
           <File BuildType="BUILD" Toolchain="">ultrasonic.c</File>
           <File BuildType="BUILD" Toolchain="">bluetooth.c</File>
           <File BuildType="BUILD" Toolchain="">irsensor.c</File>
+          <File BuildType="BUILD" Toolchain="">servo.c</File>
+          <File BuildType="BUILD" Toolchain="">prelim.c</File>
+          <File BuildType="BUILD" Toolchain="">navigation_stack.c</File>
           <File BuildType="BUILD" Toolchain="">cyapicallbacks.h</File>
           <File BuildType="BUILD" Toolchain="">..\..\..\Draft\mean_filter.h</File>
           <File BuildType="BUILD" Toolchain="">median_filter.h</File>
@@ -54,6 +57,10 @@
           <File BuildType="BUILD" Toolchain="">ultrasonic.h</File>
           <File BuildType="BUILD" Toolchain="">bluetooth.h</File>
           <File BuildType="BUILD" Toolchain="">irsensor.h</File>
+          <File BuildType="BUILD" Toolchain="">servo.h</File>
+          <File BuildType="BUILD" Toolchain="">prelim.h</File>
+          <File BuildType="BUILD" Toolchain="">robot_status.h</File>
+          <File BuildType="BUILD" Toolchain="">navigation_stack.h</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\Generated_Source\PSoC5">
@@ -276,9 +283,17 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\MOTOR_TRUNK_aliases.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\MOTOR_TRUNK.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\MOTOR_TRUNK.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Timer_Servo.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Timer_Servo.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Timer_Servo_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\isr_wheel_controller.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\isr_wheel_controller.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Indicator_RED_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Indicator_RED.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Indicator_RED.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Indicator_GREEN_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Indicator_GREEN.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Indicator_GREEN.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Indicator_BLUE_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Indicator_BLUE.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Indicator_BLUE.h</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\Export\ARM_GCC_Generic">

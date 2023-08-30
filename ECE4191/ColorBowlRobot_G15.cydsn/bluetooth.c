@@ -26,7 +26,7 @@ int receivedInt = 0; // Received integer value
  * Initializes the Bluetooth module by starting the UART communication.
  */
 void bluetooth_start() {
-    UART_1_Start();  
+    UART_1_Start();
     // Implement a mechanism to start bluetooth
 }
 

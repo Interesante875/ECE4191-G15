@@ -14,6 +14,7 @@
 #ifndef LOCOMOTION_H
 #define LOCOMOTION_H
     
+    
     #define TICKS_PER_REVOLUTION 14375 
     #define WHEEL_RADIUS 0.02695 // wheel radius value in meters
     #define WHEEL_DISTANCE 0.24 
@@ -33,11 +34,10 @@
     typedef enum {
         ENABLE,
         DISABLE
-    } STATUS;
+    } MOVE_STATUS;
     
-    
-    void uart_initialization();
-    void uart_stop();
+    extern volatile MOVE_STATUS moveStatus;
+    extern volatile MOTION currentMotion;
 
     void motor_left_start_QuadDec();
     void motor_left_stop_QuadDec();
@@ -66,6 +66,10 @@
     void wheel_move_by_distance(MOTION motion, uint8 pwm, double distance);
     void wheel_turn_by_ticks(MOTION motion, uint8 pwm, int turn_ticks);
     void wheel_turn_by_angle(MOTION motion, uint8 pwm, double angle);
+    
+    void robot_locomotion_initialization();
+    
+    CY_ISR (ISR_Handler_wheel_controller);
 
 #endif /* LOCOMOTION_H */
 /* [] END OF FILE */

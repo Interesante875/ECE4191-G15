@@ -18,13 +18,6 @@
 #include "locomotion.h"
 #include "controller.h"
 
-void uart_initialization() {
-    UART_1_Start();
-}
-
-void uart_stop() {
-    UART_1_Stop();
-}
 
 void motor_left_start_QuadDec() {
     QuadDec_LEFT_Start();
@@ -119,6 +112,9 @@ void motor_right_stop_pwm() {
 }
 
 void motor_start(uint8 pwm) {
+    
+    moveStatus = ENABLE;
+    
     motor_left_start_QuadDec();
     motor_right_start_QuadDec();
     
@@ -127,10 +123,16 @@ void motor_start(uint8 pwm) {
     
     motor_left_set_pwm_compare(pwm);
     motor_right_set_pwm_compare(pwm);
+    
+    //isr_wheel_controller_StartEx(ISR_Handler_wheel_controller);
 }
 
 
 void motor_stop() {
+    
+    //isr_wheel_controller_Stop();
+    
+    moveStatus = DISABLE;
     motor_left_stop_pwm();
     motor_right_stop_pwm();
     
@@ -144,7 +146,18 @@ void motor_stop() {
 
 void wheel_motion_set(MOTION motion) {
     
-
+    if (moveStatus == DISABLE) {
+        MOTOR_LEFT_IN_1_Write(0);
+        MOTOR_LEFT_IN_2_Write(0);
+        
+        MOTOR_RIGHT_IN_3_Write(0);
+        MOTOR_RIGHT_IN_4_Write(0);
+        return;
+        
+    }
+    
+    currentMotion = motion;
+    
     switch (motion) {
         case FORWARD:
             MOTOR_LEFT_IN_1_Write(0);
@@ -199,13 +212,11 @@ void wheel_move_by_ticks(MOTION motion, uint8 pwm, int target_ticks) {
      * @param target_ticks  The target number of encoder ticks to move the wheels.
      */
     
-    char string_1[30];
-    char string_2[30];
     
     motor_start(pwm);
     
     int master_pwm = motor_left_get_pwm();
-    int slave_pwm = motor_right_get_pwm();
+    //int slave_pwm = motor_right_get_pwm();
     
     int master_motor_left_ticks = -motor_left_get_count_QuadDec();
     int slave_motor_right_ticks = -motor_right_get_count_QuadDec();
@@ -213,6 +224,12 @@ void wheel_move_by_ticks(MOTION motion, uint8 pwm, int target_ticks) {
     wheel_motion_set(motion);
     
     while (abs(master_motor_left_ticks) < target_ticks) {
+        
+        if (moveStatus == DISABLE) {
+            wheel_motion_set(STOP);
+            break;
+        }
+        
         
         master_pwm = motor_left_get_pwm();
         
@@ -237,7 +254,7 @@ void wheel_move_by_distance(MOTION motion, uint8 pwm, double distance) {
     int travel_ticks = (int) ticks;
     
     int master_pwm = motor_left_get_pwm();
-    int slave_pwm = motor_right_get_pwm();
+    //int slave_pwm = motor_right_get_pwm();
     
     int master_motor_left_ticks = -motor_left_get_count_QuadDec();
     int slave_motor_right_ticks = -motor_right_get_count_QuadDec();
@@ -245,6 +262,11 @@ void wheel_move_by_distance(MOTION motion, uint8 pwm, double distance) {
     wheel_motion_set(motion);
     
     while (abs(master_motor_left_ticks) < travel_ticks) {
+        
+        if (moveStatus == DISABLE) {
+            wheel_motion_set(STOP);
+            break;
+        }
         
         master_pwm = motor_left_get_pwm();
         
@@ -262,12 +284,10 @@ void wheel_move_by_distance(MOTION motion, uint8 pwm, double distance) {
 
 void wheel_turn_by_ticks(MOTION motion, uint8 pwm, int turn_ticks) {
     
-    char string_1[30];
-    char string_2[30];
     motor_start(pwm);
     
     int master_pwm = motor_left_get_pwm();
-    int slave_pwm = motor_right_get_pwm();
+    //int slave_pwm = motor_right_get_pwm();
     
     int master_motor_left_ticks = -motor_left_get_count_QuadDec();
     int slave_motor_right_ticks = -motor_right_get_count_QuadDec();
@@ -275,6 +295,11 @@ void wheel_turn_by_ticks(MOTION motion, uint8 pwm, int turn_ticks) {
     wheel_motion_set(motion);
     
     while (abs(master_motor_left_ticks) < turn_ticks) {
+        
+        if (moveStatus == DISABLE) {
+            wheel_motion_set(STOP);
+            break;
+        }
         
         master_pwm = motor_left_get_pwm();
         
@@ -303,7 +328,7 @@ void wheel_turn_by_angle(MOTION motion, uint8 pwm, double angle) {
     motor_start(pwm);
     
     int master_pwm = motor_left_get_pwm();
-    int slave_pwm = motor_right_get_pwm();
+    //int slave_pwm = motor_right_get_pwm();
     
     int master_motor_left_ticks = -motor_left_get_count_QuadDec();
     int slave_motor_right_ticks = -motor_right_get_count_QuadDec();
@@ -311,6 +336,11 @@ void wheel_turn_by_angle(MOTION motion, uint8 pwm, double angle) {
     wheel_motion_set(motion);
     
     while (abs(master_motor_left_ticks) < turn_ticks) {
+        
+        if (moveStatus == DISABLE) {
+            wheel_motion_set(STOP);
+            break;
+        }
         
         master_pwm = motor_left_get_pwm();
         
@@ -325,6 +355,16 @@ void wheel_turn_by_angle(MOTION motion, uint8 pwm, double angle) {
     }
     
     motor_stop();
+    
+}
+
+void robot_locomotion_initialization() {
+    moveStatus = ENABLE;
+    currentMotion = STOP;
+}
+
+ CY_ISR (ISR_Handler_wheel_controller) {
+    
     
 }
 /* [] END OF FILE */

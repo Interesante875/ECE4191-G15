@@ -12,6 +12,7 @@
 #include "project.h"
 #include <stdio.h>
 #include "irsensor.h"
+#include "locomotion.h"
 
 void ir_start() {
     isr_IR_Sensor_LEFT_StartEx(ISR_Handler_IR_LEFT);
@@ -26,8 +27,11 @@ void ir_stop() {
 }
 
 CY_ISR (ISR_Handler_IR_LEFT) {
+    
     if (ir_LEFT == PRESENCE) ir_LEFT = ABSENCE;
-    else ir_LEFT = PRESENCE;    
+    else {
+        ir_LEFT = PRESENCE;  
+    }    
 }
 
 CY_ISR (ISR_Handler_IR_RIGHT) {
@@ -37,6 +41,10 @@ CY_ISR (ISR_Handler_IR_RIGHT) {
 
 CY_ISR (ISR_Handler_puck) {
     
-    // Not implemented yet
+    if (moveStatus == DISABLE) {
+        wheel_motion_set(STOP);
+    }
+    
+    // Not implemented
 }
 /* [] END OF FILE */

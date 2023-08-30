@@ -1,243 +1,242 @@
 dont_use_io iocell 1 0
 dont_use_io iocell 1 1
 dont_use_io iocell 1 3
-set_location "\UART_1:BUART:pollcount_0\" macrocell 1 1 1 2
-set_location "\Debouncer_IR_LEFT:DEBOUNCER[0]:d_sync_1\" macrocell 2 3 1 2
-set_location "\QuadDec_RIGHT:bQuadDec:quad_B_delayed_0\" macrocell 1 2 1 0
-set_location "\QuadDec_LEFT:Cnt16:CounterUDB:status_2\" macrocell 3 5 0 3
-set_location "\QuadDec_RIGHT:Cnt16:CounterUDB:status_2\" macrocell 2 2 1 3
-set_location "\Counter_Color_Sensor:CounterUDB:reload\" macrocell 3 4 0 0
-set_location "\Timer_Ultrasonic:TimerUDB:status_tc\" macrocell 0 2 0 0
-set_location "\QuadDec_LEFT:bQuadDec:quad_A_filt\" macrocell 1 3 0 1
-set_location "\Counter_Color_Sensor:CounterUDB:count_enable\" macrocell 3 3 1 2
-set_location "\Counter_Color_Sensor:CounterUDB:prevCapture\" macrocell 3 4 1 1
-set_location "\QuadDec_LEFT:Cnt16:CounterUDB:overflow_reg_i\" macrocell 3 5 0 2
-set_location "\QuadDec_RIGHT:Cnt16:CounterUDB:overflow_reg_i\" macrocell 2 4 1 3
-set_location "\UART_1:BUART:rx_status_4\" macrocell 1 2 0 1
-set_location "\UART_1:BUART:rx_state_2\" macrocell 1 0 1 0
-set_location "\UART_1:BUART:tx_state_0\" macrocell 2 2 1 0
-set_location "__ONE__" macrocell 3 3 0 3
-set_location "Net_622" macrocell 3 4 1 0
-set_location "\Timer_Ultrasonic:TimerUDB:rstSts:stsreg\" statusicell 0 2 4 
-set_location "\QuadDec_LEFT:Cnt16:CounterUDB:reload\" macrocell 3 5 0 0
-set_location "\QuadDec_RIGHT:Cnt16:CounterUDB:reload\" macrocell 2 1 1 0
-set_location "\Timer_Ultrasonic:TimerUDB:sT16:timerdp:u0\" datapathcell 1 2 2 
-set_location "\Counter_Color_Sensor:CounterUDB:sSTSReg:stsreg\" statusicell 3 4 4 
-set_location "\PWM_Servo_Trunk:PWMUDB:status_2\" macrocell 2 0 0 1
-set_location "\PWM_Servo_Lifter:PWMUDB:status_2\" macrocell 1 5 1 0
-set_location "\PWM_Servo_Gripper:PWMUDB:status_2\" macrocell 0 3 0 1
-set_location "\PWM_Servo_Gripper_Arm:PWMUDB:status_2\" macrocell 0 5 0 1
-set_location "\UART_1:BUART:rx_state_3\" macrocell 1 0 1 1
-set_location "\Counter_Color_Sensor:CounterUDB:hwCapture\" macrocell 3 4 1 2
-set_location "Net_1107" macrocell 0 4 1 2
-set_location "Net_1129" macrocell 0 4 0 1
-set_location "\QuadDec_LEFT:Cnt16:CounterUDB:count_enable\" macrocell 1 5 0 0
-set_location "\QuadDec_RIGHT:Cnt16:CounterUDB:count_enable\" macrocell 3 0 0 0
-set_location "\QuadDec_LEFT:Cnt16:CounterUDB:count_stored_i\" macrocell 1 5 1 1
-set_location "\QuadDec_RIGHT:Cnt16:CounterUDB:count_stored_i\" macrocell 3 0 0 1
-set_location "\QuadDec_LEFT:Net_1251\" macrocell 2 3 0 3
-set_location "\QuadDec_RIGHT:Net_1251\" macrocell 3 1 0 0
-set_location "\UART_1:BUART:txn\" macrocell 2 1 0 0
-set_location "\UART_1:BUART:rx_status_5\" macrocell 1 2 1 1
-set_location "\UART_1:BUART:tx_state_1\" macrocell 2 2 0 2
-set_location "\QuadDec_LEFT:bQuadDec:quad_A_delayed_1\" macrocell 1 3 0 3
-set_location "\QuadDec_LEFT:Cnt16:CounterUDB:underflow_reg_i\" macrocell 3 5 1 0
-set_location "\QuadDec_RIGHT:Cnt16:CounterUDB:underflow_reg_i\" macrocell 3 2 0 0
-set_location "\QuadDec_LEFT:Net_1203_split\" macrocell 1 4 0 0
-set_location "\QuadDec_RIGHT:Net_1203_split\" macrocell 3 0 1 0
-set_location "\UART_1:BUART:sTX:TxShifter:u0\" datapathcell 2 1 2 
-set_location "\UART_1:BUART:counter_load_not\" macrocell 2 2 0 3
-set_location "\Debouncer_IR_RIGHT:DEBOUNCER[0]:d_sync_1\" macrocell 0 4 1 3
-set_location "\Counter_Color_Sensor:CounterUDB:overflow_status\" macrocell 3 3 1 1
-set_location "\QuadDec_LEFT:bQuadDec:quad_A_delayed_0\" macrocell 1 3 0 0
-set_location "\QuadDec_LEFT:bQuadDec:quad_B_delayed_0\" macrocell 1 2 1 2
-set_location "Net_1204" macrocell 0 5 0 2
-set_location "Net_1245" macrocell 1 5 0 1
-set_location "Net_1280" macrocell 2 0 0 2
-set_location "Net_1157" macrocell 0 3 0 2
-set_location "\PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:u0\" datapathcell 2 0 2 
-set_location "\PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:u0\" datapathcell 0 5 2 
-set_location "\PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:u0\" datapathcell 0 3 2 
-set_location "\PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:u0\" datapathcell 1 4 2 
-set_location "\Counter_Color_Sensor:CounterUDB:status_0\" macrocell 2 4 0 2
-set_location "\Timer_Ultrasonic:TimerUDB:trig_disable\" macrocell 0 2 0 1
-set_location "\Timer_Ultrasonic:TimerUDB:run_mode\" macrocell 0 0 0 0
-set_location "\UART_1:BUART:tx_bitclk\" macrocell 2 2 1 1
-set_location "\UART_1:BUART:tx_status_2\" macrocell 0 4 0 2
+set_location "\PWM_Servo_Gripper:PWMUDB:status_0\" macrocell 0 5 1 0
+set_location "\PWM_Servo_Gripper_Arm:PWMUDB:status_0\" macrocell 0 4 0 0
+set_location "\PWM_Servo_Lifter:PWMUDB:status_0\" macrocell 2 0 0 0
+set_location "\PWM_Servo_Trunk:PWMUDB:status_0\" macrocell 0 0 1 0
+set_location "\Debouncer_IR_LEFT:DEBOUNCER[0]:d_sync_1\" macrocell 2 3 0 1
+set_location "\UART_1:BUART:rx_last\" macrocell 2 0 1 1
+set_location "\Counter_Color_Sensor:CounterUDB:overflow_status\" macrocell 2 5 1 0
+set_location "\QuadDec_RIGHT:bQuadDec:quad_B_delayed_0\" macrocell 0 2 1 1
+set_location "\UART_1:BUART:tx_state_2\" macrocell 3 1 0 0
+set_location "\UART_1:BUART:tx_status_0\" macrocell 2 1 1 1
+set_location "\Counter_Color_Sensor:CounterUDB:reload\" macrocell 2 5 0 2
+set_location "\PWM_Color_Sensor:PWMUDB:trig_disable\" macrocell 3 5 0 1
+set_location "\QuadDec_LEFT:bQuadDec:quad_A_filt\" macrocell 0 2 0 1
+set_location "\Counter_Color_Sensor:CounterUDB:status_0\" macrocell 2 4 0 1
+set_location "\Counter_Color_Sensor:CounterUDB:prevCapture\" macrocell 2 5 0 1
+set_location "\UART_1:BUART:tx_state_0\" macrocell 2 1 1 0
+set_location "\QuadDec_LEFT:Cnt16:CounterUDB:sC16:counterdp:u0\" datapathcell 0 3 2 
+set_location "\QuadDec_RIGHT:Cnt16:CounterUDB:sC16:counterdp:u0\" datapathcell 1 2 2 
+set_location "\UART_1:BUART:tx_status_2\" macrocell 0 4 1 1
 set_location "\PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:u1\" datapathcell 3 0 2 
-set_location "\PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:u1\" datapathcell 1 5 2 
-set_location "\PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:u1\" datapathcell 1 3 2 
+set_location "\PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:u1\" datapathcell 2 1 2 
+set_location "\PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:u1\" datapathcell 1 5 2 
 set_location "\PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:u1\" datapathcell 0 4 2 
-set_location "\Timer_Ultrasonic:TimerUDB:int_capt_count_0\" macrocell 0 1 0 1
-set_location "\UART_1:BUART:sRX:RxBitCounter\" count7cell 1 1 7 
-set_location "\QuadDec_LEFT:Net_1275\" macrocell 3 5 0 1
-set_location "\QuadDec_RIGHT:Net_1275\" macrocell 1 2 0 2
-set_location "\QuadDec_LEFT:bQuadDec:quad_B_delayed_2\" macrocell 1 4 1 2
-set_location "\QuadDec_RIGHT:bQuadDec:quad_B_delayed_2\" macrocell 3 2 1 1
-set_location "\QuadDec_LEFT:bQuadDec:quad_A_delayed_2\" macrocell 1 3 0 2
-set_location "\QuadDec_RIGHT:bQuadDec:quad_A_delayed_2\" macrocell 2 3 0 2
-set_location "\QuadDec_LEFT:Cnt16:CounterUDB:status_0\" macrocell 2 5 0 1
-set_location "\QuadDec_RIGHT:Cnt16:CounterUDB:status_0\" macrocell 2 2 0 1
-set_location "\PWM_Color_Sensor:PWMUDB:prevCompare1\" macrocell 3 4 1 3
-set_location "\QuadDec_LEFT:bQuadDec:state_0\" macrocell 1 5 1 3
-set_location "\QuadDec_RIGHT:bQuadDec:state_0\" macrocell 3 1 0 1
-set_location "\QuadDec_LEFT:bQuadDec:error\" macrocell 1 3 1 0
-set_location "\QuadDec_RIGHT:bQuadDec:error\" macrocell 2 1 1 1
-set_location "Net_1130" macrocell 0 4 1 1
-set_location "\UART_1:BUART:sRX:RxSts\" statusicell 0 1 4 
-set_location "\QuadDec_LEFT:Cnt16:CounterUDB:sSTSReg:stsreg\" statusicell 3 5 4 
-set_location "\QuadDec_RIGHT:Cnt16:CounterUDB:sSTSReg:stsreg\" statusicell 2 1 4 
-set_location "\PWM_Color_Sensor:PWMUDB:genblk8:stsreg\" statusicell 2 4 4 
-set_location "\UART_1:BUART:sTX:sCLOCK:TxBitClkGen\" datapathcell 3 1 2 
-set_location "\UART_1:BUART:rx_postpoll\" macrocell 1 1 1 0
-set_location "Net_1133" macrocell 0 4 1 0
-set_location "\Counter_Color_Sensor:CounterUDB:sC32:counterdp:u2\" datapathcell 2 3 2 
-set_location "\PWM_Servo_Gripper:PWMUDB:status_0\" macrocell 0 3 1 0
-set_location "\PWM_Servo_Gripper_Arm:PWMUDB:status_0\" macrocell 0 5 1 1
-set_location "\PWM_Servo_Lifter:PWMUDB:status_0\" macrocell 1 5 0 2
-set_location "\PWM_Servo_Trunk:PWMUDB:status_0\" macrocell 2 0 1 0
-set_location "\UART_1:BUART:rx_last\" macrocell 1 0 1 3
-set_location "\UART_1:BUART:tx_state_2\" macrocell 2 2 0 0
-set_location "\UART_1:BUART:tx_status_0\" macrocell 2 2 1 2
-set_location "\Counter_Color_Sensor:CounterUDB:sC32:counterdp:u3\" datapathcell 3 3 2 
-set_location "Net_976" macrocell 2 0 1 3
-set_location "\Timer_Ultrasonic:TimerUDB:capt_int_temp\" macrocell 0 1 0 0
-set_location "\PWM_Color_Sensor:PWMUDB:sP16:pwmdp:u1\" datapathcell 3 5 2 
-set_location "\Counter_Color_Sensor:CounterUDB:sC32:counterdp:u1\" datapathcell 2 4 2 
-set_location "\QuadDec_LEFT:Net_611\" macrocell 2 5 0 2
-set_location "\QuadDec_RIGHT:Net_611\" macrocell 3 2 1 3
-set_location "\QuadDec_LEFT:bQuadDec:quad_B_filt\" macrocell 1 4 1 1
-set_location "Net_1126" macrocell 2 3 1 1
-set_location "\PWM_Servo_Trunk:PWMUDB:prevCompare1\" macrocell 2 0 0 3
-set_location "\PWM_Servo_Lifter:PWMUDB:prevCompare1\" macrocell 1 5 0 3
-set_location "\PWM_Servo_Gripper:PWMUDB:prevCompare1\" macrocell 0 3 0 3
-set_location "\PWM_Servo_Gripper_Arm:PWMUDB:prevCompare1\" macrocell 0 5 0 3
-set_location "\QuadDec_LEFT:Net_1251_split\" macrocell 2 5 1 0
-set_location "\QuadDec_RIGHT:Net_1251_split\" macrocell 3 1 1 0
-set_location "\PWM_Color_Sensor:PWMUDB:status_2\" macrocell 2 4 0 1
-set_location "Net_1127" macrocell 2 0 1 1
-set_location "\Timer_Ultrasonic:TimerUDB:sT16:timerdp:u1\" datapathcell 0 2 2 
-set_location "\Timer_Ultrasonic:TimerUDB:int_capt_count_1\" macrocell 0 4 0 0
-set_location "\Counter_Color_Sensor:CounterUDB:sC32:counterdp:u0\" datapathcell 3 4 2 
-set_location "\QuadDec_LEFT:bQuadDec:state_1\" macrocell 1 3 1 3
-set_location "\QuadDec_RIGHT:bQuadDec:state_1\" macrocell 3 0 0 3
-set_location "\UART_1:BUART:rx_status_3\" macrocell 1 0 0 3
-set_location "\Timer_Ultrasonic:TimerUDB:timer_enable\" macrocell 0 2 0 2
-set_location "\QuadDec_LEFT:Net_530\" macrocell 2 5 0 3
-set_location "\QuadDec_RIGHT:Net_530\" macrocell 3 2 1 2
-set_location "\PWM_Color_Sensor:PWMUDB:status_0\" macrocell 3 4 0 3
-set_location "\UART_1:BUART:rx_load_fifo\" macrocell 1 0 1 2
-set_location "\PWM_Color_Sensor:PWMUDB:sP16:pwmdp:u0\" datapathcell 2 5 2 
-set_location "\UART_1:BUART:pollcount_1\" macrocell 1 1 1 3
-set_location "\QuadDec_LEFT:bQuadDec:quad_B_delayed_1\" macrocell 1 4 1 3
-set_location "\UART_1:BUART:sRX:RxShifter:u0\" datapathcell 1 0 2 
-set_location "\Counter_Color_Sensor:CounterUDB:overflow_reg_i\" macrocell 3 3 0 1
-set_location "\QuadDec_LEFT:Net_1203\" macrocell 1 5 1 2
-set_location "\QuadDec_RIGHT:Net_1203\" macrocell 3 0 0 2
-set_location "\QuadDec_RIGHT:bQuadDec:Stsreg\" statusicell 3 3 4 
-set_location "\QuadDec_LEFT:bQuadDec:Stsreg\" statusicell 2 5 4 
-set_location "\PWM_Servo_Trunk:PWMUDB:genblk8:stsreg\" statusicell 2 0 4 
-set_location "\PWM_Servo_Lifter:PWMUDB:genblk8:stsreg\" statusicell 1 5 4 
-set_location "\PWM_Servo_Gripper:PWMUDB:genblk8:stsreg\" statusicell 0 3 4 
-set_location "\PWM_Servo_Gripper_Arm:PWMUDB:genblk8:stsreg\" statusicell 0 5 4 
-set_location "\QuadDec_RIGHT:bQuadDec:quad_A_delayed_0\" macrocell 2 4 1 1
-set_location "\Timer_Ultrasonic:TimerUDB:timer_enable_split\" macrocell 0 1 1 3
-set_location "\PWM_Color_Sensor:PWMUDB:trig_disable\" macrocell 3 4 0 1
-set_location "\QuadDec_LEFT:Cnt16:CounterUDB:status_3\" macrocell 3 5 1 1
-set_location "\QuadDec_RIGHT:Cnt16:CounterUDB:status_3\" macrocell 3 2 0 2
-set_location "\QuadDec_RIGHT:bQuadDec:quad_A_filt\" macrocell 2 3 0 1
-set_location "\PWM_Servo_Gripper:PWMUDB:runmode_enable\" macrocell 0 3 0 0
-set_location "\PWM_Servo_Gripper_Arm:PWMUDB:runmode_enable\" macrocell 0 5 1 3
-set_location "\PWM_Servo_Lifter:PWMUDB:runmode_enable\" macrocell 0 5 0 0
-set_location "\PWM_Servo_Trunk:PWMUDB:runmode_enable\" macrocell 2 0 0 0
-set_location "\Counter_Color_Sensor:CounterUDB:count_stored_i\" macrocell 3 3 1 3
-set_location "\QuadDec_LEFT:Net_1260\" macrocell 1 4 1 0
-set_location "\QuadDec_RIGHT:Net_1260\" macrocell 2 1 1 2
-set_location "\QuadDec_LEFT:Cnt16:CounterUDB:sC16:counterdp:u1\" datapathcell 2 2 2 
-set_location "\QuadDec_RIGHT:Cnt16:CounterUDB:sC16:counterdp:u1\" datapathcell 0 1 2 
-set_location "\UART_1:BUART:sTX:TxSts\" statusicell 1 4 4 
-set_location "Net_1134" macrocell 2 3 1 3
-set_location "\UART_1:BUART:rx_bitclk_enable\" macrocell 1 1 1 1
-set_location "\UART_1:BUART:rx_state_0\" macrocell 1 0 0 0
-set_location "\Counter_Color_Sensor:CounterUDB:disable_run_i\" macrocell 3 3 1 0
-set_location "\PWM_Color_Sensor:PWMUDB:runmode_enable\" macrocell 3 4 0 2
-set_location "\QuadDec_RIGHT:bQuadDec:quad_B_filt\" macrocell 3 2 0 1
-set_location "\QuadDec_LEFT:Cnt16:CounterUDB:prevCompare\" macrocell 2 5 0 0
-set_location "\QuadDec_RIGHT:Cnt16:CounterUDB:prevCompare\" macrocell 3 2 1 0
-set_location "Net_1131" macrocell 0 2 1 2
-set_location "\Timer_Ultrasonic:TimerUDB:capt_fifo_load\" macrocell 0 3 1 2
-set_location "\UART_1:BUART:rx_state_stop1_reg\" macrocell 1 0 0 2
-set_location "Net_1121" macrocell 2 3 1 0
-set_location "\UART_1:BUART:tx_ctrl_mark_last\" macrocell 1 1 0 1
-set_location "\Timer_Ultrasonic:TimerUDB:capture_last\" macrocell 0 0 1 0
+set_location "\QuadDec_LEFT:Cnt16:CounterUDB:status_0\" macrocell 2 3 1 1
+set_location "\QuadDec_RIGHT:Cnt16:CounterUDB:status_0\" macrocell 2 3 1 0
+set_location "\PWM_Color_Sensor:PWMUDB:prevCompare1\" macrocell 2 4 1 0
+set_location "\Timer_Ultrasonic:TimerUDB:rstSts:stsreg\" statusicell 3 3 4 
+set_location "\Counter_Color_Sensor:CounterUDB:sSTSReg:stsreg\" statusicell 2 4 4 
+set_location "\UART_1:BUART:rx_state_3\" macrocell 2 0 1 3
+set_location "\Counter_Color_Sensor:CounterUDB:hwCapture\" macrocell 2 5 0 0
+set_location "Net_1107" macrocell 3 5 1 0
+set_location "\QuadDec_LEFT:Cnt16:CounterUDB:count_stored_i\" macrocell 1 5 0 1
+set_location "\QuadDec_RIGHT:Cnt16:CounterUDB:count_stored_i\" macrocell 1 3 0 1
+set_location "\QuadDec_LEFT:Net_1251\" macrocell 0 2 0 0
+set_location "\QuadDec_RIGHT:Net_1251\" macrocell 1 0 1 2
+set_location "\UART_1:BUART:rx_status_3\" macrocell 0 0 0 3
+set_location "\PWM_Color_Sensor:PWMUDB:status_0\" macrocell 3 5 0 3
+set_location "\Counter_Color_Sensor:CounterUDB:sC32:counterdp:u2\" datapathcell 3 4 2 
+set_location "\UART_1:BUART:txn\" macrocell 2 1 0 0
+set_location "\UART_1:BUART:tx_state_1\" macrocell 3 1 0 1
+set_location "\UART_1:BUART:pollcount_1\" macrocell 1 0 0 3
+set_location "\QuadDec_LEFT:bQuadDec:quad_A_delayed_1\" macrocell 0 2 0 3
+set_location "\QuadDec_LEFT:Net_1203_split\" macrocell 1 5 1 0
+set_location "\QuadDec_RIGHT:Net_1203_split\" macrocell 1 3 1 0
+set_location "__ONE__" macrocell 1 1 0 2
+set_location "\Debouncer_IR_RIGHT:DEBOUNCER[0]:d_sync_1\" macrocell 3 5 1 2
+set_location "\QuadDec_LEFT:bQuadDec:quad_B_delayed_0\" macrocell 0 1 0 0
+set_location "\QuadDec_LEFT:bQuadDec:quad_A_delayed_0\" macrocell 0 1 1 0
+set_location "\QuadDec_LEFT:Cnt16:CounterUDB:status_2\" macrocell 2 2 0 0
+set_location "\QuadDec_RIGHT:Cnt16:CounterUDB:status_2\" macrocell 1 2 0 3
+set_location "\Counter_Color_Sensor:CounterUDB:count_enable\" macrocell 2 5 1 1
+set_location "\QuadDec_LEFT:Cnt16:CounterUDB:overflow_reg_i\" macrocell 2 2 0 1
+set_location "\QuadDec_RIGHT:Cnt16:CounterUDB:overflow_reg_i\" macrocell 1 4 0 0
+set_location "\Timer_Ultrasonic:TimerUDB:trig_disable\" macrocell 3 4 1 1
+set_location "\Timer_Ultrasonic:TimerUDB:run_mode\" macrocell 3 2 0 0
+set_location "\PWM_Color_Sensor:PWMUDB:sP16:pwmdp:u0\" datapathcell 2 3 2 
+set_location "\Timer_Ultrasonic:TimerUDB:int_capt_count_0\" macrocell 3 3 0 1
+set_location "\UART_1:BUART:sRX:RxBitCounter\" count7cell 2 0 7 
+set_location "\UART_1:BUART:rx_bitclk_enable\" macrocell 1 0 0 1
+set_location "\QuadDec_LEFT:bQuadDec:quad_B_delayed_2\" macrocell 0 3 0 2
+set_location "\QuadDec_RIGHT:bQuadDec:quad_B_delayed_2\" macrocell 0 1 1 2
+set_location "\QuadDec_LEFT:bQuadDec:quad_A_delayed_2\" macrocell 0 2 0 2
+set_location "\QuadDec_RIGHT:bQuadDec:quad_A_delayed_2\" macrocell 0 1 0 2
+set_location "Net_622" macrocell 2 4 1 1
+set_location "\QuadDec_LEFT:bQuadDec:state_0\" macrocell 0 5 0 0
+set_location "\QuadDec_RIGHT:bQuadDec:state_0\" macrocell 1 0 1 1
+set_location "\UART_1:BUART:sTX:sCLOCK:TxBitClkGen\" datapathcell 1 1 2 
+set_location "\UART_1:BUART:rx_state_0\" macrocell 0 0 0 0
+set_location "\QuadDec_LEFT:bQuadDec:error\" macrocell 0 5 0 1
+set_location "\QuadDec_RIGHT:bQuadDec:error\" macrocell 1 1 1 0
+set_location "Net_1130" macrocell 3 5 1 1
+set_location "\UART_1:BUART:sTX:TxShifter:u0\" datapathcell 0 1 2 
+set_location "\UART_1:BUART:sRX:RxSts\" statusicell 0 0 4 
+set_location "\QuadDec_LEFT:Cnt16:CounterUDB:sSTSReg:stsreg\" statusicell 1 3 4 
+set_location "\QuadDec_RIGHT:Cnt16:CounterUDB:sSTSReg:stsreg\" statusicell 1 2 4 
+set_location "Net_1127" macrocell 2 4 0 3
+set_location "\PWM_Color_Sensor:PWMUDB:genblk8:stsreg\" statusicell 3 5 4 
+set_location "\QuadDec_LEFT:Cnt16:CounterUDB:count_enable\" macrocell 1 5 0 0
+set_location "\QuadDec_RIGHT:Cnt16:CounterUDB:count_enable\" macrocell 1 3 0 0
+set_location "\UART_1:BUART:rx_status_5\" macrocell 0 4 0 1
+set_location "\UART_1:BUART:rx_postpoll\" macrocell 1 0 0 0
+set_location "Net_1133" macrocell 3 5 1 3
+set_location "\QuadDec_LEFT:Cnt16:CounterUDB:underflow_reg_i\" macrocell 1 4 1 0
+set_location "\QuadDec_RIGHT:Cnt16:CounterUDB:underflow_reg_i\" macrocell 1 2 0 2
+set_location "\UART_1:BUART:pollcount_0\" macrocell 1 0 0 2
+set_location "\Counter_Color_Sensor:CounterUDB:overflow_reg_i\" macrocell 2 5 1 3
+set_location "Net_1204" macrocell 0 4 0 2
+set_location "Net_1245" macrocell 2 0 0 3
+set_location "Net_1280" macrocell 3 0 0 2
+set_location "Net_1157" macrocell 0 5 1 2
+set_location "\QuadDec_LEFT:Cnt16:CounterUDB:status_3\" macrocell 1 4 1 1
+set_location "\QuadDec_RIGHT:Cnt16:CounterUDB:status_3\" macrocell 1 2 0 0
+set_location "\Timer_Ultrasonic:TimerUDB:status_tc\" macrocell 3 4 1 0
+set_location "\PWM_Servo_Gripper:PWMUDB:runmode_enable\" macrocell 3 4 0 2
+set_location "\PWM_Servo_Gripper_Arm:PWMUDB:runmode_enable\" macrocell 0 4 1 0
+set_location "\PWM_Servo_Lifter:PWMUDB:runmode_enable\" macrocell 3 0 1 0
+set_location "\PWM_Servo_Trunk:PWMUDB:runmode_enable\" macrocell 3 0 1 1
+set_location "\Counter_Color_Sensor:CounterUDB:sC32:counterdp:u3\" datapathcell 2 4 2 
+set_location "\QuadDec_LEFT:Cnt16:CounterUDB:sC16:counterdp:u1\" datapathcell 1 3 2 
+set_location "\QuadDec_RIGHT:Cnt16:CounterUDB:sC16:counterdp:u1\" datapathcell 0 2 2 
+set_location "\UART_1:BUART:rx_status_4\" macrocell 0 0 1 1
+set_location "\UART_1:BUART:rx_state_2\" macrocell 2 0 1 0
+set_location "\QuadDec_LEFT:Net_1275\" macrocell 1 4 0 1
+set_location "\QuadDec_RIGHT:Net_1275\" macrocell 1 2 0 1
+set_location "Net_976" macrocell 2 1 0 2
+set_location "\Timer_Ultrasonic:TimerUDB:capt_int_temp\" macrocell 3 3 0 0
+set_location "\Counter_Color_Sensor:CounterUDB:disable_run_i\" macrocell 2 5 0 3
+set_location "\PWM_Color_Sensor:PWMUDB:runmode_enable\" macrocell 3 5 0 2
+set_location "\QuadDec_LEFT:Net_611\" macrocell 1 4 1 3
+set_location "\QuadDec_RIGHT:Net_611\" macrocell 2 2 0 3
+set_location "\QuadDec_LEFT:bQuadDec:quad_B_filt\" macrocell 0 3 0 1
+set_location "Net_1126" macrocell 2 3 0 2
+set_location "\QuadDec_LEFT:Cnt16:CounterUDB:reload\" macrocell 1 4 0 3
+set_location "\QuadDec_RIGHT:Cnt16:CounterUDB:reload\" macrocell 1 4 0 2
+set_location "\QuadDec_LEFT:Cnt16:CounterUDB:prevCompare\" macrocell 2 3 1 2
+set_location "\QuadDec_RIGHT:Cnt16:CounterUDB:prevCompare\" macrocell 2 3 1 3
+set_location "\QuadDec_LEFT:Net_1251_split\" macrocell 1 2 1 0
+set_location "\QuadDec_RIGHT:Net_1251_split\" macrocell 1 1 0 0
+set_location "\PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:u0\" datapathcell 2 0 2 
+set_location "\PWM_Servo_Lifter:PWMUDB:sP16:pwmdp:u0\" datapathcell 3 1 2 
+set_location "\PWM_Servo_Gripper:PWMUDB:sP16:pwmdp:u0\" datapathcell 0 5 2 
+set_location "\PWM_Servo_Gripper_Arm:PWMUDB:sP16:pwmdp:u0\" datapathcell 1 4 2 
+set_location "\Timer_Ultrasonic:TimerUDB:int_capt_count_1\" macrocell 3 3 1 0
+set_location "\QuadDec_LEFT:bQuadDec:state_1\" macrocell 1 5 0 3
+set_location "\QuadDec_RIGHT:bQuadDec:state_1\" macrocell 1 3 0 3
+set_location "\Timer_Ultrasonic:TimerUDB:timer_enable\" macrocell 3 2 0 1
+set_location "\QuadDec_LEFT:Net_530\" macrocell 1 4 1 2
+set_location "\QuadDec_RIGHT:Net_530\" macrocell 2 2 0 2
 set_location "\Counter_Color_Sensor:CounterUDB:prevCompare\" macrocell 2 4 0 0
-set_location "\QuadDec_LEFT:Cnt16:CounterUDB:sC16:counterdp:u0\" datapathcell 3 2 2 
-set_location "\QuadDec_RIGHT:Cnt16:CounterUDB:sC16:counterdp:u0\" datapathcell 1 1 2 
-set_location "\UART_1:BUART:rx_counter_load\" macrocell 1 0 0 1
-set_location "\QuadDec_RIGHT:bQuadDec:quad_A_delayed_1\" macrocell 2 3 0 0
-set_location "\QuadDec_RIGHT:bQuadDec:quad_B_delayed_1\" macrocell 3 2 0 3
-set_io "MOTOR_LEFT_PHASE_B(0)" iocell 1 7
+set_location "\UART_1:BUART:rx_load_fifo\" macrocell 0 0 0 2
+set_location "\QuadDec_LEFT:bQuadDec:quad_B_delayed_1\" macrocell 0 3 0 3
+set_location "\QuadDec_LEFT:Net_1203\" macrocell 1 5 0 2
+set_location "\QuadDec_RIGHT:Net_1203\" macrocell 1 3 0 2
+set_location "\UART_1:BUART:counter_load_not\" macrocell 2 1 1 2
+set_location "\QuadDec_RIGHT:bQuadDec:Stsreg\" statusicell 1 1 4 
+set_location "\QuadDec_LEFT:bQuadDec:Stsreg\" statusicell 1 4 4 
+set_location "\PWM_Servo_Trunk:PWMUDB:genblk8:stsreg\" statusicell 3 1 4 
+set_location "\PWM_Servo_Lifter:PWMUDB:genblk8:stsreg\" statusicell 2 1 4 
+set_location "\PWM_Servo_Gripper:PWMUDB:genblk8:stsreg\" statusicell 0 5 4 
+set_location "\PWM_Servo_Gripper_Arm:PWMUDB:genblk8:stsreg\" statusicell 0 4 4 
+set_location "\QuadDec_RIGHT:bQuadDec:quad_A_delayed_0\" macrocell 0 2 1 2
+set_location "\Timer_Ultrasonic:TimerUDB:timer_enable_split\" macrocell 3 2 1 3
+set_location "\QuadDec_RIGHT:bQuadDec:quad_A_filt\" macrocell 0 1 0 1
+set_location "\Timer_Ultrasonic:TimerUDB:sT16:timerdp:u0\" datapathcell 3 2 2 
+set_location "\Counter_Color_Sensor:CounterUDB:count_stored_i\" macrocell 2 5 1 2
+set_location "\QuadDec_LEFT:Net_1260\" macrocell 0 3 0 0
+set_location "\QuadDec_RIGHT:Net_1260\" macrocell 1 1 1 1
+set_location "\UART_1:BUART:sTX:TxSts\" statusicell 0 1 4 
+set_location "Net_1134" macrocell 2 2 1 3
+set_location "\Counter_Color_Sensor:CounterUDB:sC32:counterdp:u0\" datapathcell 2 5 2 
+set_location "\UART_1:BUART:tx_bitclk\" macrocell 3 1 0 3
+set_location "\PWM_Color_Sensor:PWMUDB:sP16:pwmdp:u1\" datapathcell 3 3 2 
+set_location "\QuadDec_RIGHT:bQuadDec:quad_B_filt\" macrocell 0 1 1 1
+set_location "\UART_1:BUART:sRX:RxShifter:u0\" datapathcell 0 0 2 
+set_location "\PWM_Servo_Trunk:PWMUDB:prevCompare1\" macrocell 0 0 1 2
+set_location "\PWM_Servo_Lifter:PWMUDB:prevCompare1\" macrocell 2 0 0 2
+set_location "\PWM_Servo_Gripper:PWMUDB:prevCompare1\" macrocell 0 5 1 3
+set_location "\PWM_Servo_Gripper_Arm:PWMUDB:prevCompare1\" macrocell 0 4 1 2
+set_location "\Counter_Color_Sensor:CounterUDB:sC32:counterdp:u1\" datapathcell 3 5 2 
+set_location "\PWM_Servo_Trunk:PWMUDB:status_2\" macrocell 3 0 0 1
+set_location "\PWM_Servo_Lifter:PWMUDB:status_2\" macrocell 2 0 0 1
+set_location "\PWM_Servo_Gripper:PWMUDB:status_2\" macrocell 0 5 1 1
+set_location "\PWM_Servo_Gripper_Arm:PWMUDB:status_2\" macrocell 0 4 0 3
+set_location "\PWM_Color_Sensor:PWMUDB:status_2\" macrocell 3 5 0 0
+set_location "Net_1131" macrocell 2 3 0 3
+set_location "\Timer_Ultrasonic:TimerUDB:capt_fifo_load\" macrocell 3 4 0 0
+set_location "\UART_1:BUART:rx_state_stop1_reg\" macrocell 0 0 0 1
+set_location "Net_1121" macrocell 2 3 0 0
+set_location "Net_1129" macrocell 3 0 0 3
+set_location "\Timer_Ultrasonic:TimerUDB:sT16:timerdp:u1\" datapathcell 2 2 2 
+set_location "\UART_1:BUART:tx_ctrl_mark_last\" macrocell 2 1 1 3
+set_location "\Timer_Ultrasonic:TimerUDB:capture_last\" macrocell 3 1 1 0
+set_location "\UART_1:BUART:rx_counter_load\" macrocell 2 0 1 2
+set_location "\QuadDec_RIGHT:bQuadDec:quad_B_delayed_1\" macrocell 0 1 1 3
+set_location "\QuadDec_RIGHT:bQuadDec:quad_A_delayed_1\" macrocell 0 1 0 3
+set_io "MOTOR_LEFT_PHASE_B(0)" iocell 1 4
 # Note: port 12 is the logical name for port 7
-set_io "Echo_RIGHT(0)" iocell 12 2
-# Note: port 12 is the logical name for port 7
-set_io "IR_Sensor_LEFT(0)" iocell 12 3
-# Note: port 12 is the logical name for port 7
-set_io "MOTOR_LIFTER(0)" iocell 12 4
-set_io "MOTOR_LEFT_PHASE_A(0)" iocell 1 6
-set_location "\Control_Reg_Color_Sensor:Sync:ctrl_reg\" controlcell 2 4 6 
-set_io "MOTOR_RIGHT_PHASE_A(0)" iocell 2 7
+set_io "Echo_RIGHT(0)" iocell 12 4
+set_io "IR_Sensor_LEFT(0)" iocell 3 3
+set_io "MOTOR_LIFTER(0)" iocell 3 1
+set_io "MOTOR_LEFT_PHASE_A(0)" iocell 1 5
+set_location "ClockBlock" clockblockcell -1 -1 0
+set_location "\Control_Reg_Color_Sensor:Sync:ctrl_reg\" controlcell 2 5 6 
 # Note: port 15 is the logical name for port 8
-set_io "MOTOR_GRIPPER(0)" iocell 15 5
-set_location "\Control_Reg_Ultrasonic:Sync:ctrl_reg\" controlcell 0 2 6 
+set_io "MOTOR_RIGHT_PHASE_A(0)" iocell 15 4
+set_io "MOTOR_GRIPPER(0)" iocell 2 6
+set_location "\Wheel_Timer:TimerHW\" timercell -1 -1 2
+set_location "\Control_Reg_Ultrasonic:Sync:ctrl_reg\" controlcell 3 3 6 
 # Note: port 12 is the logical name for port 7
-set_io "Echo_FRIGHT(0)" iocell 12 1
-set_io "Echo_FLEFT(0)" iocell 0 7
-set_io "Trigger(0)" iocell 2 3
+set_io "Echo_FRIGHT(0)" iocell 12 2
+set_io "Echo_FLEFT(0)" iocell 3 7
+set_io "Trigger(0)" iocell 0 7
 set_io "Echo_BACK(0)" iocell 3 6
 set_location "isr_IR_Sensor_LEFT" interrupt -1 -1 2
 set_location "isr_IR_Sensor_RIGHT" interrupt -1 -1 3
 set_location "isr_puck" interrupt -1 -1 6
-set_location "ClockBlock" clockblockcell -1 -1 0
 # Note: port 12 is the logical name for port 7
 set_io "Rx_1(0)" iocell 12 6
-set_location "\Counter_Color_Sensor:CounterUDB:sCTRLReg:ctrlreg\" controlcell 2 3 6 
-set_location "\QuadDec_LEFT:Cnt16:CounterUDB:sCTRLReg:ctrlreg\" controlcell 1 3 6 
-set_location "\QuadDec_RIGHT:Cnt16:CounterUDB:sCTRLReg:ctrlreg\" controlcell 3 0 6 
-set_location "\Wheel_Timer:TimerHW\" timercell -1 -1 3
-# Note: port 15 is the logical name for port 8
-set_io "Count(0)" iocell 15 2
-set_location "\Timer_Servo:TimerHW\" timercell -1 -1 2
-set_location "\PWM_Color_Sensor:PWMUDB:genblk1:ctrlreg\" controlcell 3 4 6 
+set_location "\Counter_Color_Sensor:CounterUDB:sCTRLReg:ctrlreg\" controlcell 2 4 6 
+set_location "\QuadDec_LEFT:Cnt16:CounterUDB:sCTRLReg:ctrlreg\" controlcell 1 5 6 
+set_location "\QuadDec_RIGHT:Cnt16:CounterUDB:sCTRLReg:ctrlreg\" controlcell 1 4 6 
+set_io "Count(0)" iocell 0 2
+set_location "\PWM_Color_Sensor:PWMUDB:genblk1:ctrlreg\" controlcell 2 3 6 
 # Note: port 12 is the logical name for port 7
 set_io "Tx_1(0)" iocell 12 7
 set_location "\PWM_RIGHT:PWMHW\" timercell -1 -1 1
 set_location "\PWM_LEFT:PWMHW\" timercell -1 -1 0
-set_location "\Timer_Ultrasonic:TimerUDB:sCTRLReg:SyncCtl:ctrlreg\" controlcell 1 2 6 
-set_io "MOTOR_EN_LEFT(0)" iocell 3 0
-set_io "MOTOR_GRIPPER_ARM(0)" iocell 2 5
-set_io "MOTOR_TRUNK(0)" iocell 1 2
-set_io "Echo_LEFT(0)" iocell 3 3
-set_location "isr_ultrasonic" interrupt -1 -1 7
+set_location "\Timer_Ultrasonic:TimerUDB:sCTRLReg:SyncCtl:ctrlreg\" controlcell 3 2 6 
+set_io "MOTOR_EN_LEFT(0)" iocell 1 7
+set_io "MOTOR_GRIPPER_ARM(0)" iocell 2 7
+set_io "MOTOR_TRUNK(0)" iocell 3 2
+# Note: port 12 is the logical name for port 7
+set_io "Echo_LEFT(0)" iocell 12 3
 set_location "\QuadDec_RIGHT:isr\" interrupt -1 -1 1
 set_location "\QuadDec_LEFT:isr\" interrupt -1 -1 0
+set_location "isr_ultrasonic" interrupt -1 -1 7
 set_location "isr_color_sensor" interrupt -1 -1 4
 set_location "isr_input" interrupt -1 -1 5
-set_io "MOTOR_RIGHT_PHASE_B(0)" iocell 2 6
-set_location "\PWM_Servo_Trunk:PWMUDB:genblk1:ctrlreg\" controlcell 2 0 6 
-set_location "\PWM_Servo_Lifter:PWMUDB:genblk1:ctrlreg\" controlcell 0 5 6 
-set_location "\PWM_Servo_Gripper:PWMUDB:genblk1:ctrlreg\" controlcell 0 3 6 
-set_location "\PWM_Servo_Gripper_Arm:PWMUDB:genblk1:ctrlreg\" controlcell 0 4 6 
-set_io "MOTOR_LEFT_IN_1(0)" iocell 1 5
-set_io "MOTOR_LEFT_IN_2(0)" iocell 1 4
-set_io "MOTOR_RIGHT_IN_3(0)" iocell 3 4
-set_io "MOTOR_RIGHT_IN_4(0)" iocell 3 5
-set_io "S0(0)" iocell 2 4
 # Note: port 15 is the logical name for port 8
-set_io "S1(0)" iocell 15 4
-# Note: port 15 is the logical name for port 8
-set_io "S2(0)" iocell 15 0
+set_io "MOTOR_RIGHT_PHASE_B(0)" iocell 15 5
+set_location "\PWM_Servo_Trunk:PWMUDB:genblk1:ctrlreg\" controlcell 3 1 6 
+set_location "\PWM_Servo_Lifter:PWMUDB:genblk1:ctrlreg\" controlcell 3 0 6 
+set_location "\PWM_Servo_Gripper:PWMUDB:genblk1:ctrlreg\" controlcell 3 4 6 
+set_location "\PWM_Servo_Gripper_Arm:PWMUDB:genblk1:ctrlreg\" controlcell 0 5 6 
+set_location "isr_wheel_controller" interrupt -1 -1 19
+set_io "MOTOR_LEFT_IN_1(0)" iocell 2 2
+set_io "MOTOR_LEFT_IN_2(0)" iocell 2 3
+set_io "MOTOR_RIGHT_IN_3(0)" iocell 2 4
+set_io "MOTOR_RIGHT_IN_4(0)" iocell 2 5
+set_io "S0(0)" iocell 0 3
+set_io "S1(0)" iocell 0 4
+set_io "S2(0)" iocell 0 5
 set_io "S3(0)" iocell 0 6
-set_io "LED(0)" iocell 0 5
-set_io "MOTOR_EN_RIGHT(0)" iocell 3 1
-# Note: port 15 is the logical name for port 8
-set_io "IR_Sensor_RIGHT(0)" iocell 15 3
+set_io "LED(0)" iocell 0 1
+set_io "Indicator_RED(0)" iocell 2 0
+set_io "Indicator_GREEN(0)" iocell 3 0
+set_io "Indicator_BLUE(0)" iocell 2 1
+set_io "MOTOR_EN_RIGHT(0)" iocell 1 6
+set_io "IR_Sensor_RIGHT(0)" iocell 3 5

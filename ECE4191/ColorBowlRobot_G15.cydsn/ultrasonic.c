@@ -10,6 +10,7 @@
  * ========================================
 */
 #include "ultrasonic.h"
+#include "bluetooth.h"
 #include "project.h"
 #include <stdio.h>
 #include <pthread.h>
@@ -17,10 +18,7 @@
 
 uint16 count = 0;
 
-
-
-
-CY_ISR (ISR_Handler_Timer_LEFT) {
+CY_ISR (ISR_Handler_Timer) {
     ultrasonic_get_distance();
 }
 
@@ -33,58 +31,79 @@ void ultrasonic_setup() {
     Timer_Ultrasonic_Start();
     isr_ultrasonic_StartEx(ISR_Handler_Timer);
     
+    printValue("Ultrasonic Module ON with Selection %d\n", udsState);
+    
 }
 
 void ultrasonic_off() {
-    memset(kaldist_measure, 0, sizeof(kaldist_measure));
+    //memset(kaldist_measure, 0, sizeof(kaldist_measure));
     Timer_Ultrasonic_Stop();
     isr_ultrasonic_Stop();
+    
+    printValue("Ultrasonic Module OFF");
 }
 
 void ultrasonic_select(int idx) {
     Control_Reg_Ultrasonic_Write(idx);
+    CyDelayUs(10);
+    udsState = Control_Reg_Ultrasonic_Read();
+    printValue("Ultrasonic Module ON with Selection %d\n", udsState);
 }
 
 void ultrasonic_transmit() {
     
     udsState = Control_Reg_Ultrasonic_Read();
     
+    printValue("Ultrasonic Module TRANSMITTING with Selection %d\n", udsState);
+    
+    Trigger_Write(1);
+    CyDelayUs(10);
+    Trigger_Write(0);
+    CyDelayUs(2);
+    /*
     if (udsState == 0) {
-        while (!Echo_LEFT_Read()) {
+        do {
             Trigger_Write(1);
             CyDelayUs(10);
             Trigger_Write(0);
             CyDelayUs(2);
         }
+        while (!Echo_LEFT_Read());
     } else if (udsState == 1) {
-        while (!Echo_RIGHT_Read()) {
+        do {
             Trigger_Write(1);
             CyDelayUs(10);
             Trigger_Write(0);
             CyDelayUs(2);
-        } 
+        }
+        while (!Echo_RIGHT_Read()); 
     } else if (udsState == 2) {
-        while (!Echo_FLEFT_Read()) {
+        do {
             Trigger_Write(1);
             CyDelayUs(10);
             Trigger_Write(0);
             CyDelayUs(2);
-        } 
+        }
+        while (!Echo_FLEFT_Read()); 
     } else if (udsState == 3) {
-        while (!Echo_FRIGHT_Read()) {
+        do {
             Trigger_Write(1);
             CyDelayUs(10);
             Trigger_Write(0);
             CyDelayUs(2);
         }
+        while (!Echo_FRIGHT_Read()); 
     } else if (udsState == 4) {
-        while (!Echo_BACK_Read()) {
+        do {
             Trigger_Write(1);
             CyDelayUs(10);
             Trigger_Write(0);
             CyDelayUs(2);
         }
+        while (!Echo_BACK_Read());
     }
+    */
+    printValue("Ultrasonic Module finish TRANSMITTING with Selection %d\n", udsState);
 }
 
 void ultrasonic_get_distance() {
@@ -101,7 +120,7 @@ double kalman_filter(double U, int idx) {
     static const double H = 1.0; // Measurement matrix. It relates the true state to the measurement.
   
     static double P = 0.5; // Initial estimate error covariance. It represents the uncertainty in the initial estimated state.
-    static double U_hat[N] = {0}; // Estimated state. This is the current best estimate of the true state.
+    static double U_hat[NUMBER_OF_UDS] = {0}; // Estimated state. This is the current best estimate of the true state.
     static double K = 0; // Kalman gain. It represents the weight given to the new measurement in the estimation process.
 
     K = P * H / (H * P * H + R);
@@ -115,11 +134,12 @@ void ultrasonic_measuring() {
     
     ultrasonic_setup();
     
-    for (int i = 0; i < N; i++) {
+    for (int i = 0; i < NUMBER_OF_UDS; i++) {
         ultrasonic_select(i);
-        for (int burst = 0; burst < ULTRASONIC_BURSTS; burst++) {
-            ultrasonic_transmit();
-        }  
+        ultrasonic_transmit();
+        //for (int burst = 0; burst < ULTRASONIC_BURSTS; burst++) {
+        //    ultrasonic_transmit();
+        // }
     }
     
     ultrasonic_off();

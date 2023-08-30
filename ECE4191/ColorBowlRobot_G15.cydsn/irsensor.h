@@ -20,8 +20,8 @@
         ABSENCE
     } DETECTED;
     
-    DETECTED ir_LEFT = ABSENCE;
-    DETECTED ir_RIGHT = ABSENCE;
+    extern volatile DETECTED ir_LEFT;
+    extern volatile DETECTED ir_RIGHT;
     
     void ir_start();
     void ir_stop();

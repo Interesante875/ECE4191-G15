@@ -1,10 +1,401 @@
---------------- Rebuild Started: 08/15/2023 10:21:44 Project: motor_control.c, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/motor_control.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c motor_control.c -o .\CortexM3\ARM_GCC_541\Debug\motor_control.o
-motor_control.c: In function 'motor_move':
-motor_control.c:29:9: warning: implicit declaration of function 'MOTOR_2_IN_3_Write' [-Wimplicit-function-declaration]
-         MOTOR_2_IN_3_Write(MOTOR_1_IN_1_Read());
+--------------- Rebuild Started: 08/29/2023 15:05:36 Project: ColorBowlRobot_G15, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\main.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\mean_filter.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\median_filter.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\controller.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\locomotion.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\color_detection.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\ultrasonic.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\bluetooth.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\irsensor.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\servo.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\prelim.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\navigation_stack.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\cymetadata.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\Cm3Start.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\CyBootAsmGnu.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\CyDmac.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\CyFlash.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\CyLib.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\cyPm.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\CySpc.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\cyutils.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\cy_em_eeprom.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\Clock_1.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\MOTOR_LEFT_PHASE_A.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\MOTOR_LEFT_PHASE_B.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\MOTOR_RIGHT_PHASE_A.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\MOTOR_RIGHT_PHASE_B.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\UART_1.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\UART_1_PM.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\UART_1_INT.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\UART_1_BOOT.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\UART_1_IntClock.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\Wheel_Timer.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\Wheel_Timer_PM.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\MOTOR_EN_RIGHT.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\PWM_RIGHT.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\PWM_RIGHT_PM.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\QuadDec_RIGHT.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\QuadDec_RIGHT_INT.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\QuadDec_RIGHT_PM.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\QuadDec_LEFT.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\QuadDec_LEFT_INT.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\QuadDec_LEFT_PM.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\MOTOR_RIGHT_IN_4.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\MOTOR_RIGHT_IN_3.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\MOTOR_EN_LEFT.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\PWM_LEFT.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\PWM_LEFT_PM.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\MOTOR_LEFT_IN_2.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\MOTOR_LEFT_IN_1.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\isr_input.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\QuadDec_RIGHT_isr.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\QuadDec_RIGHT_Cnt16.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\QuadDec_RIGHT_Cnt16_PM.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\QuadDec_LEFT_isr.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\QuadDec_LEFT_Cnt16.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\QuadDec_LEFT_Cnt16_PM.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\Clock_2.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\S0.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\S1.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\S2.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\S3.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\LED.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\Count.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\Clock_3.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\Trigger.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\isr_color_sensor.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\Counter_Color_Sensor.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\Counter_Color_Sensor_PM.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\PWM_Color_Sensor.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\PWM_Color_Sensor_PM.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\Control_Reg_Color_Sensor.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\Control_Reg_Color_Sensor_PM.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\Echo_LEFT.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\Echo_RIGHT.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\Echo_FLEFT.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\Echo_FRIGHT.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\Control_Reg_Ultrasonic.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\Control_Reg_Ultrasonic_PM.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\Timer_Ultrasonic.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\Timer_Ultrasonic_PM.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\isr_ultrasonic.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\IR_Sensor_LEFT.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\IR_Sensor_RIGHT.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\Clock_4.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\Echo_BACK.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\isr_IR_Sensor_LEFT.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\isr_IR_Sensor_RIGHT.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\isr_puck.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\PWM_Servo_Gripper.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\PWM_Servo_Gripper_PM.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\Clock_5.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\PWM_Servo_Gripper_Arm.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\PWM_Servo_Gripper_Arm_PM.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\PWM_Servo_Lifter.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\PWM_Servo_Lifter_PM.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\PWM_Servo_Trunk.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\PWM_Servo_Trunk_PM.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\MOTOR_GRIPPER.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\MOTOR_GRIPPER_ARM.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\MOTOR_LIFTER.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\MOTOR_TRUNK.o"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\ColorBowlRobot_G15.hex"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\ColorBowlRobot_G15.map"
+Deleting file ".\ColorBowlRobot_G15.cycdx"
+Deleting file ".\ColorBowlRobot_G15.svd"
+Deleting file ".\ColorBowlRobot_G15.rpt"
+Deleting file ".\ColorBowlRobot_G15_timing.html"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\.deps\SOURCE_C__ARM_GCC_GENERIC.P"
+Deleting file ".\CortexM3\ARM_GCC_541\Debug\.deps\SOURCE_ASM__ARM_GCC_GENERIC.P"
+cydsfit.exe -.appdatapath "C:\Users\Chong Yen Juin\AppData\Local\Cypress Semiconductor\PSoC Creator\4.4" -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p "C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\ColorBowlRobot_G15.cyprj" -d CY8C5888LTI-LP097 -s "C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\Generated_Source\PSoC5" -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
+Elaborating Design...
+HDL Generation...
+Synthesis...
+Tech Mapping...
+ADD: pft.M0040: information: The following 18 pin(s) will be assigned a location by the fitter: Count(0), Echo_BACK(0), Echo_FLEFT(0), Echo_FRIGHT(0), Echo_LEFT(0), Echo_RIGHT(0), IR_Sensor_LEFT(0), IR_Sensor_RIGHT(0), LED(0), MOTOR_GRIPPER(0), MOTOR_GRIPPER_ARM(0), MOTOR_LIFTER(0), MOTOR_TRUNK(0), S0(0), S1(0), S2(0), S3(0), Trigger(0)
+Analog Placement...
+Analog Routing...
+Analog Code Generation...
+Digital Placement...
+Digital Routing...
+Bitstream Generation...
+Bitstream Verification...
+Static timing analysis...
+API Generation...
+Dependency Generation...
+Cleanup...
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/main.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c main.c -o .\CortexM3\ARM_GCC_541\Debug\main.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/mean_filter.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c ..\..\..\Draft\mean_filter.c -o .\CortexM3\ARM_GCC_541\Debug\mean_filter.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/median_filter.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c ..\..\..\Draft\median_filter.c -o .\CortexM3\ARM_GCC_541\Debug\median_filter.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/controller.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c controller.c -o .\CortexM3\ARM_GCC_541\Debug\controller.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/locomotion.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c locomotion.c -o .\CortexM3\ARM_GCC_541\Debug\locomotion.o
+locomotion.c: In function 'wheel_move_by_ticks':
+locomotion.c:213:9: warning: unused variable 'slave_pwm' [-Wunused-variable]
+     int slave_pwm = motor_right_get_pwm();
          ^
-motor_control.c:30:9: warning: implicit declaration of function 'MOTOR_2_IN_4_Write' [-Wimplicit-function-declaration]
-         MOTOR_2_IN_4_Write(MOTOR_1_IN_2_Read());
+locomotion.c: In function 'wheel_move_by_distance':
+locomotion.c:247:9: warning: unused variable 'slave_pwm' [-Wunused-variable]
+     int slave_pwm = motor_right_get_pwm();
          ^
---------------- Rebuild Succeeded: 08/15/2023 10:21:45 ---------------
+locomotion.c: In function 'wheel_turn_by_ticks':
+locomotion.c:277:9: warning: unused variable 'slave_pwm' [-Wunused-variable]
+     int slave_pwm = motor_right_get_pwm();
+         ^
+locomotion.c: In function 'wheel_turn_by_angle':
+locomotion.c:315:9: warning: unused variable 'slave_pwm' [-Wunused-variable]
+     int slave_pwm = motor_right_get_pwm();
+         ^
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/color_detection.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c color_detection.c -o .\CortexM3\ARM_GCC_541\Debug\color_detection.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/ultrasonic.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c ultrasonic.c -o .\CortexM3\ARM_GCC_541\Debug\ultrasonic.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/bluetooth.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c bluetooth.c -o .\CortexM3\ARM_GCC_541\Debug\bluetooth.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/irsensor.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c irsensor.c -o .\CortexM3\ARM_GCC_541\Debug\irsensor.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/servo.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c servo.c -o .\CortexM3\ARM_GCC_541\Debug\servo.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/prelim.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c prelim.c -o .\CortexM3\ARM_GCC_541\Debug\prelim.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/navigation_stack.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c navigation_stack.c -o .\CortexM3\ARM_GCC_541\Debug\navigation_stack.o
+navigation_stack.c: In function 'moveRobot':
+navigation_stack.c:59:12: warning: variable 'azimuth' set but not used [-Wunused-but-set-variable]
+     double azimuth = 0; // angle from the north, -ve means left, +ve is right
+            ^
+navigation_stack.c:58:12: warning: variable 'distance' set but not used [-Wunused-but-set-variable]
+     double distance = 0;
+            ^
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/cyfitter_cfg.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\cyfitter_cfg.c -o .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/cymetadata.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\cymetadata.c -o .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Cm3Start.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Cm3Start.c -o .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/CyDmac.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\CyDmac.c -o .\CortexM3\ARM_GCC_541\Debug\CyDmac.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/CyFlash.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\CyFlash.c -o .\CortexM3\ARM_GCC_541\Debug\CyFlash.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/CyLib.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\CyLib.c -o .\CortexM3\ARM_GCC_541\Debug\CyLib.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/cyPm.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\cyPm.c -o .\CortexM3\ARM_GCC_541\Debug\cyPm.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/CySpc.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\CySpc.c -o .\CortexM3\ARM_GCC_541\Debug\CySpc.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/cyutils.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\cyutils.c -o .\CortexM3\ARM_GCC_541\Debug\cyutils.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/cy_em_eeprom.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\cy_em_eeprom.c -o .\CortexM3\ARM_GCC_541\Debug\cy_em_eeprom.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Clock_1.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Clock_1.c -o .\CortexM3\ARM_GCC_541\Debug\Clock_1.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/MOTOR_LEFT_PHASE_A.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\MOTOR_LEFT_PHASE_A.c -o .\CortexM3\ARM_GCC_541\Debug\MOTOR_LEFT_PHASE_A.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/MOTOR_LEFT_PHASE_B.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\MOTOR_LEFT_PHASE_B.c -o .\CortexM3\ARM_GCC_541\Debug\MOTOR_LEFT_PHASE_B.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/MOTOR_RIGHT_PHASE_A.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\MOTOR_RIGHT_PHASE_A.c -o .\CortexM3\ARM_GCC_541\Debug\MOTOR_RIGHT_PHASE_A.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/MOTOR_RIGHT_PHASE_B.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\MOTOR_RIGHT_PHASE_B.c -o .\CortexM3\ARM_GCC_541\Debug\MOTOR_RIGHT_PHASE_B.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/UART_1.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\UART_1.c -o .\CortexM3\ARM_GCC_541\Debug\UART_1.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/UART_1_PM.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\UART_1_PM.c -o .\CortexM3\ARM_GCC_541\Debug\UART_1_PM.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/UART_1_INT.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\UART_1_INT.c -o .\CortexM3\ARM_GCC_541\Debug\UART_1_INT.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/UART_1_BOOT.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\UART_1_BOOT.c -o .\CortexM3\ARM_GCC_541\Debug\UART_1_BOOT.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/UART_1_IntClock.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\UART_1_IntClock.c -o .\CortexM3\ARM_GCC_541\Debug\UART_1_IntClock.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Wheel_Timer.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Wheel_Timer.c -o .\CortexM3\ARM_GCC_541\Debug\Wheel_Timer.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Wheel_Timer_PM.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Wheel_Timer_PM.c -o .\CortexM3\ARM_GCC_541\Debug\Wheel_Timer_PM.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/MOTOR_EN_RIGHT.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\MOTOR_EN_RIGHT.c -o .\CortexM3\ARM_GCC_541\Debug\MOTOR_EN_RIGHT.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/PWM_RIGHT.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\PWM_RIGHT.c -o .\CortexM3\ARM_GCC_541\Debug\PWM_RIGHT.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/PWM_RIGHT_PM.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\PWM_RIGHT_PM.c -o .\CortexM3\ARM_GCC_541\Debug\PWM_RIGHT_PM.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/QuadDec_RIGHT.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\QuadDec_RIGHT.c -o .\CortexM3\ARM_GCC_541\Debug\QuadDec_RIGHT.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/QuadDec_RIGHT_INT.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\QuadDec_RIGHT_INT.c -o .\CortexM3\ARM_GCC_541\Debug\QuadDec_RIGHT_INT.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/QuadDec_RIGHT_PM.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\QuadDec_RIGHT_PM.c -o .\CortexM3\ARM_GCC_541\Debug\QuadDec_RIGHT_PM.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/QuadDec_LEFT.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\QuadDec_LEFT.c -o .\CortexM3\ARM_GCC_541\Debug\QuadDec_LEFT.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/QuadDec_LEFT_INT.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\QuadDec_LEFT_INT.c -o .\CortexM3\ARM_GCC_541\Debug\QuadDec_LEFT_INT.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/QuadDec_LEFT_PM.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\QuadDec_LEFT_PM.c -o .\CortexM3\ARM_GCC_541\Debug\QuadDec_LEFT_PM.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/MOTOR_RIGHT_IN_4.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\MOTOR_RIGHT_IN_4.c -o .\CortexM3\ARM_GCC_541\Debug\MOTOR_RIGHT_IN_4.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/MOTOR_RIGHT_IN_3.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\MOTOR_RIGHT_IN_3.c -o .\CortexM3\ARM_GCC_541\Debug\MOTOR_RIGHT_IN_3.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/MOTOR_EN_LEFT.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\MOTOR_EN_LEFT.c -o .\CortexM3\ARM_GCC_541\Debug\MOTOR_EN_LEFT.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/PWM_LEFT.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\PWM_LEFT.c -o .\CortexM3\ARM_GCC_541\Debug\PWM_LEFT.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/PWM_LEFT_PM.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\PWM_LEFT_PM.c -o .\CortexM3\ARM_GCC_541\Debug\PWM_LEFT_PM.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/MOTOR_LEFT_IN_2.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\MOTOR_LEFT_IN_2.c -o .\CortexM3\ARM_GCC_541\Debug\MOTOR_LEFT_IN_2.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/MOTOR_LEFT_IN_1.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\MOTOR_LEFT_IN_1.c -o .\CortexM3\ARM_GCC_541\Debug\MOTOR_LEFT_IN_1.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/isr_input.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\isr_input.c -o .\CortexM3\ARM_GCC_541\Debug\isr_input.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/QuadDec_RIGHT_isr.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\QuadDec_RIGHT_isr.c -o .\CortexM3\ARM_GCC_541\Debug\QuadDec_RIGHT_isr.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/QuadDec_RIGHT_Cnt16.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\QuadDec_RIGHT_Cnt16.c -o .\CortexM3\ARM_GCC_541\Debug\QuadDec_RIGHT_Cnt16.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/QuadDec_RIGHT_Cnt16_PM.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\QuadDec_RIGHT_Cnt16_PM.c -o .\CortexM3\ARM_GCC_541\Debug\QuadDec_RIGHT_Cnt16_PM.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/QuadDec_LEFT_isr.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\QuadDec_LEFT_isr.c -o .\CortexM3\ARM_GCC_541\Debug\QuadDec_LEFT_isr.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/QuadDec_LEFT_Cnt16.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\QuadDec_LEFT_Cnt16.c -o .\CortexM3\ARM_GCC_541\Debug\QuadDec_LEFT_Cnt16.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/QuadDec_LEFT_Cnt16_PM.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\QuadDec_LEFT_Cnt16_PM.c -o .\CortexM3\ARM_GCC_541\Debug\QuadDec_LEFT_Cnt16_PM.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Clock_2.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Clock_2.c -o .\CortexM3\ARM_GCC_541\Debug\Clock_2.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/S0.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\S0.c -o .\CortexM3\ARM_GCC_541\Debug\S0.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/S1.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\S1.c -o .\CortexM3\ARM_GCC_541\Debug\S1.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/S2.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\S2.c -o .\CortexM3\ARM_GCC_541\Debug\S2.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/S3.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\S3.c -o .\CortexM3\ARM_GCC_541\Debug\S3.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/LED.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\LED.c -o .\CortexM3\ARM_GCC_541\Debug\LED.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Count.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Count.c -o .\CortexM3\ARM_GCC_541\Debug\Count.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Clock_3.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Clock_3.c -o .\CortexM3\ARM_GCC_541\Debug\Clock_3.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Trigger.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Trigger.c -o .\CortexM3\ARM_GCC_541\Debug\Trigger.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/isr_color_sensor.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\isr_color_sensor.c -o .\CortexM3\ARM_GCC_541\Debug\isr_color_sensor.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Counter_Color_Sensor.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Counter_Color_Sensor.c -o .\CortexM3\ARM_GCC_541\Debug\Counter_Color_Sensor.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Counter_Color_Sensor_PM.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Counter_Color_Sensor_PM.c -o .\CortexM3\ARM_GCC_541\Debug\Counter_Color_Sensor_PM.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/PWM_Color_Sensor.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\PWM_Color_Sensor.c -o .\CortexM3\ARM_GCC_541\Debug\PWM_Color_Sensor.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/PWM_Color_Sensor_PM.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\PWM_Color_Sensor_PM.c -o .\CortexM3\ARM_GCC_541\Debug\PWM_Color_Sensor_PM.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Control_Reg_Color_Sensor.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Control_Reg_Color_Sensor.c -o .\CortexM3\ARM_GCC_541\Debug\Control_Reg_Color_Sensor.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Control_Reg_Color_Sensor_PM.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Control_Reg_Color_Sensor_PM.c -o .\CortexM3\ARM_GCC_541\Debug\Control_Reg_Color_Sensor_PM.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Echo_LEFT.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Echo_LEFT.c -o .\CortexM3\ARM_GCC_541\Debug\Echo_LEFT.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Echo_RIGHT.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Echo_RIGHT.c -o .\CortexM3\ARM_GCC_541\Debug\Echo_RIGHT.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Echo_FLEFT.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Echo_FLEFT.c -o .\CortexM3\ARM_GCC_541\Debug\Echo_FLEFT.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Echo_FRIGHT.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Echo_FRIGHT.c -o .\CortexM3\ARM_GCC_541\Debug\Echo_FRIGHT.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Control_Reg_Ultrasonic.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Control_Reg_Ultrasonic.c -o .\CortexM3\ARM_GCC_541\Debug\Control_Reg_Ultrasonic.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Control_Reg_Ultrasonic_PM.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Control_Reg_Ultrasonic_PM.c -o .\CortexM3\ARM_GCC_541\Debug\Control_Reg_Ultrasonic_PM.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Timer_Ultrasonic.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Timer_Ultrasonic.c -o .\CortexM3\ARM_GCC_541\Debug\Timer_Ultrasonic.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Timer_Ultrasonic_PM.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Timer_Ultrasonic_PM.c -o .\CortexM3\ARM_GCC_541\Debug\Timer_Ultrasonic_PM.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/isr_ultrasonic.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\isr_ultrasonic.c -o .\CortexM3\ARM_GCC_541\Debug\isr_ultrasonic.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/IR_Sensor_LEFT.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\IR_Sensor_LEFT.c -o .\CortexM3\ARM_GCC_541\Debug\IR_Sensor_LEFT.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/IR_Sensor_RIGHT.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\IR_Sensor_RIGHT.c -o .\CortexM3\ARM_GCC_541\Debug\IR_Sensor_RIGHT.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Clock_4.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Clock_4.c -o .\CortexM3\ARM_GCC_541\Debug\Clock_4.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Echo_BACK.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Echo_BACK.c -o .\CortexM3\ARM_GCC_541\Debug\Echo_BACK.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/isr_IR_Sensor_LEFT.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\isr_IR_Sensor_LEFT.c -o .\CortexM3\ARM_GCC_541\Debug\isr_IR_Sensor_LEFT.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/isr_IR_Sensor_RIGHT.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\isr_IR_Sensor_RIGHT.c -o .\CortexM3\ARM_GCC_541\Debug\isr_IR_Sensor_RIGHT.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/isr_puck.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\isr_puck.c -o .\CortexM3\ARM_GCC_541\Debug\isr_puck.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/PWM_Servo_Gripper.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\PWM_Servo_Gripper.c -o .\CortexM3\ARM_GCC_541\Debug\PWM_Servo_Gripper.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/PWM_Servo_Gripper_PM.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\PWM_Servo_Gripper_PM.c -o .\CortexM3\ARM_GCC_541\Debug\PWM_Servo_Gripper_PM.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Clock_5.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Clock_5.c -o .\CortexM3\ARM_GCC_541\Debug\Clock_5.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/PWM_Servo_Gripper_Arm.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\PWM_Servo_Gripper_Arm.c -o .\CortexM3\ARM_GCC_541\Debug\PWM_Servo_Gripper_Arm.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/PWM_Servo_Gripper_Arm_PM.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\PWM_Servo_Gripper_Arm_PM.c -o .\CortexM3\ARM_GCC_541\Debug\PWM_Servo_Gripper_Arm_PM.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/PWM_Servo_Lifter.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\PWM_Servo_Lifter.c -o .\CortexM3\ARM_GCC_541\Debug\PWM_Servo_Lifter.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/PWM_Servo_Lifter_PM.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\PWM_Servo_Lifter_PM.c -o .\CortexM3\ARM_GCC_541\Debug\PWM_Servo_Lifter_PM.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/PWM_Servo_Trunk.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\PWM_Servo_Trunk.c -o .\CortexM3\ARM_GCC_541\Debug\PWM_Servo_Trunk.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/PWM_Servo_Trunk_PM.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\PWM_Servo_Trunk_PM.c -o .\CortexM3\ARM_GCC_541\Debug\PWM_Servo_Trunk_PM.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/MOTOR_GRIPPER.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\MOTOR_GRIPPER.c -o .\CortexM3\ARM_GCC_541\Debug\MOTOR_GRIPPER.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/MOTOR_GRIPPER_ARM.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\MOTOR_GRIPPER_ARM.c -o .\CortexM3\ARM_GCC_541\Debug\MOTOR_GRIPPER_ARM.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/MOTOR_LIFTER.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\MOTOR_LIFTER.c -o .\CortexM3\ARM_GCC_541\Debug\MOTOR_LIFTER.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/MOTOR_TRUNK.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\MOTOR_TRUNK.c -o .\CortexM3\ARM_GCC_541\Debug\MOTOR_TRUNK.o
+arm-none-eabi-as.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -alh=.\CortexM3\ARM_GCC_541\Debug/CyBootAsmGnu.lst -g -W -o .\CortexM3\ARM_GCC_541\Debug\CyBootAsmGnu.o Generated_Source\PSoC5\CyBootAsmGnu.s
+arm-none-eabi-ar.exe -rs .\CortexM3\ARM_GCC_541\Debug\ColorBowlRobot_G15.a .\CortexM3\ARM_GCC_541\Debug\CyDmac.o .\CortexM3\ARM_GCC_541\Debug\CyFlash.o .\CortexM3\ARM_GCC_541\Debug\CyLib.o .\CortexM3\ARM_GCC_541\Debug\cyPm.o .\CortexM3\ARM_GCC_541\Debug\CySpc.o .\CortexM3\ARM_GCC_541\Debug\cyutils.o .\CortexM3\ARM_GCC_541\Debug\cy_em_eeprom.o .\CortexM3\ARM_GCC_541\Debug\Clock_1.o .\CortexM3\ARM_GCC_541\Debug\MOTOR_LEFT_PHASE_A.o .\CortexM3\ARM_GCC_541\Debug\MOTOR_LEFT_PHASE_B.o .\CortexM3\ARM_GCC_541\Debug\MOTOR_RIGHT_PHASE_A.o .\CortexM3\ARM_GCC_541\Debug\MOTOR_RIGHT_PHASE_B.o .\CortexM3\ARM_GCC_541\Debug\UART_1.o .\CortexM3\ARM_GCC_541\Debug\UART_1_PM.o .\CortexM3\ARM_GCC_541\Debug\UART_1_INT.o .\CortexM3\ARM_GCC_541\Debug\UART_1_BOOT.o .\CortexM3\ARM_GCC_541\Debug\UART_1_IntClock.o .\CortexM3\ARM_GCC_541\Debug\Wheel_Timer.o .\CortexM3\ARM_GCC_541\Debug\Wheel_Timer_PM.o .\CortexM3\ARM_GCC_541\Debug\MOTOR_EN_RIGHT.o .\CortexM3\ARM_GCC_541\Debug\PWM_RIGHT.o .\CortexM3\ARM_GCC_541\Debug\PWM_RIGHT_PM.o .\CortexM3\ARM_GCC_541\Debug\QuadDec_RIGHT.o .\CortexM3\ARM_GCC_541\Debug\QuadDec_RIGHT_INT.o .\CortexM3\ARM_GCC_541\Debug\QuadDec_RIGHT_PM.o .\CortexM3\ARM_GCC_541\Debug\QuadDec_LEFT.o .\CortexM3\ARM_GCC_541\Debug\QuadDec_LEFT_INT.o .\CortexM3\ARM_GCC_541\Debug\QuadDec_LEFT_PM.o .\CortexM3\ARM_GCC_541\Debug\MOTOR_RIGHT_IN_4.o .\CortexM3\ARM_GCC_541\Debug\MOTOR_RIGHT_IN_3.o .\CortexM3\ARM_GCC_541\Debug\MOTOR_EN_LEFT.o .\CortexM3\ARM_GCC_541\Debug\PWM_LEFT.o .\CortexM3\ARM_GCC_541\Debug\PWM_LEFT_PM.o .\CortexM3\ARM_GCC_541\Debug\MOTOR_LEFT_IN_2.o .\CortexM3\ARM_GCC_541\Debug\MOTOR_LEFT_IN_1.o .\CortexM3\ARM_GCC_541\Debug\isr_input.o .\CortexM3\ARM_GCC_541\Debug\QuadDec_RIGHT_isr.o .\CortexM3\ARM_GCC_541\Debug\QuadDec_RIGHT_Cnt16.o .\CortexM3\ARM_GCC_541\Debug\QuadDec_RIGHT_Cnt16_PM.o .\CortexM3\ARM_GCC_541\Debug\QuadDec_LEFT_isr.o .\CortexM3\ARM_GCC_541\Debug\QuadDec_LEFT_Cnt16.o .\CortexM3\ARM_GCC_541\Debug\QuadDec_LEFT_Cnt16_PM.o .\CortexM3\ARM_GCC_541\Debug\Clock_2.o .\CortexM3\ARM_GCC_541\Debug\S0.o .\CortexM3\ARM_GCC_541\Debug\S1.o .\CortexM3\ARM_GCC_541\Debug\S2.o .\CortexM3\ARM_GCC_541\Debug\S3.o .\CortexM3\ARM_GCC_541\Debug\LED.o .\CortexM3\ARM_GCC_541\Debug\Count.o .\CortexM3\ARM_GCC_541\Debug\Clock_3.o .\CortexM3\ARM_GCC_541\Debug\Trigger.o .\CortexM3\ARM_GCC_541\Debug\isr_color_sensor.o .\CortexM3\ARM_GCC_541\Debug\Counter_Color_Sensor.o .\CortexM3\ARM_GCC_541\Debug\Counter_Color_Sensor_PM.o .\CortexM3\ARM_GCC_541\Debug\PWM_Color_Sensor.o .\CortexM3\ARM_GCC_541\Debug\PWM_Color_Sensor_PM.o .\CortexM3\ARM_GCC_541\Debug\Control_Reg_Color_Sensor.o .\CortexM3\ARM_GCC_541\Debug\Control_Reg_Color_Sensor_PM.o .\CortexM3\ARM_GCC_541\Debug\Echo_LEFT.o .\CortexM3\ARM_GCC_541\Debug\Echo_RIGHT.o .\CortexM3\ARM_GCC_541\Debug\Echo_FLEFT.o .\CortexM3\ARM_GCC_541\Debug\Echo_FRIGHT.o .\CortexM3\ARM_GCC_541\Debug\Control_Reg_Ultrasonic.o .\CortexM3\ARM_GCC_541\Debug\Control_Reg_Ultrasonic_PM.o .\CortexM3\ARM_GCC_541\Debug\Timer_Ultrasonic.o .\CortexM3\ARM_GCC_541\Debug\Timer_Ultrasonic_PM.o .\CortexM3\ARM_GCC_541\Debug\isr_ultrasonic.o .\CortexM3\ARM_GCC_541\Debug\IR_Sensor_LEFT.o .\CortexM3\ARM_GCC_541\Debug\IR_Sensor_RIGHT.o .\CortexM3\ARM_GCC_541\Debug\Clock_4.o .\CortexM3\ARM_GCC_541\Debug\Echo_BACK.o .\CortexM3\ARM_GCC_541\Debug\isr_IR_Sensor_LEFT.o .\CortexM3\ARM_GCC_541\Debug\isr_IR_Sensor_RIGHT.o .\CortexM3\ARM_GCC_541\Debug\isr_puck.o .\CortexM3\ARM_GCC_541\Debug\PWM_Servo_Gripper.o .\CortexM3\ARM_GCC_541\Debug\PWM_Servo_Gripper_PM.o .\CortexM3\ARM_GCC_541\Debug\Clock_5.o .\CortexM3\ARM_GCC_541\Debug\PWM_Servo_Gripper_Arm.o .\CortexM3\ARM_GCC_541\Debug\PWM_Servo_Gripper_Arm_PM.o .\CortexM3\ARM_GCC_541\Debug\PWM_Servo_Lifter.o .\CortexM3\ARM_GCC_541\Debug\PWM_Servo_Lifter_PM.o .\CortexM3\ARM_GCC_541\Debug\PWM_Servo_Trunk.o .\CortexM3\ARM_GCC_541\Debug\PWM_Servo_Trunk_PM.o .\CortexM3\ARM_GCC_541\Debug\MOTOR_GRIPPER.o .\CortexM3\ARM_GCC_541\Debug\MOTOR_GRIPPER_ARM.o .\CortexM3\ARM_GCC_541\Debug\MOTOR_LIFTER.o .\CortexM3\ARM_GCC_541\Debug\MOTOR_TRUNK.o .\CortexM3\ARM_GCC_541\Debug\CyBootAsmGnu.o
+arm-none-eabi-ar.exe: creating .\CortexM3\ARM_GCC_541\Debug\ColorBowlRobot_G15.a
+arm-none-eabi-gcc.exe -Wl,--start-group -o "C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\CortexM3\ARM_GCC_541\Debug\ColorBowlRobot_G15.elf" .\CortexM3\ARM_GCC_541\Debug\main.o .\CortexM3\ARM_GCC_541\Debug\mean_filter.o .\CortexM3\ARM_GCC_541\Debug\median_filter.o .\CortexM3\ARM_GCC_541\Debug\controller.o .\CortexM3\ARM_GCC_541\Debug\locomotion.o .\CortexM3\ARM_GCC_541\Debug\color_detection.o .\CortexM3\ARM_GCC_541\Debug\ultrasonic.o .\CortexM3\ARM_GCC_541\Debug\bluetooth.o .\CortexM3\ARM_GCC_541\Debug\irsensor.o .\CortexM3\ARM_GCC_541\Debug\servo.o .\CortexM3\ARM_GCC_541\Debug\prelim.o .\CortexM3\ARM_GCC_541\Debug\navigation_stack.o .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o .\CortexM3\ARM_GCC_541\Debug\cymetadata.o .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o .\CortexM3\ARM_GCC_541\Debug\ColorBowlRobot_G15.a "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM3\ARM_GCC_541\Debug\CyComponentLibrary.a" -mcpu=cortex-m3 -mthumb -L Generated_Source\PSoC5 -Wl,-Map,.\CortexM3\ARM_GCC_541\Debug/ColorBowlRobot_G15.map -T Generated_Source\PSoC5\cm3gcc.ld -specs=nano.specs -Wl,--gc-sections -g -ffunction-sections -Og -ffat-lto-objects -Wl,--end-group
+.\CortexM3\ARM_GCC_541\Debug\locomotion.o:(.data+0x0): multiple definition of `currentMotion'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.data+0xc): first defined here
+.\CortexM3\ARM_GCC_541\Debug\locomotion.o:(.bss+0x0): multiple definition of `moveStatus'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.bss+0x35): first defined here
+.\CortexM3\ARM_GCC_541\Debug\locomotion.o:(.bss+0x8): multiple definition of `kaldist_measure'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.bss+0x8): first defined here
+.\CortexM3\ARM_GCC_541\Debug\locomotion.o:(.bss+0x30): multiple definition of `udsState'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.bss+0x30): first defined here
+.\CortexM3\ARM_GCC_541\Debug\locomotion.o:(.data+0x1): multiple definition of `trunk'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.data+0x8): first defined here
+.\CortexM3\ARM_GCC_541\Debug\locomotion.o:(.bss+0x34): multiple definition of `lift'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.bss+0x34): first defined here
+.\CortexM3\ARM_GCC_541\Debug\locomotion.o:(.data+0x2): multiple definition of `gripper'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.data+0x9): first defined here
+.\CortexM3\ARM_GCC_541\Debug\locomotion.o:(.data+0x3): multiple definition of `ir_RIGHT'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.data+0xa): first defined here
+.\CortexM3\ARM_GCC_541\Debug\locomotion.o:(.data+0x4): multiple definition of `ir_LEFT'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.data+0xb): first defined here
+.\CortexM3\ARM_GCC_541\Debug\locomotion.o:(.data+0x5): multiple definition of `detectedColor'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.data+0xd): first defined here
+.\CortexM3\ARM_GCC_541\Debug\color_detection.o:(.data+0x0): multiple definition of `detectedColor'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.data+0xd): first defined here
+.\CortexM3\ARM_GCC_541\Debug\color_detection.o:(.bss+0x8): multiple definition of `kaldist_measure'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.bss+0x8): first defined here
+.\CortexM3\ARM_GCC_541\Debug\color_detection.o:(.bss+0x30): multiple definition of `udsState'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.bss+0x30): first defined here
+.\CortexM3\ARM_GCC_541\Debug\color_detection.o:(.data+0x1): multiple definition of `trunk'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.data+0x8): first defined here
+.\CortexM3\ARM_GCC_541\Debug\color_detection.o:(.bss+0x34): multiple definition of `lift'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.bss+0x34): first defined here
+.\CortexM3\ARM_GCC_541\Debug\color_detection.o:(.data+0x2): multiple definition of `gripper'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.data+0x9): first defined here
+.\CortexM3\ARM_GCC_541\Debug\color_detection.o:(.data+0x3): multiple definition of `ir_RIGHT'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.data+0xa): first defined here
+.\CortexM3\ARM_GCC_541\Debug\color_detection.o:(.data+0x4): multiple definition of `ir_LEFT'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.data+0xb): first defined here
+.\CortexM3\ARM_GCC_541\Debug\color_detection.o:(.data+0x5): multiple definition of `currentMotion'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.data+0xc): first defined here
+.\CortexM3\ARM_GCC_541\Debug\color_detection.o:(.bss+0x35): multiple definition of `moveStatus'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.bss+0x35): first defined here
+.\CortexM3\ARM_GCC_541\Debug\ultrasonic.o:(.bss+0x0): multiple definition of `kaldist_measure'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.bss+0x8): first defined here
+.\CortexM3\ARM_GCC_541\Debug\ultrasonic.o:(.bss+0x28): multiple definition of `udsState'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.bss+0x30): first defined here
+.\CortexM3\ARM_GCC_541\Debug\ultrasonic.o:(.data+0x8): multiple definition of `trunk'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.data+0x8): first defined here
+.\CortexM3\ARM_GCC_541\Debug\ultrasonic.o:(.bss+0x5a): multiple definition of `lift'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.bss+0x34): first defined here
+.\CortexM3\ARM_GCC_541\Debug\ultrasonic.o:(.data+0x9): multiple definition of `gripper'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.data+0x9): first defined here
+.\CortexM3\ARM_GCC_541\Debug\ultrasonic.o:(.data+0xa): multiple definition of `ir_RIGHT'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.data+0xa): first defined here
+.\CortexM3\ARM_GCC_541\Debug\ultrasonic.o:(.data+0xb): multiple definition of `ir_LEFT'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.data+0xb): first defined here
+.\CortexM3\ARM_GCC_541\Debug\ultrasonic.o:(.data+0xc): multiple definition of `currentMotion'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.data+0xc): first defined here
+.\CortexM3\ARM_GCC_541\Debug\ultrasonic.o:(.bss+0x5b): multiple definition of `moveStatus'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.bss+0x35): first defined here
+.\CortexM3\ARM_GCC_541\Debug\ultrasonic.o:(.data+0xd): multiple definition of `detectedColor'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.data+0xd): first defined here
+.\CortexM3\ARM_GCC_541\Debug\irsensor.o:(.data+0x1): multiple definition of `ir_RIGHT'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.data+0xa): first defined here
+.\CortexM3\ARM_GCC_541\Debug\irsensor.o:(.data+0x0): multiple definition of `ir_LEFT'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.data+0xb): first defined here
+.\CortexM3\ARM_GCC_541\Debug\irsensor.o:(.bss+0x0): multiple definition of `kaldist_measure'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.bss+0x8): first defined here
+.\CortexM3\ARM_GCC_541\Debug\irsensor.o:(.bss+0x28): multiple definition of `udsState'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.bss+0x30): first defined here
+.\CortexM3\ARM_GCC_541\Debug\irsensor.o:(.data+0x2): multiple definition of `trunk'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.data+0x8): first defined here
+.\CortexM3\ARM_GCC_541\Debug\irsensor.o:(.bss+0x2c): multiple definition of `lift'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.bss+0x34): first defined here
+.\CortexM3\ARM_GCC_541\Debug\irsensor.o:(.data+0x3): multiple definition of `gripper'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.data+0x9): first defined here
+.\CortexM3\ARM_GCC_541\Debug\irsensor.o:(.data+0x4): multiple definition of `currentMotion'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.data+0xc): first defined here
+.\CortexM3\ARM_GCC_541\Debug\irsensor.o:(.bss+0x2d): multiple definition of `moveStatus'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.bss+0x35): first defined here
+.\CortexM3\ARM_GCC_541\Debug\irsensor.o:(.data+0x5): multiple definition of `detectedColor'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.data+0xd): first defined here
+.\CortexM3\ARM_GCC_541\Debug\servo.o:(.data+0x0): multiple definition of `trunk'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.data+0x8): first defined here
+.\CortexM3\ARM_GCC_541\Debug\servo.o:(.bss+0x0): multiple definition of `lift'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.bss+0x34): first defined here
+.\CortexM3\ARM_GCC_541\Debug\servo.o:(.data+0x1): multiple definition of `gripper'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.data+0x9): first defined here
+.\CortexM3\ARM_GCC_541\Debug\servo.o:(.bss+0x8): multiple definition of `kaldist_measure'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.bss+0x8): first defined here
+.\CortexM3\ARM_GCC_541\Debug\servo.o:(.bss+0x30): multiple definition of `udsState'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.bss+0x30): first defined here
+.\CortexM3\ARM_GCC_541\Debug\servo.o:(.data+0x2): multiple definition of `ir_RIGHT'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.data+0xa): first defined here
+.\CortexM3\ARM_GCC_541\Debug\servo.o:(.data+0x3): multiple definition of `ir_LEFT'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.data+0xb): first defined here
+.\CortexM3\ARM_GCC_541\Debug\servo.o:(.data+0x4): multiple definition of `currentMotion'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.data+0xc): first defined here
+.\CortexM3\ARM_GCC_541\Debug\servo.o:(.bss+0x34): multiple definition of `moveStatus'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.bss+0x35): first defined here
+.\CortexM3\ARM_GCC_541\Debug\servo.o:(.data+0x5): multiple definition of `detectedColor'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.data+0xd): first defined here
+.\CortexM3\ARM_GCC_541\Debug\prelim.o:(.bss+0x0): multiple definition of `kaldist_measure'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.bss+0x8): first defined here
+.\CortexM3\ARM_GCC_541\Debug\prelim.o:(.bss+0x28): multiple definition of `udsState'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.bss+0x30): first defined here
+.\CortexM3\ARM_GCC_541\Debug\prelim.o:(.data+0x0): multiple definition of `trunk'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.data+0x8): first defined here
+.\CortexM3\ARM_GCC_541\Debug\prelim.o:(.bss+0x2c): multiple definition of `lift'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.bss+0x34): first defined here
+.\CortexM3\ARM_GCC_541\Debug\prelim.o:(.data+0x1): multiple definition of `gripper'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.data+0x9): first defined here
+.\CortexM3\ARM_GCC_541\Debug\prelim.o:(.data+0x2): multiple definition of `ir_RIGHT'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.data+0xa): first defined here
+.\CortexM3\ARM_GCC_541\Debug\prelim.o:(.data+0x3): multiple definition of `ir_LEFT'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.data+0xb): first defined here
+.\CortexM3\ARM_GCC_541\Debug\prelim.o:(.data+0x4): multiple definition of `currentMotion'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.data+0xc): first defined here
+.\CortexM3\ARM_GCC_541\Debug\prelim.o:(.bss+0x2d): multiple definition of `moveStatus'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.bss+0x35): first defined here
+.\CortexM3\ARM_GCC_541\Debug\prelim.o:(.data+0x5): multiple definition of `detectedColor'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.data+0xd): first defined here
+.\CortexM3\ARM_GCC_541\Debug\navigation_stack.o:(.bss+0x0): multiple definition of `kaldist_measure'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.bss+0x8): first defined here
+.\CortexM3\ARM_GCC_541\Debug\navigation_stack.o:(.bss+0x28): multiple definition of `udsState'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.bss+0x30): first defined here
+.\CortexM3\ARM_GCC_541\Debug\navigation_stack.o:(.data+0x0): multiple definition of `trunk'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.data+0x8): first defined here
+.\CortexM3\ARM_GCC_541\Debug\navigation_stack.o:(.bss+0x2c): multiple definition of `lift'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.bss+0x34): first defined here
+.\CortexM3\ARM_GCC_541\Debug\navigation_stack.o:(.data+0x1): multiple definition of `gripper'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.data+0x9): first defined here
+.\CortexM3\ARM_GCC_541\Debug\navigation_stack.o:(.data+0x2): multiple definition of `ir_RIGHT'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.data+0xa): first defined here
+.\CortexM3\ARM_GCC_541\Debug\navigation_stack.o:(.data+0x3): multiple definition of `ir_LEFT'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.data+0xb): first defined here
+.\CortexM3\ARM_GCC_541\Debug\navigation_stack.o:(.data+0x4): multiple definition of `currentMotion'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.data+0xc): first defined here
+.\CortexM3\ARM_GCC_541\Debug\navigation_stack.o:(.bss+0x2d): multiple definition of `moveStatus'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.bss+0x35): first defined here
+.\CortexM3\ARM_GCC_541\Debug\navigation_stack.o:(.data+0x5): multiple definition of `detectedColor'
+.\CortexM3\ARM_GCC_541\Debug\controller.o:(.data+0xd): first defined here
+collect2.exe: error: ld returned 1 exit status
+The command 'arm-none-eabi-gcc.exe' failed with exit code '1'.
+--------------- Rebuild Failed: 08/29/2023 15:06:12 ---------------

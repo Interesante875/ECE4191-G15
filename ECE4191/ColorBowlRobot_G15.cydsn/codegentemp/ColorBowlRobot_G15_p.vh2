@@ -1,5 +1,5 @@
 -- Project:   ColorBowlRobot_G15
--- Generated: 08/28/2023 23:44:47
+-- Generated: 08/30/2023 15:15:38
 -- PSoC Creator  4.4
 
 ENTITY ColorBowlRobot_G15 IS
@@ -33,7 +33,10 @@ ENTITY ColorBowlRobot_G15 IS
         MOTOR_GRIPPER(0)_PAD : OUT std_ulogic;
         MOTOR_GRIPPER_ARM(0)_PAD : OUT std_ulogic;
         MOTOR_LIFTER(0)_PAD : OUT std_ulogic;
-        MOTOR_TRUNK(0)_PAD : OUT std_ulogic);
+        MOTOR_TRUNK(0)_PAD : OUT std_ulogic;
+        Indicator_RED(0)_PAD : OUT std_ulogic;
+        Indicator_GREEN(0)_PAD : OUT std_ulogic;
+        Indicator_BLUE(0)_PAD : OUT std_ulogic);
     ATTRIBUTE voltage_VDDABUF OF __DEFAULT__ : ENTITY IS 5e0;
     ATTRIBUTE voltage_VDDA OF __DEFAULT__ : ENTITY IS 5e0;
     ATTRIBUTE voltage_VUSB OF __DEFAULT__ : ENTITY IS 5e0;
@@ -65,6 +68,9 @@ ARCHITECTURE __DEFAULT__ OF ColorBowlRobot_G15 IS
     SIGNAL Echo_RIGHT(0)__PA : bit;
     SIGNAL IR_Sensor_LEFT(0)__PA : bit;
     SIGNAL IR_Sensor_RIGHT(0)__PA : bit;
+    SIGNAL Indicator_BLUE(0)__PA : bit;
+    SIGNAL Indicator_GREEN(0)__PA : bit;
+    SIGNAL Indicator_RED(0)__PA : bit;
     SIGNAL LED(0)__PA : bit;
     SIGNAL MOTOR_EN_LEFT(0)__PA : bit;
     SIGNAL MOTOR_EN_RIGHT(0)__PA : bit;
@@ -125,6 +131,7 @@ ARCHITECTURE __DEFAULT__ OF ColorBowlRobot_G15 IS
     SIGNAL Net_182 : bit;
     SIGNAL Net_183 : bit;
     SIGNAL Net_190 : bit;
+    SIGNAL Net_211 : bit;
     SIGNAL Net_33 : bit;
     ATTRIBUTE udbclken_assigned OF Net_33 : SIGNAL IS "True";
     ATTRIBUTE global_signal OF Net_33 : SIGNAL IS true;
@@ -355,9 +362,6 @@ ARCHITECTURE __DEFAULT__ OF ColorBowlRobot_G15 IS
     SIGNAL \QuadDec_RIGHT:bQuadDec:quad_B_filt\ : bit;
     SIGNAL \QuadDec_RIGHT:bQuadDec:state_0\ : bit;
     SIGNAL \QuadDec_RIGHT:bQuadDec:state_1\ : bit;
-    SIGNAL \Timer_Servo:Net_261\ : bit;
-    SIGNAL \Timer_Servo:Net_51\ : bit;
-    SIGNAL \Timer_Servo:Net_57\ : bit;
     SIGNAL \Timer_Ultrasonic:TimerUDB:capt_fifo_load\ : bit;
     ATTRIBUTE soft OF \Timer_Ultrasonic:TimerUDB:capt_fifo_load\ : SIGNAL IS 1;
     SIGNAL \Timer_Ultrasonic:TimerUDB:capt_int_temp\ : bit;
@@ -425,7 +429,6 @@ ARCHITECTURE __DEFAULT__ OF ColorBowlRobot_G15 IS
     SIGNAL \UART_1:Net_9_local\ : bit;
     SIGNAL \Wheel_Timer:Net_261\ : bit;
     SIGNAL \Wheel_Timer:Net_51\ : bit;
-    SIGNAL \Wheel_Timer:Net_57\ : bit;
     SIGNAL __ONE__ : bit;
     ATTRIBUTE POWER OF __ONE__ : SIGNAL IS true;
     SIGNAL __ZERO__ : bit;
@@ -435,7 +438,6 @@ ARCHITECTURE __DEFAULT__ OF ColorBowlRobot_G15 IS
     SIGNAL zero : bit;
     ATTRIBUTE GROUND OF zero : SIGNAL IS true;
     SIGNAL \ClockBlock.dclk_glb_ff_0__sig\ : bit;
-    SIGNAL \ClockBlock.dclk_glb_ff_4__sig\ : bit;
     SIGNAL \QuadDec_RIGHT:Cnt16:CounterUDB:sC16:counterdp:u0.ce0__sig\ : bit;
     SIGNAL \QuadDec_RIGHT:Cnt16:CounterUDB:sC16:counterdp:u0.cl0__sig\ : bit;
     SIGNAL \QuadDec_RIGHT:Cnt16:CounterUDB:sC16:counterdp:u0.z0__sig\ : bit;
@@ -571,29 +573,71 @@ ARCHITECTURE __DEFAULT__ OF ColorBowlRobot_G15 IS
     SIGNAL \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:u1.cmsbo__sig\ : bit;
     ATTRIBUTE lib_model OF \QuadDec_LEFT:Net_1251_split\ : LABEL IS "macrocell1";
     ATTRIBUTE lib_model OF MOTOR_EN_RIGHT(0) : LABEL IS "iocell1";
-    ATTRIBUTE Location OF MOTOR_EN_RIGHT(0) : LABEL IS "P3[1]";
+    ATTRIBUTE Location OF MOTOR_EN_RIGHT(0) : LABEL IS "P1[6]";
     ATTRIBUTE lib_model OF MOTOR_RIGHT_PHASE_B(0) : LABEL IS "iocell2";
-    ATTRIBUTE Location OF MOTOR_RIGHT_PHASE_B(0) : LABEL IS "P2[6]";
+    ATTRIBUTE Location OF MOTOR_RIGHT_PHASE_B(0) : LABEL IS "P15[5]";
     ATTRIBUTE lib_model OF MOTOR_RIGHT_PHASE_A(0) : LABEL IS "iocell3";
-    ATTRIBUTE Location OF MOTOR_RIGHT_PHASE_A(0) : LABEL IS "P2[7]";
+    ATTRIBUTE Location OF MOTOR_RIGHT_PHASE_A(0) : LABEL IS "P15[4]";
     ATTRIBUTE lib_model OF MOTOR_LEFT_PHASE_B(0) : LABEL IS "iocell4";
-    ATTRIBUTE Location OF MOTOR_LEFT_PHASE_B(0) : LABEL IS "P1[7]";
+    ATTRIBUTE Location OF MOTOR_LEFT_PHASE_B(0) : LABEL IS "P1[4]";
     ATTRIBUTE lib_model OF MOTOR_LEFT_PHASE_A(0) : LABEL IS "iocell5";
-    ATTRIBUTE Location OF MOTOR_LEFT_PHASE_A(0) : LABEL IS "P1[6]";
+    ATTRIBUTE Location OF MOTOR_LEFT_PHASE_A(0) : LABEL IS "P1[5]";
     ATTRIBUTE lib_model OF MOTOR_RIGHT_IN_4(0) : LABEL IS "iocell6";
-    ATTRIBUTE Location OF MOTOR_RIGHT_IN_4(0) : LABEL IS "P3[5]";
+    ATTRIBUTE Location OF MOTOR_RIGHT_IN_4(0) : LABEL IS "P2[5]";
     ATTRIBUTE lib_model OF MOTOR_RIGHT_IN_3(0) : LABEL IS "iocell7";
-    ATTRIBUTE Location OF MOTOR_RIGHT_IN_3(0) : LABEL IS "P3[4]";
+    ATTRIBUTE Location OF MOTOR_RIGHT_IN_3(0) : LABEL IS "P2[4]";
     ATTRIBUTE lib_model OF MOTOR_EN_LEFT(0) : LABEL IS "iocell8";
-    ATTRIBUTE Location OF MOTOR_EN_LEFT(0) : LABEL IS "P3[0]";
+    ATTRIBUTE Location OF MOTOR_EN_LEFT(0) : LABEL IS "P1[7]";
     ATTRIBUTE lib_model OF MOTOR_LEFT_IN_2(0) : LABEL IS "iocell9";
-    ATTRIBUTE Location OF MOTOR_LEFT_IN_2(0) : LABEL IS "P1[4]";
+    ATTRIBUTE Location OF MOTOR_LEFT_IN_2(0) : LABEL IS "P2[3]";
     ATTRIBUTE lib_model OF MOTOR_LEFT_IN_1(0) : LABEL IS "iocell10";
-    ATTRIBUTE Location OF MOTOR_LEFT_IN_1(0) : LABEL IS "P1[5]";
+    ATTRIBUTE Location OF MOTOR_LEFT_IN_1(0) : LABEL IS "P2[2]";
     ATTRIBUTE lib_model OF Tx_1(0) : LABEL IS "iocell11";
     ATTRIBUTE Location OF Tx_1(0) : LABEL IS "P12[7]";
     ATTRIBUTE lib_model OF Rx_1(0) : LABEL IS "iocell12";
     ATTRIBUTE Location OF Rx_1(0) : LABEL IS "P12[6]";
+    ATTRIBUTE lib_model OF IR_Sensor_LEFT(0) : LABEL IS "iocell13";
+    ATTRIBUTE Location OF IR_Sensor_LEFT(0) : LABEL IS "P3[3]";
+    ATTRIBUTE lib_model OF S0(0) : LABEL IS "iocell14";
+    ATTRIBUTE Location OF S0(0) : LABEL IS "P0[3]";
+    ATTRIBUTE lib_model OF S1(0) : LABEL IS "iocell15";
+    ATTRIBUTE Location OF S1(0) : LABEL IS "P0[4]";
+    ATTRIBUTE lib_model OF S2(0) : LABEL IS "iocell16";
+    ATTRIBUTE Location OF S2(0) : LABEL IS "P0[5]";
+    ATTRIBUTE lib_model OF S3(0) : LABEL IS "iocell17";
+    ATTRIBUTE Location OF S3(0) : LABEL IS "P0[6]";
+    ATTRIBUTE lib_model OF LED(0) : LABEL IS "iocell18";
+    ATTRIBUTE Location OF LED(0) : LABEL IS "P0[1]";
+    ATTRIBUTE lib_model OF Count(0) : LABEL IS "iocell19";
+    ATTRIBUTE Location OF Count(0) : LABEL IS "P0[2]";
+    ATTRIBUTE lib_model OF Trigger(0) : LABEL IS "iocell20";
+    ATTRIBUTE Location OF Trigger(0) : LABEL IS "P0[7]";
+    ATTRIBUTE lib_model OF Echo_LEFT(0) : LABEL IS "iocell21";
+    ATTRIBUTE Location OF Echo_LEFT(0) : LABEL IS "P12[3]";
+    ATTRIBUTE lib_model OF Echo_RIGHT(0) : LABEL IS "iocell22";
+    ATTRIBUTE Location OF Echo_RIGHT(0) : LABEL IS "P12[4]";
+    ATTRIBUTE lib_model OF IR_Sensor_RIGHT(0) : LABEL IS "iocell23";
+    ATTRIBUTE Location OF IR_Sensor_RIGHT(0) : LABEL IS "P3[5]";
+    ATTRIBUTE lib_model OF Echo_FLEFT(0) : LABEL IS "iocell24";
+    ATTRIBUTE Location OF Echo_FLEFT(0) : LABEL IS "P3[7]";
+    ATTRIBUTE lib_model OF Echo_FRIGHT(0) : LABEL IS "iocell25";
+    ATTRIBUTE Location OF Echo_FRIGHT(0) : LABEL IS "P12[2]";
+    ATTRIBUTE lib_model OF Echo_BACK(0) : LABEL IS "iocell26";
+    ATTRIBUTE Location OF Echo_BACK(0) : LABEL IS "P3[6]";
+    ATTRIBUTE lib_model OF MOTOR_GRIPPER(0) : LABEL IS "iocell27";
+    ATTRIBUTE Location OF MOTOR_GRIPPER(0) : LABEL IS "P2[6]";
+    ATTRIBUTE lib_model OF MOTOR_GRIPPER_ARM(0) : LABEL IS "iocell28";
+    ATTRIBUTE Location OF MOTOR_GRIPPER_ARM(0) : LABEL IS "P2[7]";
+    ATTRIBUTE lib_model OF MOTOR_LIFTER(0) : LABEL IS "iocell29";
+    ATTRIBUTE Location OF MOTOR_LIFTER(0) : LABEL IS "P3[1]";
+    ATTRIBUTE lib_model OF MOTOR_TRUNK(0) : LABEL IS "iocell30";
+    ATTRIBUTE Location OF MOTOR_TRUNK(0) : LABEL IS "P3[2]";
+    ATTRIBUTE lib_model OF Indicator_RED(0) : LABEL IS "iocell31";
+    ATTRIBUTE Location OF Indicator_RED(0) : LABEL IS "P2[0]";
+    ATTRIBUTE lib_model OF Indicator_GREEN(0) : LABEL IS "iocell32";
+    ATTRIBUTE Location OF Indicator_GREEN(0) : LABEL IS "P3[0]";
+    ATTRIBUTE lib_model OF Indicator_BLUE(0) : LABEL IS "iocell33";
+    ATTRIBUTE Location OF Indicator_BLUE(0) : LABEL IS "P2[1]";
     ATTRIBUTE lib_model OF \QuadDec_RIGHT:Cnt16:CounterUDB:reload\ : LABEL IS "macrocell2";
     ATTRIBUTE lib_model OF \QuadDec_RIGHT:Cnt16:CounterUDB:status_0\ : LABEL IS "macrocell3";
     ATTRIBUTE lib_model OF \QuadDec_RIGHT:Cnt16:CounterUDB:status_2\ : LABEL IS "macrocell4";
@@ -1157,8 +1201,7 @@ BEGIN
             dclk_4 => Net_1150_local,
             dclk_glb_5 => Net_1100,
             dclk_5 => Net_1100_local,
-            dclk_glb_ff_0 => \ClockBlock.dclk_glb_ff_0__sig\,
-            dclk_glb_ff_4 => \ClockBlock.dclk_glb_ff_4__sig\);
+            dclk_glb_ff_0 => \ClockBlock.dclk_glb_ff_0__sig\);
 
     MOTOR_EN_RIGHT:logicalport
         GENERIC MAP(
@@ -3889,6 +3932,276 @@ BEGIN
             out_clock_en => '1',
             out_reset => '0');
 
+    Indicator_RED:logicalport
+        GENERIC MAP(
+            drive_mode => "110",
+            ibuf_enabled => "1",
+            id => "08c13b4b-a3ed-4f7f-9d8c-fc25ceb7777d",
+            init_dr_st => "0",
+            input_buffer_sel => "00",
+            input_clk_en => 0,
+            input_sync => "1",
+            input_sync_mode => "0",
+            intr_mode => "00",
+            invert_in_clock => 0,
+            invert_in_clock_en => 0,
+            invert_in_reset => 0,
+            invert_out_clock => 0,
+            invert_out_clock_en => 0,
+            invert_out_reset => 0,
+            io_voltage => "",
+            layout_mode => "CONTIGUOUS",
+            oe_conn => "0",
+            oe_reset => 0,
+            oe_sync => "0",
+            output_clk_en => 0,
+            output_clock_mode => "0",
+            output_conn => "0",
+            output_mode => "0",
+            output_reset => 0,
+            output_sync => "0",
+            ovt_hyst_trim => "0",
+            ovt_needed => "0",
+            ovt_slew_control => "00",
+            pa_in_clock => -1,
+            pa_in_clock_en => -1,
+            pa_in_reset => -1,
+            pa_out_clock => -1,
+            pa_out_clock_en => -1,
+            pa_out_reset => -1,
+            pin_aliases => "",
+            pin_mode => "O",
+            por_state => 4,
+            port_alias_group => "",
+            port_alias_required => 0,
+            sio_group_cnt => 0,
+            sio_hifreq => "00000000",
+            sio_hyst => "1",
+            sio_ibuf => "00000000",
+            sio_info => "00",
+            sio_obuf => "00000000",
+            sio_refsel => "00000000",
+            sio_vohsel => "00000000",
+            sio_vtrip => "00000000",
+            slew_rate => "0",
+            spanning => 0,
+            sw_only => 0,
+            use_annotation => "0",
+            vtrip => "10",
+            width => 1,
+            in_clk_inv => 0,
+            in_clken_inv => 0,
+            in_clken_mode => 1,
+            in_rst_inv => 0,
+            out_clk_inv => 0,
+            out_clken_inv => 0,
+            out_clken_mode => 1,
+            out_rst_inv => 0)
+        PORT MAP(
+            in_clock_en => open,
+            in_reset => open,
+            out_clock_en => open,
+            out_reset => open);
+
+    Indicator_RED(0):iocell
+        GENERIC MAP(
+            in_sync_mode => 0,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "Indicator_RED",
+            logicalport_pin_id => 0,
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000001")
+        PORT MAP(
+            pa_out => Indicator_RED(0)__PA,
+            oe => open,
+            pad_in => Indicator_RED(0)_PAD,
+            in_clock => open,
+            in_clock_en => '1',
+            in_reset => '0',
+            out_clock => open,
+            out_clock_en => '1',
+            out_reset => '0');
+
+    Indicator_GREEN:logicalport
+        GENERIC MAP(
+            drive_mode => "110",
+            ibuf_enabled => "1",
+            id => "8a430e8b-fa48-4984-8817-5b69e016de88",
+            init_dr_st => "0",
+            input_buffer_sel => "00",
+            input_clk_en => 0,
+            input_sync => "1",
+            input_sync_mode => "0",
+            intr_mode => "00",
+            invert_in_clock => 0,
+            invert_in_clock_en => 0,
+            invert_in_reset => 0,
+            invert_out_clock => 0,
+            invert_out_clock_en => 0,
+            invert_out_reset => 0,
+            io_voltage => "",
+            layout_mode => "CONTIGUOUS",
+            oe_conn => "0",
+            oe_reset => 0,
+            oe_sync => "0",
+            output_clk_en => 0,
+            output_clock_mode => "0",
+            output_conn => "0",
+            output_mode => "0",
+            output_reset => 0,
+            output_sync => "0",
+            ovt_hyst_trim => "0",
+            ovt_needed => "0",
+            ovt_slew_control => "00",
+            pa_in_clock => -1,
+            pa_in_clock_en => -1,
+            pa_in_reset => -1,
+            pa_out_clock => -1,
+            pa_out_clock_en => -1,
+            pa_out_reset => -1,
+            pin_aliases => "",
+            pin_mode => "O",
+            por_state => 4,
+            port_alias_group => "",
+            port_alias_required => 0,
+            sio_group_cnt => 0,
+            sio_hifreq => "00000000",
+            sio_hyst => "1",
+            sio_ibuf => "00000000",
+            sio_info => "00",
+            sio_obuf => "00000000",
+            sio_refsel => "00000000",
+            sio_vohsel => "00000000",
+            sio_vtrip => "00000000",
+            slew_rate => "0",
+            spanning => 0,
+            sw_only => 0,
+            use_annotation => "0",
+            vtrip => "10",
+            width => 1,
+            in_clk_inv => 0,
+            in_clken_inv => 0,
+            in_clken_mode => 1,
+            in_rst_inv => 0,
+            out_clk_inv => 0,
+            out_clken_inv => 0,
+            out_clken_mode => 1,
+            out_rst_inv => 0)
+        PORT MAP(
+            in_clock_en => open,
+            in_reset => open,
+            out_clock_en => open,
+            out_reset => open);
+
+    Indicator_GREEN(0):iocell
+        GENERIC MAP(
+            in_sync_mode => 0,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "Indicator_GREEN",
+            logicalport_pin_id => 0,
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000001")
+        PORT MAP(
+            pa_out => Indicator_GREEN(0)__PA,
+            oe => open,
+            pad_in => Indicator_GREEN(0)_PAD,
+            in_clock => open,
+            in_clock_en => '1',
+            in_reset => '0',
+            out_clock => open,
+            out_clock_en => '1',
+            out_reset => '0');
+
+    Indicator_BLUE:logicalport
+        GENERIC MAP(
+            drive_mode => "110",
+            ibuf_enabled => "1",
+            id => "6e5990c2-6d6e-4a52-9df7-1d8c677e7c31",
+            init_dr_st => "0",
+            input_buffer_sel => "00",
+            input_clk_en => 0,
+            input_sync => "1",
+            input_sync_mode => "0",
+            intr_mode => "00",
+            invert_in_clock => 0,
+            invert_in_clock_en => 0,
+            invert_in_reset => 0,
+            invert_out_clock => 0,
+            invert_out_clock_en => 0,
+            invert_out_reset => 0,
+            io_voltage => "",
+            layout_mode => "CONTIGUOUS",
+            oe_conn => "0",
+            oe_reset => 0,
+            oe_sync => "0",
+            output_clk_en => 0,
+            output_clock_mode => "0",
+            output_conn => "0",
+            output_mode => "0",
+            output_reset => 0,
+            output_sync => "0",
+            ovt_hyst_trim => "0",
+            ovt_needed => "0",
+            ovt_slew_control => "00",
+            pa_in_clock => -1,
+            pa_in_clock_en => -1,
+            pa_in_reset => -1,
+            pa_out_clock => -1,
+            pa_out_clock_en => -1,
+            pa_out_reset => -1,
+            pin_aliases => "",
+            pin_mode => "O",
+            por_state => 4,
+            port_alias_group => "",
+            port_alias_required => 0,
+            sio_group_cnt => 0,
+            sio_hifreq => "00000000",
+            sio_hyst => "1",
+            sio_ibuf => "00000000",
+            sio_info => "00",
+            sio_obuf => "00000000",
+            sio_refsel => "00000000",
+            sio_vohsel => "00000000",
+            sio_vtrip => "00000000",
+            slew_rate => "0",
+            spanning => 0,
+            sw_only => 0,
+            use_annotation => "0",
+            vtrip => "10",
+            width => 1,
+            in_clk_inv => 0,
+            in_clken_inv => 0,
+            in_clken_mode => 1,
+            in_rst_inv => 0,
+            out_clk_inv => 0,
+            out_clken_inv => 0,
+            out_clken_mode => 1,
+            out_rst_inv => 0)
+        PORT MAP(
+            in_clock_en => open,
+            in_reset => open,
+            out_clock_en => open,
+            out_reset => open);
+
+    Indicator_BLUE(0):iocell
+        GENERIC MAP(
+            in_sync_mode => 0,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "Indicator_BLUE",
+            logicalport_pin_id => 0,
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000001")
+        PORT MAP(
+            pa_out => Indicator_BLUE(0)__PA,
+            oe => open,
+            pad_in => Indicator_BLUE(0)_PAD,
+            in_clock => open,
+            in_clock_en => '1',
+            in_reset => '0',
+            out_clock => open,
+            out_clock_en => '1',
+            out_reset => '0');
+
     \QuadDec_RIGHT:Cnt16:CounterUDB:reload\:macrocell
         GENERIC MAP(
             eqn_main => "(!main_0 * !main_1 * !main_2)",
@@ -5210,7 +5523,7 @@ BEGIN
             timer_reset => open,
             tc => \Wheel_Timer:Net_51\,
             cmp => \Wheel_Timer:Net_261\,
-            irq => \Wheel_Timer:Net_57\);
+            irq => Net_211);
 
     \UART_1:BUART:sTX:TxShifter:u0\:datapathcell
         GENERIC MAP(
@@ -6126,18 +6439,13 @@ BEGIN
             sor => \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:u1.sor__sig\,
             cmsbo => \PWM_Servo_Trunk:PWMUDB:sP16:pwmdp:u1.cmsbo__sig\);
 
-    \Timer_Servo:TimerHW\:timercell
+    isr_wheel_controller:interrupt
         GENERIC MAP(
-            cy_registers => "")
+            int_type => "10",
+            is_nmi => 0)
         PORT MAP(
-            clock => \ClockBlock.dclk_glb_ff_4__sig\,
-            kill => open,
-            enable => __ONE__,
-            capture => open,
-            timer_reset => open,
-            tc => \Timer_Servo:Net_51\,
-            cmp => \Timer_Servo:Net_261\,
-            irq => \Timer_Servo:Net_57\);
+            interrupt => Net_211,
+            clock => ClockBlock_BUS_CLK);
 
     \QuadDec_RIGHT:Net_1251\:macrocell
         GENERIC MAP(

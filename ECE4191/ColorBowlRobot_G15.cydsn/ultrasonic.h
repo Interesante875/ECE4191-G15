@@ -13,11 +13,11 @@
 #ifndef ULTRASONIC_H
 #define ULTRASONIC_H
 
-#include <stdint.h>
-#include "project.h"
-#include "cytypes.h"
+    #include <stdint.h>
+    #include "project.h"
+    #include "cytypes.h"
     
-    #define N 5
+    #define NUMBER_OF_UDS 5
     #define ULTRASONIC_BURSTS 3
 
     /*
@@ -31,8 +31,8 @@
     bit 6 - NOT IMPLEMENTED  
     bit 7 - NOT IMPLEMENTED  
     */ 
-    int udsState = 0;
-    double kaldist_measure[N] = {0};
+    int udsState;;
+    double kaldist_measure[NUMBER_OF_UDS];
     
     // Function prototypes
     void ultrasonic_setup();
