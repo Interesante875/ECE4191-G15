@@ -15,23 +15,27 @@
 #include <stdio.h>
 #include <pthread.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 uint16 count = 0;
+bool not_echoed = true;
 
 CY_ISR (ISR_Handler_Timer) {
+    not_echoed = false;
     ultrasonic_get_distance();
 }
 
 
 void ultrasonic_setup() {
     
-    memset(kaldist_measure, 0, sizeof(kaldist_measure));
+    //memset(kaldist_measure, 0, sizeof(kaldist_measure));
+    Control_Reg_Ultrasonic_Write(0);
     udsState = Control_Reg_Ultrasonic_Read();
     
     Timer_Ultrasonic_Start();
     isr_ultrasonic_StartEx(ISR_Handler_Timer);
     
-    printValue("Ultrasonic Module ON with Selection %d\n", udsState);
+    //printValue("Ultrasonic Module ON\n");
     
 }
 
@@ -40,29 +44,28 @@ void ultrasonic_off() {
     Timer_Ultrasonic_Stop();
     isr_ultrasonic_Stop();
     
-    printValue("Ultrasonic Module OFF");
+    //printValue("Ultrasonic Module OFF\n");
 }
 
 void ultrasonic_select(int idx) {
     Control_Reg_Ultrasonic_Write(idx);
     CyDelayUs(10);
     udsState = Control_Reg_Ultrasonic_Read();
-    printValue("Ultrasonic Module ON with Selection %d\n", udsState);
+    CyDelayUs(10);
+    //printValue("Ultrasonic Module Selection %d\n", udsState);
 }
 
 void ultrasonic_transmit() {
     
-    udsState = Control_Reg_Ultrasonic_Read();
+    //udsState = Control_Reg_Ultrasonic_Read();
     
-    printValue("Ultrasonic Module TRANSMITTING with Selection %d\n", udsState);
+    //printValue("Ultrasonic Module TRANSMITTING with Selection %d\n", udsState);
     
-    Trigger_Write(1);
-    CyDelayUs(10);
-    Trigger_Write(0);
-    CyDelayUs(2);
-    /*
+    not_echoed = true;
+    
     if (udsState == 0) {
         do {
+            if (!not_echoed) break;
             Trigger_Write(1);
             CyDelayUs(10);
             Trigger_Write(0);
@@ -71,6 +74,7 @@ void ultrasonic_transmit() {
         while (!Echo_LEFT_Read());
     } else if (udsState == 1) {
         do {
+            if (!not_echoed) break;
             Trigger_Write(1);
             CyDelayUs(10);
             Trigger_Write(0);
@@ -79,6 +83,7 @@ void ultrasonic_transmit() {
         while (!Echo_RIGHT_Read()); 
     } else if (udsState == 2) {
         do {
+            if (!not_echoed) break;
             Trigger_Write(1);
             CyDelayUs(10);
             Trigger_Write(0);
@@ -87,6 +92,7 @@ void ultrasonic_transmit() {
         while (!Echo_FLEFT_Read()); 
     } else if (udsState == 3) {
         do {
+            if (!not_echoed) break;
             Trigger_Write(1);
             CyDelayUs(10);
             Trigger_Write(0);
@@ -95,6 +101,7 @@ void ultrasonic_transmit() {
         while (!Echo_FRIGHT_Read()); 
     } else if (udsState == 4) {
         do {
+            if (!not_echoed) break;
             Trigger_Write(1);
             CyDelayUs(10);
             Trigger_Write(0);
@@ -102,15 +109,20 @@ void ultrasonic_transmit() {
         }
         while (!Echo_BACK_Read());
     }
-    */
-    printValue("Ultrasonic Module finish TRANSMITTING with Selection %d\n", udsState);
+    
+    //printValue("Ultrasonic Module finish TRANSMITTING with Selection %d\n", udsState);
 }
 
 void ultrasonic_get_distance() {
-    int idx = Control_Reg_Ultrasonic_Read();
+    
     Timer_Ultrasonic_ReadStatusRegister();
     int counter = Timer_Ultrasonic_ReadCounter();
     double distance = (double)(65535 - counter)/58;
+    
+    int idx = Control_Reg_Ultrasonic_Read();
+    CyDelayUs(10);
+    //printValue("%d: Distance: %d\t", idx, (int) distance);
+    
     kaldist_measure[idx] = kalman_filter(distance, idx);
 }
 
@@ -132,17 +144,23 @@ double kalman_filter(double U, int idx) {
 
 void ultrasonic_measuring() {
     
-    ultrasonic_setup();
+    ultrasonic_select(0);
+    ultrasonic_transmit();
+    
+    
+    /*
     
     for (int i = 0; i < NUMBER_OF_UDS; i++) {
         ultrasonic_select(i);
         ultrasonic_transmit();
+        
         //for (int burst = 0; burst < ULTRASONIC_BURSTS; burst++) {
         //    ultrasonic_transmit();
         // }
     }
+//    */
     
-    ultrasonic_off();
+    
 }
 
 

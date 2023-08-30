@@ -17,7 +17,7 @@
 #include <stdbool.h>
 #include "locomotion.h"
 #include "controller.h"
-
+#include "bluetooth.h"
 
 void motor_left_start_QuadDec() {
     QuadDec_LEFT_Start();
@@ -174,18 +174,32 @@ void wheel_motion_set(MOTION motion) {
             MOTOR_RIGHT_IN_4_Write(0);
             break;
         case LEFT:
+            /*
             MOTOR_LEFT_IN_1_Write(1);
             MOTOR_LEFT_IN_2_Write(0);
             
             MOTOR_RIGHT_IN_3_Write(0);
             MOTOR_RIGHT_IN_4_Write(1);
-            break;
-        case RIGHT:
+            */
             MOTOR_LEFT_IN_1_Write(0);
             MOTOR_LEFT_IN_2_Write(1);
             
             MOTOR_RIGHT_IN_3_Write(1);
             MOTOR_RIGHT_IN_4_Write(0);
+            break;
+        case RIGHT:
+            /*
+            MOTOR_LEFT_IN_1_Write(0);
+            MOTOR_LEFT_IN_2_Write(1);
+            
+            MOTOR_RIGHT_IN_3_Write(1);
+            MOTOR_RIGHT_IN_4_Write(0);
+            */
+            MOTOR_LEFT_IN_1_Write(1);
+            MOTOR_LEFT_IN_2_Write(0);
+            
+            MOTOR_RIGHT_IN_3_Write(0);
+            MOTOR_RIGHT_IN_4_Write(1);
             break;
         default:
             MOTOR_LEFT_IN_1_Write(0);
@@ -353,6 +367,8 @@ void wheel_turn_by_angle(MOTION motion, uint8 pwm, double angle) {
         slave_motor_right_ticks = -motor_right_get_count_QuadDec();
         
     }
+    
+    //printValue("LEFT: %d\t RIGHT: %d\n ", master_motor_left_ticks, slave_motor_right_ticks);
     
     motor_stop();
     

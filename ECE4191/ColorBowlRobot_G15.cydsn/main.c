@@ -14,25 +14,27 @@
 #include <math.h>
 #include "ultrasonic.h"
 #include "bluetooth.h"
+#include "locomotion.h"
 
 int main(void)
 {
     CyGlobalIntEnable; /* Enable global interrupts. */
-    bluetooth_start();
-    handshake();
-    ultrasonic_measuring();
+    ultrasonic_setup();
+    
+    
+    
+    //wheel_turn_by_angle(LEFT, 240, 90);
     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
-    char string_print[64];
     for(;;)
     {
         ultrasonic_measuring();
-        for (int i = 0; i < NUMBER_OF_UDS; i++) {
-            sprintf(string_print, "Distance: %d\t", (int) kaldist_measure[i]);
-            UART_1_PutString(string_print);
-        }
-        UART_1_PutString("\n");
         
-        CyDelay(500);
+        if (kaldist_measure[0] < 5) {
+            Indicator_RED_Write(1);        
+        } else {
+            Indicator_RED_Write(0);
+        }
+        
         
 
     }

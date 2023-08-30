@@ -16,6 +16,7 @@
     
     
     #define TICKS_PER_REVOLUTION 14375 
+    //#define TICKS_PER_REVOLUTION 2500
     #define WHEEL_RADIUS 0.02695 // wheel radius value in meters
     #define WHEEL_DISTANCE 0.24 
     
@@ -36,8 +37,8 @@
         DISABLE
     } MOVE_STATUS;
     
-    extern volatile MOVE_STATUS moveStatus;
-    extern volatile MOTION currentMotion;
+    MOVE_STATUS moveStatus;
+    MOTION currentMotion;
 
     void motor_left_start_QuadDec();
     void motor_left_stop_QuadDec();
