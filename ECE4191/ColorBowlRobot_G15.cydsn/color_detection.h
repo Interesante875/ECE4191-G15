@@ -35,7 +35,7 @@
         WHITE
     } COLOR;
     
-    extern volatile COLOR detectedColor;
+    COLOR detectedColor;
 
     void color_sensor_start();
     void color_sensor_stop();

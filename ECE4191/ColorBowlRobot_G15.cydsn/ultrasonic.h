@@ -16,6 +16,7 @@
     #include <stdint.h>
     #include "project.h"
     #include "cytypes.h"
+    #include "median_filter.h"
     
     #define NUMBER_OF_UDS 5
     #define ULTRASONIC_BURSTS 3
@@ -33,6 +34,11 @@
     */ 
     int udsState;;
     double kaldist_measure[NUMBER_OF_UDS];
+    double uds_LEFT[ARRAY_SIZE] = {0};
+    double uds_RIGHT[ARRAY_SIZE] = {0};
+    double uds_FLEFT[ARRAY_SIZE] = {0};
+    double uds_FRIGHT[ARRAY_SIZE] = {0};
+    double uds_BACK[ARRAY_SIZE] = {0};
     
     // Function prototypes
     void ultrasonic_setup();

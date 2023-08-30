@@ -124,6 +124,28 @@ void ultrasonic_get_distance() {
     //printValue("%d: Distance: %d\t", idx, (int) distance);
     
     kaldist_measure[idx] = kalman_filter(distance, idx);
+    
+    switch(idx) {
+        case 0:   
+            medianFilter(uds_LEFT, kaldist_measure[idx]);
+            break;
+        case 1:
+            medianFilter(uds_RIGHT, kaldist_measure[idx]);
+            break;
+        case 2:
+            medianFilter(uds_FLEFT, kaldist_measure[idx]);
+            break;
+        case 3:
+            medianFilter(uds_FRIGHT, kaldist_measure[idx]);
+            break;
+        case 4:
+            medianFilter(uds_BACK, kaldist_measure[idx]);
+            break;
+        default:
+            medianFilter(uds_BACK, kaldist_measure[idx]);
+            break;
+    }
+    
 }
 
 double kalman_filter(double U, int idx) {
@@ -141,6 +163,7 @@ double kalman_filter(double U, int idx) {
 
     return U_hat[idx];
 }
+
 
 void ultrasonic_measuring() {
     

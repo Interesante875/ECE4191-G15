@@ -1,16 +1,23 @@
+/* ========================================
+ *
+ * Copyright YOUR COMPANY, THE YEAR
+ * All Rights Reserved
+ * UNPUBLISHED, LICENSED SOFTWARE.
+ *
+ * CONFIDENTIAL AND PROPRIETARY INFORMATION
+ * WHICH IS THE PROPERTY OF your company.
+ *
+ * ========================================
+*/
 #ifndef MEDIAN_FILTER_H
-#define MEDIAN_FILTER_H
+    #define MEDIAN_FILTER_H
+    #define ARRAY_SIZE 5
+    #include <stdio.h>
 
-#define ARRAY_SIZE 5
-
-// Function to sort the array using insertion sort
-void insertionSort(double arr[], int n);
-
-// Function to find the median of an array
-double findMedian(double arr[], int n);
-
-// Function to update the FIFO array and calculate the median
-double medianFilter(double fifo[], double newValue);
-
+    void swap(double *a, double *b);
+    int partition(double *arr, int low, int high);
+    void quickSort(double *arr, int low, int high);
+    double findMedian(double arr[], int n);
+    double medianFilter(double fifo[], double newValue);
 #endif
-
+/* [] END OF FILE */

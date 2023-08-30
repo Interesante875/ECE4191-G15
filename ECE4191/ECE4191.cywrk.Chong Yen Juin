@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="ECE4191\ColorBowlRobot_G15\Source Files\ultrasonic.c">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="ECE4191\ColorBowlRobot_G15\Source Files\controller.c">
 <ExpandedNodeIds>
 <v>ECE4191</v>
 <v>ECE4191\ColorBowlRobot_G15</v>
@@ -34,7 +34,6 @@
 <v>ECE4191\ColorBowlRobot_G15\Header Files\cyapicallbacks.h</v>
 <v>ECE4191\ColorBowlRobot_G15\Header Files\irsensor.h</v>
 <v>ECE4191\ColorBowlRobot_G15\Header Files\locomotion.h</v>
-<v>ECE4191\ColorBowlRobot_G15\Header Files\mean_filter.h</v>
 <v>ECE4191\ColorBowlRobot_G15\Header Files\median_filter.h</v>
 <v>ECE4191\ColorBowlRobot_G15\Header Files\navigation_stack.h</v>
 <v>ECE4191\ColorBowlRobot_G15\Header Files\prelim.h</v>
@@ -48,7 +47,6 @@
 <v>ECE4191\ColorBowlRobot_G15\Source Files\irsensor.c</v>
 <v>ECE4191\ColorBowlRobot_G15\Source Files\locomotion.c</v>
 <v>ECE4191\ColorBowlRobot_G15\Source Files\main.c</v>
-<v>ECE4191\ColorBowlRobot_G15\Source Files\mean_filter.c</v>
 <v>ECE4191\ColorBowlRobot_G15\Source Files\median_filter.c</v>
 <v>ECE4191\ColorBowlRobot_G15\Source Files\navigation_stack.c</v>
 <v>ECE4191\ColorBowlRobot_G15\Source Files\prelim.c</v>
@@ -57,6 +55,8 @@
 <v>ECE4191\ColorBowlRobot_G15\Generated_Source\PSoC5</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
+<v>ECE4191\ColorBowlRobot_G15\TopDesign</v>
+<v>ECE4191\ColorBowlRobot_G15\ColorBowlRobot_G15.cydwr</v>
 <v>ECE4191\ColorBowlRobot_G15\Header Files</v>
 <v>ECE4191\ColorBowlRobot_G15\Header Files\bluetooth.h</v>
 <v>ECE4191\ColorBowlRobot_G15\Header Files\color_detection.h</v>
@@ -64,7 +64,6 @@
 <v>ECE4191\ColorBowlRobot_G15\Header Files\cyapicallbacks.h</v>
 <v>ECE4191\ColorBowlRobot_G15\Header Files\irsensor.h</v>
 <v>ECE4191\ColorBowlRobot_G15\Header Files\locomotion.h</v>
-<v>ECE4191\ColorBowlRobot_G15\Header Files\mean_filter.h</v>
 <v>ECE4191\ColorBowlRobot_G15\Header Files\median_filter.h</v>
 <v>ECE4191\ColorBowlRobot_G15\Header Files\navigation_stack.h</v>
 <v>ECE4191\ColorBowlRobot_G15\Header Files\prelim.h</v>
@@ -78,7 +77,6 @@
 <v>ECE4191\ColorBowlRobot_G15\Source Files\irsensor.c</v>
 <v>ECE4191\ColorBowlRobot_G15\Source Files\locomotion.c</v>
 <v>ECE4191\ColorBowlRobot_G15\Source Files\main.c</v>
-<v>ECE4191\ColorBowlRobot_G15\Source Files\mean_filter.c</v>
 <v>ECE4191\ColorBowlRobot_G15\Source Files\median_filter.c</v>
 <v>ECE4191\ColorBowlRobot_G15\Source Files\navigation_stack.c</v>
 <v>ECE4191\ColorBowlRobot_G15\Source Files\prelim.c</v>
@@ -156,7 +154,6 @@
 <v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\LED.lst</v>
 <v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\locomotion.lst</v>
 <v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
-<v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\mean_filter.lst</v>
 <v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\median_filter.lst</v>
 <v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\MOTOR_EN_LEFT.lst</v>
 <v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\MOTOR_EN_RIGHT.lst</v>
@@ -226,6 +223,32 @@
 <VisibleNodeIds>
 <v>ECE4191</v>
 <v>ECE4191\ColorBowlRobot_G15</v>
+<v>ECE4191\ColorBowlRobot_G15\CortexM3</v>
+<v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541</v>
+<v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug</v>
+<v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
+<v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\bluetooth.lst</v>
+<v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock_1.lst</v>
+<v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock_2.lst</v>
+<v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock_3.lst</v>
+<v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock_4.lst</v>
+<v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock_5.lst</v>
+<v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
+<v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\color_detection.lst</v>
+<v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\Control_Reg_Color_Sensor.lst</v>
+<v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\Control_Reg_Color_Sensor_PM.lst</v>
+<v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\Control_Reg_Ultrasonic.lst</v>
+<v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\Control_Reg_Ultrasonic_PM.lst</v>
+<v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\controller.lst</v>
+<v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\Count.lst</v>
+<v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\Counter_Color_Sensor.lst</v>
+<v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\Counter_Color_Sensor_PM.lst</v>
+<v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
+<v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -304,13 +327,15 @@
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
 <OpenDocs>
+<name v=".\ColorBowlRobot_G15.cydsn\color_detection.c" />
+<name v=".\ColorBowlRobot_G15.cydsn\color_detection.h" />
 <name v=".\ColorBowlRobot_G15.cydsn\main.c" />
-<name v=".\ColorBowlRobot_G15.cydsn\locomotion.c" />
-<name v=".\ColorBowlRobot_G15.cydsn\locomotion.h" />
+<name v=".\ColorBowlRobot_G15.cydsn\median_filter.h" />
+<name v=".\ColorBowlRobot_G15.cydsn\median_filter.c" />
 <name v=".\ColorBowlRobot_G15.cydsn\ultrasonic.h" />
 <name v=".\ColorBowlRobot_G15.cydsn\ultrasonic.c" />
-<name v=".\ColorBowlRobot_G15.cydsn\TopDesign\TopDesign.cysch" />
-<name v=".\ColorBowlRobot_G15.cydsn\ColorBowlRobot_G15.cydwr" />
+<name v=".\ColorBowlRobot_G15.cydsn\controller.c" />
+<name v=".\ColorBowlRobot_G15.cydsn\locomotion.c" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -318,7 +343,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="837, 374" SelectedTabbedMdiWindow="650de824-a6ed-47ad-a86a-a28e9c0b5030"><DocumentWindow Key="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\main.c" Guid="650de824-a6ed-47ad-a86a-a28e9c0b5030" /><DocumentWindow Key="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\locomotion.c" Guid="5188ee7e-fff4-4749-aedf-d04131853b0f" /><DocumentWindow Key="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\locomotion.h" Guid="6338d249-e8fd-42c2-9365-6787cd56e1d1" /><DocumentWindow Key="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\ultrasonic.h" Guid="1826bf44-250e-4ec8-b1c9-9984429ebf9a" /><DocumentWindow Key="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\ultrasonic.c" Guid="5e7ccb4f-1340-472b-b223-fa932ed87a78" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="b534b6ea-1ad7-4e1a-b4e0-6ec571c980f3" /><DocumentWindow Key="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\TopDesign\TopDesign.cysch" Guid="79c7a1ab-165f-4730-96da-2fe41f04e793" /><DocumentWindow Key="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\ColorBowlRobot_G15.cydwr" Guid="487b6e1a-b3f8-4b3d-961f-ae109b5d57ac" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="837, 388" SelectedTabbedMdiWindow="c00ed0fc-a4a6-4b57-9072-19b29aba85c7"><DocumentWindow Key="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\color_detection.c" Guid="b7479640-2a7c-45a4-8c04-f6766d437636" /><DocumentWindow Key="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\color_detection.h" Guid="399e85e0-0086-4c0b-9b74-f49e0b72a27c" /><DocumentWindow Key="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\main.c" Guid="14ca29a6-3009-41df-8791-0a98ad219543" /><DocumentWindow Key="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\median_filter.h" Guid="93575f55-fce0-40ec-8de5-b3f037f9e373" /><DocumentWindow Key="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\median_filter.c" Guid="7926b744-4171-43d0-94d9-17711e541eca" /><DocumentWindow Key="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\ultrasonic.h" Guid="c00ed0fc-a4a6-4b57-9072-19b29aba85c7" /><DocumentWindow Key="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\ultrasonic.c" Guid="5b897c2f-8df9-42fd-a213-bd3e789e70e0" /><DocumentWindow Key="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\controller.c" Guid="3fbea63f-7c13-4ea8-84ce-b9199c65ccc9" /><DocumentWindow Key="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\locomotion.c" Guid="c2844e2c-52a1-45ce-862f-da3726f170ef" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
