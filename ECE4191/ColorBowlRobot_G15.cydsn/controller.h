@@ -18,11 +18,18 @@
     #define PWM_MAX 255
     #define PWM_MIN 0 
     #define P_CONST 0.75
+    #define I_CONST 0.0095
+    #define D_CONST 0.00075
     
     void initializePController(double prop_constant);
     void resetPController();
     
-    uint8 computePController(int master_tick, int slave_tick, uint8 master_pwm);    
+    uint8 computePController(int master_tick, int slave_tick, uint8 master_pwm); 
+    
+    void initializePIDController(double prop_constant, double int_constant, double de_constant);
+    void resetPIDController();
+    
+    uint8 computePIDController(int master_tick, int slave_tick, uint8 master_pwm);
     
 #endif /* CONTROLLER_H */
 /* [] END OF FILE */

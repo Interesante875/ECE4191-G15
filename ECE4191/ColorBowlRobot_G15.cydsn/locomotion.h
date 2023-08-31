@@ -62,6 +62,7 @@
     
     
     void motor_start(uint8);
+    void motor_stop();
     void wheel_motion_set(MOTION motion);
     void wheel_move_by_ticks(MOTION, uint8, int);
     void wheel_move_by_distance(MOTION motion, uint8 pwm, double distance);
@@ -69,6 +70,7 @@
     void wheel_turn_by_angle(MOTION motion, uint8 pwm, double angle);
     
     void robot_locomotion_initialization();
+    void angle_correction(uint8 pwm, double flu, double fru);
     
     CY_ISR (ISR_Handler_wheel_controller);
 

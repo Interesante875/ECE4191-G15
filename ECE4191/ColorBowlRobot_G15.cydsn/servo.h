@@ -30,9 +30,9 @@
         FLOOR1
     } TRUNK;
     
-    extern volatile GRIPPER_FOREARM gripper;
-    extern volatile LIFT lift;
-    extern volatile TRUNK trunk;
+    GRIPPER_FOREARM gripper;
+    LIFT lift;
+    TRUNK trunk;
     
     void gripper_start();
     void arm_start();

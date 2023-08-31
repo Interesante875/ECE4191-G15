@@ -2,7 +2,7 @@
 --	Conversion of ColorBowlRobot_G15.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Wed Aug 30 15:15:37 2023
+--	Fri Sep 01 03:15:18 2023
 --
 
 USE cypress.cypress.all;
@@ -1313,10 +1313,10 @@ TERMINAL tmpSIOVREF__IR_Sensor_LEFT_net_0 : bit;
 SIGNAL tmpINTERRUPT_0__IR_Sensor_LEFT_net_0 : bit;
 SIGNAL \Wheel_Timer:Net_260\ : bit;
 SIGNAL \Wheel_Timer:Net_266\ : bit;
+SIGNAL Net_1310 : bit;
 SIGNAL \Wheel_Timer:Net_51\ : bit;
 SIGNAL \Wheel_Timer:Net_261\ : bit;
 SIGNAL \Wheel_Timer:Net_57\ : bit;
-SIGNAL Net_211 : bit;
 SIGNAL Net_212 : bit;
 SIGNAL \Wheel_Timer:Net_102\ : bit;
 SIGNAL \UART_1:Net_9\ : bit;
@@ -1708,7 +1708,7 @@ SIGNAL tmpOE__Count_net_0 : bit;
 SIGNAL tmpIO_0__Count_net_0 : bit;
 TERMINAL tmpSIOVREF__Count_net_0 : bit;
 SIGNAL tmpINTERRUPT_0__Count_net_0 : bit;
-SIGNAL Net_1044 : bit;
+SIGNAL Net_1307 : bit;
 SIGNAL tmpOE__Trigger_net_0 : bit;
 SIGNAL Net_1085 : bit;
 SIGNAL tmpIO_0__Trigger_net_0 : bit;
@@ -3778,6 +3778,15 @@ SIGNAL tmpFB_0__Indicator_BLUE_net_0 : bit;
 SIGNAL tmpIO_0__Indicator_BLUE_net_0 : bit;
 TERMINAL tmpSIOVREF__Indicator_BLUE_net_0 : bit;
 SIGNAL tmpINTERRUPT_0__Indicator_BLUE_net_0 : bit;
+SIGNAL Net_12 : bit;
+SIGNAL \Timer_Ultrasonic_Burst:Net_260\ : bit;
+SIGNAL \Timer_Ultrasonic_Burst:Net_266\ : bit;
+SIGNAL \Timer_Ultrasonic_Burst:Net_51\ : bit;
+SIGNAL \Timer_Ultrasonic_Burst:Net_261\ : bit;
+SIGNAL \Timer_Ultrasonic_Burst:Net_57\ : bit;
+SIGNAL Net_1300 : bit;
+SIGNAL Net_1301 : bit;
+SIGNAL \Timer_Ultrasonic_Burst:Net_102\ : bit;
 SIGNAL \QuadDec_RIGHT:Net_1251\\D\ : bit;
 SIGNAL \QuadDec_RIGHT:Cnt16:CounterUDB:prevCapture\\D\ : bit;
 SIGNAL \QuadDec_RIGHT:Cnt16:CounterUDB:overflow_reg_i\\D\ : bit;
@@ -6408,10 +6417,10 @@ IR_Sensor_LEFT:cy_psoc3_pins_v1_10
 		kill=>zero,
 		enable=>tmpOE__MOTOR_EN_RIGHT_net_0,
 		capture=>zero,
-		timer_reset=>zero,
+		timer_reset=>Net_1310,
 		tc=>\Wheel_Timer:Net_51\,
 		compare=>\Wheel_Timer:Net_261\,
-		interrupt=>Net_211);
+		interrupt=>Net_1310);
 \UART_1:IntClock\:cy_clock_v1_0
 	GENERIC MAP(cy_registers=>"",
 		id=>"040378c3-2011-4d1b-8915-0ca7d60baa75/be0a0e37-ad17-42ca-b5a1-1a654d736358",
@@ -7155,7 +7164,7 @@ Clock_3:cy_clock_v1_0
 		period=>"1000000000",
 		is_direct=>'0',
 		is_digital=>'1')
-	PORT MAP(clock_out=>Net_1044,
+	PORT MAP(clock_out=>Net_1307,
 		dig_domain_out=>open);
 Trigger:cy_psoc3_pins_v1_10
 	GENERIC MAP(id=>"2f2b85cb-ac86-4068-b571-fb320ecd279f",
@@ -7593,12 +7602,12 @@ Echo_FRIGHT:cy_psoc3_pins_v1_10
 		interrupt=>tmpINTERRUPT_0__Echo_FRIGHT_net_0);
 \Timer_Ultrasonic:TimerUDB:clock_enable_block\:cy_psoc3_udb_clock_enable_v1_0
 	GENERIC MAP(sync_mode=>'1')
-	PORT MAP(clock_in=>Net_1044,
+	PORT MAP(clock_in=>Net_1307,
 		enable=>tmpOE__MOTOR_EN_RIGHT_net_0,
 		clock_out=>\Timer_Ultrasonic:TimerUDB:ClockOutFromEnBlock\);
 \Timer_Ultrasonic:TimerUDB:sCTRLReg:SyncCtl:cy_psoc3_udb_Ctl_Clk_Sync\:cy_psoc3_udb_clock_enable_v1_0
 	GENERIC MAP(sync_mode=>'1')
-	PORT MAP(clock_in=>Net_1044,
+	PORT MAP(clock_in=>Net_1307,
 		enable=>tmpOE__MOTOR_EN_RIGHT_net_0,
 		clock_out=>\Timer_Ultrasonic:TimerUDB:Clk_Ctl_i\);
 \Timer_Ultrasonic:TimerUDB:sCTRLReg:SyncCtl:ctrlreg\:cy_psoc3_control
@@ -9007,7 +9016,7 @@ MOTOR_TRUNK:cy_psoc3_pins_v1_10
 isr_wheel_controller:cy_isr_v1_0
 	GENERIC MAP(int_type=>"10",
 		is_nmi=>'0')
-	PORT MAP(int_signal=>Net_211);
+	PORT MAP(int_signal=>Net_1310);
 Indicator_RED:cy_psoc3_pins_v1_10
 	GENERIC MAP(id=>"08c13b4b-a3ed-4f7f-9d8c-fc25ceb7777d",
 		drive_mode=>"110",
@@ -9218,6 +9227,20 @@ Indicator_BLUE:cy_psoc3_pins_v1_10
 		out_clock_en=>tmpOE__MOTOR_EN_RIGHT_net_0,
 		out_reset=>zero,
 		interrupt=>tmpINTERRUPT_0__Indicator_BLUE_net_0);
+\Timer_Ultrasonic_Burst:TimerHW\:cy_psoc3_timer_v1_0
+	GENERIC MAP(cy_registers=>"")
+	PORT MAP(clock=>Net_1307,
+		kill=>zero,
+		enable=>tmpOE__MOTOR_EN_RIGHT_net_0,
+		capture=>zero,
+		timer_reset=>zero,
+		tc=>\Timer_Ultrasonic_Burst:Net_51\,
+		compare=>\Timer_Ultrasonic_Burst:Net_261\,
+		interrupt=>Net_1300);
+isr_ultrasonic_burst:cy_isr_v1_0
+	GENERIC MAP(int_type=>"10",
+		is_nmi=>'0')
+	PORT MAP(int_signal=>Net_1300);
 \QuadDec_RIGHT:Net_1251\:cy_dff
 	PORT MAP(d=>\QuadDec_RIGHT:Net_1251\\D\,
 		clk=>\QuadDec_RIGHT:bQuadDec:sync_clock\,

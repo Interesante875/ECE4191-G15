@@ -110,6 +110,8 @@
 #include "Indicator_GREEN.h"
 #include "Indicator_BLUE_aliases.h"
 #include "Indicator_BLUE.h"
+#include "Timer_Ultrasonic_Burst.h"
+#include "isr_ultrasonic_burst.h"
 #include "QuadDec_RIGHT_isr.h"
 #include "QuadDec_RIGHT_Cnt16.h"
 #include "QuadDec_LEFT_isr.h"

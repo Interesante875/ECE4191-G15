@@ -1,6 +1,6 @@
 // ======================================================================
 // ColorBowlRobot_G15.v generated from TopDesign.cysch
-// 08/30/2023 at 15:15
+// 09/01/2023 at 03:15
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -1046,7 +1046,7 @@ module PWM_v3_30_7 (
 
 endmodule
 
-// Timer_v2_80(CaptureAlternatingFall=false, CaptureAlternatingRise=false, CaptureCount=2, CaptureCounterEnabled=false, CaptureInputEnabled=false, CaptureMode=0, CONTROL3=1, ControlRegRemoved=0, CtlModeReplacementString=SyncCtl, CyGetRegReplacementString=CY_GET_REG16, CySetRegReplacementString=CY_SET_REG16, DeviceFamily=PSoC5, EnableMode=0, FF16=true, FF8=false, FixedFunction=true, FixedFunctionUsed=1, HWCaptureCounterEnabled=false, InterruptOnCapture=false, InterruptOnFIFOFull=false, InterruptOnTC=true, IntOnCapture=0, IntOnFIFOFull=0, IntOnTC=1, NumberOfCaptures=1, param45=1, Period=999, RegDefReplacementString=reg16, RegSizeReplacementString=uint16, Resolution=16, RstStatusReplacementString=rstSts, RunMode=0, SiliconRevision=0, SoftwareCaptureModeEnabled=false, SoftwareTriggerModeEnabled=false, TriggerInputEnabled=false, TriggerMode=0, UDB16=false, UDB24=false, UDB32=false, UDB8=false, UDBControlReg=false, UsesHWEnable=0, VerilogSectionReplacementString=sT16, CY_API_CALLBACK_HEADER_INCLUDE=#include "cyapicallbacks.h", CY_COMMENT=, CY_COMPONENT_NAME=Timer_v2_80, CY_CONFIG_TITLE=Wheel_Timer, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=Wheel_Timer, CY_INSTANCE_SHORT_NAME=Wheel_Timer, CY_MAJOR_VERSION=2, CY_MINOR_VERSION=80, CY_PDL_DRIVER_NAME=, CY_PDL_DRIVER_REQ_VERSION=, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.4, INSTANCE_NAME=Wheel_Timer, )
+// Timer_v2_80(CaptureAlternatingFall=false, CaptureAlternatingRise=false, CaptureCount=2, CaptureCounterEnabled=false, CaptureInputEnabled=false, CaptureMode=0, CONTROL3=1, ControlRegRemoved=0, CtlModeReplacementString=SyncCtl, CyGetRegReplacementString=CY_GET_REG16, CySetRegReplacementString=CY_SET_REG16, DeviceFamily=PSoC5, EnableMode=0, FF16=true, FF8=false, FixedFunction=true, FixedFunctionUsed=1, HWCaptureCounterEnabled=false, InterruptOnCapture=false, InterruptOnFIFOFull=false, InterruptOnTC=true, IntOnCapture=0, IntOnFIFOFull=0, IntOnTC=1, NumberOfCaptures=1, param45=1, Period=999, RegDefReplacementString=reg16, RegSizeReplacementString=uint16, Resolution=16, RstStatusReplacementString=rstSts, RunMode=1, SiliconRevision=0, SoftwareCaptureModeEnabled=false, SoftwareTriggerModeEnabled=false, TriggerInputEnabled=false, TriggerMode=0, UDB16=false, UDB24=false, UDB32=false, UDB8=false, UDBControlReg=false, UsesHWEnable=0, VerilogSectionReplacementString=sT16, CY_API_CALLBACK_HEADER_INCLUDE=#include "cyapicallbacks.h", CY_COMMENT=, CY_COMPONENT_NAME=Timer_v2_80, CY_CONFIG_TITLE=Wheel_Timer, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=Wheel_Timer, CY_INSTANCE_SHORT_NAME=Wheel_Timer, CY_MAJOR_VERSION=2, CY_MINOR_VERSION=80, CY_PDL_DRIVER_NAME=, CY_PDL_DRIVER_REQ_VERSION=, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.4, INSTANCE_NAME=Wheel_Timer, )
 module Timer_v2_80_8 (
     capture,
     capture_out,
@@ -1738,9 +1738,80 @@ module PWM_v3_30_14 (
 
 endmodule
 
+// Timer_v2_80(CaptureAlternatingFall=false, CaptureAlternatingRise=false, CaptureCount=2, CaptureCounterEnabled=false, CaptureInputEnabled=false, CaptureMode=0, CONTROL3=1, ControlRegRemoved=0, CtlModeReplacementString=SyncCtl, CyGetRegReplacementString=CY_GET_REG16, CySetRegReplacementString=CY_SET_REG16, DeviceFamily=PSoC5, EnableMode=0, FF16=true, FF8=false, FixedFunction=true, FixedFunctionUsed=1, HWCaptureCounterEnabled=false, InterruptOnCapture=false, InterruptOnFIFOFull=false, InterruptOnTC=true, IntOnCapture=0, IntOnFIFOFull=0, IntOnTC=1, NumberOfCaptures=1, param45=1, Period=49999, RegDefReplacementString=reg16, RegSizeReplacementString=uint16, Resolution=16, RstStatusReplacementString=rstSts, RunMode=0, SiliconRevision=0, SoftwareCaptureModeEnabled=false, SoftwareTriggerModeEnabled=false, TriggerInputEnabled=false, TriggerMode=0, UDB16=false, UDB24=false, UDB32=false, UDB8=false, UDBControlReg=false, UsesHWEnable=0, VerilogSectionReplacementString=sT16, CY_API_CALLBACK_HEADER_INCLUDE=#include "cyapicallbacks.h", CY_COMMENT=, CY_COMPONENT_NAME=Timer_v2_80, CY_CONFIG_TITLE=Timer_Ultrasonic_Burst, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=Timer_Ultrasonic_Burst, CY_INSTANCE_SHORT_NAME=Timer_Ultrasonic_Burst, CY_MAJOR_VERSION=2, CY_MINOR_VERSION=80, CY_PDL_DRIVER_NAME=, CY_PDL_DRIVER_REQ_VERSION=, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.4, INSTANCE_NAME=Timer_Ultrasonic_Burst, )
+module Timer_v2_80_15 (
+    capture,
+    capture_out,
+    clock,
+    enable,
+    interrupt,
+    reset,
+    tc,
+    trigger);
+    input       capture;
+    output      capture_out;
+    input       clock;
+    input       enable;
+    output      interrupt;
+    input       reset;
+    output      tc;
+    input       trigger;
+
+    parameter CaptureCount = 2;
+    parameter CaptureCounterEnabled = 0;
+    parameter DeviceFamily = "PSoC5";
+    parameter InterruptOnCapture = 0;
+    parameter InterruptOnTC = 1;
+    parameter Resolution = 16;
+    parameter SiliconRevision = "0";
+
+          wire  Net_260;
+          wire  Net_261;
+          wire  Net_266;
+          wire  Net_102;
+          wire  Net_55;
+          wire  Net_57;
+          wire  Net_53;
+          wire  Net_51;
+
+    cy_psoc3_timer_v1_0 TimerHW (
+        .capture(capture),
+        .clock(clock),
+        .compare(Net_261),
+        .enable(Net_266),
+        .interrupt(Net_57),
+        .kill(Net_260),
+        .tc(Net_51),
+        .timer_reset(reset));
+
+    ZeroTerminal ZeroTerminal_1 (
+        .z(Net_260));
+
+	// VirtualMux_2 (cy_virtualmux_v1_0)
+	assign interrupt = Net_57;
+
+	// VirtualMux_3 (cy_virtualmux_v1_0)
+	assign tc = Net_51;
+
+    OneTerminal OneTerminal_1 (
+        .o(Net_102));
+
+	// VirtualMux_1 (cy_virtualmux_v1_0)
+	assign Net_266 = Net_102;
+
+
+
+endmodule
+
 // top
 module top ;
 
+          wire  Net_1302;
+          wire  Net_1301;
+          wire  Net_1300;
+          wire  Net_1299;
+          wire  Net_1298;
+          wire  Net_1297;
           wire  Net_1278;
           wire  Net_1277;
           wire  Net_1275;
@@ -1810,12 +1881,11 @@ module top ;
           wire  Net_1089;
           wire  Net_1088;
           wire  Net_1087;
-          wire  Net_1090;
+          wire  Net_1304;
           wire  Net_1095;
           wire  Net_1116;
           wire  Net_1115;
           wire  Net_1068;
-          wire  Net_1044;
           wire  Net_644;
           wire  Net_643;
           wire  Net_642;
@@ -1891,7 +1961,9 @@ module top ;
           wire  Net_940;
           wire  Net_939;
           wire  Net_938;
-          wire  Net_211;
+          wire  Net_1307;
+          wire  Net_12;
+          wire  Net_1310;
           wire  Net_1280;
           wire  Net_1245;
           wire  Net_1204;
@@ -3029,8 +3101,8 @@ module top ;
         .capture_out(Net_209),
         .clock(Net_33),
         .enable(1'b1),
-        .interrupt(Net_211),
-        .reset(Net_65),
+        .interrupt(Net_1310),
+        .reset(Net_1310),
         .tc(Net_212),
         .trigger(1'b1));
     defparam Wheel_Timer.CaptureCount = 2;
@@ -3550,7 +3622,7 @@ module top ;
 		  .is_direct(0),
 		  .is_digital(1))
 		Clock_3
-		 (.clock_out(Net_1044));
+		 (.clock_out(Net_1307));
 
 
 	wire [0:0] tmpOE__Trigger_net;
@@ -3784,7 +3856,7 @@ module top ;
 
     CyControlReg_v1_80 Control_Reg_Ultrasonic (
         .clock(1'b0),
-        .control_0(Net_1090),
+        .control_0(Net_1304),
         .control_1(Net_1087),
         .control_2(Net_1088),
         .control_3(Net_1089),
@@ -4053,7 +4125,7 @@ module top ;
     Timer_v2_80_10 Timer_Ultrasonic (
         .capture(Net_1042),
         .capture_out(Net_1043),
-        .clock(Net_1044),
+        .clock(Net_1307),
         .enable(Net_1042),
         .interrupt(Net_1086),
         .reset(Net_1085),
@@ -4593,7 +4665,7 @@ module top ;
 	cy_isr_v1_0
 		#(.int_type(2'b10))
 		isr_wheel_controller
-		 (.int_signal(Net_211));
+		 (.int_signal(Net_1310));
 
 
 	wire [0:0] tmpOE__Indicator_RED_net;
@@ -4820,6 +4892,33 @@ module top ;
 		  .out_reset({1'b0}));
 
 	assign tmpOE__Indicator_BLUE_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
+
+    ZeroTerminal ZeroTerminal_1 (
+        .z(Net_12));
+
+    Timer_v2_80_15 Timer_Ultrasonic_Burst (
+        .capture(1'b0),
+        .capture_out(Net_1298),
+        .clock(Net_1307),
+        .enable(1'b1),
+        .interrupt(Net_1300),
+        .reset(Net_12),
+        .tc(Net_1301),
+        .trigger(1'b1));
+    defparam Timer_Ultrasonic_Burst.CaptureCount = 2;
+    defparam Timer_Ultrasonic_Burst.CaptureCounterEnabled = 0;
+    defparam Timer_Ultrasonic_Burst.DeviceFamily = "PSoC5";
+    defparam Timer_Ultrasonic_Burst.InterruptOnCapture = 0;
+    defparam Timer_Ultrasonic_Burst.InterruptOnTC = 1;
+    defparam Timer_Ultrasonic_Burst.Resolution = 16;
+    defparam Timer_Ultrasonic_Burst.SiliconRevision = "0";
+
+
+	cy_isr_v1_0
+		#(.int_type(2'b10))
+		isr_ultrasonic_burst
+		 (.int_signal(Net_1300));
+
 
 
 

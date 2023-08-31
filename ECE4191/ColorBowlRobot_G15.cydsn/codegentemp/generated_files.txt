@@ -186,6 +186,11 @@
   <file name="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\codegentemp\Indicator_BLUE_aliases.h" value="HEADER;;;;;Indicator_BLUE" />
   <file name="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\codegentemp\Indicator_BLUE.c" value="SOURCE_C;CortexM3;;;;Indicator_BLUE" />
   <file name="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\codegentemp\Indicator_BLUE.h" value="HEADER;;;;;Indicator_BLUE" />
+  <file name="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\codegentemp\Timer_Ultrasonic_Burst.c" value="SOURCE_C;CortexM3;;;;Timer_Ultrasonic_Burst" />
+  <file name="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\codegentemp\Timer_Ultrasonic_Burst.h" value="HEADER;;;;;Timer_Ultrasonic_Burst" />
+  <file name="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\codegentemp\Timer_Ultrasonic_Burst_PM.c" value="SOURCE_C;CortexM3;;;;Timer_Ultrasonic_Burst" />
+  <file name="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\codegentemp\isr_ultrasonic_burst.c" value="SOURCE_C;CortexM3;;;;isr_ultrasonic_burst" />
+  <file name="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\codegentemp\isr_ultrasonic_burst.h" value="HEADER;;;;;isr_ultrasonic_burst" />
   <file name="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\codegentemp\QuadDec_RIGHT_isr.c" value="SOURCE_C;CortexM3;;;;QuadDec_RIGHT_isr" />
   <file name="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\codegentemp\QuadDec_RIGHT_isr.h" value="HEADER;;;;;QuadDec_RIGHT_isr" />
   <file name="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\codegentemp\QuadDec_RIGHT_Cnt16.c" value="SOURCE_C;CortexM3;;;;QuadDec_RIGHT_Cnt16" />

@@ -44,7 +44,7 @@ extern uint8 Wheel_Timer_initVar;
 #define Wheel_Timer_UsingHWEnable              0u
 #define Wheel_Timer_EnableTriggerMode          0u
 #define Wheel_Timer_InterruptOnCaptureCount    0u
-#define Wheel_Timer_RunModeUsed                0u
+#define Wheel_Timer_RunModeUsed                1u
 #define Wheel_Timer_ControlRegRemoved          0u
 
 #if defined(Wheel_Timer_TimerUDB_sCTRLReg_SyncCtl_ctrlreg__CONTROL_REG)

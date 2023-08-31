@@ -10,6 +10,7 @@
  * ========================================
 */
 #include "color_detection.h"
+#include "bluetooth.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -19,6 +20,7 @@ static int green_counts;
 static int blue_counts;
 
 static int color_sensor_status_1 = 0;
+
 
 CY_ISR(ISR_Handler_Color_Sensor) {
     PWM_Color_Sensor_ReadStatusRegister();
@@ -99,14 +101,17 @@ void color_detection_run(int num_runs) {
             case 1:
                 if (count > max_red) max_red = count;
                 //sprintf(string1, "Red: %d\n", count);
+                //printValue("Red: %d\n", count);
                 break;
             case 2:
                 if (count > max_green) max_green = count;
                 //sprintf(string1, "Green: %d\n", count);
+                //printValue("Green: %d\n", count);
                 break;
             case 3:
                 if (count > max_blue) max_blue = count;
                 //sprintf(string1, "Blue: %d\n", count);
+                //printValue("Blue: %d\n", count);
                 break;
         }
 
@@ -137,6 +142,7 @@ void color_detection_find_max(int max_red, int max_green, int max_blue) {
         UART_1_PutString(string2);
         */
         detectedColor = RED;
+        //printValue("Red\n");
     } else if (max_green > max_red && max_green > max_blue) {
         /*
         UART_1_PutString("Detected Color: Green\n");
@@ -144,6 +150,7 @@ void color_detection_find_max(int max_red, int max_green, int max_blue) {
         UART_1_PutString(string2);
         */
         detectedColor = GREEN;
+        //printValue("Green\n");
     } else if (max_blue > max_red && max_blue > max_green) {
         /*
         UART_1_PutString("Detected Color: Blue\n");
@@ -151,6 +158,7 @@ void color_detection_find_max(int max_red, int max_green, int max_blue) {
         UART_1_PutString(string2);
         */
         detectedColor = BLUE;
+        //printValue("Blue\n");
     } else {
         // UART_1_PutString("Unable to determine detected color\n");
         detectedColor = GREY;

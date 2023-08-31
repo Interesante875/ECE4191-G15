@@ -22,6 +22,15 @@
     #include "irsensor.h"
     #include "servo.h"
     #include "ultrasonic.h"
+    #include "bluetooth.h"
+    
+//    #include "color_detection.h"
+//    #include "locomotion.h"
+//    #include "irsensor.h"
+//    #include "servo.h"
+//    #include "ultrasonic.h"
+    
+    //void move_out_of_base();
     
     
 #endif

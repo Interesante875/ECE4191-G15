@@ -15,6 +15,7 @@
 #include <math.h>
 #include <string.h>
 #include <stdarg.h>
+#include "bluetooth.h"
 
 char rxBuffer[100]; // Buffer to store received characters
 char *rxBufferPtr = rxBuffer; // Pointer to the current position in the buffer
@@ -22,11 +23,34 @@ char printString[100]; // Buffer to store formatted strings
 int rxBufferSize = 0; // Size of the received data buffer
 int receivedInt = 0; // Received integer value
 
+CY_ISR(ISR_Handler_Input) {
+    *rxBufferPtr = UART_1_GetChar();
+       
+    if (*rxBufferPtr == '!') {
+        *rxBufferPtr = '\0';  
+
+        receivedInt = atoi(rxBuffer);
+        
+        printValue("INPUT: %d\n", receivedInt);
+
+        rxBufferPtr = &(rxBuffer[0]);
+        
+        //wheel_move_by_ticks(FORWARD, 240, receivedInt);
+        // wheel_turn_by_angle(motion, 240, receivedInt);
+        //trunk_up(receivedInt);
+    }
+    else
+    {
+        rxBufferPtr++;
+    }
+    
+}
 /**
  * Initializes the Bluetooth module by starting the UART communication.
  */
 void bluetooth_start() {
     UART_1_Start();
+    //isr_input_StartEx(ISR_Handler_Input);
     // Implement a mechanism to start bluetooth
 }
 
@@ -35,6 +59,7 @@ void bluetooth_start() {
  */
 void bluetooth_stop() {
     UART_1_Stop();   
+    isr_input_Stop();
     // Implement a mechanism to stop bluetooth
 }
 
@@ -88,25 +113,5 @@ void UART_1_PutString(const char *str) {
 /**
  * Interrupt Service Routine (ISR) for handling incoming UART data.
  */
-CY_ISR(ISR_Handler_Input) {
-    *rxBufferPtr = UART_1_GetChar();
-       
-    if (*rxBufferPtr == '!') {
-        *rxBufferPtr = '\0';  
 
-        receivedInt = atoi(rxBuffer);
-        
-        printValue("INPUT: %d\n", receivedInt);
-
-        rxBufferPtr = &(rxBuffer[0]);
-        
-        //wheel_move_by_ticks(FORWARD, 240, receivedInt);
-        // wheel_turn_by_angle(motion, 240, receivedInt);
-    }
-    else
-    {
-        rxBufferPtr++;
-    }
-    
-}
 /* [] END OF FILE */

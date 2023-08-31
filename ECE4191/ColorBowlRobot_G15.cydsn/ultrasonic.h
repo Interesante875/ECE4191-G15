@@ -32,13 +32,13 @@
     bit 6 - NOT IMPLEMENTED  
     bit 7 - NOT IMPLEMENTED  
     */ 
-    int udsState;;
+    int udsState;
     double kaldist_measure[NUMBER_OF_UDS];
-    double uds_LEFT[ARRAY_SIZE] = {0};
-    double uds_RIGHT[ARRAY_SIZE] = {0};
-    double uds_FLEFT[ARRAY_SIZE] = {0};
-    double uds_FRIGHT[ARRAY_SIZE] = {0};
-    double uds_BACK[ARRAY_SIZE] = {0};
+    double uds_LEFT[ARRAY_SIZE];
+    double uds_RIGHT[ARRAY_SIZE];
+    double uds_FLEFT[ARRAY_SIZE];
+    double uds_FRIGHT[ARRAY_SIZE];
+    double uds_BACK[ARRAY_SIZE];
     
     // Function prototypes
     void ultrasonic_setup();
@@ -49,7 +49,8 @@
     void ultrasonic_measuring();
     double kalman_filter(double U, int idx);
 
-    CY_ISR (ISR_Handler_Timer);
+    CY_ISR (ISR_Handler_Ultrasonic_Burst_Timer);
+    CY_ISR (ISR_Handler_Ultrasonic_Timer);
 
 
 #endif // ULTRASONIC_H

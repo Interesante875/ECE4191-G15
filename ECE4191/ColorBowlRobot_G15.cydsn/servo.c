@@ -69,12 +69,22 @@ void gripper_open() {
     /* Need to test the value
     gripper_writeCompare(compareValue); 
     */
+    
+    gripper_start();
+    gripper_writeCompare(980);
+    CyDelay(250);
+    //gripper_off();
 }
 
 void gripper_close() {
     /* Need to test the value
     gripper_writeCompare(compareValue); 
     */
+    
+    gripper_start();
+    gripper_writeCompare(880);
+    CyDelay(250);
+    //gripper_off();
 }
 
 void arm_swing(int angle) {
@@ -82,22 +92,45 @@ void arm_swing(int angle) {
     Translate angle to compareValue, requires mapping
     arm_writeCompare(compareValue);
     */
+    
+    
 }
 
-void lift_up() {
-    // lift_writeCompare(int compareValue)
-}
 void lift_down() {
+    // lift_writeCompare(int compareValue)
+    
+    lift_start();
+    lift_writeCompare(880);
+    CyDelay(2500);
+    lift_off();
+}
+void lift_up() {
     // lift_writeCompare(int compareValue)   
+    lift_start();
+    lift_writeCompare(980);
+    CyDelay(2500);
+    lift_off();
 }
 void trunk_up() {
     //trunk_writeCompare(int compareValue)
+    trunk_start();
+    trunk_writeCompare(920);
+    CyDelay(500);
+    //trunk_off();
 }
 void trunk_middle() {
     //trunk_writeCompare(int compareValue)
+    trunk_start();
+    trunk_writeCompare(880);
+    CyDelay(250);
+    //trunk_off();
 }
 void trunk_ground() {
     //trunk_writeCompare(int compareValue)   
+    trunk_start();
+    trunk_writeCompare(875);
+    CyDelay(250);
+    //trunk_off();
 }
 
 void reset_to_initial_state() {

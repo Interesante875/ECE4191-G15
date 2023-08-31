@@ -15,31 +15,29 @@
 #include <cytypes.h>
 #include <stdbool.h>
 
-/*
-#include "color_detection.h"
-#include "locomotion.h"
-#include "irsensor.h"
-#include "servo.h"
-#include "ultrasonic.h"
-*/
+
 /*
 void move_out_of_base() {
     
+    bluetooth_start();
     bool wall_not_encountered = true;
     
     ultrasonic_measuring();
-    wall_not_encountered = (kaldist_measure[2] > 15 || kaldist_measure[3] > 15);
+    wall_not_encountered = (kaldist_measure[2] > 20 || kaldist_measure[3] > 20);
     
+    printValue("Distance: %d %d\n", (int) kaldist_measure[2], (int) kaldist_measure[3]);
     while (wall_not_encountered) {
         
         wheel_move_by_distance(FORWARD, 240, 0.1);
         
         ultrasonic_measuring();
-        wall_not_encountered = (kaldist_measure[2] > 15 || kaldist_measure[3] > 15);
+        wall_not_encountered = (kaldist_measure[2] > 20 || kaldist_measure[3] > 20);
+        printValue("%d %d\n", (int) kaldist_measure[2], (int) kaldist_measure[3]);
     }
     
     wheel_turn_by_angle(LEFT, 240, 90);
 }
+
 
 void detect_the_slit() {
     
