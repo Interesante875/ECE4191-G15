@@ -30,6 +30,7 @@
     
     void moveOutOfBase();
     void detectSlit();
+    void moveThroughSlit();
     
     
 #endif

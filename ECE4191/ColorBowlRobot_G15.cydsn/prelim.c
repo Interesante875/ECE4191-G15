@@ -77,6 +77,10 @@ void moveThroughSlit() {
     trunk_up();
     gripper_open();
     wheel_move_by_metrics(FORWARD, 240, 0.35); 
+
+}
+
+void readIRSensor() {
     
     
 }

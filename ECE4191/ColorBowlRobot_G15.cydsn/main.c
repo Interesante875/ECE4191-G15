@@ -114,11 +114,17 @@ int main(void)
     moveOutOfBase();
     CyDelay(500);
     detectSlit();
- 
+    moveThroughSlit();
+//    gripper_open();
+//    CyDelay(250);
+//    gripper_close();
+//        CyDelay(1000);
     
     
     for(;;)
     {
+        
+        
       
     }
 }

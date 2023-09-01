@@ -87,8 +87,8 @@ void gripper_close() {
     */
     
     gripper_start();
-    gripper_writeCompare(880);
-    CyDelay(250);
+    gripper_writeCompare(878);
+    CyDelay(1000);
     gripper_off();
 }
 
