@@ -47,6 +47,8 @@
           <File BuildType="BUILD" Toolchain="">prelim.c</File>
           <File BuildType="BUILD" Toolchain="">navigation_stack.c</File>
           <File BuildType="BUILD" Toolchain="">median_filter.c</File>
+          <File BuildType="BUILD" Toolchain="">motor.c</File>
+          <File BuildType="BUILD" Toolchain="">motor_control.c</File>
           <File BuildType="BUILD" Toolchain="">cyapicallbacks.h</File>
           <File BuildType="BUILD" Toolchain="">controller.h</File>
           <File BuildType="BUILD" Toolchain="">locomotion.h</File>
@@ -59,6 +61,8 @@
           <File BuildType="BUILD" Toolchain="">robot_status.h</File>
           <File BuildType="BUILD" Toolchain="">navigation_stack.h</File>
           <File BuildType="BUILD" Toolchain="">median_filter.h</File>
+          <File BuildType="BUILD" Toolchain="">motor.h</File>
+          <File BuildType="BUILD" Toolchain="">motor_control.h</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\Generated_Source\PSoC5">
@@ -236,8 +240,6 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Timer_Ultrasonic.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Timer_Ultrasonic.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Timer_Ultrasonic_PM.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\isr_ultrasonic.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\isr_ultrasonic.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\IR_Sensor_LEFT_aliases.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\IR_Sensor_LEFT.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\IR_Sensor_LEFT.h</File>
@@ -297,6 +299,10 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Timer_Ultrasonic_Burst_PM.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\isr_ultrasonic_burst.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\isr_ultrasonic_burst.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Clock_burst.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Clock_burst.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\isr_ultrasonic_echo.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\isr_ultrasonic_echo.h</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\Export\ARM_GCC_Generic">

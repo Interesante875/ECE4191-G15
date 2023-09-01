@@ -13,30 +13,63 @@
 #include "bluetooth.h"
 #include "project.h"
 #include <stdio.h>
-#include <pthread.h>
 #include <stdlib.h>
 #include <stdbool.h>
 
 
 int burst_count = 0;
 
-CY_ISR (ISR_Handler_Ultrasonic_Burst_Timer) {
+void ultrasonic_on() {
+    Timer_Ultrasonic_Burst_Start();
+    Timer_Ultrasonic_Start();
     
-    
-    Timer_Ultrasonic_Burst_ReadStatusRegister();
-    Trigger_Write(1);
-    CyDelayUs(10);
-    Trigger_Write(0);
+    isr_ultrasonic_burst_StartEx(ISR_Handler_ultrasonic_burst);
+    isr_ultrasonic_echo_StartEx(ISR_Handler_ultrasonic_echo);
+}
+
+void ultrasonic_off() {
+
+    Timer_Ultrasonic_Stop();
+    Timer_Ultrasonic_Burst_Stop();
+    isr_ultrasonic_burst_Stop();
+    isr_ultrasonic_echo_Stop();
     
 }
 
-CY_ISR (ISR_Handler_Ultrasonic_Timer) {
+void ultrasonic_start() {
+    
+    burst_count = 0;
+    
+    Timer_Ultrasonic_Burst_Start();
+    Timer_Ultrasonic_Start();
+    
+}
+
+void ultrasonic_stop() {
+    Timer_Ultrasonic_Stop();
+    Timer_Ultrasonic_Burst_Stop();
+}
+
+void ultrasonic_trigger_burst() {
+    Trigger_Write(1);
+    CyDelayUs(10);
+    Trigger_Write(0);
+    CyDelayUs(2);
+}
+
+CY_ISR (ISR_Handler_ultrasonic_burst) {
+    Timer_Ultrasonic_Burst_ReadStatusRegister();
+    ultrasonic_trigger_burst();
+}
+
+CY_ISR (ISR_Handler_ultrasonic_echo) {
     
     Timer_Ultrasonic_ReadStatusRegister();
     int count = Timer_Ultrasonic_ReadCounter();
     double distance = (double) (65535 - count)/58.0;
     
-    printValue("%d Distance: %d\n", udsState, (int) distance);
+    //printValue("%d Distance: %d\n", udsState, (int) distance);
+    //kaldist_measure[udsState] = median(udsState, distance);
     kaldist_measure[udsState] = distance;
     if (udsState == 4) burst_count++;
     
@@ -45,98 +78,41 @@ CY_ISR (ISR_Handler_Ultrasonic_Timer) {
 
 }
 
-
-void ultrasonic_setup() {
-    
-    //memset(kaldist_measure, 0, sizeof(kaldist_measure));
-    burst_count = 0;
-    Control_Reg_Ultrasonic_Write(0);
-    udsState = Control_Reg_Ultrasonic_Read();
-    
-    
-    Timer_Ultrasonic_Burst_Start();
-    Timer_Ultrasonic_Start();
-    
-    isr_ultrasonic_burst_StartEx(ISR_Handler_Ultrasonic_Burst_Timer);
-    isr_ultrasonic_StartEx(ISR_Handler_Ultrasonic_Timer);
-    
-    printValue("Ultrasonic Module ON\n");
-    
-}
-
-void ultrasonic_stop() {
-    isr_ultrasonic_Stop();
-    isr_ultrasonic_burst_Stop();
-    
-}
-
-void ultrasonic_off() {
-    //memset(kaldist_measure, 0, sizeof(kaldist_measure));
-    Timer_Ultrasonic_Stop();
-    Timer_Ultrasonic_Burst_Stop();
-    isr_ultrasonic_Stop();
-    isr_ultrasonic_burst_Stop();
-    
-    //printValue("Ultrasonic Module OFF\n");
-}
-
 void ultrasonic_select(int idx) {
     Control_Reg_Ultrasonic_Write(idx);
-    //CyDelayUs(10);
+    CyDelayUs(10);
     udsState = Control_Reg_Ultrasonic_Read();
-    //CyDelayUs(10);
-    //printValue("Ultrasonic Module Selection %d\n", udsState);
+    CyDelayUs(10);
 }
 
-void ultrasonic_transmit() {
+double median(int idx, double distance) {
+    double med = 0;
     
-
-    if (udsState == 0) {
-        
-        while (!Echo_LEFT_Read()) {
-            Trigger_Write(1);
-            CyDelayUs(10);
-            Trigger_Write(0);
-         
-        }
-    } else if (udsState == 1) {
-        while (!Echo_RIGHT_Read()) {
-            Trigger_Write(1);
-            CyDelayUs(10);
-            Trigger_Write(0);
-        
-        }
-    } else if (udsState == 2) {
-        
-        while (!Echo_FLEFT_Read()) {
-            
-            Trigger_Write(1);
-            CyDelayUs(10);
-            Trigger_Write(0);
-      
-        }
-    } else if (udsState == 3) {
-       
-        while (!Echo_FRIGHT_Read()) {
-            
-            Trigger_Write(1);
-            CyDelayUs(10);
-            Trigger_Write(0);
-     
-        }
-    } else if (udsState == 4) {
-
-        while (!Echo_BACK_Read()) {
-            Trigger_Write(1);
-            CyDelayUs(10);
-            Trigger_Write(0);
-       
-        }
+    switch(idx) {
+        case 0:   
+            med = medianFilter(uds_LEFT, distance);
+            break;
+        case 1:
+            med = medianFilter(uds_RIGHT, distance);
+            break;
+        case 2:
+            med = medianFilter(uds_FLEFT, distance);
+            break;
+        case 3:
+            med = medianFilter(uds_FRIGHT, distance);
+            break;
+        case 4:
+            med = medianFilter(uds_BACK, distance);
+            break;
+        default:
+            med = medianFilter(uds_BACK, distance);
+            break;
     }
     
-    //printValue("Ultrasonic Module finish TRANSMITTING with Selection %d\n", udsState);
+    return med;
 }
 
+/*
 void ultrasonic_get_distance() {
     
     Timer_Ultrasonic_ReadStatusRegister();
@@ -187,15 +163,7 @@ double kalman_filter(double U, int idx) {
 
     return U_hat[idx];
 }
-
-
-void ultrasonic_measuring() {
-    ultrasonic_setup();
-    
-    while (burst_count <= ULTRASONIC_BURSTS);
-    
-    ultrasonic_stop();
-}
+*/
 
 
 /* [] END OF FILE */

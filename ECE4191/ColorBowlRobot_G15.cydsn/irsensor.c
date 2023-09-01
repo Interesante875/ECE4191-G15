@@ -42,7 +42,7 @@ CY_ISR (ISR_Handler_IR_RIGHT) {
 CY_ISR (ISR_Handler_puck) {
     
     if (moveStatus == DISABLE) {
-        wheel_motion_set(STOP);
+        //wheel_motion_set(STOP);
     }
     
     // Not implemented

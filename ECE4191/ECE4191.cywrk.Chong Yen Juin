@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="ECE4191\ColorBowlRobot_G15\ColorBowlRobot_G15.cydwr">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="ECE4191\ColorBowlRobot_G15\Source Files\ultrasonic.c">
 <ExpandedNodeIds>
 <v>ECE4191</v>
 <v>ECE4191\ColorBowlRobot_G15</v>
@@ -35,6 +35,8 @@
 <v>ECE4191\ColorBowlRobot_G15\Header Files\irsensor.h</v>
 <v>ECE4191\ColorBowlRobot_G15\Header Files\locomotion.h</v>
 <v>ECE4191\ColorBowlRobot_G15\Header Files\median_filter.h</v>
+<v>ECE4191\ColorBowlRobot_G15\Header Files\motor.h</v>
+<v>ECE4191\ColorBowlRobot_G15\Header Files\motor_control.h</v>
 <v>ECE4191\ColorBowlRobot_G15\Header Files\navigation_stack.h</v>
 <v>ECE4191\ColorBowlRobot_G15\Header Files\prelim.h</v>
 <v>ECE4191\ColorBowlRobot_G15\Header Files\robot_status.h</v>
@@ -48,6 +50,8 @@
 <v>ECE4191\ColorBowlRobot_G15\Source Files\locomotion.c</v>
 <v>ECE4191\ColorBowlRobot_G15\Source Files\main.c</v>
 <v>ECE4191\ColorBowlRobot_G15\Source Files\median_filter.c</v>
+<v>ECE4191\ColorBowlRobot_G15\Source Files\motor.c</v>
+<v>ECE4191\ColorBowlRobot_G15\Source Files\motor_control.c</v>
 <v>ECE4191\ColorBowlRobot_G15\Source Files\navigation_stack.c</v>
 <v>ECE4191\ColorBowlRobot_G15\Source Files\prelim.c</v>
 <v>ECE4191\ColorBowlRobot_G15\Source Files\servo.c</v>
@@ -55,18 +59,14 @@
 <v>ECE4191\ColorBowlRobot_G15\Generated_Source\PSoC5</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
-<v>ECE4191</v>
-<v>ECE4191\ColorBowlRobot_G15</v>
-<v>ECE4191\ColorBowlRobot_G15\TopDesign</v>
-<v>ECE4191\ColorBowlRobot_G15\ColorBowlRobot_G15.cydwr</v>
-<v>ECE4191\ColorBowlRobot_G15\Header Files</v>
-<v>ECE4191\ColorBowlRobot_G15\Header Files\bluetooth.h</v>
 <v>ECE4191\ColorBowlRobot_G15\Header Files\color_detection.h</v>
 <v>ECE4191\ColorBowlRobot_G15\Header Files\controller.h</v>
 <v>ECE4191\ColorBowlRobot_G15\Header Files\cyapicallbacks.h</v>
 <v>ECE4191\ColorBowlRobot_G15\Header Files\irsensor.h</v>
 <v>ECE4191\ColorBowlRobot_G15\Header Files\locomotion.h</v>
 <v>ECE4191\ColorBowlRobot_G15\Header Files\median_filter.h</v>
+<v>ECE4191\ColorBowlRobot_G15\Header Files\motor.h</v>
+<v>ECE4191\ColorBowlRobot_G15\Header Files\motor_control.h</v>
 <v>ECE4191\ColorBowlRobot_G15\Header Files\navigation_stack.h</v>
 <v>ECE4191\ColorBowlRobot_G15\Header Files\prelim.h</v>
 <v>ECE4191\ColorBowlRobot_G15\Header Files\robot_status.h</v>
@@ -80,9 +80,13 @@
 <v>ECE4191\ColorBowlRobot_G15\Source Files\locomotion.c</v>
 <v>ECE4191\ColorBowlRobot_G15\Source Files\main.c</v>
 <v>ECE4191\ColorBowlRobot_G15\Source Files\median_filter.c</v>
+<v>ECE4191\ColorBowlRobot_G15\Source Files\motor.c</v>
+<v>ECE4191\ColorBowlRobot_G15\Source Files\motor_control.c</v>
 <v>ECE4191\ColorBowlRobot_G15\Source Files\navigation_stack.c</v>
 <v>ECE4191\ColorBowlRobot_G15\Source Files\prelim.c</v>
 <v>ECE4191\ColorBowlRobot_G15\Source Files\servo.c</v>
+<v>ECE4191\ColorBowlRobot_G15\Source Files\ultrasonic.c</v>
+<v>ECE4191\ColorBowlRobot_G15\Generated_Source</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -113,6 +117,7 @@
 <v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock_3.lst</v>
 <v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock_4.lst</v>
 <v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock_5.lst</v>
+<v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock_burst.lst</v>
 <v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
 <v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\color_detection.lst</v>
 <v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\Control_Reg_Color_Sensor.lst</v>
@@ -149,13 +154,15 @@
 <v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\isr_IR_Sensor_LEFT.lst</v>
 <v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\isr_IR_Sensor_RIGHT.lst</v>
 <v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\isr_puck.lst</v>
-<v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\isr_ultrasonic.lst</v>
 <v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\isr_ultrasonic_burst.lst</v>
+<v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\isr_ultrasonic_echo.lst</v>
 <v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\isr_wheel_controller.lst</v>
 <v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\LED.lst</v>
 <v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\locomotion.lst</v>
 <v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
 <v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\median_filter.lst</v>
+<v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\motor.lst</v>
+<v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\motor_control.lst</v>
 <v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\MOTOR_EN_LEFT.lst</v>
 <v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\MOTOR_EN_RIGHT.lst</v>
 <v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\MOTOR_GRIPPER.lst</v>

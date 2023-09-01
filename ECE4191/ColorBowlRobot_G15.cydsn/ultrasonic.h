@@ -19,7 +19,7 @@
     #include "median_filter.h"
     
     #define NUMBER_OF_UDS 5
-    #define ULTRASONIC_BURSTS 3
+    #define ULTRASONIC_BURSTS 1
 
     /*
     
@@ -41,16 +41,24 @@
     double uds_BACK[ARRAY_SIZE];
     
     // Function prototypes
-    void ultrasonic_setup();
+    void ultrasonic_on();
     void ultrasonic_off();
+    void ultrasonic_start();
+    void ultrasonic_stop();
+    
+    void ultrasonic_trigger_burst();
+    
+    ///void ultrasonic_setup();
+    
     void ultrasonic_transmit();
     void ultrasonic_get_distance();
     void ultrasonic_select(int idx);
     void ultrasonic_measuring();
     double kalman_filter(double U, int idx);
+    double median(int idx, double distance);
 
-    CY_ISR (ISR_Handler_Ultrasonic_Burst_Timer);
-    CY_ISR (ISR_Handler_Ultrasonic_Timer);
+    CY_ISR (ISR_Handler_ultrasonic_burst);
+    CY_ISR (ISR_Handler_ultrasonic_echo);
 
 
 #endif // ULTRASONIC_H

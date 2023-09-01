@@ -252,7 +252,7 @@
   <Group key="DWRInstGuidMapping">
     <Group key="Interrupt">
       <Data key="1dacffb2-28d5-4640-9265-f366cf769bd0" value="isr_IR_Sensor_RIGHT" />
-      <Data key="5d2424ce-32e1-424e-8d9d-93f0883d58cd" value="isr_ultrasonic" />
+      <Data key="5d2424ce-32e1-424e-8d9d-93f0883d58cd" value="isr_ultrasonic_echo" />
       <Data key="26a91525-ebe4-4c04-acdb-848054932401/e979b35e-c089-429a-96bb-6d4d69c94283" value="QuadDec_RIGHT_isr" />
       <Data key="62f6932c-12b8-4880-8c8c-b3a7316a6a44/e979b35e-c089-429a-96bb-6d4d69c94283" value="QuadDec_LEFT_isr" />
       <Data key="522ee3fe-c30c-4757-adfa-e915792874e2" value="isr_ultrasonic_burst" />
@@ -3388,10 +3388,17 @@
     </Group>
   </Group>
   <Group key="Interrupt">
+    <Group key="1dacffb2-28d5-4640-9265-f366cf769bd0">
+      <Group key="CortexM3">
+        <Data key="Assigned" value="True" />
+        <Data key="Priority" value="3" />
+        <Data key="Vector" value="-1" />
+      </Group>
+    </Group>
     <Group key="5d2424ce-32e1-424e-8d9d-93f0883d58cd">
       <Group key="CortexM3">
         <Data key="Assigned" value="True" />
-        <Data key="Priority" value="2" />
+        <Data key="Priority" value="1" />
         <Data key="Vector" value="-1" />
       </Group>
     </Group>
@@ -3419,7 +3426,14 @@
     <Group key="575b1d12-882f-490e-8ca7-2ed375ff2880">
       <Group key="CortexM3">
         <Data key="Assigned" value="True" />
-        <Data key="Priority" value="1" />
+        <Data key="Priority" value="3" />
+        <Data key="Vector" value="-1" />
+      </Group>
+    </Group>
+    <Group key="89402461-4ad9-47b4-9beb-f021ac419464">
+      <Group key="CortexM3">
+        <Data key="Assigned" value="True" />
+        <Data key="Priority" value="3" />
         <Data key="Vector" value="-1" />
       </Group>
     </Group>

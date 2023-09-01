@@ -11,70 +11,77 @@
 */
 #include "project.h"
 #include <stdio.h>
+#include <string.h>
 #include "prelim.h"
-#include <cytypes.h>
-#include <stdbool.h>
+#include "bluetooth.h"
 
-
-/*
-void move_out_of_base() {
+void moveOutOfBase() {
     
     bluetooth_start();
+    ultrasonic_on();
+    CyDelay(500);
+    
     bool wall_not_encountered = true;
     
-    ultrasonic_measuring();
-    wall_not_encountered = (kaldist_measure[2] > 20 || kaldist_measure[3] > 20);
-    
-    printValue("Distance: %d %d\n", (int) kaldist_measure[2], (int) kaldist_measure[3]);
-    while (wall_not_encountered) {
+    while (wall_not_encountered) { 
         
-        wheel_move_by_distance(FORWARD, 240, 0.1);
+        wheel_move_by_metrics(FORWARD, 240, 0.2);
         
-        ultrasonic_measuring();
-        wall_not_encountered = (kaldist_measure[2] > 20 || kaldist_measure[3] > 20);
-        printValue("%d %d\n", (int) kaldist_measure[2], (int) kaldist_measure[3]);
+        for (int i = 0; i < NUMBER_OF_UDS; i++) {
+            printValue("%d:%d, %s", i, (int) kaldist_measure[i], i==NUMBER_OF_UDS-1?"\n":"");   
+        }
+        
+        wall_not_encountered = (kaldist_measure[2] > 28 || kaldist_measure[3] > 28);
+        
     }
     
-    wheel_turn_by_angle(LEFT, 240, 90);
+    wheel_move_by_metrics(LEFT, 240, 90);
+
 }
 
-
-void detect_the_slit() {
-    
+void detectSlit() {
     bool slit_not_encountered = true;
     bool front_wall_not_encountered = true;
     bool back_wall_not_encountered = true;
     
-    ultrasonic_measuring();
-    
-    slit_not_encountered = (kaldist_measure[0] < 80 || kaldist_measure[1] < 80);
-    front_wall_not_encountered = (kaldist_measure[2] > 15 || kaldist_measure[3] > 15);
-    back_wall_not_encountered = (kaldist_measure[4] > 15); 
+    slit_not_encountered = (kaldist_measure[1] < 80);
+    front_wall_not_encountered = (kaldist_measure[2] > 25 || kaldist_measure[3] > 25);
+    back_wall_not_encountered = (kaldist_measure[4] > 25); 
     
     while (front_wall_not_encountered && slit_not_encountered) {
-        wheel_move_by_distance(FORWARD, 240, 0.1);
+        wheel_move_by_metrics(FORWARD, 240, 0.2);
         
-        ultrasonic_measuring();
-        front_wall_not_encountered = (kaldist_measure[2] > 15 || kaldist_measure[3] > 15);
+        front_wall_not_encountered = (kaldist_measure[2] > 25 || kaldist_measure[3] > 25);
         
-        slit_not_encountered = (kaldist_measure[0] < 80 || kaldist_measure[1] < 80);      
+        slit_not_encountered = (kaldist_measure[1] < 80);      
     }
     
     while (back_wall_not_encountered && slit_not_encountered) {
         
-        wheel_move_by_distance(BACKWARD, 240, 0.1);
+        wheel_move_by_metrics(BACKWARD, 240, 0.2);
         
-        ultrasonic_measuring();
-        back_wall_not_encountered = (kaldist_measure[4] > 15);
+        back_wall_not_encountered = (kaldist_measure[4] > 25);
         
-        slit_not_encountered = (kaldist_measure[0] < 80 || kaldist_measure[1] < 80);
+        slit_not_encountered = (kaldist_measure[1] < 80);
         
     }
     
-    wheel_turn_by_angle(RIGHT, 240, 90);
+    if (front_wall_not_encountered && back_wall_not_encountered) wheel_move_by_metrics(FORWARD, 240, 0.075); 
+    else if (!front_wall_not_encountered) wheel_move_by_metrics(BACKWARD, 240, 0.08);
+    
+    wheel_move_by_metrics(RIGHT, 240, 90);
     
 }
 
+void moveThroughSlit() {
+    trunk_up();
+    gripper_open();
+    wheel_move_by_metrics(FORWARD, 240, 0.35); 
+    
+    
+}
+
+/*
 void adjust_to_the_slit() {
     
     bool not_passed = true;

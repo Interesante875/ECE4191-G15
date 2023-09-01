@@ -1,5 +1,5 @@
 -- Project:   ColorBowlRobot_G15
--- Generated: 09/01/2023 11:05:02
+-- Generated: 09/01/2023 16:50:22
 -- PSoC Creator  4.4
 
 ENTITY ColorBowlRobot_G15 IS
@@ -121,10 +121,13 @@ ARCHITECTURE __DEFAULT__ OF ColorBowlRobot_G15 IS
     SIGNAL Net_1280 : bit;
     SIGNAL Net_1300 : bit;
     SIGNAL Net_1307 : bit;
-    ATTRIBUTE udbclken_assigned OF Net_1307 : SIGNAL IS "True";
     ATTRIBUTE global_signal OF Net_1307 : SIGNAL IS true;
     SIGNAL Net_1307_local : bit;
     SIGNAL Net_1310 : bit;
+    SIGNAL Net_1311 : bit;
+    ATTRIBUTE udbclken_assigned OF Net_1311 : SIGNAL IS "True";
+    ATTRIBUTE global_signal OF Net_1311 : SIGNAL IS true;
+    SIGNAL Net_1311_local : bit;
     SIGNAL Net_169 : bit;
     SIGNAL Net_177 : bit;
     SIGNAL Net_178 : bit;
@@ -441,7 +444,7 @@ ARCHITECTURE __DEFAULT__ OF ColorBowlRobot_G15 IS
     SIGNAL zero : bit;
     ATTRIBUTE GROUND OF zero : SIGNAL IS true;
     SIGNAL \ClockBlock.dclk_glb_ff_0__sig\ : bit;
-    SIGNAL \ClockBlock.dclk_glb_ff_1__sig\ : bit;
+    SIGNAL \ClockBlock.dclk_glb_ff_5__sig\ : bit;
     SIGNAL \QuadDec_RIGHT:Cnt16:CounterUDB:sC16:counterdp:u0.ce0__sig\ : bit;
     SIGNAL \QuadDec_RIGHT:Cnt16:CounterUDB:sC16:counterdp:u0.cl0__sig\ : bit;
     SIGNAL \QuadDec_RIGHT:Cnt16:CounterUDB:sC16:counterdp:u0.z0__sig\ : bit;
@@ -1195,18 +1198,20 @@ BEGIN
             dsi_glb_div => open,
             dclk_glb_0 => Net_33,
             dclk_0 => Net_33_local,
-            dclk_glb_1 => Net_1307,
-            dclk_1 => Net_1307_local,
+            dclk_glb_1 => Net_1311,
+            dclk_1 => Net_1311_local,
             dclk_glb_2 => \UART_1:Net_9\,
             dclk_2 => \UART_1:Net_9_local\,
             dclk_glb_3 => Net_70,
             dclk_3 => Net_70_local,
             dclk_glb_4 => Net_1150,
             dclk_4 => Net_1150_local,
-            dclk_glb_5 => Net_1100,
-            dclk_5 => Net_1100_local,
+            dclk_glb_5 => Net_1307,
+            dclk_5 => Net_1307_local,
+            dclk_glb_6 => Net_1100,
+            dclk_6 => Net_1100_local,
             dclk_glb_ff_0 => \ClockBlock.dclk_glb_ff_0__sig\,
-            dclk_glb_ff_1 => \ClockBlock.dclk_glb_ff_1__sig\);
+            dclk_glb_ff_5 => \ClockBlock.dclk_glb_ff_5__sig\);
 
     MOTOR_EN_RIGHT:logicalport
         GENERIC MAP(
@@ -5721,7 +5726,7 @@ BEGIN
             control_0 => Net_169,
             busclk => ClockBlock_BUS_CLK);
 
-    isr_ultrasonic:interrupt
+    isr_ultrasonic_echo:interrupt
         GENERIC MAP(
             int_type => "10",
             is_nmi => 0)
@@ -5758,7 +5763,7 @@ BEGIN
             clk_inv => '0',
             clken_mode => 1)
         PORT MAP(
-            clock => Net_1307,
+            clock => Net_1311,
             control_7 => \Timer_Ultrasonic:TimerUDB:control_7\,
             control_6 => \Timer_Ultrasonic:TimerUDB:control_6\,
             control_5 => \Timer_Ultrasonic:TimerUDB:control_5\,
@@ -5779,7 +5784,7 @@ BEGIN
             reset_inv => '0')
         PORT MAP(
             reset => Net_1085,
-            clock => Net_1307,
+            clock => Net_1311,
             status_6 => open,
             status_5 => open,
             status_4 => open,
@@ -5817,7 +5822,7 @@ BEGIN
             clk_inv => '0',
             clken_mode => 1)
         PORT MAP(
-            clock => Net_1307,
+            clock => Net_1311,
             cs_addr_2 => Net_1085,
             cs_addr_1 => \Timer_Ultrasonic:TimerUDB:timer_enable\,
             cs_addr_0 => \Timer_Ultrasonic:TimerUDB:per_zero\,
@@ -5865,7 +5870,7 @@ BEGIN
             clk_inv => '0',
             clken_mode => 1)
         PORT MAP(
-            clock => Net_1307,
+            clock => Net_1311,
             cs_addr_2 => Net_1085,
             cs_addr_1 => \Timer_Ultrasonic:TimerUDB:timer_enable\,
             cs_addr_0 => \Timer_Ultrasonic:TimerUDB:per_zero\,
@@ -6456,7 +6461,7 @@ BEGIN
         GENERIC MAP(
             cy_registers => "")
         PORT MAP(
-            clock => \ClockBlock.dclk_glb_ff_1__sig\,
+            clock => \ClockBlock.dclk_glb_ff_5__sig\,
             kill => open,
             enable => __ONE__,
             capture => open,
@@ -7249,7 +7254,7 @@ BEGIN
             clken_mode => 1)
         PORT MAP(
             q => \Timer_Ultrasonic:TimerUDB:capture_last\,
-            clock_0 => Net_1307,
+            clock_0 => Net_1311,
             main_0 => Net_1115,
             main_1 => Net_1116,
             main_2 => Net_1035_2,
@@ -7267,7 +7272,7 @@ BEGIN
             clken_mode => 1)
         PORT MAP(
             q => \Timer_Ultrasonic:TimerUDB:run_mode\,
-            clock_0 => Net_1307,
+            clock_0 => Net_1311,
             main_0 => Net_1115,
             main_1 => Net_1116,
             main_2 => Net_1035_2,
@@ -7286,7 +7291,7 @@ BEGIN
             clken_mode => 1)
         PORT MAP(
             q => \Timer_Ultrasonic:TimerUDB:int_capt_count_1\,
-            clock_0 => Net_1307,
+            clock_0 => Net_1311,
             main_0 => Net_1085,
             main_1 => \Timer_Ultrasonic:TimerUDB:control_1\,
             main_2 => \Timer_Ultrasonic:TimerUDB:control_0\,
@@ -7302,7 +7307,7 @@ BEGIN
             clken_mode => 1)
         PORT MAP(
             q => \Timer_Ultrasonic:TimerUDB:int_capt_count_0\,
-            clock_0 => Net_1307,
+            clock_0 => Net_1311,
             main_0 => Net_1085,
             main_1 => \Timer_Ultrasonic:TimerUDB:control_1\,
             main_2 => \Timer_Ultrasonic:TimerUDB:control_0\,
@@ -7318,7 +7323,7 @@ BEGIN
             clken_mode => 1)
         PORT MAP(
             q => \Timer_Ultrasonic:TimerUDB:capt_int_temp\,
-            clock_0 => Net_1307,
+            clock_0 => Net_1311,
             main_0 => Net_1085,
             main_1 => \Timer_Ultrasonic:TimerUDB:control_1\,
             main_2 => \Timer_Ultrasonic:TimerUDB:control_0\,
@@ -7334,7 +7339,7 @@ BEGIN
             clken_mode => 1)
         PORT MAP(
             q => \Timer_Ultrasonic:TimerUDB:timer_enable\,
-            clock_0 => Net_1307,
+            clock_0 => Net_1311,
             main_0 => Net_1085,
             main_1 => Net_1035_2,
             main_2 => Net_1035_1,
@@ -7349,7 +7354,7 @@ BEGIN
             clken_mode => 1)
         PORT MAP(
             q => \Timer_Ultrasonic:TimerUDB:trig_disable\,
-            clock_0 => Net_1307,
+            clock_0 => Net_1311,
             main_0 => Net_1085,
             main_1 => \Timer_Ultrasonic:TimerUDB:timer_enable\,
             main_2 => \Timer_Ultrasonic:TimerUDB:run_mode\,

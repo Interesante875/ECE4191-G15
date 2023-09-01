@@ -2,7 +2,7 @@
 --	Conversion of ColorBowlRobot_G15.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Fri Sep 01 11:05:01 2023
+--	Fri Sep 01 16:50:20 2023
 --
 
 USE cypress.cypress.all;
@@ -1708,7 +1708,7 @@ SIGNAL tmpOE__Count_net_0 : bit;
 SIGNAL tmpIO_0__Count_net_0 : bit;
 TERMINAL tmpSIOVREF__Count_net_0 : bit;
 SIGNAL tmpINTERRUPT_0__Count_net_0 : bit;
-SIGNAL Net_1307 : bit;
+SIGNAL Net_1311 : bit;
 SIGNAL tmpOE__Trigger_net_0 : bit;
 SIGNAL Net_1085 : bit;
 SIGNAL tmpIO_0__Trigger_net_0 : bit;
@@ -3779,6 +3779,7 @@ SIGNAL tmpIO_0__Indicator_BLUE_net_0 : bit;
 TERMINAL tmpSIOVREF__Indicator_BLUE_net_0 : bit;
 SIGNAL tmpINTERRUPT_0__Indicator_BLUE_net_0 : bit;
 SIGNAL Net_12 : bit;
+SIGNAL Net_1307 : bit;
 SIGNAL \Timer_Ultrasonic_Burst:Net_260\ : bit;
 SIGNAL \Timer_Ultrasonic_Burst:Net_266\ : bit;
 SIGNAL \Timer_Ultrasonic_Burst:Net_51\ : bit;
@@ -7164,7 +7165,7 @@ Clock_3:cy_clock_v1_0
 		period=>"1000000000",
 		is_direct=>'0',
 		is_digital=>'1')
-	PORT MAP(clock_out=>Net_1307,
+	PORT MAP(clock_out=>Net_1311,
 		dig_domain_out=>open);
 Trigger:cy_psoc3_pins_v1_10
 	GENERIC MAP(id=>"2f2b85cb-ac86-4068-b571-fb320ecd279f",
@@ -7306,7 +7307,7 @@ Echo_LEFT:cy_psoc3_pins_v1_10
 		out_clock_en=>tmpOE__MOTOR_EN_RIGHT_net_0,
 		out_reset=>zero,
 		interrupt=>tmpINTERRUPT_0__Echo_LEFT_net_0);
-isr_ultrasonic:cy_isr_v1_0
+isr_ultrasonic_echo:cy_isr_v1_0
 	GENERIC MAP(int_type=>"10",
 		is_nmi=>'0')
 	PORT MAP(int_signal=>Net_1086);
@@ -7602,12 +7603,12 @@ Echo_FRIGHT:cy_psoc3_pins_v1_10
 		interrupt=>tmpINTERRUPT_0__Echo_FRIGHT_net_0);
 \Timer_Ultrasonic:TimerUDB:clock_enable_block\:cy_psoc3_udb_clock_enable_v1_0
 	GENERIC MAP(sync_mode=>'1')
-	PORT MAP(clock_in=>Net_1307,
+	PORT MAP(clock_in=>Net_1311,
 		enable=>tmpOE__MOTOR_EN_RIGHT_net_0,
 		clock_out=>\Timer_Ultrasonic:TimerUDB:ClockOutFromEnBlock\);
 \Timer_Ultrasonic:TimerUDB:sCTRLReg:SyncCtl:cy_psoc3_udb_Ctl_Clk_Sync\:cy_psoc3_udb_clock_enable_v1_0
 	GENERIC MAP(sync_mode=>'1')
-	PORT MAP(clock_in=>Net_1307,
+	PORT MAP(clock_in=>Net_1311,
 		enable=>tmpOE__MOTOR_EN_RIGHT_net_0,
 		clock_out=>\Timer_Ultrasonic:TimerUDB:Clk_Ctl_i\);
 \Timer_Ultrasonic:TimerUDB:sCTRLReg:SyncCtl:ctrlreg\:cy_psoc3_control
@@ -9241,6 +9242,16 @@ isr_ultrasonic_burst:cy_isr_v1_0
 	GENERIC MAP(int_type=>"10",
 		is_nmi=>'0')
 	PORT MAP(int_signal=>Net_1300);
+Clock_burst:cy_clock_v1_0
+	GENERIC MAP(cy_registers=>"",
+		id=>"4df96b12-7bc2-4321-9fe0-bf0ef3303ae6",
+		source_clock_id=>"",
+		divisor=>0,
+		period=>"100000000000",
+		is_direct=>'0',
+		is_digital=>'1')
+	PORT MAP(clock_out=>Net_1307,
+		dig_domain_out=>open);
 \QuadDec_RIGHT:Net_1251\:cy_dff
 	PORT MAP(d=>\QuadDec_RIGHT:Net_1251\\D\,
 		clk=>\QuadDec_RIGHT:bQuadDec:sync_clock\,

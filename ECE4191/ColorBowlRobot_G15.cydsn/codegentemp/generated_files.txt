@@ -118,8 +118,8 @@
   <file name="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\codegentemp\Echo_LEFT_aliases.h" value="HEADER;;;;;Echo_LEFT" />
   <file name="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\codegentemp\Echo_LEFT.c" value="SOURCE_C;CortexM3;;;;Echo_LEFT" />
   <file name="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\codegentemp\Echo_LEFT.h" value="HEADER;;;;;Echo_LEFT" />
-  <file name="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\codegentemp\isr_ultrasonic.c" value="SOURCE_C;CortexM3;;;;isr_ultrasonic" />
-  <file name="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\codegentemp\isr_ultrasonic.h" value="HEADER;;;;;isr_ultrasonic" />
+  <file name="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\codegentemp\isr_ultrasonic_echo.c" value="SOURCE_C;CortexM3;;;;isr_ultrasonic_echo" />
+  <file name="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\codegentemp\isr_ultrasonic_echo.h" value="HEADER;;;;;isr_ultrasonic_echo" />
   <file name="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\codegentemp\Echo_RIGHT_aliases.h" value="HEADER;;;;;Echo_RIGHT" />
   <file name="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\codegentemp\Echo_RIGHT.c" value="SOURCE_C;CortexM3;;;;Echo_RIGHT" />
   <file name="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\codegentemp\Echo_RIGHT.h" value="HEADER;;;;;Echo_RIGHT" />
@@ -191,6 +191,8 @@
   <file name="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\codegentemp\Timer_Ultrasonic_Burst_PM.c" value="SOURCE_C;CortexM3;;;;Timer_Ultrasonic_Burst" />
   <file name="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\codegentemp\isr_ultrasonic_burst.c" value="SOURCE_C;CortexM3;;;;isr_ultrasonic_burst" />
   <file name="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\codegentemp\isr_ultrasonic_burst.h" value="HEADER;;;;;isr_ultrasonic_burst" />
+  <file name="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\codegentemp\Clock_burst.c" value="SOURCE_C;CortexM3;;;;Clock_burst" />
+  <file name="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\codegentemp\Clock_burst.h" value="HEADER;;;;;Clock_burst" />
   <file name="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\codegentemp\QuadDec_RIGHT_isr.c" value="SOURCE_C;CortexM3;;;;QuadDec_RIGHT_isr" />
   <file name="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\codegentemp\QuadDec_RIGHT_isr.h" value="HEADER;;;;;QuadDec_RIGHT_isr" />
   <file name="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\codegentemp\QuadDec_RIGHT_Cnt16.c" value="SOURCE_C;CortexM3;;;;QuadDec_RIGHT_Cnt16" />

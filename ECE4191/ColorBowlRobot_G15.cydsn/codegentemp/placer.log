@@ -6,7 +6,7 @@
 
 #Build Date:         Sep  9 2019 11:47:43
 
-#File Generated:     Sep 1 2023 11:05:02
+#File Generated:     Sep 1 2023 16:50:22
 
 #Purpose:            
 
@@ -79,20 +79,21 @@ analysis after routing.
 ######################################################################
                      Clock Summary 
 ======================================================================
-Number of clocks: 13
-Clock: Clock_1              | Frequency:  31.6 MHz | Target:   1.0 MHz
+Number of clocks: 14
+Clock: Clock_1              | Frequency:  37.8 MHz | Target:   1.0 MHz
 Clock: Clock_1(fixed-function) | Frequency: N/A       | Target:   1.0 MHz
 Clock: Clock_2              | Frequency:  29.2 MHz | Target:   0.1 MHz
-Clock: Clock_3              | Frequency:  32.4 MHz | Target:   1.0 MHz
-Clock: Clock_3(fixed-function) | Frequency: N/A       | Target:   1.0 MHz
-Clock: Clock_4              | Frequency: 104.8 MHz | Target:   0.0 MHz
+Clock: Clock_3              | Frequency:  36.3 MHz | Target:   1.0 MHz
+Clock: Clock_4              | Frequency:  69.1 MHz | Target:   0.0 MHz
 Clock: Clock_5              | Frequency:  59.7 MHz | Target:   0.1 MHz
+Clock: Clock_burst          | Frequency: N/A       | Target:   0.0 MHz
+Clock: Clock_burst(fixed-function) | Frequency: N/A       | Target:   0.0 MHz
 Clock: CyBUS_CLK            | Frequency:  30.8 MHz | Target:  24.0 MHz
 Clock: CyILO                | Frequency: N/A       | Target:   0.0 MHz
 Clock: CyIMO                | Frequency: N/A       | Target:   3.0 MHz
 Clock: CyMASTER_CLK         | Frequency: N/A       | Target:  24.0 MHz
 Clock: CyPLL_OUT            | Frequency: N/A       | Target:  24.0 MHz
-Clock: UART_1_IntClock      | Frequency:  41.8 MHz | Target:   0.5 MHz
+Clock: UART_1_IntClock      | Frequency:  43.3 MHz | Target:   0.5 MHz
 
 ======================================================================
                      End of Clock Summary
@@ -104,20 +105,21 @@ Phase 7
 ######################################################################
                      Clock Summary 
 ======================================================================
-Number of clocks: 13
-Clock: Clock_1              | Frequency:  31.6 MHz | Target:   1.0 MHz
+Number of clocks: 14
+Clock: Clock_1              | Frequency:  33.0 MHz | Target:   1.0 MHz
 Clock: Clock_1(fixed-function) | Frequency: N/A       | Target:   1.0 MHz
-Clock: Clock_2              | Frequency:   0.7 MHz | Target:   0.1 MHz
-Clock: Clock_3              | Frequency:   2.5 MHz | Target:   1.0 MHz
-Clock: Clock_3(fixed-function) | Frequency: N/A       | Target:   1.0 MHz
-Clock: Clock_4              | Frequency: 104.8 MHz | Target:   0.0 MHz
-Clock: Clock_5              | Frequency:  59.7 MHz | Target:   0.1 MHz
-Clock: CyBUS_CLK            | Frequency:   0.7 MHz | Target:  24.0 MHz
+Clock: Clock_2              | Frequency:   0.8 MHz | Target:   0.1 MHz
+Clock: Clock_3              | Frequency:   2.2 MHz | Target:   1.0 MHz
+Clock: Clock_4              | Frequency: 107.9 MHz | Target:   0.0 MHz
+Clock: Clock_5              | Frequency:  57.7 MHz | Target:   0.1 MHz
+Clock: Clock_burst          | Frequency: N/A       | Target:   0.0 MHz
+Clock: Clock_burst(fixed-function) | Frequency: N/A       | Target:   0.0 MHz
+Clock: CyBUS_CLK            | Frequency:   0.8 MHz | Target:  24.0 MHz
 Clock: CyILO                | Frequency: N/A       | Target:   0.0 MHz
 Clock: CyIMO                | Frequency: N/A       | Target:   3.0 MHz
 Clock: CyMASTER_CLK         | Frequency: N/A       | Target:  24.0 MHz
 Clock: CyPLL_OUT            | Frequency: N/A       | Target:  24.0 MHz
-Clock: UART_1_IntClock      | Frequency:   2.1 MHz | Target:   0.5 MHz
+Clock: UART_1_IntClock      | Frequency:   2.3 MHz | Target:   0.5 MHz
 
 ======================================================================
                      End of Clock Summary
@@ -152,20 +154,21 @@ analysis after routing.
 ######################################################################
                      Clock Summary 
 ======================================================================
-Number of clocks: 13
-Clock: Clock_1              | Frequency:  33.9 MHz | Target:   1.0 MHz
+Number of clocks: 14
+Clock: Clock_1              | Frequency:  36.3 MHz | Target:   1.0 MHz
 Clock: Clock_1(fixed-function) | Frequency: N/A       | Target:   1.0 MHz
 Clock: Clock_2              | Frequency:   0.8 MHz | Target:   0.1 MHz
 Clock: Clock_3              | Frequency:   3.0 MHz | Target:   1.0 MHz
-Clock: Clock_3(fixed-function) | Frequency: N/A       | Target:   1.0 MHz
 Clock: Clock_4              | Frequency: 104.8 MHz | Target:   0.0 MHz
-Clock: Clock_5              | Frequency:  48.6 MHz | Target:   0.1 MHz
+Clock: Clock_5              | Frequency:  44.3 MHz | Target:   0.1 MHz
+Clock: Clock_burst          | Frequency: N/A       | Target:   0.0 MHz
+Clock: Clock_burst(fixed-function) | Frequency: N/A       | Target:   0.0 MHz
 Clock: CyBUS_CLK            | Frequency:   0.8 MHz | Target:  24.0 MHz
 Clock: CyILO                | Frequency: N/A       | Target:   0.0 MHz
 Clock: CyIMO                | Frequency: N/A       | Target:   3.0 MHz
 Clock: CyMASTER_CLK         | Frequency: N/A       | Target:  24.0 MHz
 Clock: CyPLL_OUT            | Frequency: N/A       | Target:  24.0 MHz
-Clock: UART_1_IntClock      | Frequency:   2.3 MHz | Target:   0.5 MHz
+Clock: UART_1_IntClock      | Frequency:   2.7 MHz | Target:   0.5 MHz
 
 ======================================================================
                      End of Clock Summary

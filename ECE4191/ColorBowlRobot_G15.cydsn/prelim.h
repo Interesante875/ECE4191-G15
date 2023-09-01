@@ -16,21 +16,20 @@
     #include <stdio.h>
     #include <stdlib.h>
     #include <cytypes.h>
+    #include <stdbool.h>
     
-    #include "color_detection.h"
     #include "locomotion.h"
-    #include "irsensor.h"
-    #include "servo.h"
     #include "ultrasonic.h"
-    #include "bluetooth.h"
-    
+    #include "servo.h"
+    #include "color_detection.h"
 //    #include "color_detection.h"
 //    #include "locomotion.h"
 //    #include "irsensor.h"
 //    #include "servo.h"
 //    #include "ultrasonic.h"
     
-    //void move_out_of_base();
+    void moveOutOfBase();
+    void detectSlit();
     
     
 #endif

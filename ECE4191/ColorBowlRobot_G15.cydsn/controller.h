@@ -14,9 +14,8 @@
     
     #include "project.h"
     #include "cytypes.h"
+    #include "motor.h"
     
-    #define PWM_MAX 255
-    #define PWM_MIN 0 
     #define P_CONST 0.75
     #define I_CONST 0.0095
     #define D_CONST 0.00075

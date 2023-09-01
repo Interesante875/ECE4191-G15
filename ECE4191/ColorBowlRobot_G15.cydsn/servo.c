@@ -53,6 +53,11 @@ void trunk_writeCompare(int compareValue) {
     PWM_Servo_Trunk_WriteCompare(compareValue); 
 }
 
+uint16 trunk_readCompare() {
+    uint16 compareValue = PWM_Servo_Trunk_ReadCompare(); 
+    return compareValue;
+}
+
 void gripper_open() {
     /*
         There are a few states that prohibits this actions
@@ -73,7 +78,7 @@ void gripper_open() {
     gripper_start();
     gripper_writeCompare(980);
     CyDelay(250);
-    //gripper_off();
+    gripper_off();
 }
 
 void gripper_close() {
@@ -84,14 +89,20 @@ void gripper_close() {
     gripper_start();
     gripper_writeCompare(880);
     CyDelay(250);
-    //gripper_off();
+    gripper_off();
 }
 
-void arm_swing(int angle) {
+void arm_swing() {
     /*
     Translate angle to compareValue, requires mapping
     arm_writeCompare(compareValue);
     */
+    
+    arm_start();
+    arm_writeCompare(925);
+    CyDelay(250);
+    arm_off();
+    
     
     
 }
@@ -100,7 +111,7 @@ void lift_down() {
     // lift_writeCompare(int compareValue)
     
     lift_start();
-    lift_writeCompare(880);
+    lift_writeCompare(925);
     CyDelay(2500);
     lift_off();
 }
@@ -114,23 +125,26 @@ void lift_up() {
 void trunk_up() {
     //trunk_writeCompare(int compareValue)
     trunk_start();
-    trunk_writeCompare(920);
+    uint16 target = 900;
+    trunk_writeCompare(target);
     CyDelay(500);
-    //trunk_off();
+    trunk_off();
 }
 void trunk_middle() {
     //trunk_writeCompare(int compareValue)
     trunk_start();
-    trunk_writeCompare(880);
-    CyDelay(250);
-    //trunk_off();
+    uint16 target = 875;
+    trunk_writeCompare(target);
+    CyDelay(500);
+    trunk_off();
 }
 void trunk_ground() {
     //trunk_writeCompare(int compareValue)   
     trunk_start();
-    trunk_writeCompare(875);
-    CyDelay(250);
-    //trunk_off();
+    uint16 target = 860;
+    trunk_writeCompare(target);
+    CyDelay(500);
+    trunk_off();
 }
 
 void reset_to_initial_state() {

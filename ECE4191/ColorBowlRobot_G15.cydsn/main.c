@@ -23,55 +23,19 @@
 #include "color_detection.h"
 #include "servo.h"
 */
-
-
-#include "color_detection.h"
-#include "locomotion.h"
-#include "irsensor.h"
 #include "servo.h"
-#include "ultrasonic.h"
 #include "bluetooth.h"
-
-void move_out_of_base() {
-    
-    
-    bool wall_not_encountered = true;
-
-    ultrasonic_measuring();
-
-//    double move_dist = (kaldist_measure[2]<kaldist_measure[3])?kaldist_measure[2]:kaldist_measure[3];
-//    wheel_move_by_distance(forward, 250, (int) (move_dist - 20));
-    
-    wall_not_encountered = (kaldist_measure[2] > 20 || kaldist_measure[3] > 20);
-    
-    //printValue("Distance: %d %d\n", (int) kaldist_measure[2], (int) kaldist_measure[3]);
-    while (wall_not_encountered) {
-        
-        wheel_move_by_distance(FORWARD, 240, 0.15);
-
-        ultrasonic_measuring();
-
-        
-        wall_not_encountered = (kaldist_measure[2] > 25 || kaldist_measure[3] > 25);
-        
-   
-        angle_correction(240, (int) kaldist_measure[2], (int) kaldist_measure[3]);
-        
-
-        ultrasonic_measuring();
-        
-  
-        //printValue("%d %d\n", (int) kaldist_measure[2], (int) kaldist_measure[3]);
-    }
-    
-    wheel_turn_by_angle(LEFT, 240, 90);
-}
-
+#include "prelim.h"
+#include "ultrasonic.h"
+/*
 void detect_the_slit() {
     
     bool slit_not_encountered = true;
     bool front_wall_not_encountered = true;
     bool back_wall_not_encountered = true;
+    
+    bool front_complete = false;
+    bool back_complete = false;
     
     ultrasonic_measuring();
     
@@ -94,8 +58,10 @@ void detect_the_slit() {
   
         ultrasonic_measuring();
         
- 
+        front_complete = true;
     }
+    
+    
     
     while (back_wall_not_encountered && slit_not_encountered) {
         
@@ -112,34 +78,48 @@ void detect_the_slit() {
         
         ultrasonic_measuring();
 
-        
+        back_complete = true;
     }
    
-    
+    if (front_complete && !back_complete)
+    wheel_move_by_distance(FORWARD, 240, 0.075);
+    else if (front_complete && back_complete)
+    wheel_move_by_distance(BACKWARD, 240, 0.075);
     wheel_turn_by_angle(RIGHT, 240, 90);
     
 }
 
 void move_through_slit() {
     
-    trunk_up();
+    //trunk_up();
+    
+    //gripper_open();
     wheel_move_by_distance(FORWARD, 240, 0.5);   
-
+    //gripper_close();
 }
 
+void move_out_of_base_2() {
+    
+    bool wall_not_encountered = true;
+
+    
+    
+    
+}
+*/
 int main(void)
 {
     CyGlobalIntEnable; /* Enable global interrupts. */
-    bluetooth_start();
     
+    moveOutOfBase();
+    CyDelay(500);
+    detectSlit();
+ 
     
-    move_out_of_base();
-    detect_the_slit();
-    move_through_slit();
     
     for(;;)
     {
-        
+      
     }
 }
 

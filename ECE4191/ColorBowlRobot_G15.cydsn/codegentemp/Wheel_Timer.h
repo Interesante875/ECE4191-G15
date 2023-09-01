@@ -44,7 +44,7 @@ extern uint8 Wheel_Timer_initVar;
 #define Wheel_Timer_UsingHWEnable              0u
 #define Wheel_Timer_EnableTriggerMode          0u
 #define Wheel_Timer_InterruptOnCaptureCount    0u
-#define Wheel_Timer_RunModeUsed                1u
+#define Wheel_Timer_RunModeUsed                0u
 #define Wheel_Timer_ControlRegRemoved          0u
 
 #if defined(Wheel_Timer_TimerUDB_sCTRLReg_SyncCtl_ctrlreg__CONTROL_REG)
@@ -168,7 +168,7 @@ void Wheel_Timer_Wakeup(void)        ;
 *    Initialial Parameter Constants
 ***************************************/
 
-#define Wheel_Timer_INIT_PERIOD             999u
+#define Wheel_Timer_INIT_PERIOD             249u
 #define Wheel_Timer_INIT_CAPTURE_MODE       ((uint8)((uint8)0u << Wheel_Timer_CTRL_CAP_MODE_SHIFT))
 #define Wheel_Timer_INIT_TRIGGER_MODE       ((uint8)((uint8)0u << Wheel_Timer_CTRL_TRIG_MODE_SHIFT))
 #if (Wheel_Timer_UsingFixedFunction)
