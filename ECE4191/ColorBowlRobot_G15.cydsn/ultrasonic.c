@@ -64,6 +64,12 @@ void ultrasonic_setup() {
     
 }
 
+void ultrasonic_stop() {
+    isr_ultrasonic_Stop();
+    isr_ultrasonic_burst_Stop();
+    
+}
+
 void ultrasonic_off() {
     //memset(kaldist_measure, 0, sizeof(kaldist_measure));
     Timer_Ultrasonic_Stop();
@@ -188,7 +194,7 @@ void ultrasonic_measuring() {
     
     while (burst_count <= ULTRASONIC_BURSTS);
     
-    ultrasonic_off();
+    ultrasonic_stop();
 }
 
 

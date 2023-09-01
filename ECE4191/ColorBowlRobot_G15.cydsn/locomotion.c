@@ -114,7 +114,7 @@ void motor_right_stop_pwm() {
 void motor_start(uint8 pwm) {
     
     moveStatus = ENABLE;
-    
+    resetPController();
     motor_left_start_QuadDec();
     motor_right_start_QuadDec();
     
@@ -124,8 +124,6 @@ void motor_start(uint8 pwm) {
     motor_left_set_pwm_compare(pwm);
     motor_right_set_pwm_compare(pwm);
     
-    resetPController();
-    resetPIDController();
     //isr_wheel_controller_StartEx(ISR_Handler_wheel_controller);
 }
 
@@ -133,6 +131,18 @@ void motor_start(uint8 pwm) {
 void motor_stop() {
     
     //isr_wheel_controller_Stop();
+    
+    moveStatus = DISABLE;
+ 
+    motor_left_reset_QuadDec();
+    motor_right_reset_QuadDec();
+    
+    
+
+    wheel_motion_set(STOP);
+}
+
+void motor_off() {
     
     moveStatus = DISABLE;
     motor_left_stop_pwm();
@@ -144,23 +154,23 @@ void motor_stop() {
     motor_left_stop_QuadDec();
     motor_right_stop_QuadDec();
     wheel_motion_set(STOP);
-    resetPIDController();
+    
 }
 
 void wheel_motion_set(MOTION motion) {
     
-    if (moveStatus == DISABLE) {
-        MOTOR_LEFT_IN_1_Write(0);
-        MOTOR_LEFT_IN_2_Write(0);
-        
-        MOTOR_RIGHT_IN_3_Write(0);
-        MOTOR_RIGHT_IN_4_Write(0);
-        return;
-        
-    }
+//    if (moveStatus == DISABLE) {
+//        MOTOR_LEFT_IN_1_Write(0);
+//        MOTOR_LEFT_IN_2_Write(0);
+//        
+//        MOTOR_RIGHT_IN_3_Write(0);
+//        MOTOR_RIGHT_IN_4_Write(0);
+//        return;
+//        
+//    }
     
     currentMotion = motion;
-    
+
     switch (motion) {
         case FORWARD:
             MOTOR_LEFT_IN_1_Write(0);
@@ -218,6 +228,8 @@ void wheel_motion_set(MOTION motion) {
             
     }
     
+    CyDelay(5);
+    
 }
 
 void wheel_move_by_ticks(MOTION motion, uint8 pwm, int target_ticks) {
@@ -237,7 +249,7 @@ void wheel_move_by_ticks(MOTION motion, uint8 pwm, int target_ticks) {
     motor_start(pwm);
     
     int master_pwm = motor_left_get_pwm();
-    //int slave_pwm = motor_right_get_pwm();
+    int slave_pwm = motor_right_get_pwm();
     
     int master_motor_left_ticks = -motor_left_get_count_QuadDec();
     int slave_motor_right_ticks = -motor_right_get_count_QuadDec();
@@ -246,13 +258,14 @@ void wheel_move_by_ticks(MOTION motion, uint8 pwm, int target_ticks) {
     
     while (abs(master_motor_left_ticks) < target_ticks) {
         
-        if (moveStatus == DISABLE) {
-            wheel_motion_set(STOP);
-            break;
-        }
+//        if (moveStatus == DISABLE) {
+//            wheel_motion_set(STOP);
+//            break;
+//        }
         
         
         master_pwm = motor_left_get_pwm();
+        slave_pwm = motor_right_get_pwm();
         
         uint8 updated_slave_pwm = computePController(master_motor_left_ticks, 
             slave_motor_right_ticks, master_pwm);
@@ -267,6 +280,7 @@ void wheel_move_by_ticks(MOTION motion, uint8 pwm, int target_ticks) {
     }
     
     printValue("LEFT: %d\t RIGHT: %d\n ", master_motor_left_ticks, slave_motor_right_ticks);
+    printValue("Master PWM - %d Slave PWM - %d\n", master_pwm, slave_pwm);
     //CyDelay(2);
     
     motor_stop();
@@ -289,10 +303,10 @@ void wheel_move_by_distance(MOTION motion, uint8 pwm, double distance) {
     
     while (abs(master_motor_left_ticks) < travel_ticks) {
         
-        if (moveStatus == DISABLE) {
-            wheel_motion_set(STOP);
-            break;
-        }
+//        if (moveStatus == DISABLE) {
+//            wheel_motion_set(STOP);
+//            break;
+//        }
         
         master_pwm = motor_left_get_pwm();
         
@@ -344,7 +358,7 @@ void wheel_turn_by_ticks(MOTION motion, uint8 pwm, int turn_ticks) {
     motor_start(pwm);
     
     int master_pwm = motor_left_get_pwm();
-    //int slave_pwm = motor_right_get_pwm();
+    int slave_pwm = motor_right_get_pwm();
     
     int master_motor_left_ticks = -motor_left_get_count_QuadDec();
     int slave_motor_right_ticks = -motor_right_get_count_QuadDec();
@@ -353,17 +367,17 @@ void wheel_turn_by_ticks(MOTION motion, uint8 pwm, int turn_ticks) {
     
     while (abs(master_motor_left_ticks) < turn_ticks) {
         
-        if (moveStatus == DISABLE) {
-            wheel_motion_set(STOP);
-            break;
-        }
+//        if (moveStatus == DISABLE) {
+//            wheel_motion_set(STOP);
+//            break;
+//        }
         
         master_pwm = motor_left_get_pwm();
-        
-//        uint8 updated_slave_pwm = computePController(master_motor_left_ticks, 
-//            slave_motor_right_ticks, master_pwm);
-        uint8 updated_slave_pwm = computePIDController(master_motor_left_ticks, 
+        slave_pwm = motor_right_get_pwm();
+        uint8 updated_slave_pwm = computePController(master_motor_left_ticks, 
             slave_motor_right_ticks, master_pwm);
+//        uint8 updated_slave_pwm = computePIDController(master_motor_left_ticks, 
+//            slave_motor_right_ticks, master_pwm);
         
         motor_right_set_pwm_compare((uint8) updated_slave_pwm);
         master_motor_left_ticks = -motor_left_get_count_QuadDec();
@@ -373,7 +387,7 @@ void wheel_turn_by_ticks(MOTION motion, uint8 pwm, int turn_ticks) {
     }
     
     printValue("LEFT: %d\t RIGHT: %d\n ", master_motor_left_ticks, slave_motor_right_ticks);
-       
+    printValue("Master PWM - %d Slave PWM - %d\n", master_pwm, slave_pwm);   
     motor_stop();
     
 }
@@ -398,10 +412,10 @@ void wheel_turn_by_angle(MOTION motion, uint8 pwm, double angle) {
     
     while (abs(master_motor_left_ticks) < turn_ticks) {
         
-        if (moveStatus == DISABLE) {
-            wheel_motion_set(STOP);
-            break;
-        }
+//        if (moveStatus == DISABLE) {
+//            wheel_motion_set(STOP);
+//            break;
+//        }
         
         master_pwm = motor_left_get_pwm();
         

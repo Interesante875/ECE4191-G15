@@ -889,7 +889,7 @@
 #define QuadDec_LEFT_isr__INTC_CLR_PD_REG CYREG_NVIC_CLRPEND0
 #define QuadDec_LEFT_isr__INTC_MASK 0x01u
 #define QuadDec_LEFT_isr__INTC_NUMBER 0u
-#define QuadDec_LEFT_isr__INTC_PRIOR_NUM 7u
+#define QuadDec_LEFT_isr__INTC_PRIOR_NUM 0u
 #define QuadDec_LEFT_isr__INTC_PRIOR_REG CYREG_NVIC_PRI_0
 #define QuadDec_LEFT_isr__INTC_SET_EN_REG CYREG_NVIC_SETENA0
 #define QuadDec_LEFT_isr__INTC_SET_PD_REG CYREG_NVIC_SETPEND0
@@ -1110,7 +1110,7 @@
 #define QuadDec_RIGHT_isr__INTC_CLR_PD_REG CYREG_NVIC_CLRPEND0
 #define QuadDec_RIGHT_isr__INTC_MASK 0x02u
 #define QuadDec_RIGHT_isr__INTC_NUMBER 1u
-#define QuadDec_RIGHT_isr__INTC_PRIOR_NUM 7u
+#define QuadDec_RIGHT_isr__INTC_PRIOR_NUM 0u
 #define QuadDec_RIGHT_isr__INTC_PRIOR_REG CYREG_NVIC_PRI_1
 #define QuadDec_RIGHT_isr__INTC_SET_EN_REG CYREG_NVIC_SETENA0
 #define QuadDec_RIGHT_isr__INTC_SET_PD_REG CYREG_NVIC_SETPEND0
@@ -1222,7 +1222,7 @@
 #define isr_ultrasonic__INTC_CLR_PD_REG CYREG_NVIC_CLRPEND0
 #define isr_ultrasonic__INTC_MASK 0x80u
 #define isr_ultrasonic__INTC_NUMBER 7u
-#define isr_ultrasonic__INTC_PRIOR_NUM 7u
+#define isr_ultrasonic__INTC_PRIOR_NUM 2u
 #define isr_ultrasonic__INTC_PRIOR_REG CYREG_NVIC_PRI_7
 #define isr_ultrasonic__INTC_SET_EN_REG CYREG_NVIC_SETENA0
 #define isr_ultrasonic__INTC_SET_PD_REG CYREG_NVIC_SETPEND0
@@ -1230,7 +1230,7 @@
 #define isr_ultrasonic_burst__INTC_CLR_PD_REG CYREG_NVIC_CLRPEND0
 #define isr_ultrasonic_burst__INTC_MASK 0x80000u
 #define isr_ultrasonic_burst__INTC_NUMBER 19u
-#define isr_ultrasonic_burst__INTC_PRIOR_NUM 7u
+#define isr_ultrasonic_burst__INTC_PRIOR_NUM 2u
 #define isr_ultrasonic_burst__INTC_PRIOR_REG CYREG_NVIC_PRI_19
 #define isr_ultrasonic_burst__INTC_SET_EN_REG CYREG_NVIC_SETENA0
 #define isr_ultrasonic_burst__INTC_SET_PD_REG CYREG_NVIC_SETPEND0
@@ -2182,7 +2182,7 @@
 #define isr_wheel_controller__INTC_CLR_PD_REG CYREG_NVIC_CLRPEND0
 #define isr_wheel_controller__INTC_MASK 0x100000u
 #define isr_wheel_controller__INTC_NUMBER 20u
-#define isr_wheel_controller__INTC_PRIOR_NUM 7u
+#define isr_wheel_controller__INTC_PRIOR_NUM 1u
 #define isr_wheel_controller__INTC_PRIOR_REG CYREG_NVIC_PRI_20
 #define isr_wheel_controller__INTC_SET_EN_REG CYREG_NVIC_SETENA0
 #define isr_wheel_controller__INTC_SET_PD_REG CYREG_NVIC_SETPEND0

@@ -63,6 +63,7 @@
     
     void motor_start(uint8);
     void motor_stop();
+    void motor_off();
     void wheel_motion_set(MOTION motion);
     void wheel_move_by_ticks(MOTION, uint8, int);
     void wheel_move_by_distance(MOTION motion, uint8 pwm, double distance);

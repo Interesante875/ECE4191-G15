@@ -12231,7 +12231,7 @@ ARM GAS  Generated_Source\PSoC5\CyBootAsmGnu.s 			page 1
  889              	.set QuadDec_LEFT_isr__INTC_CLR_PD_REG, CYREG_NVIC_CLRPEND0
  890              	.set QuadDec_LEFT_isr__INTC_MASK, 0x01
  891              	.set QuadDec_LEFT_isr__INTC_NUMBER, 0
- 892              	.set QuadDec_LEFT_isr__INTC_PRIOR_NUM, 7
+ 892              	.set QuadDec_LEFT_isr__INTC_PRIOR_NUM, 0
  893              	.set QuadDec_LEFT_isr__INTC_PRIOR_REG, CYREG_NVIC_PRI_0
  894              	.set QuadDec_LEFT_isr__INTC_SET_EN_REG, CYREG_NVIC_SETENA0
  895              	.set QuadDec_LEFT_isr__INTC_SET_PD_REG, CYREG_NVIC_SETPEND0
@@ -12464,7 +12464,7 @@ ARM GAS  Generated_Source\PSoC5\CyBootAsmGnu.s 			page 1
  1110              	.set QuadDec_RIGHT_isr__INTC_CLR_PD_REG, CYREG_NVIC_CLRPEND0
  1111              	.set QuadDec_RIGHT_isr__INTC_MASK, 0x02
  1112              	.set QuadDec_RIGHT_isr__INTC_NUMBER, 1
- 1113              	.set QuadDec_RIGHT_isr__INTC_PRIOR_NUM, 7
+ 1113              	.set QuadDec_RIGHT_isr__INTC_PRIOR_NUM, 0
  1114              	.set QuadDec_RIGHT_isr__INTC_PRIOR_REG, CYREG_NVIC_PRI_1
  1115              	.set QuadDec_RIGHT_isr__INTC_SET_EN_REG, CYREG_NVIC_SETENA0
  1116              	.set QuadDec_RIGHT_isr__INTC_SET_PD_REG, CYREG_NVIC_SETPEND0
@@ -12582,7 +12582,7 @@ ARM GAS  Generated_Source\PSoC5\CyBootAsmGnu.s 			page 1
  1222              	.set isr_ultrasonic__INTC_CLR_PD_REG, CYREG_NVIC_CLRPEND0
  1223              	.set isr_ultrasonic__INTC_MASK, 0x80
  1224              	.set isr_ultrasonic__INTC_NUMBER, 7
- 1225              	.set isr_ultrasonic__INTC_PRIOR_NUM, 7
+ 1225              	.set isr_ultrasonic__INTC_PRIOR_NUM, 2
  1226              	.set isr_ultrasonic__INTC_PRIOR_REG, CYREG_NVIC_PRI_7
  1227              	.set isr_ultrasonic__INTC_SET_EN_REG, CYREG_NVIC_SETENA0
  1228              	.set isr_ultrasonic__INTC_SET_PD_REG, CYREG_NVIC_SETPEND0
@@ -12590,7 +12590,7 @@ ARM GAS  Generated_Source\PSoC5\CyBootAsmGnu.s 			page 1
  1230              	.set isr_ultrasonic_burst__INTC_CLR_PD_REG, CYREG_NVIC_CLRPEND0
  1231              	.set isr_ultrasonic_burst__INTC_MASK, 0x80000
  1232              	.set isr_ultrasonic_burst__INTC_NUMBER, 19
- 1233              	.set isr_ultrasonic_burst__INTC_PRIOR_NUM, 7
+ 1233              	.set isr_ultrasonic_burst__INTC_PRIOR_NUM, 2
  1234              	.set isr_ultrasonic_burst__INTC_PRIOR_REG, CYREG_NVIC_PRI_19
  1235              	.set isr_ultrasonic_burst__INTC_SET_EN_REG, CYREG_NVIC_SETENA0
  1236              	.set isr_ultrasonic_burst__INTC_SET_PD_REG, CYREG_NVIC_SETPEND0
@@ -13593,7 +13593,7 @@ ARM GAS  Generated_Source\PSoC5\CyBootAsmGnu.s 			page 1
  2182              	.set isr_wheel_controller__INTC_CLR_PD_REG, CYREG_NVIC_CLRPEND0
  2183              	.set isr_wheel_controller__INTC_MASK, 0x100000
  2184              	.set isr_wheel_controller__INTC_NUMBER, 20
- 2185              	.set isr_wheel_controller__INTC_PRIOR_NUM, 7
+ 2185              	.set isr_wheel_controller__INTC_PRIOR_NUM, 1
  2186              	.set isr_wheel_controller__INTC_PRIOR_REG, CYREG_NVIC_PRI_20
  2187              	.set isr_wheel_controller__INTC_SET_EN_REG, CYREG_NVIC_SETENA0
  2188              	.set isr_wheel_controller__INTC_SET_PD_REG, CYREG_NVIC_SETPEND0

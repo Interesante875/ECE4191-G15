@@ -250,6 +250,18 @@
   </Group>
   <Data key="DataVersionKey" value="2" />
   <Group key="DWRInstGuidMapping">
+    <Group key="Interrupt">
+      <Data key="1dacffb2-28d5-4640-9265-f366cf769bd0" value="isr_IR_Sensor_RIGHT" />
+      <Data key="5d2424ce-32e1-424e-8d9d-93f0883d58cd" value="isr_ultrasonic" />
+      <Data key="26a91525-ebe4-4c04-acdb-848054932401/e979b35e-c089-429a-96bb-6d4d69c94283" value="QuadDec_RIGHT_isr" />
+      <Data key="62f6932c-12b8-4880-8c8c-b3a7316a6a44/e979b35e-c089-429a-96bb-6d4d69c94283" value="QuadDec_LEFT_isr" />
+      <Data key="522ee3fe-c30c-4757-adfa-e915792874e2" value="isr_ultrasonic_burst" />
+      <Data key="575b1d12-882f-490e-8ca7-2ed375ff2880" value="isr_wheel_controller" />
+      <Data key="89402461-4ad9-47b4-9beb-f021ac419464" value="isr_IR_Sensor_LEFT" />
+      <Data key="c37f7521-a28f-4e9a-944e-3aecaa8c9508" value="isr_color_sensor" />
+      <Data key="d92e930e-13ba-4f4c-b2fa-b5d9a1019a49" value="isr_input" />
+      <Data key="d98b0b14-fc7e-4d8e-ab02-5cd84daa11be" value="isr_puck" />
+    </Group>
     <Group key="Pin">
       <Data key="0fe143c2-f701-4dc0-8d09-6c4cbde55272" value="MOTOR_EN_RIGHT" />
       <Data key="1b284605-cfde-448c-aca0-09a097d5b464" value="Echo_FLEFT" />
@@ -3372,6 +3384,43 @@
       </Group>
       <Group key="1024">
         <Data key="LevelKey" value="00" />
+      </Group>
+    </Group>
+  </Group>
+  <Group key="Interrupt">
+    <Group key="5d2424ce-32e1-424e-8d9d-93f0883d58cd">
+      <Group key="CortexM3">
+        <Data key="Assigned" value="True" />
+        <Data key="Priority" value="2" />
+        <Data key="Vector" value="-1" />
+      </Group>
+    </Group>
+    <Group key="26a91525-ebe4-4c04-acdb-848054932401/e979b35e-c089-429a-96bb-6d4d69c94283">
+      <Group key="CortexM3">
+        <Data key="Assigned" value="True" />
+        <Data key="Priority" value="0" />
+        <Data key="Vector" value="-1" />
+      </Group>
+    </Group>
+    <Group key="62f6932c-12b8-4880-8c8c-b3a7316a6a44/e979b35e-c089-429a-96bb-6d4d69c94283">
+      <Group key="CortexM3">
+        <Data key="Assigned" value="True" />
+        <Data key="Priority" value="0" />
+        <Data key="Vector" value="-1" />
+      </Group>
+    </Group>
+    <Group key="522ee3fe-c30c-4757-adfa-e915792874e2">
+      <Group key="CortexM3">
+        <Data key="Assigned" value="True" />
+        <Data key="Priority" value="2" />
+        <Data key="Vector" value="-1" />
+      </Group>
+    </Group>
+    <Group key="575b1d12-882f-490e-8ca7-2ed375ff2880">
+      <Group key="CortexM3">
+        <Data key="Assigned" value="True" />
+        <Data key="Priority" value="1" />
+        <Data key="Vector" value="-1" />
       </Group>
     </Group>
   </Group>

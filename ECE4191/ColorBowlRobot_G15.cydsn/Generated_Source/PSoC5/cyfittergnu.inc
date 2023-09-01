@@ -889,7 +889,7 @@
 .set QuadDec_LEFT_isr__INTC_CLR_PD_REG, CYREG_NVIC_CLRPEND0
 .set QuadDec_LEFT_isr__INTC_MASK, 0x01
 .set QuadDec_LEFT_isr__INTC_NUMBER, 0
-.set QuadDec_LEFT_isr__INTC_PRIOR_NUM, 7
+.set QuadDec_LEFT_isr__INTC_PRIOR_NUM, 0
 .set QuadDec_LEFT_isr__INTC_PRIOR_REG, CYREG_NVIC_PRI_0
 .set QuadDec_LEFT_isr__INTC_SET_EN_REG, CYREG_NVIC_SETENA0
 .set QuadDec_LEFT_isr__INTC_SET_PD_REG, CYREG_NVIC_SETPEND0
@@ -1110,7 +1110,7 @@
 .set QuadDec_RIGHT_isr__INTC_CLR_PD_REG, CYREG_NVIC_CLRPEND0
 .set QuadDec_RIGHT_isr__INTC_MASK, 0x02
 .set QuadDec_RIGHT_isr__INTC_NUMBER, 1
-.set QuadDec_RIGHT_isr__INTC_PRIOR_NUM, 7
+.set QuadDec_RIGHT_isr__INTC_PRIOR_NUM, 0
 .set QuadDec_RIGHT_isr__INTC_PRIOR_REG, CYREG_NVIC_PRI_1
 .set QuadDec_RIGHT_isr__INTC_SET_EN_REG, CYREG_NVIC_SETENA0
 .set QuadDec_RIGHT_isr__INTC_SET_PD_REG, CYREG_NVIC_SETPEND0
@@ -1222,7 +1222,7 @@
 .set isr_ultrasonic__INTC_CLR_PD_REG, CYREG_NVIC_CLRPEND0
 .set isr_ultrasonic__INTC_MASK, 0x80
 .set isr_ultrasonic__INTC_NUMBER, 7
-.set isr_ultrasonic__INTC_PRIOR_NUM, 7
+.set isr_ultrasonic__INTC_PRIOR_NUM, 2
 .set isr_ultrasonic__INTC_PRIOR_REG, CYREG_NVIC_PRI_7
 .set isr_ultrasonic__INTC_SET_EN_REG, CYREG_NVIC_SETENA0
 .set isr_ultrasonic__INTC_SET_PD_REG, CYREG_NVIC_SETPEND0
@@ -1230,7 +1230,7 @@
 .set isr_ultrasonic_burst__INTC_CLR_PD_REG, CYREG_NVIC_CLRPEND0
 .set isr_ultrasonic_burst__INTC_MASK, 0x80000
 .set isr_ultrasonic_burst__INTC_NUMBER, 19
-.set isr_ultrasonic_burst__INTC_PRIOR_NUM, 7
+.set isr_ultrasonic_burst__INTC_PRIOR_NUM, 2
 .set isr_ultrasonic_burst__INTC_PRIOR_REG, CYREG_NVIC_PRI_19
 .set isr_ultrasonic_burst__INTC_SET_EN_REG, CYREG_NVIC_SETENA0
 .set isr_ultrasonic_burst__INTC_SET_PD_REG, CYREG_NVIC_SETPEND0
@@ -2182,7 +2182,7 @@
 .set isr_wheel_controller__INTC_CLR_PD_REG, CYREG_NVIC_CLRPEND0
 .set isr_wheel_controller__INTC_MASK, 0x100000
 .set isr_wheel_controller__INTC_NUMBER, 20
-.set isr_wheel_controller__INTC_PRIOR_NUM, 7
+.set isr_wheel_controller__INTC_PRIOR_NUM, 1
 .set isr_wheel_controller__INTC_PRIOR_REG, CYREG_NVIC_PRI_20
 .set isr_wheel_controller__INTC_SET_EN_REG, CYREG_NVIC_SETENA0
 .set isr_wheel_controller__INTC_SET_PD_REG, CYREG_NVIC_SETPEND0
