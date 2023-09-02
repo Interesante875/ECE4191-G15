@@ -13142,7 +13142,7 @@ ARM GAS  Generated_Source\PSoC5\CyBootAsmGnu.s 			page 1
 
 
  1754              	.set isr_color_sensor__INTC_NUMBER, 4
- 1755              	.set isr_color_sensor__INTC_PRIOR_NUM, 7
+ 1755              	.set isr_color_sensor__INTC_PRIOR_NUM, 2
  1756              	.set isr_color_sensor__INTC_PRIOR_REG, CYREG_NVIC_PRI_4
  1757              	.set isr_color_sensor__INTC_SET_EN_REG, CYREG_NVIC_SETENA0
  1758              	.set isr_color_sensor__INTC_SET_PD_REG, CYREG_NVIC_SETPEND0
@@ -13598,7 +13598,7 @@ ARM GAS  Generated_Source\PSoC5\CyBootAsmGnu.s 			page 1
  2187              	.set isr_ultrasonic_burst__INTC_CLR_PD_REG, CYREG_NVIC_CLRPEND0
  2188              	.set isr_ultrasonic_burst__INTC_MASK, 0x80000
  2189              	.set isr_ultrasonic_burst__INTC_NUMBER, 19
- 2190              	.set isr_ultrasonic_burst__INTC_PRIOR_NUM, 2
+ 2190              	.set isr_ultrasonic_burst__INTC_PRIOR_NUM, 3
  2191              	.set isr_ultrasonic_burst__INTC_PRIOR_REG, CYREG_NVIC_PRI_19
  2192              	.set isr_ultrasonic_burst__INTC_SET_EN_REG, CYREG_NVIC_SETENA0
  2193              	.set isr_ultrasonic_burst__INTC_SET_PD_REG, CYREG_NVIC_SETPEND0

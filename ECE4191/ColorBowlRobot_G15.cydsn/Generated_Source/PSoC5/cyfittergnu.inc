@@ -1752,7 +1752,7 @@
 .set isr_color_sensor__INTC_CLR_PD_REG, CYREG_NVIC_CLRPEND0
 .set isr_color_sensor__INTC_MASK, 0x10
 .set isr_color_sensor__INTC_NUMBER, 4
-.set isr_color_sensor__INTC_PRIOR_NUM, 7
+.set isr_color_sensor__INTC_PRIOR_NUM, 2
 .set isr_color_sensor__INTC_PRIOR_REG, CYREG_NVIC_PRI_4
 .set isr_color_sensor__INTC_SET_EN_REG, CYREG_NVIC_SETENA0
 .set isr_color_sensor__INTC_SET_PD_REG, CYREG_NVIC_SETPEND0
@@ -2187,7 +2187,7 @@
 .set isr_ultrasonic_burst__INTC_CLR_PD_REG, CYREG_NVIC_CLRPEND0
 .set isr_ultrasonic_burst__INTC_MASK, 0x80000
 .set isr_ultrasonic_burst__INTC_NUMBER, 19
-.set isr_ultrasonic_burst__INTC_PRIOR_NUM, 2
+.set isr_ultrasonic_burst__INTC_PRIOR_NUM, 3
 .set isr_ultrasonic_burst__INTC_PRIOR_REG, CYREG_NVIC_PRI_19
 .set isr_ultrasonic_burst__INTC_SET_EN_REG, CYREG_NVIC_SETENA0
 .set isr_ultrasonic_burst__INTC_SET_PD_REG, CYREG_NVIC_SETPEND0

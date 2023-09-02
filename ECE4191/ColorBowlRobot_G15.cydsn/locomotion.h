@@ -18,9 +18,13 @@
     #include "cytypes.h"
     #include "motor_control.h"
     #include "controller.h"
+    #include "navigation_stack.h"
     
     #define EMF_BUFFER_DELAY 200
 
+    //int flag_distance_moving = 1;
+    
+    
     CY_ISR (ISR_Handler_wheel_controller);
     void wheel_controller_start();
     void wheel_controller_stop();
@@ -28,9 +32,11 @@
     
     void wheel_move_by_ticks(MOTION, uint8, int);
     void wheel_move_by_metrics(MOTION motion, uint8 pwm, double metrics);
+    void wheel_move(MOTION motion, uint8 pwm);
     
     void robot_locomotion_initialization();
     void angle_correction(uint8 pwm, double flu, double fru);
+    void angle_correction_with_ticks (MOTION motion, uint8 pwm);
     
     CY_ISR (ISR_Handler_wheel_controller);
 

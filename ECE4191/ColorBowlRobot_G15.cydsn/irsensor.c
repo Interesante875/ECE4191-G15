@@ -12,6 +12,7 @@
 #include "project.h"
 #include <stdio.h>
 #include "irsensor.h"
+/*
 #include "locomotion.h"
 
 void ir_start() {
@@ -47,4 +48,5 @@ CY_ISR (ISR_Handler_puck) {
     
     // Not implemented
 }
+*/
 /* [] END OF FILE */

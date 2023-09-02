@@ -31,6 +31,7 @@
     
     MOVE_STATUS moveStatus;
     MOTION currentMotion;
+   
     
     void motor_on(uint8);
     void motor_off();

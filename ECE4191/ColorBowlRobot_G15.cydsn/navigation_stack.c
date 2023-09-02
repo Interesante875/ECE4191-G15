@@ -12,8 +12,72 @@
 #include "navigation_stack.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
 #include <cytypes.h>
+
+
+void initializePosition(STARTING_BASE color) {
+    
+    switch (color) {
+        case RED_BASE:
+            pos_y = 0.85;
+            pos_x = 0.05;
+            heading_angle = 0;
+        break;
+        case YELLOW_BASE:
+            pos_y = 1.52;
+            pos_x = 0.05;
+            heading_angle = 0;
+        
+        break;
+        case GREEN_BASE:
+            pos_y = 1.52;
+            pos_x = 2.32;
+            heading_angle = 180 * CY_M_PI / 180;
+        
+        break;
+        case BLUE_BASE:
+            pos_y = 0.85;
+            pos_x = 2.32;
+            heading_angle = 180 * CY_M_PI / 180;
+        
+        break;
+
+    }
+}
+
+void computePosition(int left_ticks, int right_ticks) {
+    
+    if (abs(left_ticks) - abs(right_ticks) < 20) right_ticks = left_ticks; 
+    
+    double distance_left = (double) left_ticks / TICKS_PER_REVOLUTION * (2 * CY_M_PI * WHEEL_RADIUS); 
+    double distance_right = (double) right_ticks / TICKS_PER_REVOLUTION * (2 * CY_M_PI * WHEEL_RADIUS); 
+    double radial_angle = (distance_left - distance_right)/(2*HALF_WIDTH);
+    
+    double R = distance_left * (2 * HALF_WIDTH/(distance_left - distance_right)) + HALF_WIDTH;
+    
+    double distance_travelled = (distance_left + distance_right)/2;
+    
+    double alpha = radial_angle/2;
+    
+    double beta = radial_angle;
+    
+    pos_x += distance_travelled * cos(heading_angle + (radial_angle/2));
+    
+    if (pos_x > MAX_X) pos_x = MAX_X;
+    if (pos_x < MIN_X) pos_x = MIN_X;
+
+    pos_y += distance_travelled * sin(heading_angle + (radial_angle/2));
+    
+    if (pos_y > MAX_Y) pos_x = MAX_Y;
+    if (pos_y < MIN_Y) pos_x = MIN_Y;
+    
+    heading_angle += radial_angle;
+    
+    if (heading_angle > CY_M_PI) heading_angle -= CY_M_PI;
+    if (heading_angle < -CY_M_PI) heading_angle += CY_M_PI;
+    
+}
+
 
 NavigationStack* createNavigationStack(double initial_x, double initial_y) {
     NavigationStack* stack = (NavigationStack*)malloc(sizeof(NavigationStack));

@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccVkKEVe.s 			page 1
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cccXuYeA.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccVkKEVe.s 			page 1
   38              		.loc 1 17 0
   39 0004 0022     		movs	r2, #0
   40 0006 084B     		ldr	r3, .L3
-ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccVkKEVe.s 			page 2
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cccXuYeA.s 			page 2
 
 
   41 0008 1A70     		strb	r2, [r3]
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccVkKEVe.s 			page 1
   35:motor_control.c ****     motor_right_stop_pwm();
   36:motor_control.c ****     
   37:motor_control.c ****     motor_left_reset_QuadDec();
-ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccVkKEVe.s 			page 3
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cccXuYeA.s 			page 3
 
 
   38:motor_control.c ****     motor_right_reset_QuadDec();
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccVkKEVe.s 			page 1
   58:motor_control.c ****     
   59:motor_control.c ****     moveStatus = DISABLE;
   60:motor_control.c ****  
-ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccVkKEVe.s 			page 4
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cccXuYeA.s 			page 4
 
 
   61:motor_control.c ****     motor_left_reset_QuadDec();
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccVkKEVe.s 			page 1
  147              	.LVL13:
   80:motor_control.c ****             MOTOR_RIGHT_IN_4_Write(1);
  148              		.loc 1 80 0
-ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccVkKEVe.s 			page 5
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cccXuYeA.s 			page 5
 
 
  149 0024 0120     		movs	r0, #1
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccVkKEVe.s 			page 1
  189              	.LVL25:
   95:motor_control.c ****             MOTOR_RIGHT_IN_4_Write(1);
  190              		.loc 1 95 0
-ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccVkKEVe.s 			page 6
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cccXuYeA.s 			page 6
 
 
  191 0058 0120     		movs	r0, #1
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccVkKEVe.s 			page 1
  229 0086 0020     		movs	r0, #0
  230 0088 FFF7FEFF 		bl	MOTOR_RIGHT_IN_3_Write
  231              	.LVL37:
-ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccVkKEVe.s 			page 7
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cccXuYeA.s 			page 7
 
 
  112:motor_control.c ****             MOTOR_RIGHT_IN_4_Write(0);
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccVkKEVe.s 			page 1
  275              		.loc 1 37 0
  276 0010 FFF7FEFF 		bl	motor_left_reset_QuadDec
  277              	.LVL42:
-ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccVkKEVe.s 			page 8
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cccXuYeA.s 			page 8
 
 
   38:motor_control.c ****     
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccVkKEVe.s 			page 1
  324              	.LVL48:
   64:motor_control.c ****     
  325              		.loc 1 64 0
-ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccVkKEVe.s 			page 9
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cccXuYeA.s 			page 9
 
 
  326 0010 0420     		movs	r0, #4
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccVkKEVe.s 			page 1
  379 0034 02       		.byte	0x2
  380 0035 05       		.byte	0x5
  381 0036 9F030000 		.4byte	.LASF2
-ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccVkKEVe.s 			page 10
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cccXuYeA.s 			page 10
 
 
  382 003a 02       		.uleb128 0x2
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccVkKEVe.s 			page 1
  436 009e 80030000 		.4byte	.LASF14
  437 00a2 02       		.uleb128 0x2
  438 00a3 08       		.byte	0x8
-ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccVkKEVe.s 			page 11
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cccXuYeA.s 			page 11
 
 
  439 00a4 04       		.byte	0x4
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccVkKEVe.s 			page 1
  493 0110 0F       		.byte	0xf
  494 0111 00000000 		.4byte	.LFB63
  495 0115 2C000000 		.4byte	.LFE63-.LFB63
-ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccVkKEVe.s 			page 12
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cccXuYeA.s 			page 12
 
 
  496 0119 01       		.uleb128 0x1
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccVkKEVe.s 			page 1
  550 0191 63040000 		.4byte	0x463
  551 0195 0A       		.uleb128 0xa
  552 0196 10000000 		.4byte	.LVL8
-ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccVkKEVe.s 			page 13
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cccXuYeA.s 			page 13
 
 
  553 019a 6E040000 		.4byte	0x46e
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccVkKEVe.s 			page 1
  607 020c 01       		.uleb128 0x1
  608 020d 31       		.byte	0x31
  609 020e 00       		.byte	0
-ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccVkKEVe.s 			page 14
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cccXuYeA.s 			page 14
 
 
  610 020f 0B       		.uleb128 0xb
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccVkKEVe.s 			page 1
  664 027b 0C       		.uleb128 0xc
  665 027c 01       		.uleb128 0x1
  666 027d 50       		.byte	0x50
-ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccVkKEVe.s 			page 15
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cccXuYeA.s 			page 15
 
 
  667 027e 01       		.uleb128 0x1
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccVkKEVe.s 			page 1
  721 02e1 78000000 		.4byte	.LVL32
  722 02e5 9A040000 		.4byte	0x49a
  723 02e9 F3020000 		.4byte	0x2f3
-ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccVkKEVe.s 			page 16
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cccXuYeA.s 			page 16
 
 
  724 02ed 0C       		.uleb128 0xc
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccVkKEVe.s 			page 1
  778 034d 00       		.byte	0
  779 034e 00       		.byte	0
  780 034f 0E       		.uleb128 0xe
-ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccVkKEVe.s 			page 17
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cccXuYeA.s 			page 17
 
 
  781 0350 CC010000 		.4byte	.LASF30
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccVkKEVe.s 			page 1
  835 03da E4030000 		.4byte	0x3e4
  836 03de 0C       		.uleb128 0xc
  837 03df 01       		.uleb128 0x1
-ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccVkKEVe.s 			page 18
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cccXuYeA.s 			page 18
 
 
  838 03e0 50       		.byte	0x50
@@ -1056,45 +1056,45 @@ ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccVkKEVe.s 			page 1
  870 0422 B5020000 		.4byte	.LASF35
  871 0426 B5020000 		.4byte	.LASF35
  872 042a 07       		.byte	0x7
- 873 042b 19       		.byte	0x19
+ 873 042b 1A       		.byte	0x1a
  874 042c 13       		.uleb128 0x13
  875 042d AF030000 		.4byte	.LASF36
  876 0431 AF030000 		.4byte	.LASF36
  877 0435 07       		.byte	0x7
- 878 0436 23       		.byte	0x23
+ 878 0436 24       		.byte	0x24
  879 0437 13       		.uleb128 0x13
  880 0438 DB020000 		.4byte	.LASF37
  881 043c DB020000 		.4byte	.LASF37
  882 0440 07       		.byte	0x7
- 883 0441 20       		.byte	0x20
+ 883 0441 21       		.byte	0x21
  884 0442 13       		.uleb128 0x13
  885 0443 1A010000 		.4byte	.LASF38
  886 0447 1A010000 		.4byte	.LASF38
  887 044b 07       		.byte	0x7
- 888 044c 2A       		.byte	0x2a
+ 888 044c 2B       		.byte	0x2b
  889 044d 13       		.uleb128 0x13
  890 044e 65030000 		.4byte	.LASF39
  891 0452 65030000 		.4byte	.LASF39
  892 0456 07       		.byte	0x7
- 893 0457 1E       		.byte	0x1e
+ 893 0457 1F       		.byte	0x1f
  894 0458 13       		.uleb128 0x13
-ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccVkKEVe.s 			page 19
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cccXuYeA.s 			page 19
 
 
  895 0459 25020000 		.4byte	.LASF40
  896 045d 25020000 		.4byte	.LASF40
  897 0461 07       		.byte	0x7
- 898 0462 28       		.byte	0x28
+ 898 0462 29       		.byte	0x29
  899 0463 13       		.uleb128 0x13
  900 0464 E5030000 		.4byte	.LASF41
  901 0468 E5030000 		.4byte	.LASF41
  902 046c 07       		.byte	0x7
- 903 046d 1B       		.byte	0x1b
+ 903 046d 1C       		.byte	0x1c
  904 046e 13       		.uleb128 0x13
  905 046f 85030000 		.4byte	.LASF42
  906 0473 85030000 		.4byte	.LASF42
  907 0477 07       		.byte	0x7
- 908 0478 25       		.byte	0x25
+ 908 0478 26       		.byte	0x26
  909 0479 13       		.uleb128 0x13
  910 047a FB010000 		.4byte	.LASF43
  911 047e FB010000 		.4byte	.LASF43
@@ -1124,25 +1124,25 @@ ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccVkKEVe.s 			page 1
  935 04b1 17000000 		.4byte	.LASF48
  936 04b5 17000000 		.4byte	.LASF48
  937 04b9 07       		.byte	0x7
- 938 04ba 21       		.byte	0x21
+ 938 04ba 22       		.byte	0x22
  939 04bb 13       		.uleb128 0x13
  940 04bc E4000000 		.4byte	.LASF49
  941 04c0 E4000000 		.4byte	.LASF49
  942 04c4 07       		.byte	0x7
- 943 04c5 2B       		.byte	0x2b
+ 943 04c5 2C       		.byte	0x2c
  944 04c6 13       		.uleb128 0x13
  945 04c7 67020000 		.4byte	.LASF50
  946 04cb 67020000 		.4byte	.LASF50
  947 04cf 07       		.byte	0x7
- 948 04d0 1A       		.byte	0x1a
+ 948 04d0 1B       		.byte	0x1b
  949 04d1 13       		.uleb128 0x13
  950 04d2 9C020000 		.4byte	.LASF51
  951 04d6 9C020000 		.4byte	.LASF51
-ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccVkKEVe.s 			page 20
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cccXuYeA.s 			page 20
 
 
  952 04da 07       		.byte	0x7
- 953 04db 24       		.byte	0x24
+ 953 04db 25       		.byte	0x25
  954 04dc 13       		.uleb128 0x13
  955 04dd 48020000 		.4byte	.LASF52
  956 04e1 48020000 		.4byte	.LASF52
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccVkKEVe.s 			page 1
  1006 002c 24       		.uleb128 0x24
  1007 002d 00       		.byte	0
  1008 002e 0B       		.uleb128 0xb
-ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccVkKEVe.s 			page 21
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cccXuYeA.s 			page 21
 
 
  1009 002f 0B       		.uleb128 0xb
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccVkKEVe.s 			page 1
  1063 0065 0B       		.uleb128 0xb
  1064 0066 27       		.uleb128 0x27
  1065 0067 19       		.uleb128 0x19
-ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccVkKEVe.s 			page 22
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cccXuYeA.s 			page 22
 
 
  1066 0068 11       		.uleb128 0x11
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccVkKEVe.s 			page 1
  1120 00a6 00       		.byte	0
  1121 00a7 00       		.byte	0
  1122 00a8 0D       		.uleb128 0xd
-ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccVkKEVe.s 			page 23
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cccXuYeA.s 			page 23
 
 
  1123 00a9 898201   		.uleb128 0x4109
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccVkKEVe.s 			page 1
  1177 00e2 05       		.uleb128 0x5
  1178 00e3 49       		.uleb128 0x49
  1179 00e4 13       		.uleb128 0x13
-ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccVkKEVe.s 			page 24
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cccXuYeA.s 			page 24
 
 
  1180 00e5 3F       		.uleb128 0x3f
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccVkKEVe.s 			page 1
  1234 000a 50       		.byte	0x50
  1235 000b 0D000000 		.4byte	.LVL1-1
  1236 000f 2C000000 		.4byte	.LFE63
-ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccVkKEVe.s 			page 25
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cccXuYeA.s 			page 25
 
 
  1237 0013 0400     		.2byte	0x4
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccVkKEVe.s 			page 1
  1291 0097 50       		.byte	0x50
  1292 0098 9F       		.byte	0x9f
  1293 0099 60000000 		.4byte	.LVL27
-ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccVkKEVe.s 			page 26
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cccXuYeA.s 			page 26
 
 
  1294 009d 62000000 		.4byte	.LVL28
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccVkKEVe.s 			page 1
  1348              	.Ldebug_ranges0:
  1349 0000 00000000 		.4byte	.LFB63
  1350 0004 2C000000 		.4byte	.LFE63
-ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccVkKEVe.s 			page 27
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cccXuYeA.s 			page 27
 
 
  1351 0008 00000000 		.4byte	.LFB65
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccVkKEVe.s 			page 1
  1377      6E672059 
  1377      656E204A 
  1378 0099 5C303920 		.ascii	"\\09 - Implementation\\ECE4191-G15\\ECE4191\\ColorB"
-ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccVkKEVe.s 			page 28
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cccXuYeA.s 			page 28
 
 
  1378      2D20496D 
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccVkKEVe.s 			page 1
  1399 01a4 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
  1399      66756E63 
  1399      74696F6E 
-ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccVkKEVe.s 			page 29
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cccXuYeA.s 			page 29
 
 
  1399      2D736563 
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccVkKEVe.s 			page 1
  1421      51756164 
  1422              	.LASF31:
  1423 027f 6D6F746F 		.ascii	"motor_stop\000"
-ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccVkKEVe.s 			page 30
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cccXuYeA.s 			page 30
 
 
  1423      725F7374 
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccVkKEVe.s 			page 1
  1444              	.LASF23:
  1445 0339 52494748 		.ascii	"RIGHT\000"
  1445      5400
-ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccVkKEVe.s 			page 31
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cccXuYeA.s 			page 31
 
 
  1446              	.LASF13:
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccVkKEVe.s 			page 1
  1472              	.LASF41:
  1473 03e5 6D6F746F 		.ascii	"motor_left_reset_QuadDec\000"
  1473      725F6C65 
-ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\ccVkKEVe.s 			page 32
+ARM GAS  C:\Users\CHONGY~1\AppData\Local\Temp\cccXuYeA.s 			page 32
 
 
  1473      66745F72 

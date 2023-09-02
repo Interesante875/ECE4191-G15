@@ -15,6 +15,7 @@
     #define TICKS_PER_REVOLUTION 14375 
     #define WHEEL_RADIUS 0.02695 
     #define WHEEL_DISTANCE 0.24 
+    #define HALF_WIDTH 0.122
     #define PWM_MAX 255
     #define PWM_MIN 200
     

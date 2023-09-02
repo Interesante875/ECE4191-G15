@@ -15,6 +15,32 @@
 #include "prelim.h"
 #include "bluetooth.h"
 
+
+void moveOutOfBaseFast() {
+    
+    
+    bluetooth_start();
+    ultrasonic_on();
+    CyDelay(500);
+    
+    bool wall_not_encountered = true;
+    
+    const double WALL_CUSHION = 28;
+    
+    wheel_move(FORWARD, 240);
+    
+    while (wall_not_encountered) {
+        
+        wall_not_encountered = (kaldist_measure[2] > WALL_CUSHION || kaldist_measure[3] > WALL_CUSHION);
+        
+    }
+    
+    wheel_move(STOP, 0);
+    
+    wheel_move_by_metrics(LEFT, 240, 90);
+    
+}
+
 void moveOutOfBase() {
     
     bluetooth_start();
@@ -22,6 +48,12 @@ void moveOutOfBase() {
     CyDelay(500);
     
     bool wall_not_encountered = true;
+    
+    const double WALL_CUSHION = 28;
+    
+    //double cumulative_dist = 0;
+    
+    //double move_dist = (kaldist_measure[2]>kaldist_measure[3])?kaldist_measure[3]:kaldist_measure[2] - WALL_CUSHION;
     
     while (wall_not_encountered) { 
         
@@ -31,7 +63,7 @@ void moveOutOfBase() {
             printValue("%d:%d, %s", i, (int) kaldist_measure[i], i==NUMBER_OF_UDS-1?"\n":"");   
         }
         
-        wall_not_encountered = (kaldist_measure[2] > 28 || kaldist_measure[3] > 28);
+        wall_not_encountered = (kaldist_measure[2] > WALL_CUSHION || kaldist_measure[3] > WALL_CUSHION);
         
     }
     
@@ -44,25 +76,44 @@ void detectSlit() {
     bool front_wall_not_encountered = true;
     bool back_wall_not_encountered = true;
     
-    slit_not_encountered = (kaldist_measure[1] < 80);
-    front_wall_not_encountered = (kaldist_measure[2] > 25 || kaldist_measure[3] > 25);
-    back_wall_not_encountered = (kaldist_measure[4] > 25); 
     
-    while (front_wall_not_encountered && slit_not_encountered) {
-        wheel_move_by_metrics(FORWARD, 240, 0.2);
-        
-        front_wall_not_encountered = (kaldist_measure[2] > 25 || kaldist_measure[3] > 25);
-        
-        slit_not_encountered = (kaldist_measure[1] < 80);      
-    }
     
-    while (back_wall_not_encountered && slit_not_encountered) {
+    const double FRONT_WALL_CUSHION = 15;
+    const double BACK_WALL_CUSHION = 15;
+    const double SLIT_EPISLON = 40;
+    
+    static double prevToObsDist = 0;
+    
+    prevToObsDist = kaldist_measure[1];
+    
+    slit_not_encountered = (kaldist_measure[1] < SLIT_EPISLON);
+    
+    front_wall_not_encountered = (kaldist_measure[2] > FRONT_WALL_CUSHION || kaldist_measure[3] > FRONT_WALL_CUSHION);
+    back_wall_not_encountered = (kaldist_measure[4] > BACK_WALL_CUSHION); 
+    
+    while (slit_not_encountered) {
         
-        wheel_move_by_metrics(BACKWARD, 240, 0.2);
+        front_wall_not_encountered = true;
+        back_wall_not_encountered = true;
         
-        back_wall_not_encountered = (kaldist_measure[4] > 25);
+        while (front_wall_not_encountered && slit_not_encountered) {
+            wheel_move_by_metrics(FORWARD, 240, 0.2);
+            
+            front_wall_not_encountered = (kaldist_measure[2] > FRONT_WALL_CUSHION || kaldist_measure[3] > FRONT_WALL_CUSHION);
+            
+            slit_not_encountered = (kaldist_measure[1] < SLIT_EPISLON);      
+        }
         
-        slit_not_encountered = (kaldist_measure[1] < 80);
+        while (back_wall_not_encountered && slit_not_encountered) {
+            
+            wheel_move_by_metrics(BACKWARD, 240, 0.2);
+            
+            back_wall_not_encountered = (kaldist_measure[4] > BACK_WALL_CUSHION);
+            
+            slit_not_encountered = (kaldist_measure[1] < SLIT_EPISLON);
+            
+        }
+        
         
     }
     
@@ -77,7 +128,48 @@ void moveThroughSlit() {
     trunk_up();
     gripper_open();
     wheel_move_by_metrics(FORWARD, 240, 0.35); 
-
+    gripper_close();
+    
+    trunk_middle();
+    CyDelay(250);
+    
+    color_sensor_start();
+    set_frequency_scaling(1, 1);
+    color_detection_run(COLOR_DETECTION_RUNS);
+    
+    printValue("Color: %d\n", detectedColor);
+    
+    for (int i = 0; i < 3; i++) {
+    
+        switch(detectedColor) {
+            case RED:
+                Indicator_RED_Write(1); 
+                CyDelay(1000);
+                break;
+            case BLUE:
+                Indicator_BLUE_Write(1);
+                CyDelay(1000);
+                break;
+            case GREEN:
+                Indicator_GREEN_Write(1);
+                CyDelay(1000);
+                break;
+            default:
+                Indicator_RED_Write(1);
+                Indicator_BLUE_Write(1);
+                Indicator_GREEN_Write(1);
+                CyDelay(1000);
+                break;
+        }
+    }
+    
+    color_sensor_stop();
+    
+    Indicator_RED_Write(0);
+    Indicator_BLUE_Write(0);
+    Indicator_GREEN_Write(0);
+    
+    wheel_move_by_metrics(BACKWARD, 240, 0.35);
 }
 
 void readIRSensor() {

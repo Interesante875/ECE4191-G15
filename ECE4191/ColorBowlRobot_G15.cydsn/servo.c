@@ -77,7 +77,7 @@ void gripper_open() {
     
     gripper_start();
     gripper_writeCompare(980);
-    CyDelay(250);
+    CyDelay(500);
     gripper_off();
 }
 
@@ -125,7 +125,7 @@ void lift_up() {
 void trunk_up() {
     //trunk_writeCompare(int compareValue)
     trunk_start();
-    uint16 target = 900;
+    uint16 target = 920;
     trunk_writeCompare(target);
     CyDelay(500);
     trunk_off();
@@ -136,15 +136,15 @@ void trunk_middle() {
     uint16 target = 875;
     trunk_writeCompare(target);
     CyDelay(500);
-    trunk_off();
+    //trunk_off();
 }
 void trunk_ground() {
     //trunk_writeCompare(int compareValue)   
     trunk_start();
-    uint16 target = 860;
+    uint16 target = 870;
     trunk_writeCompare(target);
     CyDelay(500);
-    trunk_off();
+    //trunk_off();
 }
 
 void reset_to_initial_state() {

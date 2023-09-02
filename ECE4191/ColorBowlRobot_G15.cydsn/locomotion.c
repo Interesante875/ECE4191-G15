@@ -39,7 +39,21 @@ CY_ISR (ISR_Handler_wheel_controller) {
     master_motor_left_ticks = -motor_left_get_count_QuadDec();
     slave_motor_right_ticks = -motor_right_get_count_QuadDec();
     
+    if (master_motor_left_ticks > 0) {
+        int left = master_motor_left_ticks - last_master_ticks;
+        int right = slave_motor_right_ticks - slave_motor_right_ticks;
+        
+        computePosition(left, right);
+    } else {
+        int left = -(master_motor_left_ticks - last_master_ticks);
+        int right = -(slave_motor_right_ticks - slave_motor_right_ticks);
+        
+        computePosition(left, right);
+    }
     
+    
+    last_master_ticks = master_motor_left_ticks;
+    last_slave_ticks = slave_motor_right_ticks;
     
 }
 
@@ -66,9 +80,14 @@ void wheel_move_by_ticks(MOTION motion, uint8 pwm, int target_ticks) {
      * @param pwm           The PWM signal value for controlling both motors.
      * @param target_ticks  The target number of encoder ticks to move the wheels.
      */
+    
+    //flag_distance_moving = 1;
 
     motor_on(pwm);
     wheel_controller_start();
+    
+    last_master_ticks = 0;
+    last_slave_ticks = 0;
     
     master_pwm = motor_left_get_pwm();
     slave_pwm = motor_right_get_pwm();
@@ -91,6 +110,9 @@ void wheel_move_by_ticks(MOTION motion, uint8 pwm, int target_ticks) {
 
 void wheel_move_by_metrics (MOTION motion, uint8 pwm, double metrics) {
     
+    //flag_distance_moving = 1;
+    last_master_ticks = 0;
+    last_slave_ticks = 0;
     int ticks = 0;
     
     if (motion == FORWARD || motion == BACKWARD) {
@@ -121,24 +143,104 @@ void wheel_move_by_metrics (MOTION motion, uint8 pwm, double metrics) {
     printValue("LEFT: %d\t RIGHT: %d\n ", master_motor_left_ticks, slave_motor_right_ticks);
     printValue("Master PWM - %d Slave PWM - %d\n", master_pwm, slave_pwm);
     
+    last_master_ticks = master_motor_left_ticks;
+    last_slave_ticks = slave_motor_right_ticks;
+    
     wheel_controller_stop();
     motor_off();
     
     CyDelay(EMF_BUFFER_DELAY);
 }
 
+void wheel_move (MOTION motion, uint8 pwm) {
+    
+    //flag_distance_moving = 0;
+    last_master_ticks = 0;
+    last_slave_ticks = 0;
+    
+    if (motion == LEFT || motion == RIGHT) return;
+    
+    if (motion == STOP) {
+        
+        //flag_distance_moving = 1;
+    
+        wheel_controller_stop();
+        motor_off();
+        
+        CyDelay(EMF_BUFFER_DELAY);
+    }
+    
+    motor_on(pwm);
+    wheel_controller_start();
+    
+    master_pwm = motor_left_get_pwm();
+    slave_pwm = motor_right_get_pwm();
+    
+    master_motor_left_ticks = -motor_left_get_count_QuadDec();
+    slave_motor_right_ticks = -motor_right_get_count_QuadDec();
+    
+    motor_motion_set(motion);
+    
+}
 
-double my_atan(double x)
-{
-    return x - (x*x*x)/3 + (x*x*x*x*x)/5 - (x*x*x*x*x*x*x)/7;
+void angle_correction_with_ticks (MOTION motion, uint8 pwm) {
+    
+    last_master_ticks = 0;
+    last_slave_ticks = 0;
+    
+    if (motion == STOP) return;
+    if (pwm < 200) return;
+    
+    if (abs(last_master_ticks) - abs(last_slave_ticks) > 500) {
+        switch (motion) {
+            case FORWARD:
+                wheel_move_by_ticks(LEFT, pwm, abs(last_master_ticks) - abs(last_slave_ticks));
+            break;
+            case BACKWARD:
+                wheel_move_by_ticks(RIGHT, pwm, abs(last_master_ticks) - abs(last_slave_ticks));
+            break;
+            case LEFT:
+                wheel_move_by_ticks(LEFT, pwm, abs(last_master_ticks) - abs(last_slave_ticks));
+            break;
+            case RIGHT:
+                wheel_move_by_ticks(RIGHT, pwm, abs(last_master_ticks) - abs(last_slave_ticks));
+            break;
+            default:
+            break;
+        }
+        
+    } else if (abs(last_master_ticks) - abs(last_slave_ticks) < -500) {
+        switch (motion) {
+            case FORWARD:
+                wheel_move_by_ticks(RIGHT, pwm, abs(last_master_ticks) - abs(last_slave_ticks));
+            break;
+            case BACKWARD:
+                wheel_move_by_ticks(LEFT, pwm, abs(last_master_ticks) - abs(last_slave_ticks));
+            break;
+            case LEFT:
+                wheel_move_by_ticks(LEFT, pwm, abs(last_master_ticks) - abs(last_slave_ticks));
+            break;
+            case RIGHT:
+                wheel_move_by_ticks(RIGHT, pwm, abs(last_master_ticks) - abs(last_slave_ticks));
+            break;
+            default:
+            break;
+        }
+        
+    } else return;
+    
 }
 
 void angle_correction(uint8 pwm, double flu, double fru) {
     
+    last_master_ticks = 0;
+    last_slave_ticks = 0;
+    
     double lr = flu - fru;
     
     if (fabs(lr) > 1) {
-        double angle = my_atan(0.01*fabs(lr)/0.2) * 180 / CY_M_PI;
+        double angle = atan2(0.01*fabs(lr), 0.2) * 180 / CY_M_PI;
+        
         
         printValue("Angle: %d lr:%d\n", (int) angle, lr);
         

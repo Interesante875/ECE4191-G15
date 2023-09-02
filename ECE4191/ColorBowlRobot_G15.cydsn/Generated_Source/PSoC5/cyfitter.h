@@ -1752,7 +1752,7 @@
 #define isr_color_sensor__INTC_CLR_PD_REG CYREG_NVIC_CLRPEND0
 #define isr_color_sensor__INTC_MASK 0x10u
 #define isr_color_sensor__INTC_NUMBER 4u
-#define isr_color_sensor__INTC_PRIOR_NUM 7u
+#define isr_color_sensor__INTC_PRIOR_NUM 2u
 #define isr_color_sensor__INTC_PRIOR_REG CYREG_NVIC_PRI_4
 #define isr_color_sensor__INTC_SET_EN_REG CYREG_NVIC_SETENA0
 #define isr_color_sensor__INTC_SET_PD_REG CYREG_NVIC_SETPEND0
@@ -2187,7 +2187,7 @@
 #define isr_ultrasonic_burst__INTC_CLR_PD_REG CYREG_NVIC_CLRPEND0
 #define isr_ultrasonic_burst__INTC_MASK 0x80000u
 #define isr_ultrasonic_burst__INTC_NUMBER 19u
-#define isr_ultrasonic_burst__INTC_PRIOR_NUM 2u
+#define isr_ultrasonic_burst__INTC_PRIOR_NUM 3u
 #define isr_ultrasonic_burst__INTC_PRIOR_REG CYREG_NVIC_PRI_19
 #define isr_ultrasonic_burst__INTC_SET_EN_REG CYREG_NVIC_SETENA0
 #define isr_ultrasonic_burst__INTC_SET_PD_REG CYREG_NVIC_SETPEND0
