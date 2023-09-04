@@ -14,25 +14,22 @@
     #include "project.h"
     #include <stdio.h>  
     
-    typedef enum {
-        GRIPPER_OPEN,
-        GRIPPER_CLOSE
-    } GRIPPER_FOREARM;
+//    typedef enum {
+//        GRIPPER_OPEN,
+//        GRIPPER_CLOSE
+//    } GRIPPER_FOREARM;
+//    
+//    typedef enum {
+//        FLICKING_POSITION,
+//        GRABBING_POSITION
+//    } LIFT;
+//    
+//    typedef enum {
+//        FLOOR3,
+//        FLOOR2,
+//        FLOOR1
+//    } TRUNK;
     
-    typedef enum {
-        FLICKING_POSITION,
-        GRABBING_POSITION
-    } LIFT;
-    
-    typedef enum {
-        FLOOR3,
-        FLOOR2,
-        FLOOR1
-    } TRUNK;
-    
-    GRIPPER_FOREARM gripper;
-    LIFT lift;
-    TRUNK trunk;
     
     void gripper_start();
     void arm_start();

@@ -18,6 +18,6 @@
     int partition(double *arr, int low, int high);
     void quickSort(double *arr, int low, int high);
     double findMedian(double arr[], int n);
-    double medianFilter(double fifo[], double newValue);
+    double medianFilter(double fifo[], double newValue, int udsState);
 #endif
 /* [] END OF FILE */

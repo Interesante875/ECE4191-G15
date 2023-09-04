@@ -17,6 +17,8 @@
 #include <stdbool.h>
 #include "locomotion.h"
 #include "bluetooth.h"
+#include "controller.h"
+#include "navigation_stack.h"
 
 volatile int master_pwm = 0;
 volatile int slave_pwm = 0;
@@ -118,6 +120,8 @@ void wheel_move_by_metrics (MOTION motion, uint8 pwm, double metrics) {
     if (motion == FORWARD || motion == BACKWARD) {
         double linear_ticks = (metrics * TICKS_PER_REVOLUTION)/(2 * CY_M_PI * WHEEL_RADIUS);
         ticks = (int) linear_ticks;
+        
+        printValue("TARGET: %d\n", ticks);
     } else if (motion == LEFT || motion == RIGHT) {
         double circum_distance = metrics * CY_M_PI / 360 * WHEEL_DISTANCE;
         double n_revs = circum_distance/(2 * CY_M_PI * WHEEL_RADIUS);
@@ -191,7 +195,7 @@ void angle_correction_with_ticks (MOTION motion, uint8 pwm) {
     if (motion == STOP) return;
     if (pwm < 200) return;
     
-    if (abs(last_master_ticks) - abs(last_slave_ticks) > 500) {
+    if (abs(last_master_ticks) - abs(last_slave_ticks) > 50) {
         switch (motion) {
             case FORWARD:
                 wheel_move_by_ticks(LEFT, pwm, abs(last_master_ticks) - abs(last_slave_ticks));
@@ -209,7 +213,7 @@ void angle_correction_with_ticks (MOTION motion, uint8 pwm) {
             break;
         }
         
-    } else if (abs(last_master_ticks) - abs(last_slave_ticks) < -500) {
+    } else if (abs(last_master_ticks) - abs(last_slave_ticks) < -50) {
         switch (motion) {
             case FORWARD:
                 wheel_move_by_ticks(RIGHT, pwm, abs(last_master_ticks) - abs(last_slave_ticks));

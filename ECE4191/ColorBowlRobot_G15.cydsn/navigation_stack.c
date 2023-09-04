@@ -13,7 +13,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <cytypes.h>
+#include "motor.h"
 
+double pos_x = 0;
+double pos_y = 0;
+double heading_angle = 0;
+STARTING_BASE start_base_color = RED_BASE;
+
+double pos_x_base = 0;
+double pos_y_base = 0;
 
 void initializePosition(STARTING_BASE color) {
     
@@ -21,24 +29,32 @@ void initializePosition(STARTING_BASE color) {
         case RED_BASE:
             pos_y = 0.85;
             pos_x = 0.05;
+            pos_y_base = 0.85;
+            pos_x_base = 0.05;
             heading_angle = 0;
         break;
         case YELLOW_BASE:
             pos_y = 1.52;
             pos_x = 0.05;
+            pos_y_base = 1.52;
+            pos_x_base = 0.05;
             heading_angle = 0;
         
         break;
         case GREEN_BASE:
             pos_y = 1.52;
             pos_x = 2.32;
-            heading_angle = 180 * CY_M_PI / 180;
+            pos_y_base = 1.52;
+            pos_x_base = 2.32;
+            heading_angle = CY_M_PI;
         
         break;
         case BLUE_BASE:
             pos_y = 0.85;
             pos_x = 2.32;
-            heading_angle = 180 * CY_M_PI / 180;
+            pos_y_base = 0.85;
+            pos_x_base = 2.32;
+            heading_angle = CY_M_PI;
         
         break;
 
@@ -47,7 +63,7 @@ void initializePosition(STARTING_BASE color) {
 
 void computePosition(int left_ticks, int right_ticks) {
     
-    if (abs(left_ticks) - abs(right_ticks) < 20) right_ticks = left_ticks; 
+    //if (abs(left_ticks) - abs(right_ticks) < 20) right_ticks = left_ticks; 
     
     double distance_left = (double) left_ticks / TICKS_PER_REVOLUTION * (2 * CY_M_PI * WHEEL_RADIUS); 
     double distance_right = (double) right_ticks / TICKS_PER_REVOLUTION * (2 * CY_M_PI * WHEEL_RADIUS); 
@@ -74,10 +90,9 @@ void computePosition(int left_ticks, int right_ticks) {
     heading_angle += radial_angle;
     
     if (heading_angle > CY_M_PI) heading_angle -= CY_M_PI;
-    if (heading_angle < -CY_M_PI) heading_angle += CY_M_PI;
+    if (heading_angle <= -CY_M_PI) heading_angle += CY_M_PI;
     
 }
-
 
 NavigationStack* createNavigationStack(double initial_x, double initial_y) {
     NavigationStack* stack = (NavigationStack*)malloc(sizeof(NavigationStack));

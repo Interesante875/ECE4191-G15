@@ -21,6 +21,7 @@ static int blue_counts;
 
 static int color_sensor_status_1 = 0;
 
+COLOR detectedColor = GREY;
 
 CY_ISR(ISR_Handler_Color_Sensor) {
     PWM_Color_Sensor_ReadStatusRegister();

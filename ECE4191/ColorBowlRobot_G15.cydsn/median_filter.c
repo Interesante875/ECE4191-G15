@@ -10,7 +10,7 @@
  * ========================================
 */
 #include <stdio.h>
-#include "median_filter.h"
+#include <median_filter.h>
 
 // Function to swap two elements
 void swap(double *a, double *b) {
@@ -53,20 +53,20 @@ double findMedian(double arr[], int n) {
     }
 }
 
-double medianFilter(double fifo[], double newValue) {
-    static int currentIndex = 0;
-    static int isInitialized = 0;
+double medianFilter(double fifo[], double newValue, int udsState) {
+    static int currentIndex[ARRAY_SIZE] = {0};
+    static int isInitialized[ARRAY_SIZE] = {0};
     double tempArray[ARRAY_SIZE];
 
-    if (!isInitialized) {
+    if (!isInitialized[udsState]) {
         for (int i = 0; i < ARRAY_SIZE; i++) {
             fifo[i] = newValue;
         }
-        isInitialized = 1;
+        isInitialized[udsState] = 1;
     }
 
-    fifo[currentIndex] = newValue;
-    currentIndex = (currentIndex + 1) % ARRAY_SIZE;
+    fifo[currentIndex[udsState]] = newValue;
+    currentIndex[udsState] = (currentIndex[udsState] + 1) % ARRAY_SIZE;
 
     // Make a copy of the FIFO array and calculate the median
     for (int i = 0; i < ARRAY_SIZE; i++) {

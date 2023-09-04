@@ -18,23 +18,16 @@
     #include <cytypes.h>
     #include <stdbool.h>
     
-    #include "locomotion.h"
-    #include "ultrasonic.h"
-    #include "servo.h"
-    #include "color_detection.h"
-
-    
-//    #include "color_detection.h"
-//    #include "locomotion.h"
-//    #include "irsensor.h"
-//    #include "servo.h"
-//    #include "ultrasonic.h"
-    
    
     void moveOutOfBaseFast();
     void moveOutOfBase();
     void detectSlit();
     void moveThroughSlit();
+    
+    void findDeckPrelim();
+    void placePuck();
+    void flickPuck();
+    void returnToBase();
     
     
 #endif

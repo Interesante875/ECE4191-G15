@@ -15,8 +15,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <median_filter.h>
 
-
+int udsState;
+double kaldist_measure[NUMBER_OF_UDS];
+double uds_LEFT[ARRAY_SIZE];
+double uds_RIGHT[ARRAY_SIZE];
+double uds_FLEFT[ARRAY_SIZE];
+double uds_FRIGHT[ARRAY_SIZE];
+double uds_BACK[ARRAY_SIZE];
 int burst_count = 0;
 
 void ultrasonic_on() {
@@ -69,8 +76,8 @@ CY_ISR (ISR_Handler_ultrasonic_echo) {
     double distance = (double) (65535 - count)/58.0;
     
     //printValue("%d Distance: %d\n", udsState, (int) distance);
-    //kaldist_measure[udsState] = median(udsState, distance);
-    kaldist_measure[udsState] = distance;
+    kaldist_measure[udsState] = median(udsState, distance);
+    //kaldist_measure[udsState] = distance;
     if (udsState == 4) burst_count++;
     
     udsState = (udsState + 1) % 5; 
@@ -90,22 +97,22 @@ double median(int idx, double distance) {
     
     switch(idx) {
         case 0:   
-            med = medianFilter(uds_LEFT, distance);
+            med = medianFilter(uds_LEFT, distance, 0);
             break;
         case 1:
-            med = medianFilter(uds_RIGHT, distance);
+            med = medianFilter(uds_RIGHT, distance, 1);
             break;
         case 2:
-            med = medianFilter(uds_FLEFT, distance);
+            med = medianFilter(uds_FLEFT, distance, 2);
             break;
         case 3:
-            med = medianFilter(uds_FRIGHT, distance);
+            med = medianFilter(uds_FRIGHT, distance, 3);
             break;
         case 4:
-            med = medianFilter(uds_BACK, distance);
+            med = medianFilter(uds_BACK, distance, 4);
             break;
         default:
-            med = medianFilter(uds_BACK, distance);
+            med = medianFilter(uds_BACK, distance, 4);
             break;
     }
     

@@ -12,6 +12,9 @@
 #include "project.h"
 #include <stdio.h>
 #include "irsensor.h"
+
+volatile DETECTED ir_LEFT;
+volatile DETECTED ir_RIGHT;
 /*
 #include "locomotion.h"
 

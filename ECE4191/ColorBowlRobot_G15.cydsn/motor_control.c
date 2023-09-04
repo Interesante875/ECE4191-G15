@@ -12,6 +12,9 @@
 #include "project.h"
 #include "motor_control.h"
 
+MOVE_STATUS moveStatus = ENABLE;
+MOTION currentMotion = STOP;
+
 void motor_on(uint8 pwm) {
     
     moveStatus = ENABLE;

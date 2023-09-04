@@ -29,8 +29,8 @@
         STOP
     } MOTION;
     
-    MOVE_STATUS moveStatus;
-    MOTION currentMotion;
+    extern MOVE_STATUS moveStatus;
+    extern MOTION currentMotion;
    
     
     void motor_on(uint8);

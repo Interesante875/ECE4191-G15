@@ -32,13 +32,13 @@
     bit 6 - NOT IMPLEMENTED  
     bit 7 - NOT IMPLEMENTED  
     */ 
-    int udsState;
-    double kaldist_measure[NUMBER_OF_UDS];
-    double uds_LEFT[ARRAY_SIZE];
-    double uds_RIGHT[ARRAY_SIZE];
-    double uds_FLEFT[ARRAY_SIZE];
-    double uds_FRIGHT[ARRAY_SIZE];
-    double uds_BACK[ARRAY_SIZE];
+    extern int udsState;
+    extern double kaldist_measure[NUMBER_OF_UDS];
+    extern double uds_LEFT[ARRAY_SIZE];
+    extern double uds_RIGHT[ARRAY_SIZE];
+    extern double uds_FLEFT[ARRAY_SIZE];
+    extern double uds_FRIGHT[ARRAY_SIZE];
+    extern double uds_BACK[ARRAY_SIZE];
     
     // Function prototypes
     void ultrasonic_on();

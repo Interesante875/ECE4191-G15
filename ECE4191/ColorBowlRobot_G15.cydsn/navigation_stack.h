@@ -17,7 +17,7 @@
     #define MIN_X 0
     #define MIN_Y 0
     
-    #include "motor.h"
+    
     #include <math.h>
     
     typedef enum {
@@ -28,10 +28,13 @@
     } STARTING_BASE;
     
     
-    double pos_x = 0;
-    double pos_y = 0;
-    double heading_angle = 0;
+    extern double pos_x;
+    extern double pos_y;
+    extern double heading_angle;
+    extern STARTING_BASE start_base_color;
     
+    extern double pos_x_base;
+    extern double pos_y_base;
     
 typedef struct Node {
     double x;

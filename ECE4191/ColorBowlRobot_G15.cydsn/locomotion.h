@@ -17,12 +17,10 @@
     #include "project.h"
     #include "cytypes.h"
     #include "motor_control.h"
-    #include "controller.h"
-    #include "navigation_stack.h"
     
     #define EMF_BUFFER_DELAY 200
 
-    //int flag_distance_moving = 1;
+    extern int flag_distance_moving;
     
     
     CY_ISR (ISR_Handler_wheel_controller);

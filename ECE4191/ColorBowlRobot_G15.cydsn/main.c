@@ -15,7 +15,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
-
+#include "ultrasonic.h"
 /*
 #include "ultrasonic.h"
 #include "bluetooth.h"
@@ -30,21 +30,27 @@ int main(void)
 {
     CyGlobalIntEnable; /* Enable global interrupts. */
 
-    moveOutOfBaseFast();
+    moveOutOfBase();
     CyDelay(500);
     detectSlit();
     moveThroughSlit();
+ 
+    
 //    gripper_open();
 //    CyDelay(250);
 //    gripper_close();
 //        CyDelay(1000);
     
-    
+    //ultrasonic_on();
     for(;;)
-    {
-        
-        
-      
+    {    
+//        if (kaldist_measure[0] > 75) Indicator_BLUE_Write(1);
+//        else Indicator_BLUE_Write(0);
+//        
+//        if (kaldist_measure[1] > 75) Indicator_RED_Write(1);
+//        else Indicator_RED_Write(0);
+//        
+//        CyDelay(50);
     }
 }
 

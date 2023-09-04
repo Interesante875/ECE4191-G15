@@ -35,7 +35,7 @@
         WHITE
     } COLOR;
     
-    COLOR detectedColor;
+    extern COLOR detectedColor;
 
     void color_sensor_start();
     void color_sensor_stop();
