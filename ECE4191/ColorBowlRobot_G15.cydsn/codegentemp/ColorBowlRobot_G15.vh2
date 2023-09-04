@@ -2,7 +2,7 @@
 --	Conversion of ColorBowlRobot_G15.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Sat Sep 02 18:25:11 2023
+--	Mon Sep 04 17:37:23 2023
 --
 
 USE cypress.cypress.all;
@@ -6427,7 +6427,7 @@ IR_Sensor_LEFT:cy_psoc3_pins_v1_10
 		id=>"040378c3-2011-4d1b-8915-0ca7d60baa75/be0a0e37-ad17-42ca-b5a1-1a654d736358",
 		source_clock_id=>"",
 		divisor=>0,
-		period=>"2170138888.88889",
+		period=>"13020833333.3333",
 		is_direct=>'0',
 		is_digital=>'1')
 	PORT MAP(clock_out=>\UART_1:Net_9\,

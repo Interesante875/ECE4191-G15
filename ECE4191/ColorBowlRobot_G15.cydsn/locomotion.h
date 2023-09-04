@@ -21,7 +21,8 @@
     #define EMF_BUFFER_DELAY 200
 
     extern int flag_distance_moving;
-    
+    extern volatile int master_motor_left_ticks;
+    extern volatile int slave_motor_right_ticks;
     
     CY_ISR (ISR_Handler_wheel_controller);
     void wheel_controller_start();

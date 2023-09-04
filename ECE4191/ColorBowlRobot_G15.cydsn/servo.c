@@ -89,38 +89,62 @@ void gripper_close() {
     gripper_start();
     gripper_writeCompare(878);
     CyDelay(1000);
-    gripper_off();
+    //gripper_off();
 }
 
-void arm_swing() {
+void arm_swing_flat() {
     /*
     Translate angle to compareValue, requires mapping
     arm_writeCompare(compareValue);
     */
     
     arm_start();
-    arm_writeCompare(925);
-    CyDelay(250);
+    arm_writeCompare(875);
+    CyDelay(1000);
     arm_off();
+
+}
+
+void arm_swing_flick() {
+    /*
+    Translate angle to compareValue, requires mapping
+    arm_writeCompare(compareValue);
+    */
     
-    
-    
+    arm_start();
+    arm_writeCompare(950);
+    CyDelay(1000);
+    arm_off();
+
+}
+
+void arm_shoot() {
+    arm_start();
+    arm_swing_flick();
+    CyDelay(200);
+    arm_swing_flat();
+    arm_off();
 }
 
 void lift_down() {
     // lift_writeCompare(int compareValue)
     
     lift_start();
-    lift_writeCompare(925);
-    CyDelay(2500);
+    lift_writeCompare(875);
+    CyDelay(1500);
     lift_off();
 }
 void lift_up() {
     // lift_writeCompare(int compareValue)   
     lift_start();
     lift_writeCompare(980);
-    CyDelay(2500);
+    CyDelay(1500);
     lift_off();
+}
+
+void lift_ctrl() {
+    
+    
 }
 void trunk_up() {
     //trunk_writeCompare(int compareValue)

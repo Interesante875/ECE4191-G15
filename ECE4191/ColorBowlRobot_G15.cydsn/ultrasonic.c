@@ -76,8 +76,8 @@ CY_ISR (ISR_Handler_ultrasonic_echo) {
     double distance = (double) (65535 - count)/58.0;
     
     //printValue("%d Distance: %d\n", udsState, (int) distance);
-    kaldist_measure[udsState] = median(udsState, distance);
-    //kaldist_measure[udsState] = distance;
+    //kaldist_measure[udsState] = median(udsState, distance);
+    kaldist_measure[udsState] = distance;
     if (udsState == 4) burst_count++;
     
     udsState = (udsState + 1) % 5; 

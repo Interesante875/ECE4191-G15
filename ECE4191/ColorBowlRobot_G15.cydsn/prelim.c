@@ -63,7 +63,7 @@ void moveOutOfBase() {
     
     bool wall_not_encountered = true;
     
-    const double WALL_CUSHION = 15;
+    const double WALL_CUSHION = 25;
     
     //double cumulative_dist = 0;
     
@@ -72,18 +72,18 @@ void moveOutOfBase() {
     while (wall_not_encountered) { 
         
         wheel_move_by_metrics(FORWARD, 240, 0.1);
-        angle_correction_with_ticks (FORWARD, 240);
+        //angle_correction_with_ticks (FORWARD, 240);
         
-        for (int i = 0; i < NUMBER_OF_UDS; i++) {
-            printValue("%d:%d, %s", i, (int) kaldist_measure[i], i==NUMBER_OF_UDS-1?"\n":"");   
-        }
+//        for (int i = 0; i < NUMBER_OF_UDS; i++) {
+//            printValue("%d:%d, %s", i, (int) kaldist_measure[i], i==NUMBER_OF_UDS-1?"\n":"");   
+//        }
         
-        wall_not_encountered = (kaldist_measure[2] > WALL_CUSHION && kaldist_measure[3] > WALL_CUSHION);
+        wall_not_encountered = (kaldist_measure[2] > WALL_CUSHION || kaldist_measure[3] > WALL_CUSHION);
         
     }
     
     wheel_move_by_metrics(RIGHT, 240, 90);
-    angle_correction_with_ticks (RIGHT, 240);
+    //angle_correction_with_ticks (RIGHT, 240);
 }
 
 void detectSlit() {

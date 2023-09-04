@@ -3426,7 +3426,7 @@
     <Group key="575b1d12-882f-490e-8ca7-2ed375ff2880">
       <Group key="CortexM3">
         <Data key="Assigned" value="True" />
-        <Data key="Priority" value="3" />
+        <Data key="Priority" value="4" />
         <Data key="Vector" value="-1" />
       </Group>
     </Group>
@@ -3568,7 +3568,7 @@
     </Group>
     <Group key="ad5fc877-2678-4850-bea8-02578443791e">
       <Group key="0">
-        <Data key="Port Format" value="12,6" />
+        <Data key="Port Format" value="15,2" />
       </Group>
     </Group>
     <Group key="adfef9dc-847e-4f6f-8405-adeac0c01ace">

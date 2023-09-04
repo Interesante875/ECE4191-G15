@@ -14,14 +14,23 @@
 #include <stdlib.h>
 #include <math.h>
 #include <string.h>
+#include <stdbool.h>
 #include <stdarg.h>
 #include "bluetooth.h"
+
 
 char rxBuffer[100]; // Buffer to store received characters
 char *rxBufferPtr = rxBuffer; // Pointer to the current position in the buffer
 char printString[100]; // Buffer to store formatted strings
 int rxBufferSize = 0; // Size of the received data buffer
 int receivedInt = 0; // Received integer value
+bool stringNotReceived = true;
+
+int level_1_pin_deck_num = 0;
+int level_current_level = 0;
+PIN_ZONE_COLOR pin_deck_zone_color;
+INPUT_STATE inputState = READY;
+
 
 CY_ISR(ISR_Handler_Input) {
     *rxBufferPtr = UART_1_GetChar();
@@ -29,15 +38,12 @@ CY_ISR(ISR_Handler_Input) {
     if (*rxBufferPtr == '!') {
         *rxBufferPtr = '\0';  
 
-        receivedInt = atoi(rxBuffer);
-        
-        printValue("INPUT: %d\n", receivedInt);
+        printValue("INPUT: %s\n", rxBuffer);
 
         rxBufferPtr = &(rxBuffer[0]);
         
-        //wheel_move_by_ticks(FORWARD, 240, receivedInt);
-        // wheel_turn_by_angle(motion, 240, receivedInt);
-        //trunk_up(receivedInt);
+        stringNotReceived = false;
+        
     }
     else
     {
@@ -67,15 +73,46 @@ void bluetooth_stop() {
  * Initiates a handshake protocol with the connected device.
  */
 void handshake() {
-    UART_1_PutString("Are you ready?!\n");   
     
-    // Implement a mechanism to receive input "Ready!"
+    static int state = 0;
     
-    // Implement a mechanism to receive input Level Details
+    char* token;
     
-    UART_1_PutString("Received\n"); 
-    
-    // Implement a mechanism to receive input "Start!"
+    if (stringNotReceived) return;
+
+    if (!strcmp(rxBuffer, "Are you ready?") && inputState == READY) {
+        printValue("Ready\n  ");    
+        inputState = INSTRUCTION;
+    }
+    else if (!strcmp(rxBuffer, "Start") && state == 2) {
+        printValue("OK to start\n  ");
+        inputState = READY;
+    }
+    else if (state == INSTRUCTION){
+        token = strtok(rxBuffer, "\n");
+        while (token != NULL) {
+            int first_number, second_number;
+            char color[20];
+            
+            // Parse each line into the specified format
+            if (sscanf(token, "%d %19s %d", &first_number, color, &second_number) == 3) {
+                // Print the parsed values
+                printValue("First Number: %d, Color: %s, Second Number: %d\n", first_number, color, second_number);
+                inputState = START;
+                
+                level_1_pin_deck_num = first_number;
+                level_current_level = second_number;
+                
+            } else {
+                // Print an error message for incorrect format
+                printValue("Error: Invalid format in line: %s\n", token);
+                state = 1;
+            }
+            
+            // Get the next line
+            token = strtok(NULL, "\n");
+        }
+    }
 }
 
 /**
@@ -93,25 +130,5 @@ void printValue(const char *format, ...) {
     
 }
 
-/*
-// Simulating UART communication functions for demonstration purposes
-void UART_1_PutChar(char c) {
-    // Simulate sending a character over UART
-    putchar(c);
-}
-
-void UART_1_PutString(const char *str) {
-    // Simulate sending a string over UART
-    while (*str) {
-        UART_1_PutChar(*str);
-        str++;
-    }
-}
-*/
-
-
-/**
- * Interrupt Service Routine (ISR) for handling incoming UART data.
- */
 
 /* [] END OF FILE */

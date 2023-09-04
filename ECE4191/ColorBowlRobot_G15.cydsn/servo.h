@@ -50,7 +50,9 @@
     // Simple manuevers
     void gripper_open();
     void gripper_close();
-    void arm_swing();
+    void arm_swing_flat();
+    void arm_swing_flick();
+    void arm_shoot();
     void lift_up();
     void lift_down();
     void trunk_up();

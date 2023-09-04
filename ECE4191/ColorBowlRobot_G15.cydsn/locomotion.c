@@ -41,6 +41,8 @@ CY_ISR (ISR_Handler_wheel_controller) {
     master_motor_left_ticks = -motor_left_get_count_QuadDec();
     slave_motor_right_ticks = -motor_right_get_count_QuadDec();
     
+    //printValue("%d %d\n", master_motor_left_ticks, slave_motor_right_ticks);
+    
     if (master_motor_left_ticks > 0) {
         int left = master_motor_left_ticks - last_master_ticks;
         int right = slave_motor_right_ticks - slave_motor_right_ticks;
@@ -142,7 +144,9 @@ void wheel_move_by_metrics (MOTION motion, uint8 pwm, double metrics) {
     
     motor_motion_set(motion);
     
-    while (abs(master_motor_left_ticks) < ticks);
+    while (abs(master_motor_left_ticks) < ticks) {
+        printValue("%d\n", master_motor_left_ticks);   
+    }
     
     printValue("LEFT: %d\t RIGHT: %d\n ", master_motor_left_ticks, slave_motor_right_ticks);
     printValue("Master PWM - %d Slave PWM - %d\n", master_pwm, slave_pwm);

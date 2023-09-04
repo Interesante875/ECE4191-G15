@@ -14,8 +14,28 @@
     
     #include "project.h"
     #include "cytypes.h"
+    #include <stdbool.h>
+    
+    typedef enum {
+        BLUE_ZONE,
+        GREEN_ZONE,
+        RED_ZONE
+
+    } PIN_ZONE_COLOR;
+    
+    typedef enum {
+        READY,
+        INSTRUCTION,
+        START
+
+    } INPUT_STATE;
     
     
+    extern bool stringNotReceived;
+    extern int level_1_pin_deck_num;
+    extern int level_current_level;
+    extern INPUT_STATE inputState;
+    extern PIN_ZONE_COLOR pin_deck_zone_color;
     
     CY_ISR(ISR_Handler_Input);
     void bluetooth_start();
