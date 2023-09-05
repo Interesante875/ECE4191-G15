@@ -244,6 +244,8 @@ void angle_correction(uint8 pwm, double flu, double fru) {
     if (fabs(lr) > 1) {
         double angle = atan2(0.01*fabs(lr), 0.2) * 180 / CY_M_PI;
         
+        if (angle > 15) angle = 15;
+        else if (angle < -15) angle = -15;
         
         printValue("Angle: %d lr:%d\n", (int) angle, lr);
         
