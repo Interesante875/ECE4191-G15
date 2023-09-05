@@ -62,6 +62,7 @@ void moveOutOfBase() {
     CyDelay(500);
     
     bool wall_not_encountered = true;
+    bool wall_not_too_far = true;
     
     const double WALL_CUSHION = 25;
     
@@ -69,21 +70,23 @@ void moveOutOfBase() {
     
     //double move_dist = (kaldist_measure[2]>kaldist_measure[3])?kaldist_measure[3]:kaldist_measure[2] - WALL_CUSHION;
     
-    while (wall_not_encountered) { 
+    while (wall_not_encountered && wall_not_too_far) { 
         
-        wheel_move_by_metrics(FORWARD, 240, 0.1);
-        angle_correction_with_ticks (FORWARD, 240);
+        wheel_move_by_metrics(FORWARD, 240, 0.15);
+        //angle_correction_with_ticks (FORWARD, 240);
         
 //        for (int i = 0; i < NUMBER_OF_UDS; i++) {
 //            printValue("%d:%d, %s", i, (int) kaldist_measure[i], i==NUMBER_OF_UDS-1?"\n":"");   
 //        }
         
         wall_not_encountered = (kaldist_measure[2] > WALL_CUSHION || kaldist_measure[3] > WALL_CUSHION);
-        
+        //wall_not_too_far = (kaldist_measure[2] < 140 || kaldist_measure[3] < 140);
     }
     
+    //if (!wall_not_too_far) wheel_move_by_metrics(FORWARD, 240, 1.0);
+    
     wheel_move_by_metrics(RIGHT, 240, 90);
-    angle_correction_with_ticks (RIGHT, 240);
+    //angle_correction_with_ticks (RIGHT, 240);
 }
 
 void detectSlit() {
@@ -113,7 +116,7 @@ void detectSlit() {
         
         while (front_wall_not_encountered && slit_not_encountered) {
             wheel_move_by_metrics(FORWARD, 240, 0.125);
-            angle_correction(240, kaldist_measure[2], kaldist_measure[3]);
+            //angle_correction(240, kaldist_measure[2], kaldist_measure[3]);
             
             front_wall_not_encountered = (kaldist_measure[2] > FRONT_WALL_CUSHION || kaldist_measure[3] > FRONT_WALL_CUSHION);
             
@@ -123,7 +126,7 @@ void detectSlit() {
         while (back_wall_not_encountered && slit_not_encountered) {
             
             wheel_move_by_metrics(BACKWARD, 240, 0.125);
-            angle_correction_with_ticks (BACKWARD, 240);
+            //angle_correction_with_ticks (BACKWARD, 240);
             
             back_wall_not_encountered = (kaldist_measure[4] > BACK_WALL_CUSHION);
             
@@ -228,26 +231,26 @@ void findDeckPrelim() {
     tmp = kaldist_measure[2]>kaldist_measure[3]?kaldist_measure[3]:kaldist_measure[2];
     double move_dist = ((tmp)/(2) - WALL_CUSHION)/100;
     
-    if (move_dist < 0) wall_not_encountered = false;
+    //if (move_dist < 0) wall_not_encountered = false;
     
     while (wall_not_encountered) { 
         
-        wheel_move_by_metrics(FORWARD, 240, move_dist);
-        angle_correction(240, kaldist_measure[2], kaldist_measure[3]);
+        wheel_move_by_metrics(FORWARD, 240, 0.2);
+        //angle_correction(240, kaldist_measure[2], kaldist_measure[3]);
         
         wall_not_encountered = (kaldist_measure[2] > WALL_CUSHION && kaldist_measure[3] > WALL_CUSHION);
-        tmp = kaldist_measure[2]>kaldist_measure[3]?kaldist_measure[3]:kaldist_measure[2];
-        move_dist = ((tmp)/(2) - WALL_CUSHION)/100;
-        
-        if (move_dist < 0) wall_not_encountered = false;
+//        tmp = kaldist_measure[2]>kaldist_measure[3]?kaldist_measure[3]:kaldist_measure[2];
+//        move_dist = ((tmp)/(2) - WALL_CUSHION)/100;
+//        
+//        if (move_dist < 0) wall_not_encountered = false;
         
     }
 
-    angle_correction (240, kaldist_measure[2], kaldist_measure[3]);
+    //angle_correction (240, kaldist_measure[2], kaldist_measure[3]);
     
     wheel_move_by_metrics (BACKWARD, 240, 0.05);
     
-    angle_correction (240, kaldist_measure[2], kaldist_measure[3]);
+    //angle_correction (240, kaldist_measure[2], kaldist_measure[3]);
     
     switch(start_base_color) {
         case (RED_BASE):

@@ -18,7 +18,7 @@
 double pos_x = 0;
 double pos_y = 0;
 double heading_angle = 0;
-STARTING_BASE start_base_color = RED_BASE;
+STARTING_BASE start_base_color;
 
 double pos_x_base = 0;
 double pos_y_base = 0;

@@ -131,7 +131,7 @@ void lift_down() {
     
     lift_start();
     lift_writeCompare(875);
-    CyDelay(1500);
+    CyDelay(1750);
     lift_off();
 }
 void lift_up() {
