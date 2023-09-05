@@ -34,13 +34,14 @@ int main(void)
 
     initBase();
 
+    moveOutOfBaseFast();
 //    moveOutOfBase();
-//    CyDelay(500);
-//    detectSlit();
-//    prepMoveThroughSlit();
-//    moveThroughSlit();
-//    grabPuck();
-    findDeckPrelim();
+    CyDelay(500);
+    detectSlit();
+    prepMoveThroughSlit();
+    moveThroughSlit();
+    grabPuck();
+//    findDeckPrelim();
 //    placePuck();
 //    flickPuck();
 //    returnToBase();

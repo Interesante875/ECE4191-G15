@@ -48,7 +48,9 @@ void moveOutOfBaseFast() {
     
     wheel_move(STOP, 0);
     
-    wheel_move_by_metrics(RIGHT, 240, 90);
+    wheel_move_by_metrics(RIGHT, 240, 95);
+//    CyDelay(500);
+//    angle_correction(240, kaldist_measure[2], kaldist_measure[3]);
     
 }
 
@@ -115,7 +117,8 @@ void detectSlit() {
         back_wall_not_encountered = true;
         
         while (front_wall_not_encountered && slit_not_encountered) {
-            wheel_move_by_metrics(FORWARD, 240, 0.125);
+            
+            wheel_move(FORWARD, 240);
             //angle_correction(240, kaldist_measure[2], kaldist_measure[3]);
             
             front_wall_not_encountered = (kaldist_measure[2] > FRONT_WALL_CUSHION || kaldist_measure[3] > FRONT_WALL_CUSHION);
@@ -123,9 +126,11 @@ void detectSlit() {
             slit_not_encountered = (kaldist_measure[0] < SLIT_EPISLON);      
         }
         
+        wheel_move(STOP, 0);
+
         while (back_wall_not_encountered && slit_not_encountered) {
             
-            wheel_move_by_metrics(BACKWARD, 240, 0.125);
+            wheel_move(BACKWARD, 240);
             //angle_correction_with_ticks (BACKWARD, 240);
             
             back_wall_not_encountered = (kaldist_measure[4] > BACK_WALL_CUSHION);
@@ -134,13 +139,18 @@ void detectSlit() {
             
         }
         
+        wheel_move(STOP, 0);
+        
         
     }
     
-    if (front_wall_not_encountered && back_wall_not_encountered) wheel_move_by_metrics(FORWARD, 240, 0.04); 
+    if (front_wall_not_encountered && back_wall_not_encountered) wheel_move_by_metrics(FORWARD, 240, 0.08); 
     else if (!front_wall_not_encountered) wheel_move_by_metrics(BACKWARD, 240, 0.04);
     
-    wheel_move_by_metrics(LEFT, 240, 90);
+    wheel_move_by_metrics(LEFT, 240, 85);
+    
+//    CyDelay(500);
+//    angle_correction(240, kaldist_measure[2], kaldist_measure[3]);
     //angle_correction_with_ticks (LEFT, 240);
 }
 
@@ -165,7 +175,7 @@ void grabPuck() {
     gripper_close();
     
     
-    trunk_middle();
+    trunk_ground();
     CyDelay(250);
     
     color_sensor_start();
@@ -195,7 +205,7 @@ void grabPuck() {
     
     color_sensor_stop();
     
-    gripper_close();
+//    gripper_close();
     trunk_up();
     lift_up();
     
