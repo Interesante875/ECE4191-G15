@@ -24,10 +24,17 @@
     void detectSlit();
     void moveThroughSlit();
     
+    
+    void initBase();
     void findDeckPrelim();
+    void prepMoveThroughSlit();
+    
+    void grabPuck();
     void placePuck();
     void flickPuck();
     void returnToBase();
+    
+    void test();
     
     
 #endif

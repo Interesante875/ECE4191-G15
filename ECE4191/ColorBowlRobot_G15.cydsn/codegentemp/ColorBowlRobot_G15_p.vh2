@@ -1,5 +1,5 @@
 -- Project:   ColorBowlRobot_G15
--- Generated: 09/04/2023 17:37:24
+-- Generated: 09/04/2023 19:32:37
 -- PSoC Creator  4.4
 
 ENTITY ColorBowlRobot_G15 IS
@@ -602,7 +602,7 @@ ARCHITECTURE __DEFAULT__ OF ColorBowlRobot_G15 IS
     ATTRIBUTE lib_model OF Tx_1(0) : LABEL IS "iocell11";
     ATTRIBUTE Location OF Tx_1(0) : LABEL IS "P12[7]";
     ATTRIBUTE lib_model OF Rx_1(0) : LABEL IS "iocell12";
-    ATTRIBUTE Location OF Rx_1(0) : LABEL IS "P15[2]";
+    ATTRIBUTE Location OF Rx_1(0) : LABEL IS "P12[6]";
     ATTRIBUTE lib_model OF IR_Sensor_LEFT(0) : LABEL IS "iocell13";
     ATTRIBUTE Location OF IR_Sensor_LEFT(0) : LABEL IS "P3[3]";
     ATTRIBUTE lib_model OF S0(0) : LABEL IS "iocell14";

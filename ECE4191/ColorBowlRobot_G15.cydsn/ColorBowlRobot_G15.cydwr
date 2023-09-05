@@ -3568,7 +3568,7 @@
     </Group>
     <Group key="ad5fc877-2678-4850-bea8-02578443791e">
       <Group key="0">
-        <Data key="Port Format" value="15,2" />
+        <Data key="Port Format" value="12,6" />
       </Group>
     </Group>
     <Group key="adfef9dc-847e-4f6f-8405-adeac0c01ace">

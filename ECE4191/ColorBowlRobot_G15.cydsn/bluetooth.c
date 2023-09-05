@@ -115,6 +115,11 @@ void handshake() {
     }
 }
 
+void wait_for_handshake() {
+    
+    
+}
+
 /**
  * Prints formatted data over UART communication.
  * @param format The format string for the data to be printed.

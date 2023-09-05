@@ -6,7 +6,7 @@
 
 #Build Date:         Sep  9 2019 11:47:43
 
-#File Generated:     Sep 4 2023 17:37:24
+#File Generated:     Sep 4 2023 19:32:37
 
 #Purpose:            
 
@@ -80,11 +80,11 @@ analysis after routing.
                      Clock Summary 
 ======================================================================
 Number of clocks: 14
-Clock: Clock_1              | Frequency:  35.9 MHz | Target:   1.0 MHz
+Clock: Clock_1              | Frequency:  33.9 MHz | Target:   1.0 MHz
 Clock: Clock_1(fixed-function) | Frequency: N/A       | Target:   1.0 MHz
 Clock: Clock_2              | Frequency:  29.2 MHz | Target:   0.1 MHz
-Clock: Clock_3              | Frequency:  38.6 MHz | Target:   1.0 MHz
-Clock: Clock_4              | Frequency:  74.8 MHz | Target:   0.0 MHz
+Clock: Clock_3              | Frequency:  47.7 MHz | Target:   1.0 MHz
+Clock: Clock_4              | Frequency:  79.7 MHz | Target:   0.0 MHz
 Clock: Clock_5              | Frequency:  59.7 MHz | Target:   0.1 MHz
 Clock: Clock_burst          | Frequency: N/A       | Target:   0.0 MHz
 Clock: Clock_burst(fixed-function) | Frequency: N/A       | Target:   0.0 MHz
@@ -93,7 +93,7 @@ Clock: CyILO                | Frequency: N/A       | Target:   0.0 MHz
 Clock: CyIMO                | Frequency: N/A       | Target:   3.0 MHz
 Clock: CyMASTER_CLK         | Frequency: N/A       | Target:  24.0 MHz
 Clock: CyPLL_OUT            | Frequency: N/A       | Target:  24.0 MHz
-Clock: UART_1_IntClock      | Frequency:  35.4 MHz | Target:   0.1 MHz
+Clock: UART_1_IntClock      | Frequency:  34.3 MHz | Target:   0.1 MHz
 
 ======================================================================
                      End of Clock Summary
@@ -106,12 +106,12 @@ Phase 7
                      Clock Summary 
 ======================================================================
 Number of clocks: 14
-Clock: Clock_1              | Frequency:  38.2 MHz | Target:   1.0 MHz
+Clock: Clock_1              | Frequency:  37.4 MHz | Target:   1.0 MHz
 Clock: Clock_1(fixed-function) | Frequency: N/A       | Target:   1.0 MHz
 Clock: Clock_2              | Frequency:   0.8 MHz | Target:   0.1 MHz
-Clock: Clock_3              | Frequency:   2.5 MHz | Target:   1.0 MHz
-Clock: Clock_4              | Frequency:  79.7 MHz | Target:   0.0 MHz
-Clock: Clock_5              | Frequency:  53.0 MHz | Target:   0.1 MHz
+Clock: Clock_3              | Frequency:   2.8 MHz | Target:   1.0 MHz
+Clock: Clock_4              | Frequency:  70.5 MHz | Target:   0.0 MHz
+Clock: Clock_5              | Frequency:  59.7 MHz | Target:   0.1 MHz
 Clock: Clock_burst          | Frequency: N/A       | Target:   0.0 MHz
 Clock: Clock_burst(fixed-function) | Frequency: N/A       | Target:   0.0 MHz
 Clock: CyBUS_CLK            | Frequency:   0.8 MHz | Target:  24.0 MHz
@@ -119,12 +119,12 @@ Clock: CyILO                | Frequency: N/A       | Target:   0.0 MHz
 Clock: CyIMO                | Frequency: N/A       | Target:   3.0 MHz
 Clock: CyMASTER_CLK         | Frequency: N/A       | Target:  24.0 MHz
 Clock: CyPLL_OUT            | Frequency: N/A       | Target:  24.0 MHz
-Clock: UART_1_IntClock      | Frequency:   1.1 MHz | Target:   0.1 MHz
+Clock: UART_1_IntClock      | Frequency:   1.2 MHz | Target:   0.1 MHz
 
 ======================================================================
                      End of Clock Summary
 ######################################################################
-D2088: Phase 7, elapsed time : 1.6 (sec)
+D2088: Phase 7, elapsed time : 1.9 (sec)
 
 Final Design Statistics
     Number of Combinational MCs 	:	43
@@ -155,12 +155,12 @@ analysis after routing.
                      Clock Summary 
 ======================================================================
 Number of clocks: 14
-Clock: Clock_1              | Frequency:  34.0 MHz | Target:   1.0 MHz
+Clock: Clock_1              | Frequency:  40.0 MHz | Target:   1.0 MHz
 Clock: Clock_1(fixed-function) | Frequency: N/A       | Target:   1.0 MHz
 Clock: Clock_2              | Frequency:   0.8 MHz | Target:   0.1 MHz
-Clock: Clock_3              | Frequency:   3.0 MHz | Target:   1.0 MHz
-Clock: Clock_4              | Frequency:  79.7 MHz | Target:   0.0 MHz
-Clock: Clock_5              | Frequency:  52.9 MHz | Target:   0.1 MHz
+Clock: Clock_3              | Frequency:   2.9 MHz | Target:   1.0 MHz
+Clock: Clock_4              | Frequency: 123.4 MHz | Target:   0.0 MHz
+Clock: Clock_5              | Frequency:  57.8 MHz | Target:   0.1 MHz
 Clock: Clock_burst          | Frequency: N/A       | Target:   0.0 MHz
 Clock: Clock_burst(fixed-function) | Frequency: N/A       | Target:   0.0 MHz
 Clock: CyBUS_CLK            | Frequency:   0.8 MHz | Target:  24.0 MHz
@@ -179,5 +179,5 @@ D2088: Phase 8, elapsed time : 0.0 (sec)
 
 D2054: Placement of the design completed successfully
 
-I2076: Total run-time: 2.7 sec.
+I2076: Total run-time: 2.8 sec.
 

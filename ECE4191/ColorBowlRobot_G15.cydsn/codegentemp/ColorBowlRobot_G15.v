@@ -1,6 +1,6 @@
 // ======================================================================
 // ColorBowlRobot_G15.v generated from TopDesign.cysch
-// 09/04/2023 at 17:37
+// 09/04/2023 at 19:32
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -1906,11 +1906,11 @@ module top ;
           wire  Net_970;
           wire  Net_969;
           wire  Net_968;
-          wire  Net_213;
-          wire  Net_212;
-          wire  Net_210;
-          wire  Net_209;
-          wire  Net_208;
+          wire  Net_1319;
+          wire  Net_1318;
+          wire  Net_1317;
+          wire  Net_1316;
+          wire  Net_1315;
           wire  Net_1099;
           wire  Net_972;
           wire  Net_976;
@@ -1962,10 +1962,10 @@ module top ;
           wire  Net_940;
           wire  Net_939;
           wire  Net_938;
+          wire  Net_1310;
           wire  Net_1307;
           wire  Net_1311;
           wire  Net_12;
-          wire  Net_1310;
           wire  Net_1280;
           wire  Net_1245;
           wire  Net_1204;
@@ -3100,12 +3100,12 @@ module top ;
 
     Timer_v2_80_8 Wheel_Timer (
         .capture(1'b0),
-        .capture_out(Net_209),
+        .capture_out(Net_1316),
         .clock(Net_33),
         .enable(1'b1),
         .interrupt(Net_1310),
         .reset(Net_1310),
-        .tc(Net_212),
+        .tc(Net_1318),
         .trigger(1'b1));
     defparam Wheel_Timer.CaptureCount = 2;
     defparam Wheel_Timer.CaptureCounterEnabled = 0;

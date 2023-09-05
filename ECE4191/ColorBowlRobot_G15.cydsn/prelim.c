@@ -23,7 +23,7 @@
 
 void initBase() {
     
-    initializePosition(RED_BASE);
+    initializePosition(YELLOW_BASE);
     
 }
 
@@ -72,7 +72,7 @@ void moveOutOfBase() {
     while (wall_not_encountered) { 
         
         wheel_move_by_metrics(FORWARD, 240, 0.1);
-        //angle_correction_with_ticks (FORWARD, 240);
+        angle_correction_with_ticks (FORWARD, 240);
         
 //        for (int i = 0; i < NUMBER_OF_UDS; i++) {
 //            printValue("%d:%d, %s", i, (int) kaldist_measure[i], i==NUMBER_OF_UDS-1?"\n":"");   
@@ -83,7 +83,7 @@ void moveOutOfBase() {
     }
     
     wheel_move_by_metrics(RIGHT, 240, 90);
-    //angle_correction_with_ticks (RIGHT, 240);
+    angle_correction_with_ticks (RIGHT, 240);
 }
 
 void detectSlit() {
@@ -113,7 +113,7 @@ void detectSlit() {
         
         while (front_wall_not_encountered && slit_not_encountered) {
             wheel_move_by_metrics(FORWARD, 240, 0.125);
-            angle_correction_with_ticks (FORWARD, 240);
+            angle_correction(240, kaldist_measure[2], kaldist_measure[3]);
             
             front_wall_not_encountered = (kaldist_measure[2] > FRONT_WALL_CUSHION || kaldist_measure[3] > FRONT_WALL_CUSHION);
             
@@ -138,14 +138,29 @@ void detectSlit() {
     else if (!front_wall_not_encountered) wheel_move_by_metrics(BACKWARD, 240, 0.04);
     
     wheel_move_by_metrics(LEFT, 240, 90);
-    angle_correction_with_ticks (LEFT, 240);
+    //angle_correction_with_ticks (LEFT, 240);
+}
+
+void prepMoveThroughSlit() {
+    trunk_up();
+    gripper_close();
+    lift_down();
+    gripper_open();
+    
 }
 
 void moveThroughSlit() {
-    trunk_up();
-    gripper_open();
-    wheel_move_by_metrics(FORWARD, 240, 0.35); 
+    
+    wheel_move_by_metrics(FORWARD, 240, 0.45); 
+    
+    
+    
+}
+
+void grabPuck() {
+    
     gripper_close();
+    
     
     trunk_middle();
     CyDelay(250);
@@ -154,99 +169,85 @@ void moveThroughSlit() {
     set_frequency_scaling(1, 1);
     color_detection_run(COLOR_DETECTION_RUNS);
     
-    printValue("Color: %d\n", detectedColor);
-    
-    for (int i = 0; i < 3; i++) {
-    
-        switch(detectedColor) {
-            case RED:
-                Indicator_RED_Write(1); 
-                CyDelay(1000);
-                break;
-            case BLUE:
-                Indicator_BLUE_Write(1);
-                CyDelay(1000);
-                break;
-            case GREEN:
-                Indicator_GREEN_Write(1);
-                CyDelay(1000);
-                break;
-            default:
-                Indicator_RED_Write(1);
-                Indicator_BLUE_Write(1);
-                Indicator_GREEN_Write(1);
-                CyDelay(1000);
-                break;
-        }
+    switch(detectedColor) {
+        case RED:
+            Indicator_RED_Write(1); 
+            CyDelay(2000);
+            break;
+        case BLUE:
+            Indicator_BLUE_Write(1);
+            CyDelay(2000);
+            break;
+        case GREEN:
+            Indicator_GREEN_Write(1);
+            CyDelay(2000);
+            break;
+        default:
+            Indicator_RED_Write(0);
+            Indicator_BLUE_Write(0);
+            Indicator_GREEN_Write(0);
+            CyDelay(1000);
+            break;
     }
     
     color_sensor_stop();
     
-    Indicator_RED_Write(0);
-    Indicator_BLUE_Write(0);
-    Indicator_GREEN_Write(0);
+    gripper_close();
+    trunk_up();
+    lift_up();
     
-    wheel_move_by_metrics(BACKWARD, 240, 0.35);
+    
 }
 
 void findDeckPrelim() {
     
+    wheel_move_by_metrics(BACKWARD, 240, 0.5);
     
     switch(start_base_color) {
         case (RED_BASE):
-            if (pos_y > pos_y_base) {
-                wheel_move_by_metrics(RIGHT, 240, 90);   
-            } else {
-                wheel_move_by_metrics(LEFT, 240, 90);  
-            }
-        
+            wheel_move_by_metrics(RIGHT, 240, 90);   
         break;
         case (YELLOW_BASE):
-            if (pos_y > pos_y_base) {
-                wheel_move_by_metrics(RIGHT, 240, 90);   
-            } else {
-                wheel_move_by_metrics(LEFT, 240, 90);  
-            }
+            wheel_move_by_metrics(LEFT, 240, 90);
         break;
         case (BLUE_BASE):
-            if (pos_y > pos_y_base) {
-                wheel_move_by_metrics(LEFT, 240, 90);   
-            } else {
-                wheel_move_by_metrics(RIGHT, 240, 90);  
-            }
+            wheel_move_by_metrics(LEFT, 240, 90);  
         break;
         case (GREEN_BASE):
-            if (pos_y > pos_y_base) {
-                wheel_move_by_metrics(LEFT, 240, 90);   
-            } else {
-                wheel_move_by_metrics(RIGHT, 240, 90);  
-            }
+            wheel_move_by_metrics(RIGHT, 240, 90);
         break;
     }
     
     CyDelay(500);
     
-    bool wall_not_encountered = true;
-    
     const double WALL_CUSHION = 25;
     
-    //double cumulative_dist = 0;
+    bool wall_not_encountered = (kaldist_measure[2] > WALL_CUSHION && kaldist_measure[3] > WALL_CUSHION);
+    double tmp;
     
-    //double move_dist = (kaldist_measure[2]>kaldist_measure[3])?kaldist_measure[3]:kaldist_measure[2] - WALL_CUSHION;
+    tmp = kaldist_measure[2]>kaldist_measure[3]?kaldist_measure[3]:kaldist_measure[2];
+    double move_dist = ((tmp)/(2) - WALL_CUSHION)/100;
+    
+    if (move_dist < 0) wall_not_encountered = false;
     
     while (wall_not_encountered) { 
         
-        wheel_move_by_metrics(FORWARD, 240, 0.2);
-        angle_correction_with_ticks (FORWARD, 240);
+        wheel_move_by_metrics(FORWARD, 240, move_dist);
+        angle_correction(240, kaldist_measure[2], kaldist_measure[3]);
         
         wall_not_encountered = (kaldist_measure[2] > WALL_CUSHION && kaldist_measure[3] > WALL_CUSHION);
+        tmp = kaldist_measure[2]>kaldist_measure[3]?kaldist_measure[3]:kaldist_measure[2];
+        move_dist = ((tmp)/(2) - WALL_CUSHION)/100;
+        
+        if (move_dist < 0) wall_not_encountered = false;
         
     }
-    
-    
+
     angle_correction (240, kaldist_measure[2], kaldist_measure[3]);
     
-    wheel_move_by_metrics (BACKWARD, 240, 0.15);
+    wheel_move_by_metrics (BACKWARD, 240, 0.05);
+    
+    angle_correction (240, kaldist_measure[2], kaldist_measure[3]);
     
     switch(start_base_color) {
         case (RED_BASE):
@@ -263,30 +264,34 @@ void findDeckPrelim() {
         break;
     }
     
-    double move_dist = (kaldist_measure[2] + kaldist_measure[3])/2;
+    angle_correction (240, kaldist_measure[2], kaldist_measure[3]);
+    tmp = kaldist_measure[2]>kaldist_measure[3]?kaldist_measure[3]:kaldist_measure[2];
     
-    if (move_dist - 20 < 0) wheel_move_by_metrics(BACKWARD, 240, move_dist - 20);
-    else wheel_move_by_metrics(FORWARD, 240, move_dist-20);
+    move_dist = (tmp/(2) - WALL_CUSHION)/100;
+    
+    if (move_dist < 0) wheel_move_by_metrics(BACKWARD, 240, fabs(move_dist));
+    else wheel_move_by_metrics(FORWARD, 240, move_dist);
     
 }
 
 void placePuck() {
     trunk_up();
-    trunk_off();
-    
     lift_down();
-    //arm_flat();
     gripper_open();
     
 }
 
 void flickPuck() {
-    //gripper_semi_open();
-    lift_up();
-    //arm_swing_position();
-    //arm_flat();
     
-    gripper_open();   
+    double move_dist = 0.05;
+
+    wheel_move_by_metrics(BACKWARD, 240, move_dist);
+    trunk_up();
+    gripper_close();
+    lift_up();
+    arm_swing_flick();
+    wheel_move_by_metrics(FORWARD, 240, move_dist);
+    arm_swing_flat(); 
     
 }
 
@@ -294,44 +299,62 @@ void returnToBase() {
     
     switch(start_base_color) {
         case (RED_BASE):
-            wheel_move_by_metrics(RIGHT, 240, 90); 
+            wheel_move_by_metrics(LEFT, 240, 90); 
         break;
         case (YELLOW_BASE):
-            wheel_move_by_metrics(LEFT, 240, 90);
+            wheel_move_by_metrics(RIGHT, 240, 90);
         break;
         case (BLUE_BASE):
-            wheel_move_by_metrics(LEFT, 240, 90);
+            wheel_move_by_metrics(RIGHT, 240, 90);
         break;
         case (GREEN_BASE):
-            wheel_move_by_metrics(RIGHT, 240, 90); 
+            wheel_move_by_metrics(LEFT, 240, 90); 
         break;
     }
     
-    angle_correction(240, kaldist_measure[0], kaldist_measure[1]);
+    angle_correction(240, kaldist_measure[2], kaldist_measure[3]);
     
-    wheel_move_by_metrics(FORWARD, 240, 0.2);
+    bool wall_distance_not_enough = true;
+    
+    const double WALL_CUSHION = 65;
+    
+    wheel_move(BACKWARD, 240);
+    
+    while (wall_distance_not_enough) {
+        
+        wall_distance_not_enough = (kaldist_measure[2] < WALL_CUSHION || kaldist_measure[3] < WALL_CUSHION);
+        
+    }
+    
+    wheel_move(STOP, 0);
     
     switch(start_base_color) {
         case (RED_BASE):
-            wheel_move_by_metrics(LEFT, 240, 90); 
+            wheel_move_by_metrics(RIGHT, 240, 90); 
         break;
         case (YELLOW_BASE):
-            wheel_move_by_metrics(RIGHT, 240, 90);
+            wheel_move_by_metrics(LEFT, 240, 90);
         break;
         case (BLUE_BASE):
-            wheel_move_by_metrics(RIGHT, 240, 90);
+            wheel_move_by_metrics(LEFT, 240, 90);
         break;
         case (GREEN_BASE):
-            wheel_move_by_metrics(LEFT, 240, 90); 
+            wheel_move_by_metrics(RIGHT, 240, 90); 
         break;
     }
     
-    double move_dist = (kaldist_measure[0] + kaldist_measure[1])/2;
+    angle_correction(240, kaldist_measure[2], kaldist_measure[3]);
+    
+    double move_dist = (kaldist_measure[2] + kaldist_measure[3])/2;
     
     wheel_move_by_metrics(FORWARD, 240, move_dist);
 }
 
-
+void test() {
+    wheel_move_by_metrics(LEFT, 240, 90);
+    wheel_move_by_metrics(RIGHT, 240, 90);
+    
+}
 
 /*
 void adjust_to_the_slit() {

@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="ECE4191\ColorBowlRobot_G15\Header Files\servo.h">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="ECE4191\ColorBowlRobot_G15\Source Files\prelim.c">
 <ExpandedNodeIds>
 <v>ECE4191</v>
 <v>ECE4191\ColorBowlRobot_G15</v>
@@ -346,14 +346,15 @@
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
 <OpenDocs>
-<name v=".\ColorBowlRobot_G15.cydsn\navigation_stack.c" />
-<name v=".\ColorBowlRobot_G15.cydsn\navigation_stack.h" />
-<name v=".\ColorBowlRobot_G15.cydsn\locomotion.c" />
+<name v=".\ColorBowlRobot_G15.cydsn\main.c" />
 <name v=".\ColorBowlRobot_G15.cydsn\prelim.c" />
-<name v=".\ColorBowlRobot_G15.cydsn\prelim.h" />
-<name v=".\ColorBowlRobot_G15.cydsn\ColorBowlRobot_G15.cydwr" />
+<name v=".\ColorBowlRobot_G15.cydsn\servo.c" />
 <name v=".\ColorBowlRobot_G15.cydsn\TopDesign\TopDesign.cysch" />
-<name v=".\ColorBowlRobot_G15.cydsn\bluetooth.c" />
+<name v=".\ColorBowlRobot_G15.cydsn\locomotion.c" />
+<name v=".\ColorBowlRobot_G15.cydsn\locomotion.h" />
+<name v=".\ColorBowlRobot_G15.cydsn\motor_control.h" />
+<name v=".\ColorBowlRobot_G15.cydsn\motor.h" />
+<name v=".\ColorBowlRobot_G15.cydsn\navigation_stack.c" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -361,7 +362,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="837, 311" SelectedTabbedMdiWindow="354aeeac-c683-490c-8bcf-3747fe15e2ae"><DocumentWindow Key="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\navigation_stack.c" Guid="4a2a6deb-ba77-41b1-a18b-c6c5163bbc88" /><DocumentWindow Key="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\navigation_stack.h" Guid="a6b99d0a-8d8b-4ab8-b1c4-3916fb772bb0" /><DocumentWindow Key="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\locomotion.c" Guid="fd4f4fbb-2e04-4618-a2cd-7d4213ebcd1c" /><DocumentWindow Key="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\prelim.c" Guid="5aee5506-3913-4aa9-9552-3b79d48604dd" /><DocumentWindow Key="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\prelim.h" Guid="4556cd7e-f831-49d4-9fb4-6249181dee06" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="b534b6ea-1ad7-4e1a-b4e0-6ec571c980f3" /><DocumentWindow Key="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\ColorBowlRobot_G15.cydwr" Guid="847768b4-ad01-435c-93a2-43f67ac4ccb1" /><DocumentWindow Key="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\TopDesign\TopDesign.cysch" Guid="bfd24731-5931-4d49-b7cb-d0c2d8f01c9a" /><DocumentWindow Key="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\bluetooth.c" Guid="354aeeac-c683-490c-8bcf-3747fe15e2ae" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="782, 462" SelectedTabbedMdiWindow="cf29a666-06d0-4848-bd90-19ca99786fd6"><DocumentWindow Key="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\main.c" Guid="fcc8fd4f-0c3e-4624-9cae-78ebc0a85010" /><DocumentWindow Key="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\prelim.c" Guid="5561197c-ca75-4a5f-b4c0-73b3d4f8168a" /><DocumentWindow Key="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\servo.c" Guid="e98694e8-1692-4438-bdb8-062399aa796c" /><DocumentWindow Key="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\TopDesign\TopDesign.cysch" Guid="d3a83a01-cccb-47f0-84dc-8a21f1f700e8" /><DocumentWindow Key="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\locomotion.c" Guid="cf29a666-06d0-4848-bd90-19ca99786fd6" /><DocumentWindow Key="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\locomotion.h" Guid="f0a39170-1a99-4272-a931-3b5759faf074" /><DocumentWindow Key="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\motor_control.h" Guid="62d98587-c097-413e-9d59-18b0cb9d9003" /><DocumentWindow Key="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\motor.h" Guid="fcddee24-fde0-46f4-8dc8-549f3b0a3493" /><DocumentWindow Key="C:\Users\Chong Yen Juin\Desktop\Monash\ECE4191\09 - Implementation\ECE4191-G15\ECE4191\ColorBowlRobot_G15.cydsn\navigation_stack.c" Guid="a9fa233b-e475-49f3-ba50-40aa18e8e7e2" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="b534b6ea-1ad7-4e1a-b4e0-6ec571c980f3" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

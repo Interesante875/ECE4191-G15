@@ -43,18 +43,11 @@ CY_ISR (ISR_Handler_wheel_controller) {
     
     //printValue("%d %d\n", master_motor_left_ticks, slave_motor_right_ticks);
     
-    if (master_motor_left_ticks > 0) {
-        int left = master_motor_left_ticks - last_master_ticks;
-        int right = slave_motor_right_ticks - slave_motor_right_ticks;
-        
-        computePosition(left, right);
-    } else {
-        int left = -(master_motor_left_ticks - last_master_ticks);
-        int right = -(slave_motor_right_ticks - slave_motor_right_ticks);
-        
-        computePosition(left, right);
-    }
+   
+    int left = master_motor_left_ticks - last_master_ticks;
+    int right = slave_motor_right_ticks - slave_motor_right_ticks;
     
+    computePosition(left, right);
     
     last_master_ticks = master_motor_left_ticks;
     last_slave_ticks = slave_motor_right_ticks;
@@ -105,6 +98,8 @@ void wheel_move_by_ticks(MOTION motion, uint8 pwm, int target_ticks) {
     
     printValue("LEFT: %d\t RIGHT: %d\n ", master_motor_left_ticks, slave_motor_right_ticks);
     printValue("Master PWM - %d Slave PWM - %d\n", master_pwm, slave_pwm);
+    
+    printValue("%d, %d, %d\n", pos_x, pos_y, heading_angle);
     
     wheel_controller_stop();
     motor_off();
@@ -244,7 +239,7 @@ void angle_correction(uint8 pwm, double flu, double fru) {
     last_master_ticks = 0;
     last_slave_ticks = 0;
     
-    double lr = flu - fru;
+    double lr = (double) (flu - fru);
     
     if (fabs(lr) > 1) {
         double angle = atan2(0.01*fabs(lr), 0.2) * 180 / CY_M_PI;
