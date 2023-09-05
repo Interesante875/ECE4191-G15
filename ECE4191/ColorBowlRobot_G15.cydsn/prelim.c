@@ -250,6 +250,9 @@ void findDeckPrelim() {
     
     wheel_move(STOP, 0);
     
+    CyDelay(500);
+    angle_correction(240, kaldist_measure[2], kaldist_measure[3]);
+    
     wheel_move_by_metrics (BACKWARD, 240, 0.05);
     
     CyDelay(500);
@@ -295,7 +298,7 @@ void findDeckPrelim() {
     CyDelay(500);
     wall_distance_not_fit = (kaldist_measure[2] > WALL_CUSHION && kaldist_measure[3] > WALL_CUSHION);
     
-    const double WALL_DISTANCE = 18;
+    const double WALL_DISTANCE = 22;
     wheel_move(BACKWARD, 240);
     while (wall_distance_not_fit) {
         
@@ -317,7 +320,7 @@ void placePuck() {
 
 void flickPuck() {
     
-    double move_dist = 0.05;
+    double move_dist = 0.15;
 
     wheel_move_by_metrics(BACKWARD, 240, move_dist);
     trunk_up();

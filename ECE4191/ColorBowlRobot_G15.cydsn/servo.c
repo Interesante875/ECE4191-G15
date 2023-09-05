@@ -87,7 +87,7 @@ void gripper_close() {
     */
     
     gripper_start();
-    gripper_writeCompare(881);
+    gripper_writeCompare(880);
     CyDelay(1000);
     //gripper_off();
 }
@@ -131,7 +131,7 @@ void lift_down() {
     
     lift_start();
     lift_writeCompare(875);
-    CyDelay(1750);
+    CyDelay(1700);
     lift_off();
 }
 void lift_up() {
