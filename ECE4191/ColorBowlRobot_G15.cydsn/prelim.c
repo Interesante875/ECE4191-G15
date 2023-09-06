@@ -23,7 +23,7 @@
 
 void initBase() {
     
-    initializePosition(GREEN_BASE);
+    initializePosition(RED_BASE);
     
     bluetooth_start();
     ultrasonic_on();
@@ -245,6 +245,8 @@ void findDeckPrelim() {
     const double WALL_CUSHION = 27;
     
     bool wall_not_encountered = true;
+    
+    bool wheel_sync = true;
 
     wheel_move(FORWARD, 240);
     
