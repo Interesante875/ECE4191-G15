@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="ECE4191\ColorBowlRobot_G15\Header Files\motor.h">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="ECE4191\ColorBowlRobot_G15\Source Files\navigation_stack.c">
 <ExpandedNodeIds>
 <v>ECE4191</v>
 <v>ECE4191\ColorBowlRobot_G15</v>
@@ -59,6 +59,9 @@
 <v>ECE4191\ColorBowlRobot_G15\Generated_Source\PSoC5</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
+<v>ECE4191\ColorBowlRobot_G15\ColorBowlRobot_G15.cydwr</v>
+<v>ECE4191\ColorBowlRobot_G15\Header Files</v>
+<v>ECE4191\ColorBowlRobot_G15\Header Files\bluetooth.h</v>
 <v>ECE4191\ColorBowlRobot_G15\Header Files\color_detection.h</v>
 <v>ECE4191\ColorBowlRobot_G15\Header Files\controller.h</v>
 <v>ECE4191\ColorBowlRobot_G15\Header Files\cyapicallbacks.h</v>
@@ -84,9 +87,6 @@
 <v>ECE4191\ColorBowlRobot_G15\Source Files\motor_control.c</v>
 <v>ECE4191\ColorBowlRobot_G15\Source Files\navigation_stack.c</v>
 <v>ECE4191\ColorBowlRobot_G15\Source Files\prelim.c</v>
-<v>ECE4191\ColorBowlRobot_G15\Source Files\servo.c</v>
-<v>ECE4191\ColorBowlRobot_G15\Source Files\ultrasonic.c</v>
-<v>ECE4191\ColorBowlRobot_G15\Generated_Source</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -233,32 +233,6 @@
 <VisibleNodeIds>
 <v>ECE4191</v>
 <v>ECE4191\ColorBowlRobot_G15</v>
-<v>ECE4191\ColorBowlRobot_G15\CortexM3</v>
-<v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541</v>
-<v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug</v>
-<v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
-<v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\bluetooth.lst</v>
-<v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock_1.lst</v>
-<v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock_2.lst</v>
-<v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock_3.lst</v>
-<v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock_4.lst</v>
-<v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock_5.lst</v>
-<v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock_burst.lst</v>
-<v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
-<v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\color_detection.lst</v>
-<v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\Control_Reg_Color_Sensor.lst</v>
-<v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\Control_Reg_Color_Sensor_PM.lst</v>
-<v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\Control_Reg_Ultrasonic.lst</v>
-<v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\Control_Reg_Ultrasonic_PM.lst</v>
-<v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\controller.lst</v>
-<v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\Count.lst</v>
-<v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\Counter_Color_Sensor.lst</v>
-<v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\Counter_Color_Sensor_PM.lst</v>
-<v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
-<v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
-<v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
-<v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
-<v>ECE4191\ColorBowlRobot_G15\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>

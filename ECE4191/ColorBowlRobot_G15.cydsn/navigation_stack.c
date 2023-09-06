@@ -25,6 +25,8 @@ double pos_y_base = 0;
 
 void initializePosition(STARTING_BASE color) {
     
+    start_base_color = color;
+    
     switch (color) {
         case RED_BASE:
             pos_y = 0.85;
@@ -32,6 +34,8 @@ void initializePosition(STARTING_BASE color) {
             pos_y_base = 0.85;
             pos_x_base = 0.05;
             heading_angle = 0;
+        
+            
         break;
         case YELLOW_BASE:
             pos_y = 1.52;

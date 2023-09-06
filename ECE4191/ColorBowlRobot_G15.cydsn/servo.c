@@ -81,6 +81,17 @@ void gripper_open() {
     gripper_off();
 }
 
+void gripper_full_close() {
+    /* Need to test the value
+    gripper_writeCompare(compareValue); 
+    */
+    
+    gripper_start();
+    gripper_writeCompare(879);
+    CyDelay(500);
+    // gripper_off();
+}
+
 void gripper_close() {
     /* Need to test the value
     gripper_writeCompare(compareValue); 
@@ -100,6 +111,19 @@ void arm_swing_flat() {
     
     arm_start();
     arm_writeCompare(875);
+    CyDelay(1000);
+    arm_off();
+
+}
+
+void arm_swing_down() {
+    /*
+    Translate angle to compareValue, requires mapping
+    arm_writeCompare(compareValue);
+    */
+    
+    arm_start();
+    arm_writeCompare(876);
     CyDelay(1000);
     arm_off();
 
@@ -131,14 +155,14 @@ void lift_down() {
     
     lift_start();
     lift_writeCompare(875);
-    CyDelay(1700);
+    CyDelay(1600);
     lift_off();
 }
 void lift_up() {
     // lift_writeCompare(int compareValue)   
     lift_start();
     lift_writeCompare(980);
-    CyDelay(1100);
+    CyDelay(1200);
     lift_off();
 }
 

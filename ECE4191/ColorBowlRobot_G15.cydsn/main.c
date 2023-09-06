@@ -44,7 +44,7 @@ int main(void)
     placePuck();
     flickPuck();
     returnToBase();
-    
+
     //test();
    
     for(;;)

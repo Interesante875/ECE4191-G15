@@ -23,7 +23,7 @@
 
 void initBase() {
     
-    initializePosition(YELLOW_BASE);
+    initializePosition(GREEN_BASE);
     
     bluetooth_start();
     ultrasonic_on();
@@ -151,7 +151,7 @@ void detectSlit() {
     }
     
     if (front_wall_not_encountered && back_wall_not_encountered) wheel_move_by_metrics(FORWARD, 240, 0.08); 
-    else if (!front_wall_not_encountered) wheel_move_by_metrics(BACKWARD, 240, 0.04);
+    else if (!front_wall_not_encountered) wheel_move_by_metrics(BACKWARD, 240, 0.12);
     
     wheel_move_by_metrics(LEFT, 240, 90);
     
@@ -162,8 +162,10 @@ void detectSlit() {
 
 void prepMoveThroughSlit() {
     trunk_up();
-    gripper_close();
+    gripper_full_close();
     lift_down();
+    CyDelay(200);
+    arm_swing_flat();
     gripper_open();
     
 }
@@ -237,8 +239,8 @@ void findDeckPrelim() {
         break;
     }
     
-    CyDelay(500);
-    angle_correction(240, kaldist_measure[2], kaldist_measure[3]);
+    //CyDelay(500);
+    //angle_correction(240, kaldist_measure[2], kaldist_measure[3]);
     
     const double WALL_CUSHION = 27;
     
@@ -340,11 +342,12 @@ void flickPuck() {
 
     wheel_move_by_metrics(BACKWARD, PWM_VAL, move_dist - 0.15);
     trunk_up();
-    gripper_close();
+    gripper_full_close();
     lift_up();
     arm_swing_flick();
     wheel_move_by_metrics(FORWARD, PWM_VAL, move_dist-0.05);
     arm_swing_flat(); 
+   
     
 }
 
@@ -373,7 +376,7 @@ void returnToBase() {
     
     bool wall_distance_not_enough = true;
     
-    const double WALL_CUSHION = 65;
+    const double WALL_CUSHION = 60;
     
     wheel_move(BACKWARD, PWM_VAL);
     
@@ -404,14 +407,26 @@ void returnToBase() {
     
     angle_correction(PWM_VAL, kaldist_measure[2], kaldist_measure[3]);
     
-    double move_dist = (kaldist_measure[2] + kaldist_measure[3])/(2*100);
+    wheel_move_by_metrics(RIGHT, PWM_VAL, 180); 
     
-    wheel_move_by_metrics(FORWARD, PWM_VAL, move_dist - 0.05);
+    
+    CyDelay(500);
+    double move_dist = (kaldist_measure[4])/(100);
+    
+    wheel_move_by_metrics(BACKWARD, PWM_VAL, move_dist); 
+    
+    //wheel_move_by_metrics(FORWARD, PWM_VAL, move_dist - 0.05);
 }
 
 void test() {
-    wheel_move_by_metrics(LEFT, PWM_VAL, 90);
-    wheel_move_by_metrics(RIGHT, PWM_VAL, 90);
+    CyDelay(2000);
+    prepMoveThroughSlit();
+//    gripper_full_close();
+//    lift_down();
+//    gripper_full_close();
+//    lift_up();
+//    arm_swing_flick();
+    
     //angle_correction_with_ticks (LEFT, PWM_VAL);
     
     
