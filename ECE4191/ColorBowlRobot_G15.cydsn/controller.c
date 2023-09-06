@@ -103,7 +103,7 @@ void computePIDController_correctionSignal() {
 
 uint8 computePController_output(uint8 master_pwm) {
     int slave_pwm = master_pwm + correction_signal;
-    return (uint8) slave_pwm>PWM_MAX?PWM_MAX:(slave_pwm<(master_pwm - 5)?(master_pwm - 5):slave_pwm);
+    return (uint8) slave_pwm>PWM_MAX?PWM_MAX:(slave_pwm<(master_pwm - 20)?(master_pwm - 20):slave_pwm);
 }
 
 uint8 computePIDController_output(uint8 master_pwm) {

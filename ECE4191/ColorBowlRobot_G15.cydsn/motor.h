@@ -12,7 +12,7 @@
 #ifndef MOTOR_H
 #define MOTOR_H
     
-    #define TICKS_PER_REVOLUTION 14375 
+    #define TICKS_PER_REVOLUTION 13500
     #define WHEEL_RADIUS 0.02695 
     #define WHEEL_DISTANCE 0.24 
     #define HALF_WIDTH 0.122

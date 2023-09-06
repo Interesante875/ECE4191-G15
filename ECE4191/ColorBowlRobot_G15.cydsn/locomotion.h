@@ -19,6 +19,7 @@
     #include "motor_control.h"
     
     #define EMF_BUFFER_DELAY 200
+    #define START_MOTOR_DELAY 100
 
     extern int flag_distance_moving;
     extern volatile int master_motor_left_ticks;

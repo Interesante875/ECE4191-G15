@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="ECE4191\ColorBowlRobot_G15\TopDesign">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="ECE4191\ColorBowlRobot_G15\Header Files\motor.h">
 <ExpandedNodeIds>
 <v>ECE4191</v>
 <v>ECE4191\ColorBowlRobot_G15</v>
@@ -59,12 +59,6 @@
 <v>ECE4191\ColorBowlRobot_G15\Generated_Source\PSoC5</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
-<v>ECE4191</v>
-<v>ECE4191\ColorBowlRobot_G15</v>
-<v>ECE4191\ColorBowlRobot_G15\TopDesign</v>
-<v>ECE4191\ColorBowlRobot_G15\ColorBowlRobot_G15.cydwr</v>
-<v>ECE4191\ColorBowlRobot_G15\Header Files</v>
-<v>ECE4191\ColorBowlRobot_G15\Header Files\bluetooth.h</v>
 <v>ECE4191\ColorBowlRobot_G15\Header Files\color_detection.h</v>
 <v>ECE4191\ColorBowlRobot_G15\Header Files\controller.h</v>
 <v>ECE4191\ColorBowlRobot_G15\Header Files\cyapicallbacks.h</v>
@@ -87,6 +81,12 @@
 <v>ECE4191\ColorBowlRobot_G15\Source Files\main.c</v>
 <v>ECE4191\ColorBowlRobot_G15\Source Files\median_filter.c</v>
 <v>ECE4191\ColorBowlRobot_G15\Source Files\motor.c</v>
+<v>ECE4191\ColorBowlRobot_G15\Source Files\motor_control.c</v>
+<v>ECE4191\ColorBowlRobot_G15\Source Files\navigation_stack.c</v>
+<v>ECE4191\ColorBowlRobot_G15\Source Files\prelim.c</v>
+<v>ECE4191\ColorBowlRobot_G15\Source Files\servo.c</v>
+<v>ECE4191\ColorBowlRobot_G15\Source Files\ultrasonic.c</v>
+<v>ECE4191\ColorBowlRobot_G15\Generated_Source</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">

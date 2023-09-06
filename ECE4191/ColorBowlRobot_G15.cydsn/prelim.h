@@ -18,6 +18,8 @@
     #include <cytypes.h>
     #include <stdbool.h>
     
+    #define PWM_VAL 240
+    
    
     void moveOutOfBaseFast();
     void moveOutOfBase();
@@ -27,6 +29,7 @@
     
     void initBase();
     void findDeckPrelim();
+    void adjustDistance();
     void prepMoveThroughSlit();
     
     void grabPuck();
