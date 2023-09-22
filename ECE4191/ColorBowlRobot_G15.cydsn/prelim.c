@@ -38,13 +38,13 @@ void moveOutOfBaseFast() {
     
     bool wall_not_encountered = true;
     
-    const double WALL_CUSHION = 20;
+    const double WALL_CUSHION = 25;
     
     wheel_move(FORWARD, PWM_VAL);
     
     while (wall_not_encountered) {
         
-        wall_not_encountered = (kaldist_measure[2] > WALL_CUSHION || kaldist_measure[3] > WALL_CUSHION);
+        wall_not_encountered = (kaldist_measure[2] > WALL_CUSHION && kaldist_measure[3] > WALL_CUSHION);
         
     }
     
@@ -133,6 +133,9 @@ void detectSlit() {
         }
         
         wheel_move(STOP, 0);
+        
+//        CyDelay(500);
+//        angle_correction (PWM_VAL, kaldist_measure[2], kaldist_measure[3]);
 
         while (back_wall_not_encountered && slit_not_encountered) {
             
@@ -153,7 +156,7 @@ void detectSlit() {
     if (front_wall_not_encountered && back_wall_not_encountered) wheel_move_by_metrics(FORWARD, 240, 0.08); 
     else if (!front_wall_not_encountered) wheel_move_by_metrics(BACKWARD, 240, 0.12);
     
-    wheel_move_by_metrics(LEFT, 240, 90);
+    wheel_move_by_metrics(LEFT, PWM_VAL, 90);
     
 //    CyDelay(500);
 //    angle_correction(240, kaldist_measure[2], kaldist_measure[3]);
@@ -421,8 +424,7 @@ void returnToBase() {
 }
 
 void test() {
-    CyDelay(2000);
-    prepMoveThroughSlit();
+    wheel_move_by_metrics(RIGHT, PWM_VAL, 90);
 //    gripper_full_close();
 //    lift_down();
 //    gripper_full_close();

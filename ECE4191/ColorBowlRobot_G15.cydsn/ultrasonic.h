@@ -23,14 +23,14 @@
 
     /*
     
-    bit 0 - LEFT 
-    bit 1 - RIGHT 
-    bit 2 - FLEFT
-    bit 3 - FRIGHT
-    bit 4 - BACK 
-    bit 5 - NOT IMPLEMENTED   
-    bit 6 - NOT IMPLEMENTED  
-    bit 7 - NOT IMPLEMENTED  
+    bit 0 - FRONT_LEFT
+    bit 1 - FRONT_RIGHT 
+    bit 2 - LEFT_FRONT
+    bit 3 - LEFT_BACK
+    bit 4 - RIGHT_FRONT 
+    bit 5 - RIGHT_BACK   
+    bit 6 - BACK_LEFT  
+    bit 7 - BACK_RIGHT  
     */ 
     extern int udsState;
     extern double kaldist_measure[NUMBER_OF_UDS];
