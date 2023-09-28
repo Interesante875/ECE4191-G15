@@ -424,7 +424,7 @@ void returnToBase() {
 }
 
 void test() {
-    wheel_move_by_metrics(RIGHT, PWM_VAL, 90);
+    wheel_move_by_metrics(FORWARD, PWM_VAL, 2000);
 //    gripper_full_close();
 //    lift_down();
 //    gripper_full_close();

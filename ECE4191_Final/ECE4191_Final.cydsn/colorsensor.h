@@ -31,6 +31,9 @@ typedef enum {
 extern Color detectedColor;
 
 // Function prototypes
+void InitializeColorSensor();
+void ShutdownColorSensor();
+
 void ColorDetection_Start();
 void ColorDetection_Stop();
 void SetColor_Red();

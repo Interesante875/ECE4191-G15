@@ -34,18 +34,18 @@ int main(void)
 
     initBase();
 
-    moveOutOfBaseFast();
-    detectSlit();
-    prepMoveThroughSlit();
-    moveThroughSlit();
-    grabPuck();
-    findDeckPrelim();
-    adjustDistance();
-    placePuck();
-    flickPuck();
-    returnToBase();
+//    moveOutOfBaseFast();
+//    detectSlit();
+//    prepMoveThroughSlit();
+//    moveThroughSlit();
+//    grabPuck();
+//    findDeckPrelim();
+//    adjustDistance();
+//    placePuck();
+//    flickPuck();
+//    returnToBase();
 
-    //test();
+    test();
    
     for(;;)
     {    

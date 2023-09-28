@@ -17,6 +17,12 @@
     #define WHEEL_DISTANCE 0.1475
     #define HALF_WIDTH 0.122
     
+    #define EMF_BUFFER_DELAY 50
+    
+    #include "motor_control.h"
+    
+    void wheel_move_by_ticks(MotionDirection motion, int pwm, int target_ticks);
+    
     
 #endif
 
