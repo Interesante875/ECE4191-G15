@@ -15,7 +15,7 @@
 
 MoveStatus moveStatus;
 MotionDirection currentMotionDirection;
-ControllerType ctrlType;
+
     
 void turnMotorOn(uint8 pwm) {
     
@@ -120,20 +120,5 @@ void setMotionDirection(MotionDirection motionDirection) {
     
 }
 
-void initializeWheelController(ControllerType ctrlType_name) {
-    ctrlType = ctrlType_name;
-    Timer_Wheel_Start();
-    isr_wheel_controller_StartEx(ISR_Handler_Wheel_Controller);
-}
 
-void stopWheelController() {
-    
-    Timer_Wheel_Stop();
-    isr_wheel_controller_Stop();
-}
-
-CY_ISR(ISR_Handler_Wheel_Controller) {
-    
-    
-}
 /* [] END OF FILE */

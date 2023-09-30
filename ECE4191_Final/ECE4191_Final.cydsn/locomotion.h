@@ -17,11 +17,27 @@
     #define WHEEL_DISTANCE 0.1475
     #define HALF_WIDTH 0.122
     
-    #define EMF_BUFFER_DELAY 50
+    #define USE_CONTROLLER ProportionalControl
     
     #include "motor_control.h"
     
+    typedef enum {
+        ProportionalControl,
+        ProportionalIntegralControl,
+        ProportionalDerivativeControl,
+        ProportionalIntegralDerivativeControl
+    } ControllerType;
+    
+    extern ControllerType ctrlType;
+    
     void wheel_move_by_ticks(MotionDirection motion, int pwm, int target_ticks);
+    void wheel_move_by_metrics (MotionDirection motion, uint8 pwm, double metrics);
+    void wheel_move (MotionDirection motion, uint8 pwm);
+    
+    void initializeWheelController(ControllerType ctrlType_name);
+    void stopWheelController();
+
+    CY_ISR(ISR_Handler_Wheel_Controller);
     
     
 #endif

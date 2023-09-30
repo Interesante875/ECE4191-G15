@@ -39,12 +39,14 @@
     extern int currentLevel;
     extern InputState inputState;
     extern PinZoneColor zoneColor;
+    extern int test_val;
 
     void initializeBluetooth(void);
     void shutdownBluetooth(void);
     void printValue(const char *format, ...);
     void performHandshake(void);
     void waitingHandshake(void);
+    void testingValue();
     
     CY_ISR (ISR_Handler_Input);
 

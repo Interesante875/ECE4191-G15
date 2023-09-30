@@ -14,6 +14,7 @@
 #include "ultrasonic.h"
 #include "locomotion.h"
 #include "colorsensor.h"
+#include "servo_control.h"
 
 int main(void)
 {
@@ -22,17 +23,11 @@ int main(void)
     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
     
     initializeBluetooth();
-    
-    // InitalizeUltrasonicSensor();
-    
     CyDelay(1000);
-    wheel_move_by_ticks(Forward, 250, 2000);
-    
+    FlickerRecoil_Unload();
     for(;;)
     {
-        /* Place your application code here. */
-//        double val = UltrasonicSensor_ReadDistanceData(0);
-//        printValue("VAL: %d\n", (int) val);
+      
     }
 }
 

@@ -14,6 +14,8 @@
     
     #include "cytypes.h"
     
+    
+    
     void initializePController(double proportionalConstant);
     void resetPController();
     void computePControllerError(int masterTick, int slaveTick); 

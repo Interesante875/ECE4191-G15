@@ -27,16 +27,9 @@
         StopMotion
     } MotionDirection;
 
-    typedef enum {
-        ProportionalControl,
-        ProportionalIntegralControl,
-        ProportionalDerivativeControl,
-        ProportionalIntegralDerivativeControl
-    } ControllerType;
-
     extern MoveStatus moveStatus;
     extern MotionDirection currentMotionDirection;
-    extern ControllerType ctrlType;
+    
 
     void turnMotorOn(uint8 pwm);
     void turnMotorOff();
@@ -44,10 +37,7 @@
     void stopMotor();
     void setMotionDirection(MotionDirection motionDirection);
 
-    void initializeWheelController(ControllerType ctrlType_name);
-    void stopWheelController();
-
-    CY_ISR(ISR_Handler_Wheel_Controller);
+    
     
 #endif
 /* [] END OF FILE */

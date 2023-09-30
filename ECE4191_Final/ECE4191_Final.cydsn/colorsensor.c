@@ -10,7 +10,7 @@
  * ========================================
 */
 #include <colorsensor.h>
-
+#include "bluetooth.h"
 
 // Global variable
 Color detectedColor;
@@ -132,6 +132,11 @@ void ColorDetection_Run(int numRuns) {
 
 void ColorDetection_FindMax(int maxRed, int maxGreen, int maxBlue) {
     // Compare the maximum counts to determine the detected color
+    printValue("Red: %d", maxRed);
+    printValue("Green: %d", maxGreen);
+    printValue("Blue: %d", maxBlue);
+    printValue("\n\n");
+    
     if (maxRed > maxGreen && maxRed > maxBlue) {
         detectedColor = RedColor;
     } else if (maxGreen > maxRed && maxGreen > maxBlue) {

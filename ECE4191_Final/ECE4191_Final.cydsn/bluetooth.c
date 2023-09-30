@@ -23,6 +23,7 @@ int levelOnePinDeckNum;
 int currentLevel;
 InputState inputState;
 PinZoneColor zoneColor;
+int test_val;
 
 /* Local Variables */
 char rxBuffer[100]; // Buffer to store received characters
@@ -129,7 +130,17 @@ void waitingHandshake(void) {
         isStringNotReceived = true;
     }
     
-    
+}
+
+void testingValue() {
+    printValue("Waiting...\n");
+    while (isStringNotReceived);
+    test_val = 0;
+    char* token;
+    token = strtok(rxBuffer, "\n");
+    sscanf(token, "%d", &test_val);
+    printValue("Received Input Test Val %s %d\n", token, test_val);
+    isStringNotReceived = true;
 }
 
 CY_ISR (ISR_Handler_Input) {

@@ -25,7 +25,7 @@ double heading = 0;
 int cycles = 0;
 const double timeStep = 0.1;
 
-CY_ISR(ISR_Handler_1)
+CY_ISR(ISR_Handler_Gyroscope)
 {
     Timer_Gyroscope_ReadStatusRegister();
     
@@ -84,9 +84,6 @@ CY_ISR(ISR_Handler_1)
         }
     }  
     previous_reading = current_reading;
-//    sprintf(string_1,"Heading: %lf\n",heading);
-//    UART_1_PutString(string_1);
-    //CyDelay(100);
     
 }
 
