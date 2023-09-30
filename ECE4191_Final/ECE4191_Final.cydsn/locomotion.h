@@ -12,7 +12,7 @@
 #ifndef LOCOMOTION_H
     #define LOCOMOTION_H
     
-    #define TICKS_PER_REVOLUTION 13750
+    #define TICKS_PER_REVOLUTION 4300
     #define WHEEL_RADIUS 0.02695
     #define WHEEL_DISTANCE 0.1475
     #define HALF_WIDTH 0.122

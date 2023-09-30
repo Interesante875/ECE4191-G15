@@ -28,7 +28,7 @@
     void startGyroscope();
     
     double yawRateToYawAngleDerivative(double yawRate);
-    double rungeKuttaIntegration(double initialValue, double yawRate, double timeStep, double (*derivativeFunction)(double));
+    double rungeKuttaIntegration(double initialValue, double yawRate, double timeStep);
     double roundToDecimalPlaces(double value, int decimalPlaces);
     
     CY_ISR(ISR_Handler_Gyroscope);

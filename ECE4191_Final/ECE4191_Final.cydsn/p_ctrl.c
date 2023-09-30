@@ -16,9 +16,9 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include "p_ctrl.h"
+#include "bluetooth.h"
 
-
-#define P_CTRL_P_CONST 0.75
+#define P_CTRL_P_CONST 0.95
 #define CTRL_MAX 255
 #define CTRL_MIN 0
 
@@ -52,6 +52,8 @@ void computePControllerError(int masterTick, int slaveTick) {
 
 void computePControllerCorrectionSignal() {
     pCorrectionSignal = (int)(pKp * (double)pError);
+    
+    //printValue("Error: %d\n", pCorrectionSignal);
 }
 
 uint8 computePControllerOutput(uint8 masterPwm) {

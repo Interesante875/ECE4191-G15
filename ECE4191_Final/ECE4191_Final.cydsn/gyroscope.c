@@ -13,6 +13,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include "bluetooth.h"
 #include "gyroscope.h"
 
 uint8 array_1[6] = {0};
@@ -56,8 +57,8 @@ CY_ISR(ISR_Handler_Gyroscope)
     current_reading = yaw_rate;
     if (fabs(current_reading - previous_reading)>0.5)
     {
-        // yaw_angle = yaw_angle + 0.5*0.1*(previous_reading + current_reading);
-        yaw_angle = rungeKuttaIntegration(yaw_angle, current_reading, timeStep, yawRateToYawAngleDerivative);
+        yaw_angle = yaw_angle + 0.5*0.1*(previous_reading + current_reading);
+        // yaw_angle = rungeKuttaIntegration(yaw_angle, current_reading, timeStep);
         //counting cycles beyond +360 or -360
         cycles = fabs(yaw_angle)/360;
         
@@ -84,6 +85,8 @@ CY_ISR(ISR_Handler_Gyroscope)
         }
     }  
     previous_reading = current_reading;
+    
+    printValue("Yaw Rate %lf Angle: %lf\n", yaw_rate, heading);
     
 }
 
@@ -136,6 +139,7 @@ void activateFilterGyroscope() {
 }
 
 void startGyroscope() {
+    printValue("Starting gyro\n");
     initializeGyroscope();
     wakeupGyroscope();
     setScalingFactorGyroscope();
@@ -150,7 +154,7 @@ double yawRateToYawAngleDerivative(double yawRate) {
 }
 
 // Runge-Kutta integration function
-double rungeKuttaIntegration(double initialValue, double yawRate, double timeStep, double (*derivativeFunction)(double)) {
+double rungeKuttaIntegration(double initialValue, double yawRate, double timeStep) {
     double k1, k2, k3, k4;
     double kSum;
 
@@ -158,10 +162,10 @@ double rungeKuttaIntegration(double initialValue, double yawRate, double timeSte
     double result = initialValue;
     
     // Perform the Runge-Kutta integration
-    k1 = timeStep * derivativeFunction(yawRate);
-    k2 = timeStep * derivativeFunction(yawRate + 0.5 * k1);
-    k3 = timeStep * derivativeFunction(yawRate + 0.5 * k2);
-    k4 = timeStep * derivativeFunction(yawRate + k3);
+    k1 = timeStep * yawRate;
+    k2 = timeStep * yawRate + 0.5 * k1;
+    k3 = timeStep * yawRate + 0.5 * k2;
+    k4 = timeStep * yawRate + k3;
 
     kSum = (k1 + 2 * k2 + 2 * k3 + k4) / 6.0;
     result += kSum;

@@ -24,7 +24,8 @@
 
     void startIR();
     void stopIR();
-
+    int IRPinValue();
+    
     CY_ISR(ISR_Handler_IR);
     
 #endif /* IRSENSOR_H */

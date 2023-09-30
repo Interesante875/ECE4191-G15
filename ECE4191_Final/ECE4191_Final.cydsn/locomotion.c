@@ -23,11 +23,12 @@
 
 #define EMF_BUFFER_DELAY 50
 
-volatile int masterPWM = 0;
-volatile int slavePWM = 0;
-volatile int masterLeftTicks = 0;
-volatile int slaveRightTicks = 0;
-
+static volatile int masterPWM = 0;
+static volatile int slavePWM = 0;
+static volatile int masterLeftTicks = 0;
+static volatile int slaveRightTicks = 0;
+int target_move_ticks = 0;
+int stop_flag = 0;
 int lastMasterTicks = 0;
 int lastSlaveTicks = 0;
 
@@ -40,12 +41,15 @@ void initializeWheelController(ControllerType ctrlType_name) {
     switch (ctrlType) {
         case ProportionalControl:
             resetPController();
+            printValue("Proportional Controller is used\n");
         break;
         
         case ProportionalIntegralDerivativeControl:
+            printValue("PID Controller is used\n");
             resetPIDController();
         break; 
         default:
+            printValue("Proportional Controller is used\n");
             resetPController();
         break;
     }
@@ -65,7 +69,7 @@ CY_ISR(ISR_Handler_Wheel_Controller) {
     Timer_Wheel_ReadStatusRegister();
     
     masterPWM = MotorController_GetLeftPwm();
-    uint8 updated_slave_pwm;
+    uint8 updated_slave_pwm = 0;
     
     switch (ctrlType) {
         case ProportionalControl:
@@ -89,6 +93,10 @@ CY_ISR(ISR_Handler_Wheel_Controller) {
     MotorController_SetLeftPwmCompare((uint8) updated_slave_pwm);
     masterLeftTicks = MotorController_GetLeftQuadDecCount();
     slaveRightTicks = MotorController_GetRightQuadDecCount();
+    
+    
+//    printValue("Target: %d LEFT: %d RIGHT: %d\n ", target_move_ticks, masterLeftTicks, slaveRightTicks);
+//    printValue("Master PWM: %d Slave PWM: %d\n", masterPWM, updated_slave_pwm);
 
 }
 
@@ -106,27 +114,35 @@ void wheel_move_by_ticks(MotionDirection motion, int pwm, int target_ticks) {
      */
     
     //flag_distance_moving = 1;
-    initializeWheelController(USE_CONTROLLER);
 
     turnMotorOn(pwm);
-
-
+//    printValue("Turn Motor On\n");
     lastMasterTicks = 0;
     lastSlaveTicks = 0;
     
     masterPWM = MotorController_GetLeftPwm();
     slavePWM = MotorController_GetRightPwm();
+//    printValue("Got PWM\n");
     
     masterLeftTicks = MotorController_GetLeftQuadDecCount();
     slaveRightTicks = MotorController_GetRightQuadDecCount();
+//    printValue("Got Counts\n");
+    target_move_ticks = target_ticks;
     
     setMotionDirection(motion);
+//    printValue("Set motion\n");
+    initializeWheelController(ProportionalControl);
     
-    while (abs(masterLeftTicks) < target_ticks);
-    
-    
-    printValue("LEFT: %d\t RIGHT: %d\n ", masterLeftTicks, slaveRightTicks);
-    printValue("Master PWM - %d Slave PWM - %d\n", masterPWM, slaveRightTicks);
+    printValue("Set Controller\n");
+    while (abs(masterLeftTicks) < target_ticks){
+        //masterLeftTicks = MotorController_GetLeftQuadDecCount();
+        //slaveRightTicks = MotorController_GetRightQuadDecCount();
+        //printValue("LEFT: %d RIGHT: %d\n ", masterLeftTicks, slaveRightTicks);
+        // printValue("Master PWM: %d Slave PWM: %d\n", masterPWM, updated_slave_pwm);   
+    }
+    printValue("DONE\n");
+    printValue("LEFT: %d RIGHT: %d\n ", masterLeftTicks, slaveRightTicks);
+    printValue("Master PWM: %d Slave PWM: %d\n", masterPWM, slavePWM);
  
     stopWheelController();
     stopMotor();

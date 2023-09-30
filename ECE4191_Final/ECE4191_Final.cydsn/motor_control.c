@@ -22,7 +22,7 @@ void turnMotorOn(uint8 pwm) {
     moveStatus = Enable;
     
     MotorController_StartLeftQuadDec();
-    MotorController_StopLeftQuadDec();
+    MotorController_StartRightQuadDec();
     
     MotorController_StartPwm();
     

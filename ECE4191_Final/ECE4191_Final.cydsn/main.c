@@ -15,6 +15,8 @@
 #include "locomotion.h"
 #include "colorsensor.h"
 #include "servo_control.h"
+#include "irsensor.h"
+#include "gyroscope.h"
 
 int main(void)
 {
@@ -23,11 +25,14 @@ int main(void)
     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
     
     initializeBluetooth();
-    CyDelay(1000);
-    FlickerRecoil_Unload();
+    
+    
     for(;;)
     {
-      
+        testingValue();
+        printValue("TESTING: %d\n", test_val);
+        wheel_move_by_ticks(Forward, 245, test_val);
+   
     }
 }
 
