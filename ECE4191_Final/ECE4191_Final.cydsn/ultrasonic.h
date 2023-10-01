@@ -17,6 +17,7 @@
 #include "cytypes.h"
 #include "median_filter.h"
 
+#define ENABLE_MEDIAN_FILTERING 0
 #define NUM_ULTRASONIC_SENSORS 8
 #define ARRAY_SIZE 5
     /*
@@ -35,7 +36,9 @@
         UdsDetectFront,
         UdsDetectBack,
         UdsDetectLeft,
-        UdsDetectRight
+        UdsDetectRight,
+        UdsDetectFLR,
+        UdsDetectBLR
     } UdsDetectState;
     
     extern UdsDetectState udsDetectState;

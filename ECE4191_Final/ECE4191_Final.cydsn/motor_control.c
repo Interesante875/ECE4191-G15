@@ -90,20 +90,20 @@ void setMotionDirection(MotionDirection motionDirection) {
             break;
         case Left:
             
-            MOTOR_LEFT_IN_1_Write(1);
-            MOTOR_LEFT_IN_2_Write(0);
-            
-            MOTOR_RIGHT_IN_3_Write(0);
-            MOTOR_RIGHT_IN_4_Write(1);
-
-            break;
-        case Right:
-            
             MOTOR_LEFT_IN_1_Write(0);
             MOTOR_LEFT_IN_2_Write(1);
             
             MOTOR_RIGHT_IN_3_Write(1);
             MOTOR_RIGHT_IN_4_Write(0);
+
+            break;
+        case Right:
+            
+            MOTOR_LEFT_IN_1_Write(1);
+            MOTOR_LEFT_IN_2_Write(0);
+            
+            MOTOR_RIGHT_IN_3_Write(0);
+            MOTOR_RIGHT_IN_4_Write(1);
 
             break;
         default:

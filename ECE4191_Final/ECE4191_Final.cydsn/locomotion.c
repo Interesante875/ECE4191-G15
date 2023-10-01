@@ -16,17 +16,26 @@
 #include "motor.h"
 #include "p_ctrl.h"
 #include "pid_ctrl.h"
+#include "navigation.h"
 #include <stdio.h>
 #include <math.h>
 #include <stdlib.h>
 #include <stdbool.h>
 
 #define EMF_BUFFER_DELAY 50
+#define TICKS_PER_REVOLUTION 4300
+#define WHEEL_RADIUS 0.02695
+#define WHEEL_DISTANCE 0.1475
+#define HALF_WIDTH 0.122
 
 static volatile int masterPWM = 0;
 static volatile int slavePWM = 0;
+static volatile int targetMasterPWM = 0;
+static volatile int lastSlavePWM = 0; // not implemented
 static volatile int masterLeftTicks = 0;
 static volatile int slaveRightTicks = 0;
+static volatile int errorTicks = 0;
+const int errorPWMThreshold = 500;
 int target_move_ticks = 0;
 int stop_flag = 0;
 int lastMasterTicks = 0;
@@ -69,6 +78,7 @@ CY_ISR(ISR_Handler_Wheel_Controller) {
     Timer_Wheel_ReadStatusRegister();
     
     masterPWM = MotorController_GetLeftPwm();
+
     uint8 updated_slave_pwm = 0;
     
     switch (ctrlType) {
@@ -94,7 +104,15 @@ CY_ISR(ISR_Handler_Wheel_Controller) {
     masterLeftTicks = MotorController_GetLeftQuadDecCount();
     slaveRightTicks = MotorController_GetRightQuadDecCount();
     
-    
+    computePosition(masterLeftTicks, slaveRightTicks); 
+//    errorTicks = abs(masterLeftTicks - slaveRightTicks);
+//    
+//    if (errorTicks > errorPWMThreshold) {
+//        MotorController_SetLeftPwmCompare(masterPWM - 5);
+//    }
+//    else {
+//        MotorController_SetLeftPwmCompare(targetMasterPWM);  
+//    }
 //    printValue("Target: %d LEFT: %d RIGHT: %d\n ", target_move_ticks, masterLeftTicks, slaveRightTicks);
 //    printValue("Master PWM: %d Slave PWM: %d\n", masterPWM, updated_slave_pwm);
 
@@ -116,30 +134,28 @@ void wheel_move_by_ticks(MotionDirection motion, int pwm, int target_ticks) {
     //flag_distance_moving = 1;
 
     turnMotorOn(pwm);
-//    printValue("Turn Motor On\n");
+
     lastMasterTicks = 0;
     lastSlaveTicks = 0;
     
     masterPWM = MotorController_GetLeftPwm();
     slavePWM = MotorController_GetRightPwm();
-//    printValue("Got PWM\n");
-    
+
     masterLeftTicks = MotorController_GetLeftQuadDecCount();
     slaveRightTicks = MotorController_GetRightQuadDecCount();
-//    printValue("Got Counts\n");
+
     target_move_ticks = target_ticks;
+    targetMasterPWM = masterPWM;
     
     setMotionDirection(motion);
-//    printValue("Set motion\n");
+
     initializeWheelController(ProportionalControl);
     
     printValue("Set Controller\n");
     while (abs(masterLeftTicks) < target_ticks){
-        //masterLeftTicks = MotorController_GetLeftQuadDecCount();
-        //slaveRightTicks = MotorController_GetRightQuadDecCount();
-        //printValue("LEFT: %d RIGHT: %d\n ", masterLeftTicks, slaveRightTicks);
-        // printValue("Master PWM: %d Slave PWM: %d\n", masterPWM, updated_slave_pwm);   
+        computePosition(masterLeftTicks, slaveRightTicks); 
     }
+    
     printValue("DONE\n");
     printValue("LEFT: %d RIGHT: %d\n ", masterLeftTicks, slaveRightTicks);
     printValue("Master PWM: %d Slave PWM: %d\n", masterPWM, slavePWM);
@@ -167,7 +183,7 @@ void wheel_move_by_metrics (MotionDirection motion, uint8 pwm, double metrics) {
         ticks = 0;
     }
     
-    initializeWheelController(USE_CONTROLLER);
+    
     turnMotorOn(pwm);
 
     masterPWM = MotorController_GetLeftPwm();
@@ -177,8 +193,15 @@ void wheel_move_by_metrics (MotionDirection motion, uint8 pwm, double metrics) {
     slaveRightTicks = MotorController_GetRightQuadDecCount();
     
     setMotionDirection(motion);
+    initializeWheelController(USE_CONTROLLER);
     
-    while (abs(masterLeftTicks) < ticks);
+    while (abs(masterLeftTicks) < ticks) {
+        computePosition(masterLeftTicks, slaveRightTicks);    
+    }
+    
+    printValue("DONE\n");
+    printValue("LEFT: %d RIGHT: %d\n ", masterLeftTicks, slaveRightTicks);
+    printValue("Master PWM: %d Slave PWM: %d\n", masterPWM, slavePWM);
     
     stopWheelController();
     stopMotor();
@@ -197,11 +220,9 @@ void wheel_move (MotionDirection motion, uint8 pwm) {
 
         CyDelay(EMF_BUFFER_DELAY);
     }
-    
-    initializeWheelController(USE_CONTROLLER);
+
     turnMotorOn(pwm);
-    
-    
+ 
     masterPWM = MotorController_GetLeftPwm();
     slavePWM = MotorController_GetRightPwm();
     
@@ -209,7 +230,7 @@ void wheel_move (MotionDirection motion, uint8 pwm) {
     slaveRightTicks = MotorController_GetRightQuadDecCount();
     
     setMotionDirection(motion);
-    
+    initializeWheelController(USE_CONTROLLER);
 }
 
 /* [] END OF FILE */

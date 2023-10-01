@@ -16,6 +16,9 @@
     
     void setFlag_FlickerPWM(int OnOffFlag);
     
+    void turnOff_Gripper();
+    void turnOff_Flicker();
+    
     void GripperHand_Open();
     void GripperHand_GripPuck();
     void GripperHand_Close();

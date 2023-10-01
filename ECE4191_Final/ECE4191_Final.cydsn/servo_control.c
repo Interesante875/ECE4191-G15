@@ -61,6 +61,14 @@ void exponentialControl(int begin, int end, int steps, ServoControlFunction serv
     }
 }
 
+void turnOff_Gripper() {
+    if (GripperPWM_Status) {
+        turnOff_GripperHand(); 
+        turnOff_GripperArm(); 
+        setFlag_GripperPWM(!GripperPWM_Status);
+    }
+}
+
 void GripperHand_Open() {
     if (!GripperPWM_Status) {
         turnOn_GripperHand(); 
@@ -77,7 +85,7 @@ void GripperHand_GripPuck() {
         setFlag_GripperPWM(!GripperPWM_Status);
     }   
     ServoControlFunction gripperHand = GripperHand_SetCompare;
-    smoothControl(980, 960, 4, gripperHand);
+    smoothControl(980, 960, 2, gripperHand);
 
 }
 
@@ -105,7 +113,16 @@ void GripperArm_Retract() {
         setFlag_GripperPWM(!GripperPWM_Status);
     }   
     ServoControlFunction gripperArm = GripperArm_SetCompare;
-    smoothControl(870, 945, 2, gripperArm);
+    smoothControl(850, 945, 1, gripperArm);
+}
+
+void turnOff_Flicker() {
+    if (FlickerPWM_Status) {
+        turnOff_FlickerRecoil();   
+        turnOff_FlickerLock(); 
+        setFlag_FlickerPWM(!FlickerPWM_Status);
+    }  
+    
 }
 
 void FlickerRecoil_Load() {
