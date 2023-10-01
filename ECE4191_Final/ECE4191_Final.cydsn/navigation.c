@@ -37,6 +37,7 @@ double self_pos_y_base;
 double other_pos_x_base;
 double other_pos_y_base;
 
+
 void initializePosition(StartingBase color) {
     
     start_base_color = color;
@@ -80,40 +81,41 @@ void initializePosition(StartingBase color) {
 
 void computePosition(int left_ticks, int right_ticks) {
     
-    double distance_left = (double) ((left_ticks / TICKS_PER_REVOLUTION) * (2 * CY_M_PI * WHEEL_RADIUS)); 
-    double distance_right = (double) ((right_ticks / TICKS_PER_REVOLUTION) * (2 * CY_M_PI * WHEEL_RADIUS)); 
-    double radial_angle = (distance_left - distance_right)/(2*HALF_WIDTH);
     
-    double R = distance_left * (2 * HALF_WIDTH/(distance_left - distance_right)) + HALF_WIDTH;
+    double distance_left = ((double)(left_ticks / TICKS_PER_REVOLUTION) * (2.0 * CY_M_PI * WHEEL_RADIUS)); 
+    double distance_right = ((double)(right_ticks / TICKS_PER_REVOLUTION) * (2.0 * CY_M_PI * WHEEL_RADIUS)); 
+    double radial_angle = (distance_left - distance_right)/(2.0*HALF_WIDTH);
     
-    double distance_travelled = (distance_left + distance_right)/2;
+    double R = distance_left * (2.0 * HALF_WIDTH/(distance_left - distance_right)) + HALF_WIDTH;
     
-    double alpha = radial_angle/2;
+    double distance_travelled = (distance_left + distance_right)/2.0;
+    
+    double alpha = radial_angle/2.0;
     
     double beta = radial_angle;
     
-    pos_x += distance_travelled * cos(heading_angle + (radial_angle/2));
+    pos_x += distance_travelled * cos(heading_angle + (radial_angle/2.0));
     
     if (pos_x > MAX_X) pos_x = MAX_X;
     if (pos_x < MIN_X) pos_x = MIN_X;
 
-    pos_y += distance_travelled * sin(heading_angle + (radial_angle/2));
+    pos_y += distance_travelled * sin(heading_angle + (radial_angle/2.0));
     
     if (pos_y > MAX_Y) pos_x = MAX_Y;
     if (pos_y < MIN_Y) pos_x = MIN_Y;
     
     heading_angle += radial_angle;
     
-    if (heading_angle > CY_M_PI) heading_angle -= CY_M_PI;
-    if (heading_angle <= -CY_M_PI) heading_angle += CY_M_PI;
-    
+    if (heading_angle > CY_M_PI) heading_angle -= 2.0 *CY_M_PI;
+    if (heading_angle <= -CY_M_PI) heading_angle += 2.0 * CY_M_PI;
+
 }
 
 void printToBluetooth() {
-    int pos_x_prime = (int) (pos_x * 100 + 0.5);
-    int pos_y_prime = (int) (pos_y * 100 + 0.5);
-    int heading_angle_prime = (int) (heading_angle * 180 / CY_M_PI + 0.5);
+    double pos_x_prime = pos_x;
+    double pos_y_prime = pos_y;
+    double heading_angle_prime = (heading_angle * 180 / CY_M_PI);
     
-    printValue("x: %d y: %d, t: %d\n", pos_x_prime, pos_y_prime, heading_angle_prime);
+    printValue("x: %lf y: %lf, t: %lf\n", pos_x_prime, pos_y_prime, heading_angle_prime);
 }
 /* [] END OF FILE */

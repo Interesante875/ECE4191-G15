@@ -38,8 +38,8 @@ static volatile int errorTicks = 0;
 const int errorPWMThreshold = 500;
 int target_move_ticks = 0;
 int stop_flag = 0;
-int lastMasterTicks = 0;
-int lastSlaveTicks = 0;
+static volatile int lastMasterTicks = 0;
+static volatile int lastSlaveTicks = 0;
 
 int period = 0;
 
@@ -71,6 +71,11 @@ void stopWheelController() {
     
     Timer_Wheel_Stop();
     isr_wheel_controller_Stop();
+}
+
+void reset_tick_count() {
+    
+    
 }
 
 CY_ISR(ISR_Handler_Wheel_Controller) {
@@ -105,33 +110,10 @@ CY_ISR(ISR_Handler_Wheel_Controller) {
     slaveRightTicks = MotorController_GetRightQuadDecCount();
     
     computePosition(masterLeftTicks, slaveRightTicks); 
-//    errorTicks = abs(masterLeftTicks - slaveRightTicks);
-//    
-//    if (errorTicks > errorPWMThreshold) {
-//        MotorController_SetLeftPwmCompare(masterPWM - 5);
-//    }
-//    else {
-//        MotorController_SetLeftPwmCompare(targetMasterPWM);  
-//    }
-//    printValue("Target: %d LEFT: %d RIGHT: %d\n ", target_move_ticks, masterLeftTicks, slaveRightTicks);
-//    printValue("Master PWM: %d Slave PWM: %d\n", masterPWM, updated_slave_pwm);
 
 }
 
 void wheel_move_by_ticks(MotionDirection motion, int pwm, int target_ticks) {
-     /**
-     * Move the wheels of the robot by a specified number of quad decoder ticks using a closed-loop control approach.
-     *
-     * This function moves the robot's wheels by a specified number of encoder ticks using a closed-loop control approach.
-     * It adjusts the slave wheel's PWM signal based on the difference in encoder ticks between the master and slave wheels,
-     * applying a proportional correction to maintain synchronization.
-     *
-     * @param motion        The desired motion of the robot wheels (FORWARD, BACKWARD, LEFT, RIGHT, or STOP).
-     * @param pwm           The PWM signal value for controlling both motors.
-     * @param target_ticks  The target number of encoder ticks to move the wheels.
-     */
-    
-    //flag_distance_moving = 1;
 
     turnMotorOn(pwm);
 
@@ -151,14 +133,14 @@ void wheel_move_by_ticks(MotionDirection motion, int pwm, int target_ticks) {
 
     initializeWheelController(ProportionalControl);
     
-    printValue("Set Controller\n");
+//    printValue("Set Controller\n");
     while (abs(masterLeftTicks) < target_ticks){
         computePosition(masterLeftTicks, slaveRightTicks); 
     }
     
-    printValue("DONE\n");
-    printValue("LEFT: %d RIGHT: %d\n ", masterLeftTicks, slaveRightTicks);
-    printValue("Master PWM: %d Slave PWM: %d\n", masterPWM, slavePWM);
+//    printValue("DONE\n");
+//    printValue("LEFT: %d RIGHT: %d\n ", masterLeftTicks, slaveRightTicks);
+//    printValue("Master PWM: %d Slave PWM: %d\n", masterPWM, slavePWM);
  
     stopWheelController();
     stopMotor();
@@ -198,6 +180,9 @@ void wheel_move_by_metrics (MotionDirection motion, uint8 pwm, double metrics) {
     while (abs(masterLeftTicks) < ticks) {
         computePosition(masterLeftTicks, slaveRightTicks);    
     }
+    
+    lastMasterTicks = 0;
+    lastSlaveTicks = 0;
     
     printValue("DONE\n");
     printValue("LEFT: %d RIGHT: %d\n ", masterLeftTicks, slaveRightTicks);
