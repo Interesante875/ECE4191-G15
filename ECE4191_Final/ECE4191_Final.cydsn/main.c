@@ -26,20 +26,22 @@ int main(void)
     StartingBase base_color = RedBase;
     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
     initializeBluetooth();
-    FlickerRecoil_Load();
-    CyDelay(1000);
-    FlickerRecoil_Unload();
-    CyDelay(1000);
-    FlickerLock_Unlock();
-    CyDelay(1000);
-    FlickerLock_Lock();
+//    FlickerRecoil_Load();
+//    CyDelay(1000);
+//    FlickerRecoil_Unload();
+//    CyDelay(1000);
+//    FlickerLock_Unlock();
+//    CyDelay(1000);
+//    FlickerLock_Lock();
     
 //    FlickerRecoil_Load();
-//    CyDelay(200);
-//    GripperHand_Open();
+    CyDelay(200);
+    GripperHand_Open();
+    GripperArm_Hurl();
+//    GripperArm_Extend();
 //    GripperHand_GripPuck();
 //    GripperArm_Retract();
-//    turnOff_Gripper();
+    shutdown_Gripper();
 //    testingValue();
 //    initializePosition(base_color);
 //    InitalizeUltrasonicSensor();

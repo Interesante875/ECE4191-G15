@@ -13,11 +13,14 @@
     #define SERVO_CONTROL_H
     
     void setFlag_GripperPWM(int OnOffFlag);
+    void setFlag_FlickerRecoilPWM(int OnOffFlag);
+    void setFlag_FlickerLockPWM(int OnOffFlag);
     
-    void setFlag_FlickerPWM(int OnOffFlag);
-    
-    void turnOff_Gripper();
-    void turnOff_Flicker();
+    void shutdown_Gripper();
+    void boot_FlickerRecoil();
+    void shutdown_FlickerRecoil();
+    void boot_FlickerLock();
+    void shutdown_FlickerLock();
     
     void GripperHand_Open();
     void GripperHand_GripPuck();
@@ -25,6 +28,7 @@
     
     void GripperArm_Extend();
     void GripperArm_Retract();
+    void GripperArm_Hurl();
     
     void FlickerRecoil_Load();
     void FlickerRecoil_Unload();

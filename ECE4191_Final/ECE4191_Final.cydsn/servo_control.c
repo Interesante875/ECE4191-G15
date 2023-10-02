@@ -18,13 +18,17 @@
 typedef void (*ServoControlFunction)(int);
 
 static int GripperPWM_Status = 0;
-static int FlickerPWM_Status = 0;
+static int FlickerRecoilPWM_Status = 0;
+static int FlickerLockPWM_Status = 0;
 
 void setFlag_GripperPWM(int OnOffFlag) {
     GripperPWM_Status = OnOffFlag; 
 }
-void setFlag_FlickerPWM(int OnOffFlag) {
-    FlickerPWM_Status = OnOffFlag;
+void setFlag_FlickerRecoilPWM(int OnOffFlag) {
+    FlickerRecoilPWM_Status = OnOffFlag;
+}
+void setFlag_FlickerLockPWM(int OnOffFlag) {
+    FlickerLockPWM_Status = OnOffFlag;
 }
 
 // Function to control the servo smoothly
@@ -61,7 +65,7 @@ void exponentialControl(int begin, int end, int steps, ServoControlFunction serv
     }
 }
 
-void turnOff_Gripper() {
+void shutdown_Gripper() {
     if (GripperPWM_Status) {
         turnOff_GripperHand(); 
         turnOff_GripperArm(); 
@@ -75,7 +79,7 @@ void GripperHand_Open() {
         setFlag_GripperPWM(!GripperPWM_Status);
     }
     ServoControlFunction gripperHand = GripperHand_SetCompare;
-    smoothControl(870, 980, 10, gripperHand);
+    smoothControl(870, 980, 5, gripperHand);
 
 }
 
@@ -85,7 +89,7 @@ void GripperHand_GripPuck() {
         setFlag_GripperPWM(!GripperPWM_Status);
     }   
     ServoControlFunction gripperHand = GripperHand_SetCompare;
-    smoothControl(980, 960, 2, gripperHand);
+    smoothControl(980, 950, 2, gripperHand);
 
 }
 
@@ -95,7 +99,7 @@ void GripperHand_Close() {
         setFlag_GripperPWM(!GripperPWM_Status);
     }   
     ServoControlFunction gripperHand = GripperHand_SetCompare;
-    smoothControl(980, 950, 10, gripperHand);
+    smoothControl(980, 950, 5, gripperHand);
 }
 
 void GripperArm_Extend() {
@@ -104,7 +108,7 @@ void GripperArm_Extend() {
         setFlag_GripperPWM(!GripperPWM_Status);
     }   
     ServoControlFunction gripperArm = GripperArm_SetCompare;
-    smoothControl(980, 870, 10, gripperArm);
+    smoothControl(980, 870, 1, gripperArm);
 }
 
 void GripperArm_Retract() {
@@ -116,59 +120,69 @@ void GripperArm_Retract() {
     smoothControl(850, 945, 1, gripperArm);
 }
 
-void turnOff_Flicker() {
-    if (FlickerPWM_Status) {
-        turnOff_FlickerRecoil();   
-        turnOff_FlickerLock(); 
-        setFlag_FlickerPWM(!FlickerPWM_Status);
+void GripperArm_Hurl() {
+    if (!GripperPWM_Status) {
+        turnOn_GripperArm();   
+        setFlag_GripperPWM(!GripperPWM_Status);
     }  
-    
+    ServoControlFunction gripperArm = GripperArm_SetCompare;
+    smoothControl(980, 870, 10, gripperArm);
+}
+
+void boot_FlickerRecoil() {
+    if (!FlickerRecoilPWM_Status) {
+        turnOn_FlickerRecoil();   
+        setFlag_FlickerRecoilPWM(!FlickerRecoilPWM_Status);
+    }  
+}
+
+void shutdown_FlickerRecoil() {
+    if (FlickerRecoilPWM_Status) {
+        turnOff_FlickerRecoil();
+        setFlag_FlickerRecoilPWM(!FlickerRecoilPWM_Status);
+    }  
 }
 
 void FlickerRecoil_Load() {
-    if (!FlickerPWM_Status) {
-        turnOn_FlickerRecoil();   
-        setFlag_FlickerPWM(!FlickerPWM_Status);
-    }  
+    boot_FlickerRecoil();
     ServoControlFunction flickerRecoil = FlickerRecoil_SetCompare;
-    smoothControl(950, 980, 1, flickerRecoil);
     smoothControl(900, 800, 1, flickerRecoil);
-    turnOff_FlickerRecoil(); 
-    setFlag_FlickerPWM(!FlickerPWM_Status);
+    shutdown_FlickerRecoil();
 }
 
 void FlickerRecoil_Unload() {
-    if (!FlickerPWM_Status) {
-        turnOn_FlickerRecoil();   
-        setFlag_FlickerPWM(!FlickerPWM_Status);
-    }     
+    boot_FlickerRecoil();
     ServoControlFunction flickerRecoil = FlickerRecoil_SetCompare;
-    smoothControl(910, 999, 1, flickerRecoil);
-//    smoothControl(890, 875, 1,  flickerRecoil);
-    turnOff_FlickerRecoil(); 
-    setFlag_FlickerPWM(!FlickerPWM_Status);
+    smoothControl(910, 985, 1, flickerRecoil);
+    shutdown_FlickerRecoil();
+}
+
+void boot_FlickerLock() {
+    if (!FlickerLockPWM_Status) {
+        turnOn_FlickerLock();   
+        setFlag_FlickerLockPWM(!FlickerLockPWM_Status);
+    } 
+}
+
+void shutdown_FlickerLock() {
+    if (FlickerLockPWM_Status) {
+        turnOff_FlickerLock();
+        setFlag_FlickerLockPWM(!FlickerLockPWM_Status);
+    }  
 }
 
 void FlickerLock_Lock() {
-    if (!FlickerPWM_Status) {
-        turnOn_FlickerLock();   
-        setFlag_FlickerPWM(!FlickerPWM_Status);
-    }     
+    boot_FlickerLock();   
     ServoControlFunction flickerLock = FlickerLock_SetCompare;
-    smoothControl(875, 930, 2, flickerLock);
-    turnOff_FlickerLock(); 
-    setFlag_FlickerPWM(!FlickerPWM_Status);
+    smoothControl(875, 930, 1, flickerLock);
+    shutdown_FlickerLock();
 }
 
 void FlickerLock_Unlock() {
-    if (!FlickerPWM_Status) {
-        turnOn_FlickerLock();   
-        setFlag_FlickerPWM(!FlickerPWM_Status);
-    }     
+    boot_FlickerLock();   
     ServoControlFunction flickerLock = FlickerLock_SetCompare;
-    smoothControl(930, 880, 2, flickerLock);
-    turnOff_FlickerLock(); 
-    setFlag_FlickerPWM(!FlickerPWM_Status);
+    smoothControl(930, 880, 1, flickerLock);
+    shutdown_FlickerLock();
 }
 
 /* [] END OF FILE */

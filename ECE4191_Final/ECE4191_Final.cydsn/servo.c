@@ -41,30 +41,30 @@ int GripperArm_ReadCompare() {
 }
 
 void turnOn_FlickerRecoil() {
-    PWM_Servo_Flicker_Start();   
+    PWM_Servo_Flicker_Load_Start();   
 }
 void turnOff_FlickerRecoil() {
     FlickerRecoil_SetCompare(20);
-    PWM_Servo_Flicker_Stop();
+    PWM_Servo_Flicker_Load_Stop();
 }
 void FlickerRecoil_SetCompare(int compareValue) {
-    PWM_Servo_Flicker_WriteCompare1(compareValue);
+    PWM_Servo_Flicker_Load_WriteCompare(compareValue);
 }
 int FlickerRecoil_ReadCompare() {
-    return PWM_Servo_Flicker_ReadCompare1(); 
+    return PWM_Servo_Flicker_Load_ReadCompare(); 
 }
 
 void turnOn_FlickerLock() {
-    PWM_Servo_Flicker_Start();    
+    PWM_Servo_Flicker_Lock_Start();    
 }
 void turnOff_FlickerLock() {
-    PWM_Servo_Flicker_Stop();   
+    PWM_Servo_Flicker_Lock_Stop();   
 }
 void FlickerLock_SetCompare(int compareValue) {
-    PWM_Servo_Flicker_WriteCompare2(compareValue);   
+    PWM_Servo_Flicker_Lock_WriteCompare(compareValue);   
 }
 int FlickerLock_ReadCompare() {
-    return PWM_Servo_Flicker_ReadCompare2(); 
+    return PWM_Servo_Flicker_Lock_ReadCompare(); 
 }
 
 
