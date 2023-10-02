@@ -44,6 +44,7 @@ void turnOn_FlickerRecoil() {
     PWM_Servo_Flicker_Start();   
 }
 void turnOff_FlickerRecoil() {
+    FlickerRecoil_SetCompare(20);
     PWM_Servo_Flicker_Stop();
 }
 void FlickerRecoil_SetCompare(int compareValue) {

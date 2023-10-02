@@ -131,7 +131,8 @@ void FlickerRecoil_Load() {
         setFlag_FlickerPWM(!FlickerPWM_Status);
     }  
     ServoControlFunction flickerRecoil = FlickerRecoil_SetCompare;
-    smoothControl(900, 820, 1, flickerRecoil);
+    smoothControl(950, 980, 1, flickerRecoil);
+    smoothControl(900, 800, 1, flickerRecoil);
     turnOff_FlickerRecoil(); 
     setFlag_FlickerPWM(!FlickerPWM_Status);
 }
@@ -142,10 +143,10 @@ void FlickerRecoil_Unload() {
         setFlag_FlickerPWM(!FlickerPWM_Status);
     }     
     ServoControlFunction flickerRecoil = FlickerRecoil_SetCompare;
-    smoothControl(920, 990, 1, flickerRecoil);
+    smoothControl(910, 999, 1, flickerRecoil);
 //    smoothControl(890, 875, 1,  flickerRecoil);
-//    turnOff_FlickerRecoil(); 
-//    setFlag_FlickerPWM(!FlickerPWM_Status);
+    turnOff_FlickerRecoil(); 
+    setFlag_FlickerPWM(!FlickerPWM_Status);
 }
 
 void FlickerLock_Lock() {
@@ -154,7 +155,9 @@ void FlickerLock_Lock() {
         setFlag_FlickerPWM(!FlickerPWM_Status);
     }     
     ServoControlFunction flickerLock = FlickerLock_SetCompare;
-    smoothControl(875, 930, 5, flickerLock);
+    smoothControl(875, 930, 2, flickerLock);
+    turnOff_FlickerLock(); 
+    setFlag_FlickerPWM(!FlickerPWM_Status);
 }
 
 void FlickerLock_Unlock() {
@@ -163,7 +166,9 @@ void FlickerLock_Unlock() {
         setFlag_FlickerPWM(!FlickerPWM_Status);
     }     
     ServoControlFunction flickerLock = FlickerLock_SetCompare;
-    smoothControl(930, 880, 5, flickerLock);
+    smoothControl(930, 880, 2, flickerLock);
+    turnOff_FlickerLock(); 
+    setFlag_FlickerPWM(!FlickerPWM_Status);
 }
 
 /* [] END OF FILE */

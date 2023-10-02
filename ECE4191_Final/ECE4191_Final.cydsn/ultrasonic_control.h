@@ -12,11 +12,17 @@
 #ifndef ULTRASONIC_CONTROL_H
     #define ULTRASONIC_CONTROL_H
     
-    #include "project.h"
+    typedef enum {
+        RedPuck,
+        GreenPuck,
+        BluePuck
+    } TargetPuckColor;
     
+    extern int pinInWhichZone;
+    extern TargetPuckColor targetPuckColor;
     
-    
-    
+    void bowlingPinWhichStripe();
+
     
 #endif
 /* [] END OF FILE */

@@ -38,7 +38,8 @@
         UdsDetectLeft,
         UdsDetectRight,
         UdsDetectFLR,
-        UdsDetectBLR
+        UdsDetectBLR,
+        UdsDetectLR
     } UdsDetectState;
     
     extern UdsDetectState udsDetectState;

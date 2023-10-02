@@ -40,7 +40,7 @@ int target_move_ticks = 0;
 int stop_flag = 0;
 static volatile int lastMasterTicks = 0;
 static volatile int lastSlaveTicks = 0;
-
+uint8 updated_slave_pwm = 0;
 int period = 0;
 
 ControllerType ctrlType;
@@ -63,20 +63,24 @@ void initializeWheelController(ControllerType ctrlType_name) {
         break;
     }
     
+    updated_slave_pwm = 0;
+    
+    lastMasterTicks = 0;
+    lastSlaveTicks = 0;
+    
     Timer_Wheel_Start();
     isr_wheel_controller_StartEx(ISR_Handler_Wheel_Controller);
 }
 
 void stopWheelController() {
     
+    lastMasterTicks = 0;
+    lastSlaveTicks = 0;
+    
     Timer_Wheel_Stop();
     isr_wheel_controller_Stop();
 }
 
-void reset_tick_count() {
-    
-    
-}
 
 CY_ISR(ISR_Handler_Wheel_Controller) {
     
@@ -84,7 +88,7 @@ CY_ISR(ISR_Handler_Wheel_Controller) {
     
     masterPWM = MotorController_GetLeftPwm();
 
-    uint8 updated_slave_pwm = 0;
+    updated_slave_pwm = 0;
     
     switch (ctrlType) {
         case ProportionalControl:
@@ -109,16 +113,16 @@ CY_ISR(ISR_Handler_Wheel_Controller) {
     masterLeftTicks = MotorController_GetLeftQuadDecCount();
     slaveRightTicks = MotorController_GetRightQuadDecCount();
     
-    computePosition(masterLeftTicks, slaveRightTicks); 
+    computePosition(masterLeftTicks - lastMasterTicks, slaveRightTicks - lastSlaveTicks);
+    
+    lastMasterTicks = masterLeftTicks;
+    lastSlaveTicks = slaveRightTicks;
 
 }
 
 void wheel_move_by_ticks(MotionDirection motion, int pwm, int target_ticks) {
 
     turnMotorOn(pwm);
-
-    lastMasterTicks = 0;
-    lastSlaveTicks = 0;
     
     masterPWM = MotorController_GetLeftPwm();
     slavePWM = MotorController_GetRightPwm();
@@ -135,7 +139,7 @@ void wheel_move_by_ticks(MotionDirection motion, int pwm, int target_ticks) {
     
 //    printValue("Set Controller\n");
     while (abs(masterLeftTicks) < target_ticks){
-        computePosition(masterLeftTicks, slaveRightTicks); 
+        //computePosition(masterLeftTicks - lastMasterTicks, slaveRightTicks - lastSlaveTicks); 
     }
     
 //    printValue("DONE\n");
@@ -178,11 +182,10 @@ void wheel_move_by_metrics (MotionDirection motion, uint8 pwm, double metrics) {
     initializeWheelController(USE_CONTROLLER);
     
     while (abs(masterLeftTicks) < ticks) {
-        computePosition(masterLeftTicks, slaveRightTicks);    
+//        computePosition(masterLeftTicks - lastMasterTicks, slaveRightTicks - lastSlaveTicks);
     }
     
-    lastMasterTicks = 0;
-    lastSlaveTicks = 0;
+    
     
     printValue("DONE\n");
     printValue("LEFT: %d RIGHT: %d\n ", masterLeftTicks, slaveRightTicks);
@@ -199,6 +202,9 @@ void wheel_move (MotionDirection motion, uint8 pwm) {
     if (motion == Left || motion == Right) return;
     
     if (motion == StopMotion) {
+        
+        lastMasterTicks = 0;
+        lastSlaveTicks = 0;
 
         stopWheelController();
         stopMotor();

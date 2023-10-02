@@ -78,6 +78,10 @@ void UltrasonicSensor_ChangeState(UdsDetectState state) {
         case UdsDetectBLR:
             UltrasonicSensor_SelectSensor(2);
         break;
+            
+        case UdsDetectLR:
+            UltrasonicSensor_SelectSensor(4);
+        break;
         
         default:
             UltrasonicSensor_SelectSensor(0);
@@ -186,6 +190,12 @@ CY_ISR(ISR_Handler_Ultrasonic_Echo) {
             ultrasonicSensorIndex = (ultrasonicSensorIndex + 1) % NUM_ULTRASONIC_SENSORS; 
             if (ultrasonicSensorIndex == 0) ultrasonicSensorIndex = 2;
             else if (ultrasonicSensorIndex == 1) ultrasonicSensorIndex = 2;
+            UltrasonicSensor_SelectSensor(ultrasonicSensorIndex);
+        break;
+            
+        case UdsDetectLR:
+            ultrasonicSensorIndex = (ultrasonicSensorIndex + 1) % NUM_ULTRASONIC_SENSORS; 
+            if (ultrasonicSensorIndex - 3 <= 0) ultrasonicSensorIndex = 4;
             UltrasonicSensor_SelectSensor(ultrasonicSensorIndex);
         break;
         
