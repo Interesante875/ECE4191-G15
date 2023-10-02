@@ -14,8 +14,7 @@
     
     #include "project.h"
     
-    #define GYRO_THRESHOLD 0.5
-    #define MPU6050 0x68
+    
     
     extern double heading;
     

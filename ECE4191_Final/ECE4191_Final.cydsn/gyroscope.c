@@ -16,6 +16,9 @@
 #include "bluetooth.h"
 #include "gyroscope.h"
 
+#define GYRO_THRESHOLD 0.5
+#define MPU6050 0x68
+
 uint8 array_1[6] = {0};
 int16 temp = 0;
 double yaw_rate = 0;
@@ -25,6 +28,11 @@ double current_reading = 0;
 double heading = 0;
 int cycles = 0;
 const double timeStep = 0.1;
+int cal = 1;
+int count = 0;
+int16 error = 0; //to find the error in gyroscope readings when stationary
+int16 error_avg = 0; //average error in gyroscope readings when stationary
+double threshold = 0.1; //to prevent accumulation of error due to integration
 
 CY_ISR(ISR_Handler_Gyroscope)
 {
@@ -50,43 +58,104 @@ CY_ISR(ISR_Handler_Gyroscope)
     I2C_1_MasterSendStop(); //Step 8
     CyDelay(1);
     
-    temp = array_1[4] << 8 | array_1[5];
-    yaw_rate = temp/65.535;
-    
-    //integration of yaw_rate
-    current_reading = yaw_rate;
-    if (fabs(current_reading - previous_reading)>0.5)
-    {
-        yaw_angle = yaw_angle + 0.5*0.1*(previous_reading + current_reading);
-        // yaw_angle = rungeKuttaIntegration(yaw_angle, current_reading, timeStep);
-        //counting cycles beyond +360 or -360
-        cycles = fabs(yaw_angle)/360;
+     temp = array_1[4] << 8 | array_1[5];
         
-        if (cycles > 0)
+    if (cal == 1 && count < 20) //while calibrating
+    {
+        printValue("Calibrating\n");
+        error += temp;
+        count++;
+    }
+    else if (cal == 1 && count == 20) //end of calibration and computation of average error
+    {
+        error_avg = error/20;
+        cal = 0;
+    }
+    else //after calibration and with average error computed
+    {
+        temp = temp - error_avg;
+        yaw_rate = temp/65.535;
+
+        current_reading = yaw_rate;   
+       
+        if (fabs(current_reading - previous_reading) > threshold)
         {
-            if (yaw_angle < 0)
+            //integration of yaw_rate
+            yaw_angle = yaw_angle + 0.5*0.1*(previous_reading + current_reading);
+            previous_reading = current_reading;
+            
+            //counting cycles beyond +360 or -360
+            cycles = fabs(yaw_angle)/360;
+            
+            if (cycles > 0)
             {
-                heading = yaw_angle + cycles*360;
+                if (yaw_angle < 0)
+                {
+                    heading = yaw_angle + cycles*360;
+                }
+                else
+                {
+                    heading = yaw_angle - cycles*360;
+                }
             }
             else
             {
-                heading = yaw_angle - cycles*360;
+                heading = yaw_angle;
             }
+            
+            //wrapping the heading within 0 - 360 degrees
+            if (heading < 0)
+            {
+                heading = heading + 360;
+            }
+            
+            printValue("Heading: %lf\n",heading);
         }
         else
         {
-            heading = yaw_angle;
+            previous_reading = current_reading;
+            printValue("Heading: %lf\n",heading);
         }
-        
-        //wrapping the heading within 0 - 360 degrees
-        if (heading < 0)
-        {
-            heading = heading + 360;
-        }
-    }  
-    previous_reading = current_reading;
+            
+    }
     
-    printValue("Yaw Rate %lf Angle: %lf\n", yaw_rate, heading);
+//    temp = array_1[4] << 8 | array_1[5];
+//    yaw_rate = (double) temp/65.535;
+//    
+//    //integration of yaw_rate
+//    current_reading = yaw_rate;
+//    if (fabs(current_reading - previous_reading)>0.5)
+//    {
+//        yaw_angle = yaw_angle + 0.5*0.1*(previous_reading + current_reading);
+//        // yaw_angle = rungeKuttaIntegration(yaw_angle, current_reading, timeStep);
+//        //counting cycles beyond +360 or -360
+//        cycles = fabs(yaw_angle)/360;
+//        
+//        if (cycles > 0)
+//        {
+//            if (yaw_angle < 0)
+//            {
+//                heading = yaw_angle + cycles*360;
+//            }
+//            else
+//            {
+//                heading = yaw_angle - cycles*360;
+//            }
+//        }
+//        else
+//        {
+//            heading = yaw_angle;
+//        }
+//        
+//        //wrapping the heading within 0 - 360 degrees
+//        if (heading < 0)
+//        {
+//            heading = heading + 360;
+//        }
+//    }  
+//    previous_reading = current_reading;
+//    
+//    printValue("Yaw Rate %d Angle: %d\n", temp, (int) heading);
     
 }
 
