@@ -15,18 +15,25 @@
 
 volatile DetectionStatus infraredDetectionStatus;
 
-CY_ISR(ISR_Handler_IR) {
+CY_ISR(ISR_Handler_IR_Sensor_PositiveEdge) {
+    infraredDetectionStatus = Absence;
+    printValue("Not Detected!\n");
+}
+
+CY_ISR(ISR_Handler_IR_Sensor_NegativeEdge) {
     infraredDetectionStatus = Presence;
     printValue("Detected!\n");
 }
 
 void startIR() {
-    isr_IR_Sensor_StartEx(ISR_Handler_IR);
+    isr_IR_Sensor_PositiveEdge_StartEx(ISR_Handler_IR_Sensor_PositiveEdge);
+    isr_IR_Sensor_NegativeEdge_StartEx(ISR_Handler_IR_Sensor_NegativeEdge);
     infraredDetectionStatus = Absence;
 }
 
 void stopIR() {
-    isr_IR_Sensor_Stop();
+    isr_IR_Sensor_PositiveEdge_Stop();
+    isr_IR_Sensor_NegativeEdge_Stop();
 }
 
 int IRPinValue() {

@@ -24,6 +24,7 @@ int count;
 double distance;
 double median;
 double sensorMeasuredDistances[NUM_ULTRASONIC_SENSORS][ARRAY_SIZE] = {0};
+static int currIdx[NUM_ULTRASONIC_SENSORS] = {0};
 
 // Function prototypes
 void InitalizeUltrasonicSensor() {
@@ -106,7 +107,7 @@ double UltrasonicSensor_ReadDistanceData(int sensorIndex) {
         return median;
     }
     
-    double value = rowPointer[0];
+    double value = rowPointer[currIdx[sensorIndex]];
     
     return value;
 
@@ -120,12 +121,13 @@ void UltrasonicSensor_SelectSensor(int sensorIndex) {
 }
 
 void UltrasonicSensor_MeasureDistance(int sensorIndex) {
-    
-    static int currIdx[NUM_ULTRASONIC_SENSORS] = {0};
+
     
     count = Timer_Ultrasonic_Echo_ReadCounter();
     
-    distance = (65535 - count)/58.0;
+    distance = (double) (65535 - count)/58.0;
+    
+    // if (sensorIndex == 0) printValue("(0): %lf\n", distance);
     
     sensorMeasuredDistances[sensorIndex][currIdx[sensorIndex]] = distance;
     

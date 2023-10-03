@@ -9,20 +9,10 @@
  *
  * ========================================
 */
-#ifndef ULTRASONIC_CONTROL_H
-    #define ULTRASONIC_CONTROL_H
+#ifndef FUSION_H
+    #define FUSION_H
     
-    typedef enum {
-        RedPuck,
-        GreenPuck,
-        BluePuck
-    } TargetPuckColor;
-    
-    extern int pinInWhichZone;
-    extern TargetPuckColor targetPuckColor;
-    extern double distanceToPin;
-    void bowlingPinWhichStripe();
-
+    void inverseVarianceWeighting(int gyro_heading, int ticks);
     
 #endif
 /* [] END OF FILE */

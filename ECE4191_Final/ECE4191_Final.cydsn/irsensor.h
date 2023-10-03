@@ -26,7 +26,8 @@
     void stopIR();
     int IRPinValue();
     
-    CY_ISR(ISR_Handler_IR);
+    CY_ISR(ISR_Handler_IR_Sensor_PositiveEdge);
+    CY_ISR(ISR_Handler_IR_Sensor_NegativeEdge);
     
 #endif /* IRSENSOR_H */
 /* [] END OF FILE */

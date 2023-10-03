@@ -82,10 +82,11 @@ CY_ISR(ISR_Handler_Gyroscope)
         {
             //integration of yaw_rate
             yaw_angle = yaw_angle + 0.5*0.1*(previous_reading + current_reading);
+            // yaw_angle = rungeKuttaIntegration(yaw_angle, current_reading, timeStep);
             previous_reading = current_reading;
             
             //counting cycles beyond +360 or -360
-            cycles = fabs(yaw_angle)/360;
+            cycles = fabs(yaw_angle)/180;
             
             if (cycles > 0)
             {
@@ -104,9 +105,13 @@ CY_ISR(ISR_Handler_Gyroscope)
             }
             
             //wrapping the heading within 0 - 360 degrees
-            if (heading < 0)
+            if (heading > 180)
             {
-                heading = heading + 360;
+                heading -= 360;
+            }
+            else if (heading < -180)
+            {
+                heading += 360;
             }
             
             printValue("Heading: %lf\n",heading);
