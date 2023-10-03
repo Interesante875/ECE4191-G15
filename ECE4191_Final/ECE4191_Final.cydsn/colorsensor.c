@@ -127,7 +127,7 @@ void ColorDetection_Run(int numRuns) {
     }
     
     ColorDetection_FindMax(max_red, max_green, max_blue);
-    
+    ShutdownColorSensor();
 }
 
 void ColorDetection_FindMax(int maxRed, int maxGreen, int maxBlue) {

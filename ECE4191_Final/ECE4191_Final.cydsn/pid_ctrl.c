@@ -17,9 +17,9 @@
 #include <stdbool.h>
 #include "pid_ctrl.h"
 
-#define PID_CTRL_P_CONST 0.75
-#define PID_CTRL_I_CONST 0.1
-#define PID_CTRL_D_CONST 0.05
+#define PID_CTRL_P_CONST 0.95
+#define PID_CTRL_I_CONST 0.2
+#define PID_CTRL_D_CONST 0.45
 #define CTRL_MAX 255
 #define CTRL_MIN 0
 

@@ -108,7 +108,7 @@ double UltrasonicSensor_ReadDistanceData(int sensorIndex) {
     }
     
     double value = rowPointer[currIdx[sensorIndex]];
-    
+    printValue("%d, %lf\n", sensorIndex, value);
     return value;
 
 }

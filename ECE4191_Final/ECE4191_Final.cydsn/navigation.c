@@ -22,7 +22,7 @@
 #define MIN_X 0
 #define MIN_Y 0
 
-#define TICKS_PER_REVOLUTION 4300
+#define TICKS_PER_REVOLUTION 4300.0
 #define WHEEL_RADIUS 0.02695
 #define WHEEL_DISTANCE 0.1475
 #define HALF_WIDTH WHEEL_DISTANCE/2
@@ -81,14 +81,19 @@ void initializePosition(StartingBase color) {
 
 void computePosition(int left_ticks, int right_ticks) {
     
+    static int period = 0;
     
-    double distance_left = ((double)(left_ticks / TICKS_PER_REVOLUTION) * (2.0 * CY_M_PI * WHEEL_RADIUS)); 
-    double distance_right = ((double)(right_ticks / TICKS_PER_REVOLUTION) * (2.0 * CY_M_PI * WHEEL_RADIUS)); 
+    double distance_left = (double)(left_ticks / TICKS_PER_REVOLUTION) * (2.0 * CY_M_PI * WHEEL_RADIUS); 
+    double distance_right = (double)(right_ticks / TICKS_PER_REVOLUTION) * (2.0 * CY_M_PI * WHEEL_RADIUS); 
     double radial_angle = (distance_left - distance_right)/(2.0*HALF_WIDTH);
     
     double R = distance_left * (2.0 * HALF_WIDTH/(distance_left - distance_right)) + HALF_WIDTH;
     
     double distance_travelled = (distance_left + distance_right)/2.0;
+    
+
+    // printValue("DIST: %lf, %lf, %lf\n", (double)(left_ticks / TICKS_PER_REVOLUTION) * (2.0 * CY_M_PI * WHEEL_RADIUS), distance_left, distance_right);   
+
     
     double alpha = radial_angle/2.0;
     

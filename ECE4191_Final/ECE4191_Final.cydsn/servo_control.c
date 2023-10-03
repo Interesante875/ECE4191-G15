@@ -89,7 +89,7 @@ void GripperHand_GripPuck() {
         setFlag_GripperPWM(!GripperPWM_Status);
     }   
     ServoControlFunction gripperHand = GripperHand_SetCompare;
-    smoothControl(980, 950, 2, gripperHand);
+    smoothControl(980, 960, 2, gripperHand);
 
 }
 
@@ -111,13 +111,23 @@ void GripperArm_Extend() {
     smoothControl(980, 870, 1, gripperArm);
 }
 
+void GripperArm_SmallExtend() {
+    if (!GripperPWM_Status) {
+        turnOn_GripperArm(); 
+        setFlag_GripperPWM(!GripperPWM_Status);
+    }   
+    ServoControlFunction gripperArm = GripperArm_SetCompare;
+    smoothControl(980, 870, 2, gripperArm);
+}
+
 void GripperArm_Retract() {
     if (!GripperPWM_Status) {
         turnOn_GripperArm();   
         setFlag_GripperPWM(!GripperPWM_Status);
     }   
     ServoControlFunction gripperArm = GripperArm_SetCompare;
-    smoothControl(850, 945, 1, gripperArm);
+    smoothControl(850, 950, 1, gripperArm);
+    smoothControl(940, 950, 1, gripperArm);
 }
 
 void GripperArm_Hurl() {

@@ -113,10 +113,14 @@ CY_ISR(ISR_Handler_Wheel_Controller) {
     masterLeftTicks = MotorController_GetLeftQuadDecCount();
     slaveRightTicks = MotorController_GetRightQuadDecCount();
     
-    computePosition(masterLeftTicks - lastMasterTicks, slaveRightTicks - lastSlaveTicks);
+    period = (period + 1) % 10;
+    if (period == 9)
+    {
+        computePosition(masterLeftTicks - lastMasterTicks, slaveRightTicks - lastSlaveTicks);
+        lastMasterTicks = masterLeftTicks;
+        lastSlaveTicks = slaveRightTicks;
+    }
     
-    lastMasterTicks = masterLeftTicks;
-    lastSlaveTicks = slaveRightTicks;
 
 }
 
@@ -143,8 +147,8 @@ void wheel_move_by_ticks(MotionDirection motion, int pwm, int target_ticks) {
     }
     
 //    printValue("DONE\n");
-//    printValue("LEFT: %d RIGHT: %d\n ", masterLeftTicks, slaveRightTicks);
-//    printValue("Master PWM: %d Slave PWM: %d\n", masterPWM, slavePWM);
+    printValue("LEFT: %d RIGHT: %d\n ", masterLeftTicks, slaveRightTicks);
+    printValue("Master PWM: %d Slave PWM: %d\n", masterPWM, slavePWM);
  
     stopWheelController();
     stopMotor();
@@ -182,17 +186,14 @@ void wheel_move_by_metrics (MotionDirection motion, uint8 pwm, double metrics) {
     initializeWheelController(USE_CONTROLLER);
     
     while (abs(masterLeftTicks) < ticks) {
-//        computePosition(masterLeftTicks - lastMasterTicks, slaveRightTicks - lastSlaveTicks);
     }
-    
-    
-    
-    printValue("DONE\n");
+
     printValue("LEFT: %d RIGHT: %d\n ", masterLeftTicks, slaveRightTicks);
     printValue("Master PWM: %d Slave PWM: %d\n", masterPWM, slavePWM);
     
     stopWheelController();
     stopMotor();
+    printToBluetooth();
 
     CyDelay(EMF_BUFFER_DELAY);
 }

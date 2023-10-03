@@ -29,6 +29,7 @@
     void GripperArm_Extend();
     void GripperArm_Retract();
     void GripperArm_Hurl();
+    void GripperArm_SmallExtend();
     
     void FlickerRecoil_Load();
     void FlickerRecoil_Unload();

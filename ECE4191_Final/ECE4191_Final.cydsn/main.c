@@ -10,6 +10,7 @@
  * ========================================
 */
 #include "project.h"
+#include <math.h>
 #include "bluetooth.h"
 #include "ultrasonic.h"
 #include "ultrasonic_control.h"
@@ -19,21 +20,43 @@
 #include "irsensor.h"
 #include "gyroscope.h"
 #include "navigation.h"
+#include "behavior_tree.h"
 
 int main(void)
 {
     CyGlobalIntEnable; /* Enable global interrupts. */
     
     StartingBase base_color = RedBase;
-    /* Place your initialization/startup code here (e.g. MyInst_Start()) */
+    initializePosition(base_color);
     initializeBluetooth();
     InitalizeUltrasonicSensor();
+    UltrasonicSensor_ChangeState(UdsDetectLeft);
+    CyDelay(200);
     
+    double LF, LB;
+    LF = UltrasonicSensor_ReadDistanceData(4);
+    LB = UltrasonicSensor_ReadDistanceData(5);
+    
+    wheel_move(Forward, 225);
+    CyDelay(500);
+    bool notSeen = true;
+    
+    while (notSeen) {
+        LF = UltrasonicSensor_ReadDistanceData(4);
+        LB = UltrasonicSensor_ReadDistanceData(5);
+        
+//        printValue("%lf, %lf\n", LF, LB);
+        notSeen = fabs(LF - LB) <= 10 && LB < LF;
+    }
+    
+    wheel_move(StopMotion, 200);
+    
+    wheel_move_by_metrics(Left, 250, 90);
 
     for(;;)
     {
-        bowlingPinWhichStripe();
-        CyDelay(1500);
+
+        
     }
 }
 
