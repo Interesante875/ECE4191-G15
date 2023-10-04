@@ -16,7 +16,7 @@
 #include "project.h"
 
 // Constants
-#define COLOR_DETECTION_DELAY_CYCLES 200
+#define COLOR_DETECTION_DELAY_CYCLES 600
     
 // Color enum
 typedef enum {

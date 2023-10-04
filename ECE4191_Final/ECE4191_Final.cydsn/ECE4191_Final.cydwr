@@ -263,6 +263,7 @@
       <Data key="c37f7521-a28f-4e9a-944e-3aecaa8c9508" value="isr_color_sensor" />
       <Data key="d92e930e-13ba-4f4c-b2fa-b5d9a1019a49" value="isr_input" />
       <Data key="d98b0b14-fc7e-4d8e-ab02-5cd84daa11be" value="isr_puck" />
+      <Data key="e464ace4-cc78-40a8-b12b-aa6c9390e784" value="isr_ultrasonic_read" />
       <Data key="f117b06d-dc79-4d00-a7d5-2a8664f39fd6" value="isr_gyroscope" />
     </Group>
     <Group key="Pin">
@@ -3447,7 +3448,14 @@
     <Group key="c37f7521-a28f-4e9a-944e-3aecaa8c9508">
       <Group key="CortexM3">
         <Data key="Assigned" value="True" />
-        <Data key="Priority" value="5" />
+        <Data key="Priority" value="2" />
+        <Data key="Vector" value="-1" />
+      </Group>
+    </Group>
+    <Group key="e464ace4-cc78-40a8-b12b-aa6c9390e784">
+      <Group key="CortexM3">
+        <Data key="Assigned" value="True" />
+        <Data key="Priority" value="3" />
         <Data key="Vector" value="-1" />
       </Group>
     </Group>
@@ -3638,12 +3646,12 @@
   <Group key="System3">
     <Data key="CYDEV_CONFIG_FASTBOOT_ENABLED" value="True" />
     <Data key="CYDEV_CONFIG_UNUSED_IO" value="AllowButWarn" />
-    <Data key="CYDEV_CONFIGURATION_ECC" value="True" />
-    <Data key="CYDEV_CONFIGURATION_MODE" value="COMPRESSED" />
+    <Data key="CYDEV_CONFIGURATION_ECC" value="False" />
+    <Data key="CYDEV_CONFIGURATION_MODE" value="UNCOMPRESSED" />
     <Data key="CYDEV_DEBUGGING_DPS" value="SWD_SWV" />
     <Data key="CYDEV_DEBUGGING_XRES" value="False" />
-    <Data key="CYDEV_ECC_ENABLE" value="False" />
-    <Data key="CYDEV_HEAP_SIZE" value="0x1600" />
+    <Data key="CYDEV_ECC_ENABLE" value="True" />
+    <Data key="CYDEV_HEAP_SIZE" value="0x6400" />
     <Data key="CYDEV_INSTRUCT_CACHE_ENABLED" value="True" />
     <Data key="CYDEV_PROTECTION_ENABLE" value="False" />
     <Data key="CYDEV_STACK_SIZE" value="0x3200" />

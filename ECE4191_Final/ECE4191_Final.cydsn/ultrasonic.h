@@ -19,7 +19,7 @@
 
 #define ENABLE_MEDIAN_FILTERING 1
 #define NUM_ULTRASONIC_SENSORS 8
-#define ARRAY_SIZE 3
+#define ARRAY_SIZE 2
     /*
     bit 0 - FRONT_LEFT
     bit 1 - FRONT_RIGHT
@@ -59,9 +59,11 @@
     void UltrasonicSensor_SelectSensor(int sensorIndex);
     void UltrasonicSensor_MeasureDistance();
     void UltrasonicSensor_ChangeState(UdsDetectState state);
-
+    void UltrasonicSensor_Read(int sensorIdx);
+    
     CY_ISR(ISR_Handler_Ultrasonic_Burst);
     CY_ISR(ISR_Handler_Ultrasonic_Echo);
+    CY_ISR(ISR_Handler_Ultrasonic_Read);
 
 #endif // ULTRASONIC_SENSOR_H
 /* [] END OF FILE */

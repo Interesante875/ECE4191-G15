@@ -45,12 +45,16 @@ int period = 0;
 
 ControllerType ctrlType;
 
-void initializeWheelController(ControllerType ctrlType_name) {
+void initializeWheelController(ControllerType ctrlType_name, int pwm) {
     ctrlType = ctrlType_name;
     switch (ctrlType) {
         case ProportionalControl:
-            resetPController();
-            printValue("Proportional Controller is used\n");
+        
+            if (pwm > 240) initializePController(0.9);
+            else if (pwm > 220) initializePController(0.7);
+            else if (pwm > 200) initializePController(0.5);
+            else initializePController(0.5);
+            // printValue("Proportional Controller is used\n");
         break;
         
         case ProportionalIntegralDerivativeControl:
@@ -58,7 +62,7 @@ void initializeWheelController(ControllerType ctrlType_name) {
             resetPIDController();
         break; 
         default:
-            printValue("Proportional Controller is used\n");
+            // printValue("Proportional Controller is used\n");
             resetPController();
         break;
     }
@@ -139,7 +143,7 @@ void wheel_move_by_ticks(MotionDirection motion, int pwm, int target_ticks) {
     
     setMotionDirection(motion);
 
-    initializeWheelController(ProportionalControl);
+    initializeWheelController(ProportionalControl, pwm);
     
 //    printValue("Set Controller\n");
     while (abs(masterLeftTicks) < target_ticks){
@@ -183,7 +187,7 @@ void wheel_move_by_metrics (MotionDirection motion, uint8 pwm, double metrics) {
     slaveRightTicks = MotorController_GetRightQuadDecCount();
     
     setMotionDirection(motion);
-    initializeWheelController(USE_CONTROLLER);
+    initializeWheelController(USE_CONTROLLER, pwm);
     
     while (abs(masterLeftTicks) < ticks) {
     }
@@ -222,7 +226,7 @@ void wheel_move (MotionDirection motion, uint8 pwm) {
     slaveRightTicks = MotorController_GetRightQuadDecCount();
     
     setMotionDirection(motion);
-    initializeWheelController(USE_CONTROLLER);
+    initializeWheelController(USE_CONTROLLER, pwm);
 }
 
 /* [] END OF FILE */

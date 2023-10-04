@@ -132,20 +132,20 @@ void ColorDetection_Run(int numRuns) {
 
 void ColorDetection_FindMax(int maxRed, int maxGreen, int maxBlue) {
     // Compare the maximum counts to determine the detected color
-    printValue("Red: %d", maxRed);
-    printValue("Green: %d", maxGreen);
-    printValue("Blue: %d", maxBlue);
-    printValue("\n\n");
+    printValue("Red: %d ", maxRed);
+    printValue("Green: %d ", maxGreen);
+    printValue("Blue: %d ", maxBlue);
+    printValue("\n");
     
-    if (maxRed > maxGreen && maxRed > maxBlue) {
-        detectedColor = RedColor;
-    } else if (maxGreen > maxRed && maxGreen > maxBlue) {
-        detectedColor = GreenColor;
-    } else if (maxBlue > maxRed && maxBlue > maxGreen) {
-        detectedColor = BlueColor;
-    } else {
+    if (maxRed >= 5000 && maxBlue >= 5000 && maxGreen >= 5000) {
         detectedColor = GreyColor;
+        return;
     }
+    
+    detectedColor = (maxRed > maxGreen && maxRed > maxBlue) ? RedColor
+              : (maxGreen > maxRed && maxGreen > maxBlue) ? GreenColor
+              : (maxBlue > maxRed && maxBlue > maxGreen) ? BlueColor
+              : GreyColor;
 }
 
 void DetectColor(int maxRed, int maxGreen, int maxBlue);

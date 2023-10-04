@@ -11,6 +11,7 @@
 */
 #include "project.h"
 #include "servo_control.h"
+#include "bluetooth.h"
 #include "servo.h"
 #include <math.h>
 
@@ -108,7 +109,8 @@ void GripperArm_Extend() {
         setFlag_GripperPWM(!GripperPWM_Status);
     }   
     ServoControlFunction gripperArm = GripperArm_SetCompare;
-    smoothControl(980, 870, 1, gripperArm);
+    smoothControl(980, 865, 1, gripperArm);
+
 }
 
 void GripperArm_SmallExtend() {
@@ -117,7 +119,7 @@ void GripperArm_SmallExtend() {
         setFlag_GripperPWM(!GripperPWM_Status);
     }   
     ServoControlFunction gripperArm = GripperArm_SetCompare;
-    smoothControl(980, 870, 2, gripperArm);
+    smoothControl(900, 870, 1, gripperArm);
 }
 
 void GripperArm_Retract() {
@@ -127,7 +129,7 @@ void GripperArm_Retract() {
     }   
     ServoControlFunction gripperArm = GripperArm_SetCompare;
     smoothControl(850, 950, 1, gripperArm);
-    smoothControl(940, 950, 1, gripperArm);
+    // smoothControl(940, 950, 1, gripperArm);
 }
 
 void GripperArm_Hurl() {

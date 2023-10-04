@@ -108,10 +108,11 @@ double UltrasonicSensor_ReadDistanceData(int sensorIndex) {
     }
     
     double value = rowPointer[currIdx[sensorIndex]];
-    printValue("%d, %lf\n", sensorIndex, value);
+    // printValue("%d, %lf\n", sensorIndex, value);
     return value;
 
 }
+
 
 void UltrasonicSensor_SelectSensor(int sensorIndex) {
     Control_Reg_Ultrasonic_Write(sensorIndex);
@@ -208,5 +209,9 @@ CY_ISR(ISR_Handler_Ultrasonic_Echo) {
         
     }
 
+}
+
+CY_ISR(ISR_Handler_Ultrasonic_Read) {
+    
 }
 /* [] END OF FILE */

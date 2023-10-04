@@ -25,38 +25,56 @@
 int main(void)
 {
     CyGlobalIntEnable; /* Enable global interrupts. */
-    
+
     StartingBase base_color = RedBase;
     initializePosition(base_color);
     initializeBluetooth();
     InitalizeUltrasonicSensor();
-    UltrasonicSensor_ChangeState(UdsDetectLeft);
-    CyDelay(200);
-    
-    double LF, LB;
-    LF = UltrasonicSensor_ReadDistanceData(4);
-    LB = UltrasonicSensor_ReadDistanceData(5);
-    
-    wheel_move(Forward, 225);
-    CyDelay(500);
-    bool notSeen = true;
-    
-    while (notSeen) {
-        LF = UltrasonicSensor_ReadDistanceData(4);
-        LB = UltrasonicSensor_ReadDistanceData(5);
-        
-//        printValue("%lf, %lf\n", LF, LB);
-        notSeen = fabs(LF - LB) <= 10 && LB < LF;
-    }
-    
-    wheel_move(StopMotion, 200);
-    
-    wheel_move_by_metrics(Left, 250, 90);
+
+//    GripperHand_Open();
+//    GripperArm_Extend();
+//    shutdown_Gripper();
+//    
+//    int finish = 0;
+//    
+//    while (!finish) {
+//        startIR();
+//        
+//        wheel_move(Forward, 220);
+//        
+//        while (infraredDetectionStatus == Absence);
+//        
+//        wheel_move(StopMotion, 250);
+//        stopIR();
+//        wheel_move_by_metrics(Backward, 200, 0.0125);
+//        ColorDetection_Run(1);
+//        
+//        if (detectedColor == RedColor) {
+//            GripperHand_GripPuck();   
+//            GripperArm_Retract();
+//            shutdown_Gripper();
+//            finish = 1;
+//        } else if (detectedColor != GreyColor) {
+//            GripperHand_GripPuck();
+//            GripperArm_Retract();
+//            GripperHand_Open();
+//            GripperArm_Hurl();
+//            //shutdown_Gripper();
+//            GripperArm_SmallExtend();
+//            shutdown_Gripper();
+//            CyDelay(250);
+//        } else {
+//            
+//            
+//        }
+//    
+//    }
 
     for(;;)
     {
-
+        ColorDetection_Run(1);
         
+        CyDelay(2000);
     }
 }
 

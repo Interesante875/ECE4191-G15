@@ -29,7 +29,7 @@
     void wheel_move_by_metrics (MotionDirection motion, uint8 pwm, double metrics);
     void wheel_move (MotionDirection motion, uint8 pwm);
     
-    void initializeWheelController(ControllerType ctrlType_name);
+    void initializeWheelController(ControllerType ctrlType_name, int pwm);
     void stopWheelController();
 
     CY_ISR(ISR_Handler_Wheel_Controller);
