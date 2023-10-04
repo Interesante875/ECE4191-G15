@@ -16,14 +16,15 @@
 #include "project.h"
 
 // Constants
-#define COLOR_DETECTION_DELAY_CYCLES 600
+#define COLOR_DETECTION_DELAY_CYCLES 200
     
 // Color enum
 typedef enum {
     RedColor,
     GreenColor,
     BlueColor,
-    GreyColor
+    GreyColor,
+    WhiteColor
 } Color;
 
 
@@ -31,6 +32,7 @@ typedef enum {
 extern Color detectedColor;
 
 // Function prototypes
+void InitializeColorSensorArray();
 void InitializeColorSensor();
 void ShutdownColorSensor();
 

@@ -26,11 +26,15 @@ CY_ISR(ISR_Handler_Color_Sensor) {
     compare_ready = 1;
 }
 
-// Function prototypes
-void InitializeColorSensor() {
+void InitializeColorSensorArray() {
     red_counts = 0;
     green_counts = 0;
     blue_counts = 0;
+}
+
+// Function prototypes
+void InitializeColorSensor() {
+    InitializeColorSensorArray();
     
     PWM_Color_Sensor_Start();
     Counter_Color_Sensor_Start();
@@ -39,10 +43,12 @@ void InitializeColorSensor() {
     
     
     color_sensor_status = 1;
-    
+    CyDelay(20);
 }
 
 void ShutdownColorSensor() {
+    InitializeColorSensorArray();
+    
     PWM_Color_Sensor_Stop();
     Counter_Color_Sensor_Stop();
     isr_color_sensor_Stop();
@@ -70,8 +76,7 @@ void SetFrequencyScaling(int S0_set, int S1_set) {
     S0_Write(S0_set);
     S1_Write(S1_set);
     
-    CyDelayCycles(COLOR_DETECTION_DELAY_CYCLES);   
-    
+    CyDelay(20);   
 }
 
 void ColorDetection_Run(int numRuns) {
@@ -87,7 +92,7 @@ void ColorDetection_Run(int numRuns) {
     
     for (int run = 0; run < numRuns*3; run++) {
         compare_ready = 0;
-
+        count = 0;
         switch (mode) {
             case 1:
                 SetColor_Red();
@@ -109,6 +114,7 @@ void ColorDetection_Run(int numRuns) {
         }
 
         count = Counter_Color_Sensor_ReadCapture();
+        CyDelayUs(20);
         
         switch (mode) {
             case 1:
@@ -137,15 +143,30 @@ void ColorDetection_FindMax(int maxRed, int maxGreen, int maxBlue) {
     printValue("Blue: %d ", maxBlue);
     printValue("\n");
     
-    if (maxRed >= 5000 && maxBlue >= 5000 && maxGreen >= 5000) {
+    if (maxRed >= 8000 && maxBlue >= 8000 && maxGreen >= 8000) {
+        detectedColor = WhiteColor;
+        return;
+    }
+    
+    if (maxRed >= 6000 && maxBlue >= 6000 && maxGreen >= 6000) {
         detectedColor = GreyColor;
         return;
     }
     
-    detectedColor = (maxRed > maxGreen && maxRed > maxBlue) ? RedColor
-              : (maxGreen > maxRed && maxGreen > maxBlue) ? GreenColor
-              : (maxBlue > maxRed && maxBlue > maxGreen) ? BlueColor
-              : GreyColor;
+    if (maxRed > maxGreen && maxRed > maxBlue) {
+        detectedColor = RedColor;
+        printValue("RED\n");
+    } else if (maxGreen > maxRed && maxGreen > maxBlue) {
+        detectedColor = GreenColor;
+        printValue("GREEN\n");
+    } else if (maxBlue > maxRed && maxBlue > maxGreen) {
+        detectedColor = BlueColor;
+        printValue("BLUE\n");
+    } else {
+        detectedColor = GreyColor;
+        printValue("NONE\n");
+    }
+    
 }
 
 void DetectColor(int maxRed, int maxGreen, int maxBlue);

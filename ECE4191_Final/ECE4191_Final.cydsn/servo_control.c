@@ -165,7 +165,7 @@ void FlickerRecoil_Load() {
 void FlickerRecoil_Unload() {
     boot_FlickerRecoil();
     ServoControlFunction flickerRecoil = FlickerRecoil_SetCompare;
-    smoothControl(910, 985, 1, flickerRecoil);
+    smoothControl(910, 999, 1, flickerRecoil);
     shutdown_FlickerRecoil();
 }
 
