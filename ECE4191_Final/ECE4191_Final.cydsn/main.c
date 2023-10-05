@@ -54,29 +54,29 @@ int main(void)
     while (!finish) {
         startIR();
         
-        wheel_move(Forward, 230);
+        wheel_move(Forward, 200);
         
         while (infraredDetectionStatus == Absence);
         
         wheel_move(StopMotion, 250);
         stopIR();
-        wheel_move_by_metrics(Backward, 200, 0.01);
+        wheel_move_by_metrics(Backward, 190, 0.01);
         
         ColorDetection_Run(1);
-        
-        if (detectedColor == RedColor) {
-            GripperHand_GripPuck();   
+
+        printColor();
+        if (detectedColor == GreenColor) {
+            GripperHand_GripPuck();
             GripperArm_Retract();
             shutdown_Gripper();
             finish = 1;
         } else if (detectedColor != GreyColor) {
-            GripperHand_GripPuck();   
+            GripperHand_GripPuck();
             GripperArm_Retract();
 //            GripperHand_Open();
 //            GripperArm_Hurl();
 //            GripperArm_SmallExtend();
             shutdown_Gripper();
-            
             wheel_move_by_metrics(Right, 250, 20);
             GripperArm_Extend();
             GripperHand_Open();

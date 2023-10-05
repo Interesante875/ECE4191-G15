@@ -18,6 +18,7 @@ volatile int compare_ready = 0;
 int red_counts;
 int green_counts;
 int blue_counts;
+int votes[3];
 
 int color_sensor_status = 0;
 
@@ -30,17 +31,23 @@ void InitializeColorSensorArray() {
     red_counts = 0;
     green_counts = 0;
     blue_counts = 0;
+    
+    votes[0] = 0;
+    votes[1] = 0;
+    votes[2] = 0;
 }
 
 // Function prototypes
 void InitializeColorSensor() {
-    InitializeColorSensorArray();
+    
     
     PWM_Color_Sensor_Start();
     Counter_Color_Sensor_Start();
     LED_Write(1);
     isr_color_sensor_StartEx(ISR_Handler_Color_Sensor);
-    
+    Control_Reg_Color_Sensor_Write(1);
+    CyDelay(10);
+    Control_Reg_Color_Sensor_Write(0);
     
     color_sensor_status = 1;
     CyDelay(20);
@@ -53,7 +60,7 @@ void ShutdownColorSensor() {
     Counter_Color_Sensor_Stop();
     isr_color_sensor_Stop();
     LED_Write(0);   
-    
+    CyDelay(20);
     color_sensor_status = 0;
 }
 
@@ -76,7 +83,7 @@ void SetFrequencyScaling(int S0_set, int S1_set) {
     S0_Write(S0_set);
     S1_Write(S1_set);
     
-    CyDelay(20);   
+    CyDelayUs(200);   
 }
 
 void ColorDetection_Run(int numRuns) {
@@ -86,11 +93,14 @@ void ColorDetection_Run(int numRuns) {
     int max_red = 0;
     int max_green = 0;
     int max_blue = 0;
+    InitializeColorSensorArray();
     
-    InitializeColorSensor();
-    SetFrequencyScaling(1, 1);
     
     for (int run = 0; run < numRuns*3; run++) {
+        InitializeColorSensor();
+        CyDelay(20);
+        SetFrequencyScaling(1, 1);
+        CyDelay(20);
         compare_ready = 0;
         count = 0;
         switch (mode) {
@@ -114,7 +124,6 @@ void ColorDetection_Run(int numRuns) {
         }
 
         count = Counter_Color_Sensor_ReadCapture();
-        CyDelayUs(20);
         
         switch (mode) {
             case 1:
@@ -129,9 +138,19 @@ void ColorDetection_Run(int numRuns) {
         }
 
         mode = (mode % 3) + 1;
+        //ColorDetection_FindMax(max_red, max_green, max_blue);
+        if (max_red > max_green && max_red > max_blue) {
+            votes[0] += 1;
+        } else if (max_green > max_red && max_green > max_blue) {
+            votes[1] += 1;
+        } else if (max_blue > max_red && max_blue > max_green) {
+            votes[2] += 1;
+        } else {
+        }
         
     }
     
+    // DetectColor();
     ColorDetection_FindMax(max_red, max_green, max_blue);
     ShutdownColorSensor();
 }
@@ -169,6 +188,46 @@ void ColorDetection_FindMax(int maxRed, int maxGreen, int maxBlue) {
     
 }
 
-void DetectColor(int maxRed, int maxGreen, int maxBlue);
+void DetectColor() {
+    int max_index, max_value;
+    
+    max_index = 0;
+    max_value = 0;
+    
+    for (int i = 0; i < 3; i++) {
+        if (votes[i] > max_value) {
+            max_value = votes[i];
+            max_index = i;
+        }
+        
+    }
+    
+    if (max_index == 0) {
+        detectedColor = RedColor;
+        printValue("RED\n");
+    } else if (max_index == 1) {
+        detectedColor = GreenColor;
+        printValue("GREEN\n");
+    } else if (max_index == 2) {
+        detectedColor = BlueColor;
+        printValue("BLUE\n");
+    } else {
+        detectedColor = GreyColor;
+        printValue("NONE\n");
+    }
+    
+}
+
+void printColor() {
+    if (detectedColor == RedColor) {
+        printValue("RED\n");
+    } else if (detectedColor == GreenColor) {
+        printValue("GREEN\n");
+    } else if (detectedColor == BlueColor) {
+        printValue("BLUE\n");
+    } else {
+    }
+    
+}
 
 /* [] END OF FILE */

@@ -121,6 +121,6 @@ void printToBluetooth() {
     double pos_y_prime = pos_y;
     double heading_angle_prime = (heading_angle * 180 / CY_M_PI);
     
-    printValue("x: %lf y: %lf, t: %lf\n", pos_x_prime, pos_y_prime, heading_angle_prime);
+    // printValue("x: %lf y: %lf, t: %lf\n", pos_x_prime, pos_y_prime, heading_angle_prime);
 }
 /* [] END OF FILE */

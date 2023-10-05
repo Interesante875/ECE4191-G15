@@ -46,7 +46,8 @@ void SetFrequencyScaling(int s0Set, int s1Set);
 void ColorDetection_Init();
 void ColorDetection_Run(int numRuns);
 void ColorDetection_FindMax(int maxRed, int maxGreen, int maxBlue);
-void DetectColor(int maxRed, int maxGreen, int maxBlue);
+void DetectColor();
+void printColor();
 
 
 // Interrupt service routine

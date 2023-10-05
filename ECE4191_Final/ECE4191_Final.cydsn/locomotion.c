@@ -192,8 +192,8 @@ void wheel_move_by_metrics (MotionDirection motion, uint8 pwm, double metrics) {
     while (abs(masterLeftTicks) < ticks) {
     }
 
-    printValue("LEFT: %d RIGHT: %d\n ", masterLeftTicks, slaveRightTicks);
-    printValue("Master PWM: %d Slave PWM: %d\n", masterPWM, slavePWM);
+//    printValue("LEFT: %d RIGHT: %d\n ", masterLeftTicks, slaveRightTicks);
+//    printValue("Master PWM: %d Slave PWM: %d\n", masterPWM, slavePWM);
     
     stopWheelController();
     stopMotor();
