@@ -31,13 +31,10 @@ int main(void)
     initializePosition(base_color);
     initializeBluetooth();
     InitalizeUltrasonicSensor();
-//    startGyroscope();
-//    CyDelay(1000);
-//    
-//    wheel_move_by_metrics(Forward, 220, 0.5);
-    
-    // UltrasonicSensor_ChangeState(UdsDetectRight);
-    double val;
+    // startIR();
+
+    double val = 0;
+    CyDelay(1000);
     for(;;)
     {
         
@@ -46,7 +43,9 @@ int main(void)
             printValue("%d: %.2lf ", i, val);
             CyDelay(50);
         }
-
+//        if (infraredDetectionStatus == Presence)
+//            ColorDetection_Run(1);
+//        
         printValue("\n");
         
         CyDelay(2000);

@@ -193,7 +193,7 @@ void FlickerLock_Lock() {
 void FlickerLock_Unlock() {
     boot_FlickerLock();   
     ServoControlFunction flickerLock = FlickerLock_SetCompare;
-    smoothControl(930, 880, 1, flickerLock);
+    smoothControl(930, 870, 1, flickerLock);
     shutdown_FlickerLock();
 }
 

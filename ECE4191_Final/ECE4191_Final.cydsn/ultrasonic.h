@@ -25,13 +25,13 @@
     DP-0
     0 bit 0 - FRONT_LEFT
     1 bit 1 - FRONT_RIGHT
-    2 bit 2 - BACK_LEFT
-    3 bit 3 - BACK_RIGHT
+    4 bit 2 - LEFT_FRONT
+    6 bit 3 - RIGHT_FRONT
     
     DP-1
-    4 bit 0 - LEFT_FRONT
-    5 bit 1 - LEFT_BACK
-    6 bit 2 - RIGHT_FRONT
+    2 bit 0 - BACK_LEFT
+    3 bit 1 - BACK_RIGHT
+    5 bit 2 - LEFT_BACK
     7 bit 3 - RIGHT_BACK
     */
     
@@ -68,8 +68,8 @@
 
     
     CY_ISR(ISR_Handler_Ultrasonic_Burst);
-    CY_ISR(ISR_Handler_Ultrasonic_Echo_FB);
-    CY_ISR(ISR_Handler_Ultrasonic_Echo_LR);
+    CY_ISR(ISR_Handler_Ultrasonic_Echo_Front);
+    CY_ISR(ISR_Handler_Ultrasonic_Echo_Back);
 
 #endif // ULTRASONIC_SENSOR_H
 /* [] END OF FILE */
