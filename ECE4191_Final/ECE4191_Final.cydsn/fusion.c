@@ -12,9 +12,4 @@
 #include "project.h"
 #include "fusion.h"
 
-
-void inverseVarianceWeighting(int gyro_heading, int ticks) {
-    
-    
-}
 /* [] END OF FILE */

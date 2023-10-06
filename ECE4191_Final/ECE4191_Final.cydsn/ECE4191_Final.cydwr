@@ -269,7 +269,7 @@
     <Group key="Pin">
       <Data key="0fe143c2-f701-4dc0-8d09-6c4cbde55272" value="MOTOR_EN_RIGHT" />
       <Data key="1b284605-cfde-448c-aca0-09a097d5b464" value="Echo_BACK_LEFT" />
-      <Data key="2f2b85cb-ac86-4068-b571-fb320ecd279f" value="Trigger" />
+      <Data key="2f2b85cb-ac86-4068-b571-fb320ecd279f" value="Trigger_LR" />
       <Data key="02f2cf2c-2c7a-49df-9246-7a3435c21be3" value="SCL_1" />
       <Data key="3a9189f0-9236-4dd1-a8d9-4f174ac93ae9" value="MOTOR_FLICKER_LOCK" />
       <Data key="4fb3ce60-0488-41a2-a40d-4393c5944ce0" value="S2" />
@@ -277,6 +277,7 @@
       <Data key="7a32bc1b-57d5-449d-a52b-f81f6c39a7b9" value="Count" />
       <Data key="8d318d8b-cf7b-4b6b-b02c-ab1c5c49d0ba" value="MOTOR_LEFT_PHASE_A" />
       <Data key="8ffeebf3-1518-4238-be25-8ac9785eecfe" value="Echo_LEFT_FRONT" />
+      <Data key="9dba7d46-e7d5-4abf-a179-58e6e9872cf9" value="Trigger_FB" />
       <Data key="26c9634e-f275-43a3-88b1-847904841678" value="Echo_RIGHT_BACK" />
       <Data key="53bdd870-b18a-4145-844f-e9267d4e033e" value="MOTOR_RIGHT_IN_4" />
       <Data key="64f170f8-dce5-442a-a6dd-07579760297e" value="Echo_SHOOTER_LEFT" />
@@ -3518,6 +3519,11 @@
         <Data key="Port Format" value="3,4" />
       </Group>
     </Group>
+    <Group key="9dba7d46-e7d5-4abf-a179-58e6e9872cf9">
+      <Group key="0">
+        <Data key="Port Format" value="15,3" />
+      </Group>
+    </Group>
     <Group key="26c9634e-f275-43a3-88b1-847904841678">
       <Group key="0">
         <Data key="Port Format" value="2,5" />
@@ -3580,7 +3586,7 @@
     </Group>
     <Group key="b65a597e-7385-4d73-a628-5cbfc4d741e9">
       <Group key="0">
-        <Data key="Port Format" value="2,4" />
+        <Data key="Port Format" value="12,4" />
       </Group>
     </Group>
     <Group key="c263bf58-c47f-4742-903f-63a3f6945ded">
@@ -3647,15 +3653,15 @@
     <Data key="CYDEV_CONFIG_FASTBOOT_ENABLED" value="True" />
     <Data key="CYDEV_CONFIG_UNUSED_IO" value="AllowButWarn" />
     <Data key="CYDEV_CONFIGURATION_ECC" value="False" />
-    <Data key="CYDEV_CONFIGURATION_MODE" value="COMPRESSED" />
+    <Data key="CYDEV_CONFIGURATION_MODE" value="UNCOMPRESSED" />
     <Data key="CYDEV_DEBUGGING_DPS" value="SWD_SWV" />
     <Data key="CYDEV_DEBUGGING_XRES" value="False" />
     <Data key="CYDEV_ECC_ENABLE" value="True" />
-    <Data key="CYDEV_HEAP_SIZE" value="0x6400" />
+    <Data key="CYDEV_HEAP_SIZE" value="0x8000" />
     <Data key="CYDEV_INSTRUCT_CACHE_ENABLED" value="True" />
     <Data key="CYDEV_PROTECTION_ENABLE" value="False" />
     <Data key="CYDEV_STACK_SIZE" value="0x4800" />
-    <Data key="CYDEV_TEMPERATURE" value="-40C - 85/125C" />
+    <Data key="CYDEV_TEMPERATURE" value="0C - 85/125C" />
     <Data key="CYDEV_TRACE_ENABLED" value="False" />
     <Data key="CYDEV_USE_BUNDLED_CMSIS" value="True" />
     <Data key="CYDEV_VARIABLE_VDDA" value="False" />

@@ -114,11 +114,13 @@ CY_ISR(ISR_Handler_Gyroscope)
                 heading += 360;
             }
             
+            if (++count % 20)
             printValue("Heading: %lf\n",heading);
         }
         else
         {
             previous_reading = current_reading;
+            if (++count % 20)
             printValue("Heading: %lf\n",heading);
         }
             

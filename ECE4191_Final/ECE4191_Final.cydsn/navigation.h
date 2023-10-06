@@ -19,6 +19,11 @@
         RedBase
     } StartingBase;
     
+    typedef enum {
+        FrontFacing,
+        HorizontalFacing,
+        BackFacing
+    } StartingOrientation;
     
     extern double pos_x;
     extern double pos_y;

@@ -12,7 +12,6 @@
 #ifndef FUSION_H
     #define FUSION_H
     
-    void inverseVarianceWeighting(int gyro_heading, int ticks);
     
 #endif
 /* [] END OF FILE */

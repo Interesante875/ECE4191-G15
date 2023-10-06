@@ -19,9 +19,13 @@
     } TargetPuckColor;
     
     extern int pinInWhichZone;
+    extern int zoneCount[6];
+    
     extern TargetPuckColor targetPuckColor;
     extern double distanceToPin;
-    void bowlingPinWhichStripe();
+    extern double initialPinDistance[8];
+    
+    void startingBowlingPinWhichStripe();
 
     
 #endif

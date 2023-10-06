@@ -17,6 +17,7 @@
 #include "p_ctrl.h"
 #include "pid_ctrl.h"
 #include "navigation.h"
+#include "gyroscope.h"
 #include <stdio.h>
 #include <math.h>
 #include <stdlib.h>
@@ -189,9 +190,20 @@ void wheel_move_by_metrics (MotionDirection motion, uint8 pwm, double metrics) {
     setMotionDirection(motion);
     initializeWheelController(USE_CONTROLLER, pwm);
     
-    while (abs(masterLeftTicks) < ticks) {
-    }
-
+    #if USE_GYRO_CONTROL
+        // while (fabs(heading) < metrics);
+        
+        if (motion == Left || motion == Right) {
+            while (inverseVarianceWeighting(fabs(heading_angle * 180 / CY_M_PI), fabs(heading)) < metrics);
+        }
+        else {
+            while (abs(masterLeftTicks) < ticks);
+        }
+        
+    #else
+        while (abs(masterLeftTicks) < ticks); 
+    #endif
+    
 //    printValue("LEFT: %d RIGHT: %d\n ", masterLeftTicks, slaveRightTicks);
 //    printValue("Master PWM: %d Slave PWM: %d\n", masterPWM, slavePWM);
     
@@ -229,4 +241,8 @@ void wheel_move (MotionDirection motion, uint8 pwm) {
     initializeWheelController(USE_CONTROLLER, pwm);
 }
 
+
+double inverseVarianceWeighting(double ticks_h, double gyro_h) {
+    return 0.2 * ticks_h + 0.8 * gyro_h;   
+}
 /* [] END OF FILE */

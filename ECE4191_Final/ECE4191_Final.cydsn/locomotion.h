@@ -13,6 +13,7 @@
     #define LOCOMOTION_H
     
     #define USE_CONTROLLER ProportionalControl
+    #define USE_GYRO_CONTROL 0
     
     #include "motor_control.h"
     
@@ -28,6 +29,8 @@
     void wheel_move_by_ticks(MotionDirection motion, int pwm, int target_ticks);
     void wheel_move_by_metrics (MotionDirection motion, uint8 pwm, double metrics);
     void wheel_move (MotionDirection motion, uint8 pwm);
+    
+    double inverseVarianceWeighting(double ticks_h, double gyro_h);
     
     void initializeWheelController(ControllerType ctrlType_name, int pwm);
     void stopWheelController();

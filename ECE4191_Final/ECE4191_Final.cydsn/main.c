@@ -9,6 +9,7 @@
  *
  * ========================================
 */
+
 #include "project.h"
 #include <math.h>
 #include "bluetooth.h"
@@ -30,73 +31,25 @@ int main(void)
     initializePosition(base_color);
     initializeBluetooth();
     InitalizeUltrasonicSensor();
-
+//    startGyroscope();
 //    CyDelay(1000);
-//    GripperHand_GripPuck();
-//    GripperArm_Extend();
-//    GripperHand_Open();
-//    GripperArm_Retract();
-//    GripperHand_Close();
-//    FlickerLock_Lock();
-//    FlickerRecoil_Load();
-//    FlickerRecoil_Unload();
-//    wheel_move_by_metrics(Forward, 230, 0.07);
-//    FlickerLock_Unlock();
-//    FlickerLock_Lock();
+//    
+//    wheel_move_by_metrics(Forward, 220, 0.5);
     
-    
-    GripperHand_Open();
-    GripperArm_Extend();
-    shutdown_Gripper();
-    
-    int finish = 0;
-    
-    while (!finish) {
-        startIR();
-        
-        wheel_move(Forward, 200);
-        
-        while (infraredDetectionStatus == Absence);
-        
-        wheel_move(StopMotion, 250);
-        stopIR();
-        wheel_move_by_metrics(Backward, 190, 0.01);
-        
-        ColorDetection_Run(1);
-
-        printColor();
-        if (detectedColor == GreenColor) {
-            GripperHand_GripPuck();
-            GripperArm_Retract();
-            shutdown_Gripper();
-            finish = 1;
-        } else if (detectedColor != GreyColor) {
-            GripperHand_GripPuck();
-            GripperArm_Retract();
-//            GripperHand_Open();
-//            GripperArm_Hurl();
-//            GripperArm_SmallExtend();
-            shutdown_Gripper();
-            wheel_move_by_metrics(Right, 250, 20);
-            GripperArm_Extend();
-            GripperHand_Open();
-            GripperArm_Retract();
-            shutdown_Gripper();
-            wheel_move_by_metrics(Left, 250, 20);
-            GripperArm_Extend();
-            shutdown_Gripper();
-        } else {
-            
-            
-        }
-    
-    }
-
+    // UltrasonicSensor_ChangeState(UdsDetectRight);
+    double val;
     for(;;)
     {
-//        ColorDetection_Run(1);
-//        
-//        CyDelay(2000);
+        
+        for (int i = 0; i < 8; i++) {
+            val = UltrasonicSensor_ReadDistanceData(i);
+            printValue("%d: %.2lf ", i, val);
+            CyDelay(50);
+        }
+
+        printValue("\n");
+        
+        CyDelay(2000);
     }
 }
 

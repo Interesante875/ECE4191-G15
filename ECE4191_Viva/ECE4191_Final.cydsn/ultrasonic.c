@@ -93,6 +93,8 @@ void UltrasonicSensor_ChangeState(UdsDetectState state) {
 }
 
 void UltrasonicSensor_TriggerBurst() {
+    Trigger_Write(0); 
+    CyDelayUs(2);
     Trigger_Write(1);
     CyDelayUs(10);
     Trigger_Write(0);   

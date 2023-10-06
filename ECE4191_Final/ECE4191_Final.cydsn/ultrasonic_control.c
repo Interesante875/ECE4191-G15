@@ -21,69 +21,84 @@
 int pinInWhichZone;
 TargetPuckColor targetPuckColor;
 double distanceToPin;
+int zoneCount[6];
 
-void bowlingPinWhichStripe() {
+void startingBowlingPinWhichStripe() {
     
     int zone = 0;
     
     if (start_base_color == YellowBase || start_base_color == BlueBase) {
-        UltrasonicSensor_ChangeState(UdsDetectFLR);
+        UltrasonicSensor_ChangeState(UdsDetectAll);
     } else {
-        UltrasonicSensor_ChangeState(UdsDetectFLR);
+        UltrasonicSensor_ChangeState(UdsDetectAll);
     }
     
-    double BU_1, BU_2, BU;
+    static double BU[8] = {0};
+    static double BU_count[8] = {0};
     
-    if (start_base_color == YellowBase || start_base_color == BlueBase) {
-        for (int j = 0; j < 10; j++) {
-            BU_1 += UltrasonicSensor_ReadDistanceData(0)/10;
-            BU_2 += UltrasonicSensor_ReadDistanceData(1)/10;
-            BU += UltrasonicSensor_ReadDistanceData(5)/10;
-            CyDelay(10);
+    for (int j = 0; j < 8; j++) {
+        BU_count[j] += 1;
+        BU[j] = UltrasonicSensor_ReadDistanceData(j);
+        CyDelay(10);
+    }
+    
+    for (int j = 0; j < 8; j++) {
+        printValue("(%d): %lf ", j, BU[j]);   
+    }
+    
+    printValue("\n");
+    
+    // Which one is possible?
+    int detectedPin[8] = {0};
+    
+    for (int j = 0; j < 8; j++) {
+        if (BU[j] <= 5 || BU[j] >= 60) {
+            detectedPin[j] = 0;
+        } else {
+            detectedPin[j] = 1;
         }
         
-    } else {
-        for (int j = 0; j < 10; j++) {
-            BU_1 += UltrasonicSensor_ReadDistanceData(0)/10;
-            BU_2 += UltrasonicSensor_ReadDistanceData(1)/10;
-            BU += UltrasonicSensor_ReadDistanceData(7)/10;
-            CyDelay(10);
+        if (detectedPin[j]) {
+            double a = BU[j];
+            if (a >= 7.5 && a < 12.5) // Zone 1
+            {
+                pinInWhichZone = 1;
+                targetPuckColor = BluePuck;
+            }
+            else if (a >= 12.5 && a < 17.5) // Zone 2
+            {
+                pinInWhichZone = 2;
+                targetPuckColor = GreenPuck;   
+            }
+            else if (a >= 17.5 && a < 22.5) // Zone 3
+            {
+                pinInWhichZone = 3;
+                targetPuckColor = RedPuck;   
+            }
+            else if (a >= 22.5 && a < 27.5) // Zone 4
+            {
+                pinInWhichZone = 4;
+                targetPuckColor = BluePuck;   
+            }
+            else if (a >= 27.5 && a < 32.5) // Zone 5
+            {
+                pinInWhichZone = 5;
+                targetPuckColor = GreenPuck;   
+            }
+            else if (a >= 32.5 && a < 37.5) // Zone 6
+            {
+                pinInWhichZone = 6;
+                targetPuckColor = RedPuck;   
+            }
+            
+            printValue("UDS: %d at ZONE: %d @ %lf\n", j, pinInWhichZone, a);
+            
+            break;
         }
     }
+
     
-    distanceToPin = BU_1;
-    printValue("DISTANCE: %lf %lf %lf\n", BU, BU_1, BU_2);
     
-//    if (BU >= 7.5 && BU < 12.5) // Zone 1
-//    {
-//        pinInWhichZone = 1;
-//        targetPuckColor = BluePuck;
-//    }
-//    else if (BU >= 12.5 && BU < 17.5) // Zone 2
-//    {
-//        pinInWhichZone = 2;
-//        targetPuckColor = GreenPuck;   
-//    }
-//    else if (BU >= 17.5 && BU < 22.5) // Zone 3
-//    {
-//        pinInWhichZone = 3;
-//        targetPuckColor = RedPuck;   
-//    }
-//    else if (BU >= 22.5 && BU < 27.5) // Zone 4
-//    {
-//        pinInWhichZone = 4;
-//        targetPuckColor = BluePuck;   
-//    }
-//    else if (BU >= 27.5 && BU < 32.5) // Zone 5
-//    {
-//        pinInWhichZone = 5;
-//        targetPuckColor = GreenPuck;   
-//    }
-//    else if (BU >= 32.5 && BU < 37.5) // Zone 6
-//    {
-//        pinInWhichZone = 6;
-//        targetPuckColor = RedPuck;   
-//    }
 
 }
 
