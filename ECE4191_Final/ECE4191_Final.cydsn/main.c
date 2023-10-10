@@ -13,53 +13,31 @@
 #include "project.h"
 #include <math.h>
 #include "bluetooth.h"
+#include "trialRun.h"
 #include "ultrasonic.h"
 #include "ultrasonic_control.h"
-#include "locomotion.h"
-#include "colorsensor.h"
-#include "servo_control.h"
-#include "irsensor.h"
-#include "gyroscope.h"
-#include "navigation.h"
-#include "behavior_tree.h"
 
 int main(void)
 {
     CyGlobalIntEnable; /* Enable global interrupts. */
-
-    StartingBase base_color = RedBase;
-    initializePosition(base_color);
     initializeBluetooth();
     InitalizeUltrasonicSensor();
-    startGyroscope();
-    // startIR();
-
-    double val = 0;
-    CyDelay(1000);
     
-    wheel_move_by_metrics_with_gyro(Left, 250, 90);
-    CyDelay(1000);
-    wheel_move_by_metrics_with_gyro(Right, 250, 90);
-    CyDelay(1000);
-    wheel_move_by_metrics_with_gyro(Right, 250, 90);
-    CyDelay(1000);
-    wheel_move_by_metrics_with_gyro(Left, 250, 90);
-    CyDelay(1000);
+    // test_run();
     
     for(;;)
     {
         
-//        for (int i = 0; i < 8; i++) {
-//            val = UltrasonicSensor_ReadDistanceData(i);
-//            printValue("%d: %.2lf ", i, val);
-//            CyDelay(50);
-//        }
-////        if (infraredDetectionStatus == Presence)
-////            ColorDetection_Run(1);
-////        
-//        printValue("\n");
-//        
-//        CyDelay(2000);
+        for (int i = 0; i < 8; i++) {
+            read_U();
+            print_U();
+            printValue("%.2lf: %.2lf ", BLU, BRU);
+            printValue("%.2lf: %.2lf\n", RBU, LBU);
+            CyDelay(50);
+        }
+        // printValue("\n");
+        CyDelay(3000);
+        
     }
 }
 

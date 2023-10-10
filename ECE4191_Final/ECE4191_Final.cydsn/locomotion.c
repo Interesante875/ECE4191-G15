@@ -25,10 +25,10 @@
 
 #define EMF_BUFFER_DELAY 50
 #define TICKS_PER_REVOLUTION 4300
-#define WHEEL_RADIUS 0.02695
-#define WHEEL_DISTANCE 0.1475
+#define WHEEL_RADIUS 0.02745
+#define WHEEL_DISTANCE 0.1536
 #define HALF_WIDTH 0.122
-
+// 12.96 + 2.4/2 = 
 static volatile int masterPWM = 0;
 static volatile int slavePWM = 0;
 static volatile int targetMasterPWM = 0;
@@ -152,8 +152,8 @@ void wheel_move_by_ticks(MotionDirection motion, int pwm, int target_ticks) {
     }
     
 //    printValue("DONE\n");
-    printValue("LEFT: %d RIGHT: %d\n ", masterLeftTicks, slaveRightTicks);
-    printValue("Master PWM: %d Slave PWM: %d\n", masterPWM, slavePWM);
+//    printValue("LEFT: %d RIGHT: %d\n ", masterLeftTicks, slaveRightTicks);
+//    printValue("Master PWM: %d Slave PWM: %d\n", masterPWM, slavePWM);
  
     stopWheelController();
     stopMotor();
@@ -196,11 +196,13 @@ void wheel_move_by_metrics_with_gyro (MotionDirection motion, uint8 pwm, double 
     #if USE_GYRO_CONTROL
         while (abs(masterLeftTicks) < ticks); 
         // while (fabs(heading) < metrics);
-        
+        CyDelay(200);
         printValue("H: %.2lf\n", gyroHeading);
         
         if (motion == Left || motion == Right) {
             if (fabs(gyroHeading) >= metrics + 5) {
+                stopWheelController();
+                initializeWheelController(USE_CONTROLLER, pwm);
                 double ang_correct = fabs(gyroHeading) - metrics;
                 printValue("CH: %.2lf\n", ang_correct);
                 if (motion == Left) {
@@ -210,6 +212,8 @@ void wheel_move_by_metrics_with_gyro (MotionDirection motion, uint8 pwm, double 
                 }
                 
             } else if (fabs(gyroHeading) <= metrics - 5) {
+                stopWheelController();
+               initializeWheelController(USE_CONTROLLER, pwm);
                 double ang_correct = metrics - fabs(gyroHeading);
                 printValue("CH: %.2lf\n", ang_correct);
                 if (motion == Left) {
@@ -221,7 +225,6 @@ void wheel_move_by_metrics_with_gyro (MotionDirection motion, uint8 pwm, double 
             
         }
         
-        gyroHeading = 0;
         
     #else
         while (abs(masterLeftTicks) < ticks); 
@@ -229,10 +232,9 @@ void wheel_move_by_metrics_with_gyro (MotionDirection motion, uint8 pwm, double 
     
 //    printValue("LEFT: %d RIGHT: %d\n ", masterLeftTicks, slaveRightTicks);
 //    printValue("Master PWM: %d Slave PWM: %d\n", masterPWM, slavePWM);
-    
     stopWheelController();
     stopMotor();
-    printToBluetooth();
+    // printToBluetooth();
 
     CyDelay(EMF_BUFFER_DELAY);
 }
@@ -265,16 +267,16 @@ void wheel_move_by_metrics (MotionDirection motion, uint8 pwm, double metrics) {
     
     setMotionDirection(motion);
     initializeWheelController(USE_CONTROLLER, pwm);
-
+    // printValue("Initial Heading: %lf\n",gyroHeading);
     while (abs(masterLeftTicks) < ticks); 
 
-//    printValue("LEFT: %d RIGHT: %d\n ", masterLeftTicks, slaveRightTicks);
-//    printValue("Master PWM: %d Slave PWM: %d\n", masterPWM, slavePWM);
+    printValue("LEFT: %d RIGHT: %d\n ", masterLeftTicks, slaveRightTicks);
+    printValue("Master PWM: %d Slave PWM: %d\n", masterPWM, slavePWM);
     
     stopWheelController();
     stopMotor();
-    printToBluetooth();
-
+    // printToBluetooth();
+    printValue("After Heading: %lf\n",gyroHeading);
     CyDelay(EMF_BUFFER_DELAY);
 }
 
@@ -305,6 +307,29 @@ void wheel_move (MotionDirection motion, uint8 pwm) {
     initializeWheelController(USE_CONTROLLER, pwm);
 }
 
+void angle_correction(uint8 pwm, double distance_1, double distance_2) {
+    
+    lastMasterTicks = 0;
+    lastSlaveTicks = 0;
+    
+    double delta_dist = (distance_1 - distance_2)/100;
+    double threshold = 1.5;
+    
+    if (fabs(delta_dist) > threshold) {
+        double angle = atan2(delta_dist, 0.1005) * 180 / CY_M_PI;
+        
+        if (angle > 15) angle = 15;
+        else if (angle < -15) angle = -15;
+        
+        if (angle > 0) {
+           wheel_move_by_metrics(Right, pwm, angle);
+        } else {
+           wheel_move_by_metrics(Left, pwm, angle);
+        }
+    }
+    
+    
+}
 
 double inverseVarianceWeighting(double ticks_h, double gyro_h) {
     double ang = 0.5 * ticks_h + 0.5 * gyro_h; 

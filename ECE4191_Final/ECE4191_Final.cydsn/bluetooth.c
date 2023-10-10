@@ -145,7 +145,7 @@ void performHandshake(void) {
 void waitingHandshake(void) {
     
     printValue("Waiting...\n");
-    while (inputState != InputStateStart) {
+    while (inputState != InputStateEnd) {
         while (isStringNotReceived);
         performHandshake();
         isStringNotReceived = true;

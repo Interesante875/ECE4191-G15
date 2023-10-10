@@ -83,10 +83,12 @@ double UltrasonicSensor_ReadDistanceData(int sensorIndex) {
 void UltrasonicSensor_SelectSensor(int sensorIndex) {
     
     if (sensorIndex < 4) {
+        
         Control_Reg_Ultrasonic_Front_Write(sensorIndex);
         ultrasonicSensorIndex_Front = sensorIndex;
     } else {
-        Control_Reg_Ultrasonic_Back_Write(sensorIndex);  
+        
+        Control_Reg_Ultrasonic_Back_Write(sensorIndex - 4);  
         ultrasonicSensorIndex_Back = sensorIndex - 4;
     }
     
@@ -120,6 +122,7 @@ void UltrasonicSensor_MeasureDistance(int sensorIndex) {
 
 CY_ISR(ISR_Handler_Ultrasonic_Echo_Front) {
     Timer_Ultrasonic_Echo_Front_ReadStatusRegister();
+    // printValue("FRONT %d %d\n", ultrasonicSensorIndex_Front, ultrasonicSensorIndex_Back + 4);
     UltrasonicSensor_MeasureDistance(ultrasonicSensorIndex_Front);
     
     ultrasonicSensorIndex_Front = (ultrasonicSensorIndex_Front + 1) % (NUM_ULTRASONIC_SENSORS/2);
@@ -130,6 +133,7 @@ CY_ISR(ISR_Handler_Ultrasonic_Echo_Front) {
 CY_ISR(ISR_Handler_Ultrasonic_Echo_Back) {
     
     Timer_Ultrasonic_Echo_Back_ReadStatusRegister();
+    // printValue("BACK %d %d\n", ultrasonicSensorIndex_Front, ultrasonicSensorIndex_Back + 4);
     UltrasonicSensor_MeasureDistance(ultrasonicSensorIndex_Back + 4);
     
     ultrasonicSensorIndex_Back = (ultrasonicSensorIndex_Back + 1) % (NUM_ULTRASONIC_SENSORS/2);

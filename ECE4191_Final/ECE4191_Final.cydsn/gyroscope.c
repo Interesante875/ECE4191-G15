@@ -105,23 +105,23 @@ CY_ISR(ISR_Handler_Gyroscope)
             }
             
             //wrapping the heading within 0 - 360 degrees
-            if (heading > 180)
+            if (gyroHeading > 180)
             {
                 gyroHeading -= 360;
             }
-            else if (heading < -180)
+            else if (gyroHeading < -180)
             {
                 gyroHeading += 360;
             }
             
-            //if (++count % 20)
-            //printValue("Heading: %lf\n",heading);
+//            if (++count % 20)
+//            printValue("Heading: %lf\n",gyroHeading);
         }
         else
         {
             previous_reading = current_reading;
-            //if (++count % 20)
-            //printValue("Heading: %lf\n",heading);
+//            if (++count % 20)
+//            printValue("Heading: %lf\n",gyroHeading);
         }
             
     }
@@ -175,7 +175,7 @@ void initializeGyroscope() {
     yaw_angle = 0;
     previous_reading = 0;
     current_reading = 0;
-    heading = 0;
+    gyroHeading = 0;
     cycles = 0;
 }
 

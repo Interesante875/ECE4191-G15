@@ -12,7 +12,12 @@
 #ifndef TRIALRUN_H
     #define TRIALRUN_H
     
+    #include "cytypes.h"
+    
     void initializeRobot();
+    void moveOutofBaseHighLevel(uint8 pwm, double dist_in_metre);
+    void detectWhereIsThePinZone(uint8 detectPWM);
+    void test_run();
     void run();
     void runLevelOne();
     void runLevelTwo();
@@ -21,6 +26,7 @@
     
     void rasterScan();
     void detectOpponent();
+    
     
     
 #endif

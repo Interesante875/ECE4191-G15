@@ -30,6 +30,7 @@
     void wheel_move_by_metrics (MotionDirection motion, uint8 pwm, double metrics);
     void wheel_move_by_metrics_with_gyro (MotionDirection motion, uint8 pwm, double metrics);
     void wheel_move (MotionDirection motion, uint8 pwm);
+    void angle_correction(uint8 pwm, double distance_1, double distance_2);
     
     double inverseVarianceWeighting(double ticks_h, double gyro_h);
     
