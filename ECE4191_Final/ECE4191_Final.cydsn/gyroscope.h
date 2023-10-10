@@ -16,7 +16,7 @@
     
     
     
-    extern double heading;
+    extern double gyroHeading;
     
     void initializeGyroscope();
     void shutdownGyroscope();

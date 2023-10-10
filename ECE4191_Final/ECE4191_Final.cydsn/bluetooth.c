@@ -23,6 +23,11 @@ int levelOnePinDeckNum;
 int currentLevel;
 InputState inputState;
 PinZoneColor zoneColor;
+PinZoneColor levelTwoZoneColor;
+int levelThreePinDeckNum;
+int levelFourPinDeckNum;
+PinZoneColor levelThreeZoneColor;
+PinZoneColor levelFourZoneColor;
 int test_val;
 
 /* Local Variables */
@@ -90,21 +95,37 @@ void performHandshake(void) {
             // Parse each line into the specified format
             if (sscanf(token, "%d %19s %d", &first_number, color, &second_number) == 3) {
                 // Print the parsed values
-                printValue("First Number: %d, Color: %s, Second Number: %d\n", first_number, color, second_number);
-                
+                printValue("Pin Deck Number: %d, Pin Deck Color: %s, Current Level: %d\n", first_number, color, second_number);
                 
                 levelOnePinDeckNum = first_number;
                 currentLevel = second_number;
-                
-                if (!strcasecmp(color, "blue")) zoneColor = PinZoneColorBlue;
-                else if (!strcasecmp(color, "green")) zoneColor = PinZoneColorGreen;
-                else if (!strcasecmp(color, "red")) zoneColor = PinZoneColorRed;
+
+                if (!strcasecmp(color, "blue")) levelTwoZoneColor = PinZoneColorBlue;
+                else if (!strcasecmp(color, "green")) levelTwoZoneColor = PinZoneColorGreen;
+                else if (!strcasecmp(color, "red")) levelTwoZoneColor = PinZoneColorRed;
                 else {
                     printValue("Error: Invalid color in instruction: %s\n", color);
                     
                     inputState = InputStateInstruction;
                     
                     return;
+                }
+                
+                switch (currentLevel) {
+                    case 1:
+                        if (levelOnePinDeckNum == 1 || levelOnePinDeckNum == 3) {
+                            zoneColor = PinZoneColorBlue;
+                        } else if (levelOnePinDeckNum == 2 || levelOnePinDeckNum == 4) {
+                            zoneColor = PinZoneColorGreen;
+                        } else {
+                            zoneColor = PinZoneColorRed;
+                        }
+                        break;
+                    case 2:
+                        zoneColor = levelTwoZoneColor;
+                        break;
+                    default:
+                        break;
                 }
                 
                 inputState = InputStateStart;
@@ -124,7 +145,7 @@ void performHandshake(void) {
 void waitingHandshake(void) {
     
     printValue("Waiting...\n");
-    while (inputState != InputStateEnd) {
+    while (inputState != InputStateStart) {
         while (isStringNotReceived);
         performHandshake();
         isStringNotReceived = true;

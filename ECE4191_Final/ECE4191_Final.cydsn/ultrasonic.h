@@ -17,7 +17,7 @@
 #include "cytypes.h"
 #include "median_filter.h"
 
-    #define ENABLE_MEDIAN_FILTERING 0
+    #define ENABLE_MEDIAN_FILTERING 1
     #define ENABLE_TIMER_BURST 0
     #define NUM_ULTRASONIC_SENSORS 8
     #define ARRAY_SIZE 3

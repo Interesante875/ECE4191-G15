@@ -31,24 +31,35 @@ int main(void)
     initializePosition(base_color);
     initializeBluetooth();
     InitalizeUltrasonicSensor();
+    startGyroscope();
     // startIR();
 
     double val = 0;
     CyDelay(1000);
+    
+    wheel_move_by_metrics_with_gyro(Left, 250, 90);
+    CyDelay(1000);
+    wheel_move_by_metrics_with_gyro(Right, 250, 90);
+    CyDelay(1000);
+    wheel_move_by_metrics_with_gyro(Right, 250, 90);
+    CyDelay(1000);
+    wheel_move_by_metrics_with_gyro(Left, 250, 90);
+    CyDelay(1000);
+    
     for(;;)
     {
         
-        for (int i = 0; i < 8; i++) {
-            val = UltrasonicSensor_ReadDistanceData(i);
-            printValue("%d: %.2lf ", i, val);
-            CyDelay(50);
-        }
-//        if (infraredDetectionStatus == Presence)
-//            ColorDetection_Run(1);
+//        for (int i = 0; i < 8; i++) {
+//            val = UltrasonicSensor_ReadDistanceData(i);
+//            printValue("%d: %.2lf ", i, val);
+//            CyDelay(50);
+//        }
+////        if (infraredDetectionStatus == Presence)
+////            ColorDetection_Run(1);
+////        
+//        printValue("\n");
 //        
-        printValue("\n");
-        
-        CyDelay(2000);
+//        CyDelay(2000);
     }
 }
 

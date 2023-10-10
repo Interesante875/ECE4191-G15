@@ -39,6 +39,7 @@
     extern int currentLevel;
     extern InputState inputState;
     extern PinZoneColor zoneColor;
+    extern PinZoneColor levelTwoZoneColor;
     extern int test_val;
 
     void initializeBluetooth(void);

@@ -25,7 +25,7 @@ double yaw_rate = 0;
 double yaw_angle = 0;
 double previous_reading = 0;
 double current_reading = 0;
-double heading = 0;
+double gyroHeading = 0;
 int cycles = 0;
 const double timeStep = 0.1;
 int cal = 1;
@@ -92,36 +92,36 @@ CY_ISR(ISR_Handler_Gyroscope)
             {
                 if (yaw_angle < 0)
                 {
-                    heading = yaw_angle + cycles*360;
+                    gyroHeading = yaw_angle + cycles*360;
                 }
                 else
                 {
-                    heading = yaw_angle - cycles*360;
+                    gyroHeading = yaw_angle - cycles*360;
                 }
             }
             else
             {
-                heading = yaw_angle;
+                gyroHeading = yaw_angle;
             }
             
             //wrapping the heading within 0 - 360 degrees
             if (heading > 180)
             {
-                heading -= 360;
+                gyroHeading -= 360;
             }
             else if (heading < -180)
             {
-                heading += 360;
+                gyroHeading += 360;
             }
             
-            if (++count % 20)
-            printValue("Heading: %lf\n",heading);
+            //if (++count % 20)
+            //printValue("Heading: %lf\n",heading);
         }
         else
         {
             previous_reading = current_reading;
-            if (++count % 20)
-            printValue("Heading: %lf\n",heading);
+            //if (++count % 20)
+            //printValue("Heading: %lf\n",heading);
         }
             
     }
