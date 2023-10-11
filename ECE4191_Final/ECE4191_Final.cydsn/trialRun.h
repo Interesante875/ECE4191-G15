@@ -18,6 +18,7 @@
     void moveOutofBaseHighLevel(uint8 pwm, double dist_in_metre);
     void detectWhereIsThePinZone(uint8 detectPWM);
     void test_run();
+    void test_sensors();
     void run();
     void runLevelOne();
     void runLevelTwo();

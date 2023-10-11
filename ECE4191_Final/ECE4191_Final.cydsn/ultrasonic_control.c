@@ -33,12 +33,12 @@ int zoneCount[6];
 void read_U() {
     FLU = UltrasonicSensor_ReadDistanceData(0);  
     FRU = UltrasonicSensor_ReadDistanceData(1); 
-    LFU = UltrasonicSensor_ReadDistanceData(2); 
-    LBU = UltrasonicSensor_ReadDistanceData(6);
-    RFU = UltrasonicSensor_ReadDistanceData(3); 
+    LFU = UltrasonicSensor_ReadDistanceData(4); 
+    LBU = UltrasonicSensor_ReadDistanceData(5);
+    RFU = UltrasonicSensor_ReadDistanceData(6); 
     RBU = UltrasonicSensor_ReadDistanceData(7);
-    BLU = UltrasonicSensor_ReadDistanceData(4);
-    BRU = UltrasonicSensor_ReadDistanceData(5);
+    BLU = UltrasonicSensor_ReadDistanceData(2);
+    BRU = UltrasonicSensor_ReadDistanceData(3);
 }
 
 void read_FU() {
@@ -47,18 +47,18 @@ void read_FU() {
 }
 
 void read_LU() {
-    LFU = UltrasonicSensor_ReadDistanceData(2); 
-    LBU = UltrasonicSensor_ReadDistanceData(6);  
+    LFU = UltrasonicSensor_ReadDistanceData(4); 
+    LBU = UltrasonicSensor_ReadDistanceData(5);  
 }
 
 void read_RU() {
-    RFU = UltrasonicSensor_ReadDistanceData(3); 
+    RFU = UltrasonicSensor_ReadDistanceData(6); 
     RBU = UltrasonicSensor_ReadDistanceData(7);
 }
 
 void read_BU() {
-    BLU = UltrasonicSensor_ReadDistanceData(4);
-    BRU = UltrasonicSensor_ReadDistanceData(5);
+    BLU = UltrasonicSensor_ReadDistanceData(2);
+    BRU = UltrasonicSensor_ReadDistanceData(3);
 }
 
 void read_FLU() {
@@ -68,16 +68,16 @@ void read_FRU() {
     FRU = UltrasonicSensor_ReadDistanceData(1);   
 }
 void read_LFU() {
-    LFU = UltrasonicSensor_ReadDistanceData(2);   
+    LFU = UltrasonicSensor_ReadDistanceData(4);   
 }
 void read_RFU() {
-    RFU = UltrasonicSensor_ReadDistanceData(3);   
+    RFU = UltrasonicSensor_ReadDistanceData(5);   
 }
 void read_BLU() {
-    BLU = UltrasonicSensor_ReadDistanceData(4);   
+    BLU = UltrasonicSensor_ReadDistanceData(2);   
 }
 void read_BRU() {
-    BRU = UltrasonicSensor_ReadDistanceData(5);   
+    BRU = UltrasonicSensor_ReadDistanceData(3);   
 }
 void read_LBU() {
     LBU = UltrasonicSensor_ReadDistanceData(6);   

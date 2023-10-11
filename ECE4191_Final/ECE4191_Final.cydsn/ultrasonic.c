@@ -44,6 +44,7 @@ void InitalizeUltrasonicSensor() {
             sensorMeasuredDistances[i][j] = 0;
         }
     }
+    UltrasonicSensor_ChangeState(UdsDetectAll);
     ultrasonicSensorIndex = 0;
 
 }
@@ -65,14 +66,16 @@ double UltrasonicSensor_ReadDistanceData(int sensorIndex) {
     #if ENABLE_MEDIAN_FILTERING == 1
         double* rowPointer = sensorMeasuredDistances[sensorIndex];
         median = findMedian(rowPointer, ARRAY_SIZE);
-        printValue("UDS(%d) %lf\n", sensorIndex, median);
+        // printValue("UDS(%d) %lf\n", sensorIndex, median);
         return median;
-    #endif
+    #else
     
     
     double value = sensorMeasuredDistances[sensorIndex][0];
-    printValue("Read: (%d) %lf\n", sensorIndex, value);
+    // printValue("Read: (%d) %lf\n", sensorIndex, value);
     return value;
+    
+    #endif
 
 }
 
@@ -89,10 +92,9 @@ void UltrasonicSensor_MeasureDistance(int sensorIndex) {
 
     count = Timer_Ultrasonic_Echo_ReadCounter();
  
-    distance = (double) (65535 - count)/58.0;
-    
-    if (sensorIndex == 0)
-    printValue("(%d): %d %lf\n", sensorIndex, count, distance);
+    distance = (double) (65536 - count)/58.0;
+
+    // printValue("(%d): %d %lf\n", sensorIndex, count, distance);
     #if ENABLE_MEDIAN_FILTERING
         sensorMeasuredDistances[sensorIndex][currIdx[sensorIndex]] = distance;
     
@@ -132,15 +134,61 @@ int readEcho(int sensorIndex) {
     }
 }
 
+void UltrasonicSensor_ChangeState(UdsDetectState state) {
+    udsDetectState = state;
+    
+    switch (udsDetectState) {
+        case UdsDetectAll:
+            UltrasonicSensor_SelectSensor(0);
+        break;
+        case UdsDetectFront:
+            UltrasonicSensor_SelectSensor(0);
+        break;
+        case UdsDetectBack:
+            UltrasonicSensor_SelectSensor(2);
+        break;
+        case UdsDetectLeft:
+            UltrasonicSensor_SelectSensor(4);
+        break;
+        case UdsDetectRight:
+            UltrasonicSensor_SelectSensor(6);
+        break;
+        case UdsDetectFLR:
+            UltrasonicSensor_SelectSensor(0);
+        break;
+        case UdsDetectBLR:
+            UltrasonicSensor_SelectSensor(2);
+        break;
+        case UdsDetectLR:
+            UltrasonicSensor_SelectSensor(4);
+        break;
+        default:
+            UltrasonicSensor_SelectSensor(0);
+        break;
+
+    }
+    
+}
+
 CY_ISR (ISR_Handler_Ultrasonic_Trigger) {
     Timer_Ultrasonic_Trigger_ReadStatusRegister();
     
-    while (readEcho(ultrasonicSensorIndex) == 0) {
+    if (readEcho(ultrasonicSensorIndex) == 0) {
+       
         Trigger_1_Write(1);
-        Trigger_2_Write(1);
         CyDelayUs(10);
         Trigger_1_Write(0);
-        Trigger_2_Write(0);
+        Trigger_2_Write(1);
+        CyDelayUs(10);
+       Trigger_2_Write(0);
+        Trigger_3_Write(1);
+        CyDelayUs(10);
+        Trigger_3_Write(0);
+        //Trigger_4_Write(1);
+
+
+        //Trigger_4_Write(1);
+        //CyDelayUs(2);
     }
 
 }
@@ -151,7 +199,58 @@ CY_ISR(ISR_Handler_Ultrasonic_Echo) {
     UltrasonicSensor_MeasureDistance(ultrasonicSensorIndex);
     
     // BASED ON STATE
-    ultrasonicSensorIndex = (ultrasonicSensorIndex + 1) % (NUM_ULTRASONIC_SENSORS);
+    switch (udsDetectState) {
+        case UdsDetectAll:
+            ultrasonicSensorIndex = (ultrasonicSensorIndex + 1) % (NUM_ULTRASONIC_SENSORS);
+        break;
+        case UdsDetectFront:
+            if (ultrasonicSensorIndex != 0 && ultrasonicSensorIndex != 1) {
+                ultrasonicSensorIndex = 0;   
+            } else {
+                ultrasonicSensorIndex = (ultrasonicSensorIndex + 1) % (2);
+            }
+        break;
+        case UdsDetectBack:
+            if (ultrasonicSensorIndex != 2 && ultrasonicSensorIndex != 3) {
+                ultrasonicSensorIndex = 2;
+            } else {
+                ultrasonicSensorIndex = (ultrasonicSensorIndex == 2) ? 3 : 2;
+            }
+        break;
+        case UdsDetectLeft:
+            if (ultrasonicSensorIndex != 4 && ultrasonicSensorIndex != 5) {
+                ultrasonicSensorIndex = 4;
+            } else {
+                ultrasonicSensorIndex = (ultrasonicSensorIndex == 4) ? 5 : 4;
+            }
+        break;
+        case UdsDetectRight:
+            if (ultrasonicSensorIndex != 6 && ultrasonicSensorIndex != 7) {
+                ultrasonicSensorIndex = 6;
+            } else {
+                ultrasonicSensorIndex = (ultrasonicSensorIndex == 6) ? 7 : 6;
+            }
+        break;
+        case UdsDetectFLR:
+            ultrasonicSensorIndex = (ultrasonicSensorIndex + 1) % 8;
+            if (ultrasonicSensorIndex == 2 || ultrasonicSensorIndex == 3)
+                ultrasonicSensorIndex = 4;
+        break;
+        case UdsDetectBLR:
+            ultrasonicSensorIndex = (ultrasonicSensorIndex - 2 + 1) % 7 + 2;
+            if (ultrasonicSensorIndex == 0 || ultrasonicSensorIndex == 1) ultrasonicSensorIndex = 2;
+        break;
+        case UdsDetectLR:
+            ultrasonicSensorIndex = (ultrasonicSensorIndex - 4 + 1) % 4 + 4;
+            if (ultrasonicSensorIndex < 4) ultrasonicSensorIndex = 4;
+        break;
+        default:
+            ultrasonicSensorIndex = (ultrasonicSensorIndex + 1) % (NUM_ULTRASONIC_SENSORS);
+        break;
+        
+        
+    }
+//    ultrasonicSensorIndex = (ultrasonicSensorIndex + 1) % (NUM_ULTRASONIC_SENSORS);
     UltrasonicSensor_SelectSensor(ultrasonicSensorIndex);
     
 }

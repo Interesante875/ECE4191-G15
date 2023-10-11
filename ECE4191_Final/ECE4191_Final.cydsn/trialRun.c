@@ -11,6 +11,7 @@
 */
 #include "project.h"
 #include "trialRun.h"
+#include "p_ctrl.h"
 #include "locomotion.h"
 #include "navigation.h"
 #include "ultrasonic.h"
@@ -27,26 +28,40 @@
 #define MOVING_PWM 250
 #define DETETC_PWM 200
 #define ADJUST_PWM 230
+
+#define TEST_RUN 1
 // BlueBase, RedBase, YellowBase, GreenBase
 StartingBase base_color;
 Color requiredColor;
 
 void test_run() {
-    initializeRobot();
-    moveOutofBaseHighLevel(250, 0.25);
-    detectWhereIsThePinZone(210);
+    
+    #if TEST_RUN
+        CyDelay(1000);
+        read_U();
+//        angle_correction(230, RFU, RBU, 1);
+//        wheel_move_by_ticks(Forward, 250, 10000);
+        wheel_move_by_ticks(Backward, 200, 10000);
+//        wheel_move_by_ticks(Left, 250, 5000);
+//        wheel_move_by_ticks(Right, 250, 5000);
+    #else
+        moveOutofBaseHighLevel(250, 0.25);
+        detectWhereIsThePinZone(220);
+    #endif
     
 }
+
 
 void initializeRobot() {
     base_color = YellowBase;
     
     initializePosition(base_color);
     initializeBluetooth();
-    InitalizeUltrasonicSensor();
-
-    waitingHandshake();
     
+    #if !TEST_RUN
+        waitingHandshake();
+    #endif
+    InitalizeUltrasonicSensor();
 }
 
 void moveOutofBaseHighLevel(uint8 pwm, double dist_in_metre) {
@@ -55,10 +70,7 @@ void moveOutofBaseHighLevel(uint8 pwm, double dist_in_metre) {
 
 
 void detectWhereIsThePinZone(uint8 detectPWM) {
-    
-    read_U();
-    
-    print_U();
+
     
     if (base_color == YellowBase || base_color == BlueBase) {
         wheel_move_by_metrics(Right, 240, 90);
@@ -66,7 +78,7 @@ void detectWhereIsThePinZone(uint8 detectPWM) {
         read_U();
         // printValue("START SEACHING DISTANCE TO WALL\n");
         // print_U();
-        angle_correction(ADJUST_PWM, RFU, RBU);
+        // angle_correction(ADJUST_PWM, RFU, RBU);
         
         bool notSeen = true;
 
@@ -85,7 +97,7 @@ void detectWhereIsThePinZone(uint8 detectPWM) {
                     notSeen = RFU < RBU;
                     
                 }
-                printValue("RFU: %.2lf RBU: %.2lf DETECTED: %d\n", RFU, RBU, notSeen);
+                // printValue("RFU: %.2lf RBU: %.2lf DETECTED: %d\n", RFU, RBU, notSeen);
 //                if ((RBU <= 15))
 //                    notSeen = false;
                 
@@ -94,48 +106,52 @@ void detectWhereIsThePinZone(uint8 detectPWM) {
             
             wheel_move(StopMotion, 200);
             
+            read_U();
+            CyDelay(500);
+            // angle_correction(ADJUST_PWM, BLU, BRU);
+            read_U();
+            
             if (!notSeen) {
-                read_U();
-                angle_correction(ADJUST_PWM, BLU, BRU);
-                CyDelay(500);
-                read_U();
-//                printValue("NOW SEEN: DISTANCE TO WALL\n");
+
+                printValue("NOW SEEN: DISTANCE TO WALL\n");
+                printValue("BLU: %.2lf BRU: %.2lf DETECTED: %d\n", BLU, BRU);
+//                
 //                print_U();
                 // DETERMINE ZONE
                 double distanceToWall = (BLU + BRU) / 2;
-                if (distanceToWall <= 14) {
+                if (distanceToWall <= 28) {
                     levelThreePinDeckNum = 6;
                     levelThreeZoneColor = PinZoneColorRed;
-                    printValue("ZONE: %d\n", levelThreeZoneColor);
+                    printValue("ZONE RED: %d\n", levelThreePinDeckNum);
                 } 
-                else if (distanceToWall <= 19) {
+                else if (distanceToWall <= 32) {
                     levelThreePinDeckNum = 5;
                     levelThreeZoneColor = PinZoneColorGreen;
-                    printValue("ZONE: %d\n", levelThreeZoneColor);
+                    printValue("ZONE GREEN: %d\n", levelThreePinDeckNum);
                     
                 }
-                else if (distanceToWall <= 24) {
+                else if (distanceToWall <= 37) {
                     levelThreePinDeckNum = 4;
                     levelThreeZoneColor = PinZoneColorBlue;
-                    printValue("ZONE: %d\n", levelThreeZoneColor);
+                    printValue("ZONE BLUE: %d\n", levelThreePinDeckNum);
                     
                 }
-                else if (distanceToWall <= 29) {
+                else if (distanceToWall <= 42) {
                     levelThreePinDeckNum = 3;
                     levelThreeZoneColor = PinZoneColorRed;
-                    printValue("ZONE: %d\n", levelThreeZoneColor);
+                    printValue("ZONE RED: %d\n", levelThreePinDeckNum);
                     
                 }
-                else if (distanceToWall <= 34) {
+                else if (distanceToWall <= 47) {
                     levelThreePinDeckNum = 2;
-                    levelThreeZoneColor = PinZoneColorRed;
-                    printValue("ZONE: %d\n", levelThreeZoneColor);
+                    levelThreeZoneColor = PinZoneColorGreen;
+                    printValue("ZONE GREEN: %d\n", levelThreePinDeckNum);
                     
                 }
-                else if (distanceToWall <= 39) {
+                else if (distanceToWall <= 52) {
                     levelThreePinDeckNum = 1;
                     levelThreeZoneColor = PinZoneColorBlue;
-                    printValue("ZONE: %d\n", levelThreeZoneColor);
+                    printValue("ZONE BLUE: %d\n", levelThreePinDeckNum);
                     
                 }
                 // THEN RETURN
@@ -147,13 +163,13 @@ void detectWhereIsThePinZone(uint8 detectPWM) {
             print_U();
             // angle_correction(ADJUST_PWM, FLU, FRU);
             
-            arenaWallNotTooFar = (BLU <= 35) && (BRU <= 35);
+            arenaWallNotTooFar = (BLU <= 50) && (BRU <= 50);
             
             wheel_move(Forward, detectPWM);
             
             while (arenaWallNotTooFar) {
                 read_U();
-                arenaWallNotTooFar = (BLU <= 35) && (BRU <= 35);
+                arenaWallNotTooFar = (BLU <= 50) && (BRU <= 50);
                 if (!(fabs(RFU - RBU) <= 10))
                     notSeen = RFU < RBU;
                 
@@ -165,14 +181,14 @@ void detectWhereIsThePinZone(uint8 detectPWM) {
             
             wheel_move(StopMotion, 200);
             
+            CyDelay(300);
+            read_U();
+            // angle_correction(ADJUST_PWM, RFU, RBU);
+            read_U();
             if (!notSeen) {
-                read_U();
-                angle_correction(ADJUST_PWM, BLU, BRU);
-                read_U();
-//                printValue("DISTANCE TO WALL\n");
-//                print_U();
+
                 CyDelay(200);
-                // DETERMINE ZONE
+
                 double distanceToWall = (BLU + BRU) / 2;
                 if (distanceToWall <= 14) {
                     levelThreePinDeckNum = 6;
@@ -248,7 +264,7 @@ void detectWhereIsThePinZone(uint8 detectPWM) {
             
             if (!notSeen) {
                 read_U();
-                angle_correction(ADJUST_PWM, BLU, BRU);
+                // angle_correction(ADJUST_PWM, BLU, BRU);
                 read_U();
                 printValue("DISTANCE TO WALL\n");
                 print_U();
@@ -315,7 +331,7 @@ void detectWhereIsThePinZone(uint8 detectPWM) {
             
             if (!notSeen) {
                 read_U();
-                angle_correction(ADJUST_PWM, BLU, BRU);
+                // angle_correction(ADJUST_PWM, BLU, BRU);
                 read_U();
                 printValue("DISTANCE TO WALL\n");
                 print_U();

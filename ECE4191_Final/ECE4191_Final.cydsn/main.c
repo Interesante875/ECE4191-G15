@@ -16,24 +16,18 @@
 #include "trialRun.h"
 #include "ultrasonic.h"
 #include "ultrasonic_control.h"
-
+#include "motor.h"
 int main(void)
 {
     CyGlobalIntEnable; /* Enable global interrupts. */
-    initializeBluetooth();
-    InitalizeUltrasonicSensor();
-    
-    //test_run();
-    
+
+
+    initializeRobot();    
+    test_run();
+
     for(;;)
     {
-     /*
-        for (int i = 0; i < 8; i++) {
-            UltrasonicSensor_ReadDistanceData(i);   
-            CyDelay(10);
-        }
-        CyDelay(2000);
-        */
+        
     }
 }
 

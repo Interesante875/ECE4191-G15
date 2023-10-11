@@ -28,6 +28,7 @@
 #define WHEEL_RADIUS 0.02745
 #define WHEEL_DISTANCE 0.1536
 #define HALF_WIDTH 0.122
+
 // 12.96 + 2.4/2 = 
 static volatile int masterPWM = 0;
 static volatile int slavePWM = 0;
@@ -43,6 +44,9 @@ static volatile int lastMasterTicks = 0;
 static volatile int lastSlaveTicks = 0;
 uint8 updated_slave_pwm = 0;
 int period = 0;
+MotionDirection currentMotion = StopMotion;
+int debug_err = 0;
+int debug_eff = 0;
 
 ControllerType ctrlType;
 
@@ -50,11 +54,11 @@ void initializeWheelController(ControllerType ctrlType_name, int pwm) {
     ctrlType = ctrlType_name;
     switch (ctrlType) {
         case ProportionalControl:
-        
-            if (pwm > 240) initializePController(0.9);
-            else if (pwm > 220) initializePController(0.7);
-            else if (pwm >= 200) initializePController(0.65);
-            else initializePController(0.5);
+            resetPController();
+//            if (pwm > 240) initializePController(0.9);
+//            else if (pwm > 220) initializePController(0.7);
+//            else if (pwm >= 200) initializePController(0.65);
+//            else initializePController(0.05);
             // printValue("Proportional Controller is used\n");
         break;
         
@@ -114,7 +118,17 @@ CY_ISR(ISR_Handler_Wheel_Controller) {
                 masterPWM);
         break; 
     }
-    MotorController_SetLeftPwmCompare((uint8) updated_slave_pwm);
+    
+    //if (currentMotion == Forward)
+    MotorController_SetRightPwmCompare((uint8) updated_slave_pwm);
+    MotorController_SetLeftPwmCompare((uint8) masterPWM);
+//    else if (currentMotion == Backward)
+//    MotorController_SetLeftPwmCompare((uint8) updated_slave_pwm);
+//    else if (currentMotion == Left)
+//    MotorController_SetLeftPwmCompare((uint8) updated_slave_pwm);
+//    else if (currentMotion == Right)
+//    MotorController_SetRightPwmCompare((uint8) updated_slave_pwm);
+    
     masterLeftTicks = MotorController_GetLeftQuadDecCount();
     slaveRightTicks = MotorController_GetRightQuadDecCount();
     
@@ -124,6 +138,21 @@ CY_ISR(ISR_Handler_Wheel_Controller) {
         computePosition(masterLeftTicks - lastMasterTicks, slaveRightTicks - lastSlaveTicks);
         lastMasterTicks = masterLeftTicks;
         lastSlaveTicks = slaveRightTicks;
+        
+        printValue("L:%d R: %d, LPWM:%d RPWM: %d\n", masterLeftTicks, slaveRightTicks, masterPWM, updated_slave_pwm);
+        if (masterLeftTicks > 0 && slaveRightTicks > 0) {
+            debug_err = masterLeftTicks - slaveRightTicks;
+        } else if (masterLeftTicks < 0 && slaveRightTicks < 0) {
+            debug_err = -(masterLeftTicks - slaveRightTicks);
+        } else if (masterLeftTicks > 0 && slaveRightTicks < 0) {
+            debug_err = abs(masterLeftTicks) - abs(slaveRightTicks);
+        } else if (masterLeftTicks < 0 && slaveRightTicks > 0) {
+            debug_err = abs(masterLeftTicks) - abs(slaveRightTicks);
+        }
+        debug_eff = (int)(0.75 * (double)debug_err);
+        int SLV = masterPWM + debug_eff;
+        SLV = (uint8)(SLV > 255 ? 255 : (SLV < (masterPWM - 20) ? (masterPWM - 20) : SLV));
+        printValue("Err: %d ctrl: %d SLV:%d \n", debug_err, debug_eff, SLV);
     }
     
 
@@ -131,6 +160,8 @@ CY_ISR(ISR_Handler_Wheel_Controller) {
 
 void wheel_move_by_ticks(MotionDirection motion, int pwm, int target_ticks) {
 
+
+    currentMotion = motion;
     turnMotorOn(pwm);
     
     masterPWM = MotorController_GetLeftPwm();
@@ -138,25 +169,26 @@ void wheel_move_by_ticks(MotionDirection motion, int pwm, int target_ticks) {
 
     masterLeftTicks = MotorController_GetLeftQuadDecCount();
     slaveRightTicks = MotorController_GetRightQuadDecCount();
-
+    
     target_move_ticks = target_ticks;
     targetMasterPWM = masterPWM;
     
     setMotionDirection(motion);
-
-    initializeWheelController(ProportionalControl, pwm);
+    initializeWheelController(USE_CONTROLLER, pwm);
     
-//    printValue("Set Controller\n");
+    
+    printValue("Set Controller\n");
     while (abs(masterLeftTicks) < target_ticks){
         //computePosition(masterLeftTicks - lastMasterTicks, slaveRightTicks - lastSlaveTicks); 
     }
     
 //    printValue("DONE\n");
-//    printValue("LEFT: %d RIGHT: %d\n ", masterLeftTicks, slaveRightTicks);
-//    printValue("Master PWM: %d Slave PWM: %d\n", masterPWM, slavePWM);
- 
-    stopWheelController();
+    printValue("LEFT: %d RIGHT: %d\n ", masterLeftTicks, slaveRightTicks);
+    printValue("Master PWM: %d Slave PWM: %d\n", masterPWM, slavePWM);
+    currentMotion = StopMotion;
     stopMotor();
+    stopWheelController();
+    
     
     CyDelay(EMF_BUFFER_DELAY);
 }
@@ -256,7 +288,7 @@ void wheel_move_by_metrics (MotionDirection motion, uint8 pwm, double metrics) {
         ticks = 0;
     }
     
-    
+    currentMotion = motion;
     turnMotorOn(pwm);
 
     masterPWM = MotorController_GetLeftPwm();
@@ -270,11 +302,12 @@ void wheel_move_by_metrics (MotionDirection motion, uint8 pwm, double metrics) {
     // printValue("Initial Heading: %lf\n",gyroHeading);
     while (abs(masterLeftTicks) < ticks); 
 
-//    printValue("LEFT: %d RIGHT: %d\n ", masterLeftTicks, slaveRightTicks);
-//    printValue("Master PWM: %d Slave PWM: %d\n", masterPWM, slavePWM);
+    printValue("LEFT: %d RIGHT: %d\n ", masterLeftTicks, slaveRightTicks);
+    printValue("Master PWM: %d Slave PWM: %d\n", masterPWM, slavePWM);
     
     stopWheelController();
     stopMotor();
+    currentMotion = StopMotion;
     // printToBluetooth();
     // printValue("After Heading: %lf\n",gyroHeading);
     CyDelay(EMF_BUFFER_DELAY);
@@ -291,7 +324,7 @@ void wheel_move (MotionDirection motion, uint8 pwm) {
 
         stopWheelController();
         stopMotor();
-
+        currentMotion = StopMotion;
         CyDelay(EMF_BUFFER_DELAY);
     }
 
@@ -304,28 +337,48 @@ void wheel_move (MotionDirection motion, uint8 pwm) {
     slaveRightTicks = MotorController_GetRightQuadDecCount();
     
     setMotionDirection(motion);
+    currentMotion = motion;
     initializeWheelController(USE_CONTROLLER, pwm);
 }
 
-void angle_correction(uint8 pwm, double distance_1, double distance_2) {
+void angle_correction(uint8 pwm, double distance_1, double distance_2, int type) {
     
     lastMasterTicks = 0;
     lastSlaveTicks = 0;
     
     double delta_dist = (distance_1 - distance_2)/100;
-    double threshold = 1.5;
+    printValue("DELTA: %.2lf\n", delta_dist);
+    double threshold = 0.02;
     
-    if (fabs(delta_dist) > threshold) {
-        double angle = atan2(delta_dist, 0.1005) * 180 / CY_M_PI;
-        
-        if (angle > 15) angle = 15;
-        else if (angle < -15) angle = -15;
-        
-        if (angle > 0) {
-           wheel_move_by_metrics(Right, pwm, angle);
-        } else {
-           wheel_move_by_metrics(Left, pwm, angle);
+    if (type == 0) {
+        if (fabs(delta_dist) >= threshold) {
+            double angle = atan2(delta_dist, 0.1005) * 180 / CY_M_PI;
+            printValue("ANGLE: %.2lf\n", angle);
+            if (angle > 30) angle = 30;
+            else if (angle < -30) angle = -30;
+            
+            if (angle > 0) {
+               wheel_move_by_metrics(Left, pwm, fabs(angle));
+            } else {
+               wheel_move_by_metrics(Right, pwm, fabs(angle));
+            }
         }
+    
+    }
+    else if (type == 1) {
+        if (fabs(delta_dist) >= threshold) {
+            double angle = atan2(delta_dist, 0.1300) * 180 / CY_M_PI;
+            printValue("ANGLE: %.2lf\n", angle);
+            if (angle > 30) angle = 30;
+            else if (angle < -30) angle = -30;
+            
+            if (angle > 0) {
+               wheel_move_by_metrics(Right, pwm, fabs(angle));
+            } else {
+               wheel_move_by_metrics(Left, pwm, fabs(angle));
+            }
+        }
+        
     }
     
     
