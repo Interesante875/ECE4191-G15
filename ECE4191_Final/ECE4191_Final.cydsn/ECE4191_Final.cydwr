@@ -270,7 +270,8 @@
     <Group key="Pin">
       <Data key="0fe143c2-f701-4dc0-8d09-6c4cbde55272" value="MOTOR_EN_RIGHT" />
       <Data key="1b284605-cfde-448c-aca0-09a097d5b464" value="Echo_BACK_LEFT" />
-      <Data key="2f2b85cb-ac86-4068-b571-fb320ecd279f" value="Trigger_Back" />
+      <Data key="1e33d44b-5be1-492b-891e-3dd084dd0eb8" value="Trigger_Back_1" />
+      <Data key="2f2b85cb-ac86-4068-b571-fb320ecd279f" value="Trigger_2" />
       <Data key="02f2cf2c-2c7a-49df-9246-7a3435c21be3" value="SCL_1" />
       <Data key="3a9189f0-9236-4dd1-a8d9-4f174ac93ae9" value="MOTOR_FLICKER_LOCK" />
       <Data key="4fb3ce60-0488-41a2-a40d-4393c5944ce0" value="S2" />
@@ -278,7 +279,7 @@
       <Data key="7a32bc1b-57d5-449d-a52b-f81f6c39a7b9" value="Count" />
       <Data key="8d318d8b-cf7b-4b6b-b02c-ab1c5c49d0ba" value="MOTOR_LEFT_PHASE_A" />
       <Data key="8ffeebf3-1518-4238-be25-8ac9785eecfe" value="Echo_LEFT_FRONT" />
-      <Data key="9dba7d46-e7d5-4abf-a179-58e6e9872cf9" value="Trigger_Front" />
+      <Data key="9dba7d46-e7d5-4abf-a179-58e6e9872cf9" value="Trigger_1" />
       <Data key="26c9634e-f275-43a3-88b1-847904841678" value="Echo_RIGHT_BACK" />
       <Data key="53bdd870-b18a-4145-844f-e9267d4e033e" value="MOTOR_RIGHT_IN_4" />
       <Data key="64f170f8-dce5-442a-a6dd-07579760297e" value="Echo_SHOOTER_LEFT" />
@@ -286,6 +287,7 @@
       <Data key="91d87f78-c93e-4f30-bc50-a17f52f39a58" value="Echo_FRONT_LEFT" />
       <Data key="378be6ae-f323-41c0-be4d-29440cd3dbf0" value="S1" />
       <Data key="522b1e90-165e-4c25-a10e-55097102920a" value="Echo_SHOOTER_RIGHT" />
+      <Data key="3987a53f-f571-4d6a-9aad-e86895d94e92" value="Trigger_Front_1" />
       <Data key="4475cc2d-2e31-4262-a59d-915c8794e2ef" value="MOTOR_RIGHT_IN_3" />
       <Data key="22863ebe-a37b-476f-b252-6e49a8c00b12" value="SDA_1" />
       <Data key="716507ed-8825-4e8d-937b-2557580f1ae4" value="MOTOR_EN_LEFT" />
@@ -302,6 +304,7 @@
       <Data key="e96de207-7623-4d75-9347-3e7be8308e0c" value="Tx_1" />
       <Data key="e851a3b9-efb8-48be-bbb8-b303b216c393" value="MOTOR_LEFT_IN_1" />
       <Data key="f7e45ac7-3a32-43fe-8b09-f30ca8f33cc6" value="S3" />
+      <Data key="f8ce5faa-7210-4091-9b9f-9d233bf91407" value="Echo_LEFT_FRONT" />
       <Data key="f12555c4-b313-421a-971b-43c22080d03b" value="S0" />
       <Data key="ff605efc-d5cd-43d5-9dfd-04c3cc7fe0df" value="MOTOR_LEFT_IN_2" />
       <Data key="ff955599-a998-4077-966d-9ba75cb88e5d" value="LED" />
@@ -3484,7 +3487,12 @@
     </Group>
     <Group key="1b284605-cfde-448c-aca0-09a097d5b464">
       <Group key="0">
-        <Data key="Port Format" value="2,6" />
+        <Data key="Port Format" value="15,3" />
+      </Group>
+    </Group>
+    <Group key="1e33d44b-5be1-492b-891e-3dd084dd0eb8">
+      <Group key="0">
+        <Data key="Port Format" value="15,3" />
       </Group>
     </Group>
     <Group key="2f2b85cb-ac86-4068-b571-fb320ecd279f">
@@ -3529,7 +3537,7 @@
     </Group>
     <Group key="9dba7d46-e7d5-4abf-a179-58e6e9872cf9">
       <Group key="0">
-        <Data key="Port Format" value="2,4" />
+        <Data key="Port Format" value="12,5" />
       </Group>
     </Group>
     <Group key="26c9634e-f275-43a3-88b1-847904841678">
@@ -3544,12 +3552,12 @@
     </Group>
     <Group key="71ec7512-b31a-4772-9c8e-3d28aafb1b22">
       <Group key="0">
-        <Data key="Port Format" value="15,2" />
+        <Data key="Port Format" value="3,5" />
       </Group>
     </Group>
     <Group key="91d87f78-c93e-4f30-bc50-a17f52f39a58">
       <Group key="0">
-        <Data key="Port Format" value="3,5" />
+        <Data key="Port Format" value="15,2" />
       </Group>
     </Group>
     <Group key="378be6ae-f323-41c0-be4d-29440cd3dbf0">
@@ -3635,6 +3643,11 @@
     <Group key="f7e45ac7-3a32-43fe-8b09-f30ca8f33cc6">
       <Group key="0">
         <Data key="Port Format" value="2,3" />
+      </Group>
+    </Group>
+    <Group key="f8ce5faa-7210-4091-9b9f-9d233bf91407">
+      <Group key="0">
+        <Data key="Port Format" value="3,4" />
       </Group>
     </Group>
     <Group key="f12555c4-b313-421a-971b-43c22080d03b">

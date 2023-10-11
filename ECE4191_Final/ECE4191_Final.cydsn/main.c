@@ -23,21 +23,17 @@ int main(void)
     initializeBluetooth();
     InitalizeUltrasonicSensor();
     
-    // test_run();
+    //test_run();
     
     for(;;)
     {
-        
+     /*
         for (int i = 0; i < 8; i++) {
-            read_U();
-            print_U();
-            printValue("%.2lf: %.2lf ", BLU, BRU);
-            printValue("%.2lf: %.2lf\n", RBU, LBU);
-            CyDelay(50);
+            UltrasonicSensor_ReadDistanceData(i);   
+            CyDelay(10);
         }
-        // printValue("\n");
-        CyDelay(3000);
-        
+        CyDelay(2000);
+        */
     }
 }
 

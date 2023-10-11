@@ -88,8 +88,9 @@ void read_RBU() {
 
 void print_U() {
     for (int i = 0; i < 8; i++) {
-        printValue("%d: %.2lf\n", i, UltrasonicSensor_ReadDistanceData(i));
+        printValue("%d: %.2lf ", i, UltrasonicSensor_ReadDistanceData(i));
     }
+    printValue("\n");
 }
 
 

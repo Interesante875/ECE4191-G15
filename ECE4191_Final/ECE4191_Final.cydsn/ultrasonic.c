@@ -18,8 +18,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-int ultrasonicSensorIndex_Front;
-int ultrasonicSensorIndex_Back;
+int ultrasonicSensorIndex;
 
 UdsDetectState udsDetectState;
 int count;
@@ -31,13 +30,11 @@ static int currIdx[NUM_ULTRASONIC_SENSORS];
 // Function prototypes
 void InitalizeUltrasonicSensor() {
         
-    PWM_Ultrasonic_Burst_Front_Start();
-    PWM_Ultrasonic_Burst_Back_Start();
-    Timer_Ultrasonic_Echo_Front_Start();    
-    Timer_Ultrasonic_Echo_Back_Start();
-    
-    isr_ultrasonic_echo_front_StartEx(ISR_Handler_Ultrasonic_Echo_Front);
-    isr_ultrasonic_echo_back_StartEx(ISR_Handler_Ultrasonic_Echo_Back);
+    Timer_Ultrasonic_Trigger_Start();
+    Timer_Ultrasonic_Echo_Start();    
+
+    isr_ultrasonic_echo_StartEx(ISR_Handler_Ultrasonic_Echo);
+    isr_ultrasonic_trigger_StartEx(ISR_Handler_Ultrasonic_Trigger);
     
     for (int i = 0; i < NUM_ULTRASONIC_SENSORS; i++) {
         currIdx[i] = 0;
@@ -47,17 +44,17 @@ void InitalizeUltrasonicSensor() {
             sensorMeasuredDistances[i][j] = 0;
         }
     }
-    ultrasonicSensorIndex_Front = 0;
-    ultrasonicSensorIndex_Back = 0;
+    ultrasonicSensorIndex = 0;
+
 }
 
 void ShutdownUltrasonicSensor() {
 
-    Timer_Ultrasonic_Echo_Front_Stop();    
-    Timer_Ultrasonic_Echo_Back_Stop();
+    Timer_Ultrasonic_Echo_Stop();    
+    Timer_Ultrasonic_Trigger_Stop();
     
-    isr_ultrasonic_echo_front_Stop();
-    isr_ultrasonic_echo_back_Stop(); 
+    isr_ultrasonic_echo_Stop();
+    isr_ultrasonic_trigger_Stop(); 
     
 }
 
@@ -68,43 +65,34 @@ double UltrasonicSensor_ReadDistanceData(int sensorIndex) {
     #if ENABLE_MEDIAN_FILTERING == 1
         double* rowPointer = sensorMeasuredDistances[sensorIndex];
         median = findMedian(rowPointer, ARRAY_SIZE);
-        // printValue("UDS(%d) %lf\n", sensorIndex, median);
+        printValue("UDS(%d) %lf\n", sensorIndex, median);
         return median;
     #endif
     
     
     double value = sensorMeasuredDistances[sensorIndex][0];
-    // printValue("Read: (%d) %lf\n", sensorIndex, value);
+    printValue("Read: (%d) %lf\n", sensorIndex, value);
     return value;
 
 }
 
 
 void UltrasonicSensor_SelectSensor(int sensorIndex) {
-    
-    if (sensorIndex < 4) {
-        
-        Control_Reg_Ultrasonic_Front_Write(sensorIndex);
-        ultrasonicSensorIndex_Front = sensorIndex;
-    } else {
-        
-        Control_Reg_Ultrasonic_Back_Write(sensorIndex - 4);  
-        ultrasonicSensorIndex_Back = sensorIndex - 4;
-    }
-    
-    CyDelayUs(5); 
+ 
+    Control_Reg_Ultrasonic_Write(sensorIndex);
+    ultrasonicSensorIndex = sensorIndex;
+
 }
 
 void UltrasonicSensor_MeasureDistance(int sensorIndex) {
 
-    if (sensorIndex < 4)
-        count = Timer_Ultrasonic_Echo_Front_ReadCounter();
-    else
-        count = Timer_Ultrasonic_Echo_Back_ReadCounter();
-        
-    distance = (double) (65536 - count)/58.0;
+
+    count = Timer_Ultrasonic_Echo_ReadCounter();
+ 
+    distance = (double) (65535 - count)/58.0;
     
-    // printValue("(%d): %d %lf\n", sensorIndex, count, distance);
+    if (sensorIndex == 0)
+    printValue("(%d): %d %lf\n", sensorIndex, count, distance);
     #if ENABLE_MEDIAN_FILTERING
         sensorMeasuredDistances[sensorIndex][currIdx[sensorIndex]] = distance;
     
@@ -120,24 +108,52 @@ void UltrasonicSensor_MeasureDistance(int sensorIndex) {
 }
 
 
-CY_ISR(ISR_Handler_Ultrasonic_Echo_Front) {
-    Timer_Ultrasonic_Echo_Front_ReadStatusRegister();
-    // printValue("FRONT %d %d\n", ultrasonicSensorIndex_Front, ultrasonicSensorIndex_Back + 4);
-    UltrasonicSensor_MeasureDistance(ultrasonicSensorIndex_Front);
-    
-    ultrasonicSensorIndex_Front = (ultrasonicSensorIndex_Front + 1) % (NUM_ULTRASONIC_SENSORS/2);
-    UltrasonicSensor_SelectSensor(ultrasonicSensorIndex_Front);
+int readEcho(int sensorIndex) {
+       
+    switch (sensorIndex) {
+        case 0: 
+        return Echo_FRONT_LEFT_Read();
+        case 1: 
+        return Echo_FRONT_RIGHT_Read();
+        case 2: 
+        return Echo_BACK_LEFT_Read();
+        case 3: 
+        return Echo_BACK_RIGHT_Read();
+        case 4: 
+        return Echo_LEFT_FRONT_Read();
+        case 5: 
+        return Echo_LEFT_BACK_Read();
+        case 6: 
+        return Echo_RIGHT_FRONT_Read();
+        case 7: 
+        return Echo_RIGHT_BACK_Read();
+        default:
+        return 0;
+    }
 }
 
+CY_ISR (ISR_Handler_Ultrasonic_Trigger) {
+    Timer_Ultrasonic_Trigger_ReadStatusRegister();
+    
+    while (readEcho(ultrasonicSensorIndex) == 0) {
+        Trigger_1_Write(1);
+        Trigger_2_Write(1);
+        CyDelayUs(10);
+        Trigger_1_Write(0);
+        Trigger_2_Write(0);
+    }
 
-CY_ISR(ISR_Handler_Ultrasonic_Echo_Back) {
+}
+
+CY_ISR(ISR_Handler_Ultrasonic_Echo) {
+    Timer_Ultrasonic_Echo_ReadStatusRegister();
+    // printValue("FRONT %d %d\n", ultrasonicSensorIndex_Front, ultrasonicSensorIndex_Back + 4);
+    UltrasonicSensor_MeasureDistance(ultrasonicSensorIndex);
     
-    Timer_Ultrasonic_Echo_Back_ReadStatusRegister();
-    // printValue("BACK %d %d\n", ultrasonicSensorIndex_Front, ultrasonicSensorIndex_Back + 4);
-    UltrasonicSensor_MeasureDistance(ultrasonicSensorIndex_Back + 4);
+    // BASED ON STATE
+    ultrasonicSensorIndex = (ultrasonicSensorIndex + 1) % (NUM_ULTRASONIC_SENSORS);
+    UltrasonicSensor_SelectSensor(ultrasonicSensorIndex);
     
-    ultrasonicSensorIndex_Back = (ultrasonicSensorIndex_Back + 1) % (NUM_ULTRASONIC_SENSORS/2);
-    UltrasonicSensor_SelectSensor(ultrasonicSensorIndex_Back + 4);
 }
 
 /* [] END OF FILE */

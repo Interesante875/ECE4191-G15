@@ -53,7 +53,7 @@ void initializeWheelController(ControllerType ctrlType_name, int pwm) {
         
             if (pwm > 240) initializePController(0.9);
             else if (pwm > 220) initializePController(0.7);
-            else if (pwm > 200) initializePController(0.5);
+            else if (pwm >= 200) initializePController(0.65);
             else initializePController(0.5);
             // printValue("Proportional Controller is used\n");
         break;
@@ -270,13 +270,13 @@ void wheel_move_by_metrics (MotionDirection motion, uint8 pwm, double metrics) {
     // printValue("Initial Heading: %lf\n",gyroHeading);
     while (abs(masterLeftTicks) < ticks); 
 
-    printValue("LEFT: %d RIGHT: %d\n ", masterLeftTicks, slaveRightTicks);
-    printValue("Master PWM: %d Slave PWM: %d\n", masterPWM, slavePWM);
+//    printValue("LEFT: %d RIGHT: %d\n ", masterLeftTicks, slaveRightTicks);
+//    printValue("Master PWM: %d Slave PWM: %d\n", masterPWM, slavePWM);
     
     stopWheelController();
     stopMotor();
     // printToBluetooth();
-    printValue("After Heading: %lf\n",gyroHeading);
+    // printValue("After Heading: %lf\n",gyroHeading);
     CyDelay(EMF_BUFFER_DELAY);
 }
 

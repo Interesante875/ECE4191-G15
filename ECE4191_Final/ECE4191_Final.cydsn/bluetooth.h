@@ -40,6 +40,10 @@
     extern InputState inputState;
     extern PinZoneColor zoneColor;
     extern PinZoneColor levelTwoZoneColor;
+    extern int levelThreePinDeckNum;
+    extern int levelFourPinDeckNum;
+    extern PinZoneColor levelThreeZoneColor;
+    extern PinZoneColor levelFourZoneColor;
     extern int test_val;
 
     void initializeBluetooth(void);

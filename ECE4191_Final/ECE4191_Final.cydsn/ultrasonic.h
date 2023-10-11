@@ -17,10 +17,10 @@
 #include "cytypes.h"
 #include "median_filter.h"
 
-    #define ENABLE_MEDIAN_FILTERING 1
+    #define ENABLE_MEDIAN_FILTERING 0
     #define ENABLE_TIMER_BURST 0
     #define NUM_ULTRASONIC_SENSORS 8
-    #define ARRAY_SIZE 3
+    #define ARRAY_SIZE 2
     /*
     DP-0
     0 bit 0 - FRONT_LEFT
@@ -48,8 +48,7 @@
     
     extern UdsDetectState udsDetectState;
     
-    extern int ultrasonicSensorIndex_FB;
-    extern int ultrasonicSensorIndex_LR;
+    extern int ultrasonicSensorIndex;
     
     extern double sensorMeasuredDistances[NUM_ULTRASONIC_SENSORS][ARRAY_SIZE];
 
@@ -66,10 +65,10 @@
     
     void UltrasonicSensor_ChangeState(UdsDetectState state);
 
-    
-    CY_ISR(ISR_Handler_Ultrasonic_Burst);
-    CY_ISR(ISR_Handler_Ultrasonic_Echo_Front);
-    CY_ISR(ISR_Handler_Ultrasonic_Echo_Back);
+    int readEcho(int sensorIndex);
+    CY_ISR(ISR_Handler_Ultrasonic_Trigger);
+    CY_ISR(ISR_Handler_Ultrasonic_Echo);
+
 
 #endif // ULTRASONIC_SENSOR_H
 /* [] END OF FILE */
