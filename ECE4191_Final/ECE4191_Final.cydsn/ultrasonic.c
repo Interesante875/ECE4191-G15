@@ -86,7 +86,7 @@ double UltrasonicSensor_ReadDistanceData(int sensorIndex) {
     double val = sensorResults[sensorIndex];
     // restartUltrasonicSensor();
 
-    printValue("READ (%d) %.3lf\n", sensorIndex, sensorResults[sensorIndex]);
+    // printValue("READ (%d) %.3lf\n", sensorIndex, sensorResults[sensorIndex]);
 
     return val;
     

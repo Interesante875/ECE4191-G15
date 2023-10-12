@@ -30,6 +30,7 @@
 #define ADJUST_PWM 230
 
 #define TEST_RUN 1
+#define ENABLE_BT 0 
 // BlueBase, RedBase, YellowBase, GreenBase
 StartingBase base_color;
 Color requiredColor;
@@ -38,35 +39,63 @@ void test_run() {
     
     #if TEST_RUN
         CyDelay(1000);
+        GripperHand_Open();
+        GripperArm_Extend();
+     
+        shutdown_Gripper();
         
-        // angle_correction(230);
-        for (;;) {
-            for (int i = 0; i < 8; i++ ) {
-                UltrasonicSensor_ReadDistanceData(i);
+        int finish = 0;
+        
+        while (!finish) {
+            startIR();
+            
+            wheel_move(Forward, 230);
+            
+            while (infraredDetectionStatus == Absence);
+            
+            wheel_move(StopMotion, 230);
+            stopIR();
+            wheel_move_by_metrics(Backward, 200, 0.02);
+            ColorDetection_Run(1);
+            
+            if (detectedColor == RedColor) {
+                GripperHand_GripPuck();   
+                GripperArm_Retract();
+                
+                shutdown_Gripper();
+                finish = 1;
+            } else {
+                GripperHand_GripPuck();   
+                GripperArm_Retract();
+                wheel_move_by_metrics(Right, 220, 20);
+                GripperArm_Extend();
+                GripperHand_Open();
+                GripperArm_Retract();
+                
+                wheel_move_by_metrics(Left, 220, 20);
+                GripperArm_Extend();
+               
+                shutdown_Gripper();
             }
-//            read_U();
-//            print_U();
-            
-            
-            CyDelay(2000);
-        }
         
+        }
 
     #else
-        moveOutofBaseHighLevel(250, 0.25);
-        detectWhereIsThePinZone(220);
+        // moveOutofBaseHighLevel(250, 0.25);
+//        detectWhereIsThePinZone(210);
+        runLevelOne_v2();
     #endif
     
 }
 
 
 void initializeRobot() {
-    base_color = YellowBase;
+    base_color = BlueBase;
     
     initializePosition(base_color);
     initializeBluetooth();
     
-    #if !TEST_RUN
+    #if !TEST_RUN && ENABLE_BT
         waitingHandshake();
     #endif
     InitalizeUltrasonicSensor();
@@ -81,18 +110,18 @@ void detectWhereIsThePinZone(uint8 detectPWM) {
 
     
     if (base_color == YellowBase || base_color == BlueBase) {
-        wheel_move_by_metrics(Right, 240, 90);
+        wheel_move_by_metrics(Right, 220, 90);
         CyDelay(300);
         read_U();
-        // printValue("START SEACHING DISTANCE TO WALL\n");
-        // print_U();
+        printValue("START SEACHING DISTANCE TO WALL\n");
+        print_U();
         // angle_correction(ADJUST_PWM, RFU, RBU);
         
         bool notSeen = true;
 
         while (notSeen) {
             
-            wheel_move(Backward, detectPWM);
+            wheel_move(Backward, 195);
             bool arenaWallNotMet = (BLU >= 14) && (BRU >= 14);
             bool arenaWallNotTooFar = (BLU <= 35) && (BRU <= 35);
             
@@ -105,7 +134,7 @@ void detectWhereIsThePinZone(uint8 detectPWM) {
                     notSeen = RFU < RBU;
                     
                 }
-                // printValue("RFU: %.2lf RBU: %.2lf DETECTED: %d\n", RFU, RBU, notSeen);
+//                printValue("RFU: %.2lf RBU: %.2lf DETECTED: %d\n", RFU, RBU, notSeen);
 //                if ((RBU <= 15))
 //                    notSeen = false;
                 
@@ -173,7 +202,7 @@ void detectWhereIsThePinZone(uint8 detectPWM) {
             
             arenaWallNotTooFar = (BLU <= 50) && (BRU <= 50);
             
-            wheel_move(Forward, detectPWM);
+            wheel_move(Forward, 195);
             
             while (arenaWallNotTooFar) {
                 read_U();
@@ -393,7 +422,119 @@ void detectWhereIsThePinZone(uint8 detectPWM) {
 
 void run();
 
+void runLevelOne_v2() {
+    if (zoneColor == PinZoneColorBlue) {
+        requiredColor = BlueColor;
+    } else if (zoneColor == PinZoneColorRed) {
+        requiredColor = RedColor;
+    } else if (zoneColor == PinZoneColorGreen) {
+        requiredColor = GreenColor;
+    }
+    
+    int facingRight;
+    
+    wheel_move_by_metrics(Forward, 250, 0.25);
+    
+    if (base_color == YellowBase || base_color == BlueBase) {
+        wheel_move_by_metrics(Left, 220, 60);
+        wheel_move_by_metrics(Forward, 250, 0.9);
+        wheel_move_by_metrics(Right, 220, 135);
+        facingRight = 1;
+    } else {
+        wheel_move_by_metrics(Right, 220, 60);
+        wheel_move_by_metrics(Forward, 250, 0.9);
+        wheel_move_by_metrics(Left, 220, 135);
+        facingRight = 0;
+    }
 
+    CyDelay(1000);
+    read_U();
+    bool obstacle_not_met = (FLU >= 22) && (FRU >= 22);
+    
+    GripperHand_Open();
+    GripperArm_Extend();
+    CyDelay(100);
+    shutdown_Gripper();
+    
+    int rasterFinish = 0;
+    
+    while (!rasterFinish) {
+        startIR();
+        
+        wheel_move(Forward, 230);
+        
+        while (infraredDetectionStatus == Absence && obstacle_not_met) {
+            read_U();
+            obstacle_not_met = (FLU >= 22) && (FRU >= 22);
+        }
+        
+        wheel_move(StopMotion, 230);
+        stopIR();
+
+        if (infraredDetectionStatus == Presence) {
+            
+            wheel_move_by_metrics(Backward, 200, 0.015);
+            ColorDetection_Run(2);
+            GripperHand_GripPuck();   
+            GripperArm_Retract();
+            
+            if (detectedColor == RedColor) {
+                shutdown_Gripper();
+                rasterFinish = 1;
+            } else {
+                
+                wheel_move_by_metrics_with_gyro(Right, 220, 20);
+                GripperArm_Extend();
+                GripperHand_Open();
+                GripperArm_Retract();
+                GripperHand_GripPuck();
+                wheel_move_by_metrics_with_gyro(Left, 220, 20);
+                shutdown_Gripper();
+            }
+            
+        } else if (!obstacle_not_met) {
+            GripperArm_Retract();
+            GripperHand_GripPuck();
+            shutdown_Gripper();
+            // raster it
+            
+            if (facingRight) {
+                wheel_move_by_metrics_with_gyro(Left, 230, 90);
+                wheel_move_by_metrics_with_gyro(Forward, 230, 0.1);
+                wheel_move_by_metrics_with_gyro(Left, 230, 90);
+            } else {
+                wheel_move_by_metrics_with_gyro(Right, 230, 90);
+                wheel_move_by_metrics_with_gyro(Forward, 230, 0.1);
+                wheel_move_by_metrics_with_gyro(Right, 230, 90);
+            }
+            
+            facingRight = !facingRight;
+            
+            read_U();
+            obstacle_not_met = true;
+        }
+        
+    }
+//    bool obstacle_not_met = (FLU >= 15) && (FRU >= 15);
+//    
+//
+//    
+//    wheel_move(Forward, 230);
+//    
+//    while (obstacle_not_met) {
+//        read_U();
+//        obstacle_not_met = (FLU >= 15) && (FRU >= 15);
+//        
+//    }
+    
+    wheel_move(StopMotion, 250);
+//    GripperHand_Open();
+//    GripperArm_Extend();
+//    shutdown_Gripper();
+    
+    
+    
+}
 
 void runLevelOne() {
     
@@ -407,7 +548,7 @@ void runLevelOne() {
     
     int facingRight;
     
-    wheel_move_by_metrics(Forward, 250, 0.8);
+    wheel_move_by_metrics(Forward, 250, 0.25);
     
     if (base_color == YellowBase || base_color == BlueBase) {
         wheel_move_by_metrics_with_gyro(Right, 250, 90);
@@ -416,6 +557,7 @@ void runLevelOne() {
         wheel_move_by_metrics_with_gyro(Left, 250, 90);
         facingRight = 0;
     }
+    
     
     GripperHand_Open();
     GripperArm_Extend();

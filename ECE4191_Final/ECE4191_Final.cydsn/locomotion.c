@@ -141,20 +141,20 @@ CY_ISR(ISR_Handler_Wheel_Controller) {
         lastMasterTicks = masterLeftTicks;
         lastSlaveTicks = slaveRightTicks;
         
-        printValue("L:%d R: %d, LPWM:%d RPWM: %d\n", masterLeftTicks, slaveRightTicks, masterPWM, updated_slave_pwm);
-        if (masterLeftTicks > 0 && slaveRightTicks > 0) {
-            debug_err = masterLeftTicks - slaveRightTicks;
-        } else if (masterLeftTicks < 0 && slaveRightTicks < 0) {
-            debug_err = -(masterLeftTicks - slaveRightTicks);
-        } else if (masterLeftTicks > 0 && slaveRightTicks < 0) {
-            debug_err = abs(masterLeftTicks) - abs(slaveRightTicks);
-        } else if (masterLeftTicks < 0 && slaveRightTicks > 0) {
-            debug_err = abs(masterLeftTicks) - abs(slaveRightTicks);
-        }
-        debug_eff = (int)(0.75 * (double)debug_err);
-        int SLV = masterPWM + debug_eff;
-        SLV = (uint8)(SLV > 255 ? 255 : (SLV < (masterPWM - 20) ? (masterPWM - 20) : SLV));
-        printValue("Err: %d ctrl: %d SLV:%d \n", debug_err, debug_eff, SLV);
+//        printValue("L:%d R: %d, LPWM:%d RPWM: %d\n", masterLeftTicks, slaveRightTicks, masterPWM, updated_slave_pwm);
+//        if (masterLeftTicks > 0 && slaveRightTicks > 0) {
+//            debug_err = masterLeftTicks - slaveRightTicks;
+//        } else if (masterLeftTicks < 0 && slaveRightTicks < 0) {
+//            debug_err = -(masterLeftTicks - slaveRightTicks);
+//        } else if (masterLeftTicks > 0 && slaveRightTicks < 0) {
+//            debug_err = abs(masterLeftTicks) - abs(slaveRightTicks);
+//        } else if (masterLeftTicks < 0 && slaveRightTicks > 0) {
+//            debug_err = abs(masterLeftTicks) - abs(slaveRightTicks);
+//        }
+//        debug_eff = (int)(0.75 * (double)debug_err);
+//        int SLV = masterPWM + debug_eff;
+//        SLV = (uint8)(SLV > 255 ? 255 : (SLV < (masterPWM - 20) ? (masterPWM - 20) : SLV));
+//        printValue("Err: %d ctrl: %d SLV:%d \n", debug_err, debug_eff, SLV);
     }
     
 
@@ -185,8 +185,8 @@ void wheel_move_by_ticks(MotionDirection motion, int pwm, int target_ticks) {
     }
     
 //    printValue("DONE\n");
-    printValue("LEFT: %d RIGHT: %d\n ", masterLeftTicks, slaveRightTicks);
-    printValue("Master PWM: %d Slave PWM: %d\n", masterPWM, slavePWM);
+//    printValue("LEFT: %d RIGHT: %d\n ", masterLeftTicks, slaveRightTicks);
+//    printValue("Master PWM: %d Slave PWM: %d\n", masterPWM, slavePWM);
     currentMotion = StopMotion;
     stopMotor();
     stopWheelController();
@@ -304,8 +304,8 @@ void wheel_move_by_metrics (MotionDirection motion, uint8 pwm, double metrics) {
     // printValue("Initial Heading: %lf\n",gyroHeading);
     while (abs(masterLeftTicks) < ticks); 
 
-    printValue("LEFT: %d RIGHT: %d\n ", masterLeftTicks, slaveRightTicks);
-    printValue("Master PWM: %d Slave PWM: %d\n", masterPWM, slavePWM);
+//    printValue("LEFT: %d RIGHT: %d\n ", masterLeftTicks, slaveRightTicks);
+//    printValue("Master PWM: %d Slave PWM: %d\n", masterPWM, slavePWM);
     
     stopWheelController();
     stopMotor();

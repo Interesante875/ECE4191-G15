@@ -68,6 +68,7 @@ void exponentialControl(int begin, int end, int steps, ServoControlFunction serv
 
 void shutdown_Gripper() {
     if (GripperPWM_Status) {
+        CyDelay(200);
         turnOff_GripperHand(); 
         turnOff_GripperArm(); 
         setFlag_GripperPWM(!GripperPWM_Status);
@@ -177,6 +178,7 @@ void boot_FlickerLock() {
 }
 
 void shutdown_FlickerLock() {
+    
     if (FlickerLockPWM_Status) {
         turnOff_FlickerLock();
         setFlag_FlickerLockPWM(!FlickerLockPWM_Status);
