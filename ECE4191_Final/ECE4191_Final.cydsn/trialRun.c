@@ -38,12 +38,20 @@ void test_run() {
     
     #if TEST_RUN
         CyDelay(1000);
-        read_U();
-//        angle_correction(230, RFU, RBU, 1);
-//        wheel_move_by_ticks(Forward, 250, 10000);
-        wheel_move_by_ticks(Backward, 200, 10000);
-//        wheel_move_by_ticks(Left, 250, 5000);
-//        wheel_move_by_ticks(Right, 250, 5000);
+        
+        // angle_correction(230);
+        for (;;) {
+            for (int i = 0; i < 8; i++ ) {
+                UltrasonicSensor_ReadDistanceData(i);
+            }
+//            read_U();
+//            print_U();
+            
+            
+            CyDelay(2000);
+        }
+        
+
     #else
         moveOutofBaseHighLevel(250, 0.25);
         detectWhereIsThePinZone(220);

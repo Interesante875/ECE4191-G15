@@ -18,6 +18,8 @@
 #include "pid_ctrl.h"
 #include "navigation.h"
 #include "gyroscope.h"
+#include "ultrasonic.h"
+#include "ultrasonic_control.h"
 #include <stdio.h>
 #include <math.h>
 #include <stdlib.h>
@@ -341,47 +343,83 @@ void wheel_move (MotionDirection motion, uint8 pwm) {
     initializeWheelController(USE_CONTROLLER, pwm);
 }
 
-void angle_correction(uint8 pwm, double distance_1, double distance_2, int type) {
+void angle_correction(uint8 pwm) {
+    
+    CyDelay(120);
+    
+    read_U();
+    
+    double arr[] = {FLU, FRU, BLU, BRU, RFU, RBU, LFU, LBU};
+    
+    int minPairIndex = 0;
+
+    for (int i = 2; i < 8; i += 2) {
+        if (arr[i] + arr[i + 1] < arr[minPairIndex] + arr[minPairIndex + 1]) {
+            minPairIndex = i;
+        }
+    }
+
+    int pair1 = arr[minPairIndex];
+    int pair2 = arr[minPairIndex + 1];
+
+    printValue("The lowest value pair is (%d, %d)\n", pair1, pair2);
+
     
     lastMasterTicks = 0;
     lastSlaveTicks = 0;
     
-    double delta_dist = (distance_1 - distance_2)/100;
+    double delta_dist = (arr[minPairIndex] - arr[minPairIndex + 1])/100;
     printValue("DELTA: %.2lf\n", delta_dist);
+    double angle = 0;
     double threshold = 0.02;
     
-    if (type == 0) {
-        if (fabs(delta_dist) >= threshold) {
-            double angle = atan2(delta_dist, 0.1005) * 180 / CY_M_PI;
-            printValue("ANGLE: %.2lf\n", angle);
-            if (angle > 30) angle = 30;
-            else if (angle < -30) angle = -30;
-            
+    angle = atan2(delta_dist, 0.1005) * 180 / CY_M_PI;
+    
+    printValue("ANGLE: %.2lf\n", angle);
+    
+    if (angle > 30) angle = 30;
+    else if (angle < -30) angle = -30;
+    
+    switch (pair1) {
+        case 0:
+            printValue("FRONT\n");
             if (angle > 0) {
-               wheel_move_by_metrics(Left, pwm, fabs(angle));
-            } else {
-               wheel_move_by_metrics(Right, pwm, fabs(angle));
+                wheel_move_by_metrics(Right, pwm, fabs(angle));
             }
-        }
-    
-    }
-    else if (type == 1) {
-        if (fabs(delta_dist) >= threshold) {
-            double angle = atan2(delta_dist, 0.1300) * 180 / CY_M_PI;
-            printValue("ANGLE: %.2lf\n", angle);
-            if (angle > 30) angle = 30;
-            else if (angle < -30) angle = -30;
-            
+            else {
+                wheel_move_by_metrics(Left, pwm, fabs(angle));
+            }
+            break;
+        case 2:
+            printValue("BACK\n");
             if (angle > 0) {
-               wheel_move_by_metrics(Right, pwm, fabs(angle));
-            } else {
-               wheel_move_by_metrics(Left, pwm, fabs(angle));
+                wheel_move_by_metrics(Left, pwm, fabs(angle));
             }
-        }
-        
+            else {
+                wheel_move_by_metrics(Right, pwm, fabs(angle));
+            }
+            break;
+        case 4:
+            printValue("RIGHT\n");
+            if (angle > 0) {
+                wheel_move_by_metrics(Right, pwm, fabs(angle));
+            }
+            else {
+                wheel_move_by_metrics(Left, pwm, fabs(angle));
+            }
+            break;
+        case 6:
+            printValue("LEFT\n");
+            if (angle > 0) {
+                wheel_move_by_metrics(Left, pwm, fabs(angle));
+            }
+            else {
+                wheel_move_by_metrics(Right, pwm, fabs(angle));
+            }
+            break;
+  
     }
-    
-    
+
 }
 
 double inverseVarianceWeighting(double ticks_h, double gyro_h) {

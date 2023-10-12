@@ -51,14 +51,14 @@
     extern int ultrasonicSensorIndex;
     
     extern double sensorMeasuredDistances[NUM_ULTRASONIC_SENSORS][ARRAY_SIZE];
-
+    extern double sensorResults[NUM_ULTRASONIC_SENSORS];
 
     // Function prototypes
     void InitalizeUltrasonicSensor();
     void ShutdownUltrasonicSensor();
 
     void UltrasonicSensor_TriggerBurst();
- 
+    
     double UltrasonicSensor_ReadDistanceData(int sensorIdx);
     void UltrasonicSensor_SelectSensor(int sensorIndex);
     void UltrasonicSensor_MeasureDistance();
@@ -68,7 +68,7 @@
     int readEcho(int sensorIndex);
     CY_ISR(ISR_Handler_Ultrasonic_Trigger);
     CY_ISR(ISR_Handler_Ultrasonic_Echo);
-
+    CY_ISR(ISR_Handler_Ultrasonic_Read);
 
 #endif // ULTRASONIC_SENSOR_H
 /* [] END OF FILE */

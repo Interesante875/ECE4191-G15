@@ -24,7 +24,10 @@ UdsDetectState udsDetectState;
 int count;
 double distance;
 double median;
+int setSensorReadIndex;
+double setSensorResults;
 double sensorMeasuredDistances[NUM_ULTRASONIC_SENSORS][ARRAY_SIZE];
+double sensorResults[NUM_ULTRASONIC_SENSORS];
 static int currIdx[NUM_ULTRASONIC_SENSORS];
 
 // Function prototypes
@@ -38,6 +41,7 @@ void InitalizeUltrasonicSensor() {
     
     for (int i = 0; i < NUM_ULTRASONIC_SENSORS; i++) {
         currIdx[i] = 0;
+        sensorResults[i] = 0;
     }
     for (int i = 0; i < NUM_ULTRASONIC_SENSORS; i++) {
         for (int j = 0; j < ARRAY_SIZE; j++) {
@@ -56,20 +60,52 @@ void ShutdownUltrasonicSensor() {
     
     isr_ultrasonic_echo_Stop();
     isr_ultrasonic_trigger_Stop(); 
+}
+
+void pauseUltrasonicSensor() {
+    Timer_Ultrasonic_Echo_Stop();    
+    Timer_Ultrasonic_Trigger_Stop();
+    
+    isr_ultrasonic_echo_Stop();
+    isr_ultrasonic_trigger_Stop();
     
 }
 
+void restartUltrasonicSensor() {
+    Timer_Ultrasonic_Trigger_Start();
+    Timer_Ultrasonic_Echo_Start();    
+
+    isr_ultrasonic_echo_StartEx(ISR_Handler_Ultrasonic_Echo);
+    isr_ultrasonic_trigger_StartEx(ISR_Handler_Ultrasonic_Trigger);
+    
+}
 
 double UltrasonicSensor_ReadDistanceData(int sensorIndex) {
+
+    //pauseUltrasonicSensor();
+    double val = sensorResults[sensorIndex];
+    // restartUltrasonicSensor();
+
+    printValue("READ (%d) %.3lf\n", sensorIndex, sensorResults[sensorIndex]);
+
+    return val;
     
     
     #if ENABLE_MEDIAN_FILTERING == 1
-        double* rowPointer = sensorMeasuredDistances[sensorIndex];
-        median = findMedian(rowPointer, ARRAY_SIZE);
+//        double* rowPointer = sensorMeasuredDistances[sensorIndex];
+//        
+//        // Create a copy of the array
+//        double copyArray[ARRAY_SIZE];
+//        for (int i = 0; i < ARRAY_SIZE; i++) {
+//            copyArray[i] = rowPointer[i];
+//        }
+//        median = findMedian(copyArray, ARRAY_SIZE);
+        // printValue("READ: (%d) %.2lf %.2lf %.2lf %.2lf\n", sensorIndex, copyArray[0], copyArray[1], copyArray[2], median);
         // printValue("UDS(%d) %lf\n", sensorIndex, median);
-        return median;
+        
+        
     #else
-    
+        
     
     double value = sensorMeasuredDistances[sensorIndex][0];
     // printValue("Read: (%d) %lf\n", sensorIndex, value);
@@ -81,9 +117,21 @@ double UltrasonicSensor_ReadDistanceData(int sensorIndex) {
 
 
 void UltrasonicSensor_SelectSensor(int sensorIndex) {
- 
+    
+    
     Control_Reg_Ultrasonic_Write(sensorIndex);
+    CyDelayUs(10);
+//    
+//    bool cycle = false;
+//    
+//    if (ultrasonicSensorIndex == 7 && sensorIndex == 0) {
+//        UltrasonicSensor_TriggerBurst();
+//    }
     ultrasonicSensorIndex = sensorIndex;
+    
+    
+    
+    // UltrasonicSensor_TriggerBurst();
 
 }
 
@@ -98,15 +146,26 @@ void UltrasonicSensor_MeasureDistance(int sensorIndex) {
     #if ENABLE_MEDIAN_FILTERING
         sensorMeasuredDistances[sensorIndex][currIdx[sensorIndex]] = distance;
     
-        // printValue("(%d): CurrIndex: %d %lf, ", sensorIndex, currIdx[sensorIndex], sensorMeasuredDistances[sensorIndex][currIdx[sensorIndex]]);
+        // printValue("(%d): CurrIndex: %d %lf ", sensorIndex, currIdx[sensorIndex], sensorMeasuredDistances[sensorIndex][currIdx[sensorIndex]]);
         
         currIdx[sensorIndex] = (currIdx[sensorIndex] + 1) % ARRAY_SIZE;
         
         // printValue("Next Index: %d\n", currIdx[sensorIndex]);
+        
+        double * rowPointer = sensorMeasuredDistances[sensorIndex];
+
+        
+        double median = findMedian(rowPointer , ARRAY_SIZE);
+        sensorResults[sensorIndex] = median;
+        
+        // printValue("[%d]: %d %lf\n", sensorIndex, count, sensorResults[sensorIndex]);
     #else
         sensorMeasuredDistances[sensorIndex][0] = distance;    
+        sensorResults[sensorIndex] = distance;
     #endif
     
+//    printValue("(%d): %.2lf %.2lf %.2lf\n", sensorIndex, sensorMeasuredDistances[sensorIndex][0],
+//    sensorMeasuredDistances[sensorIndex][1], sensorMeasuredDistances[sensorIndex][2]);
 }
 
 
@@ -170,26 +229,26 @@ void UltrasonicSensor_ChangeState(UdsDetectState state) {
     
 }
 
-CY_ISR (ISR_Handler_Ultrasonic_Trigger) {
-    Timer_Ultrasonic_Trigger_ReadStatusRegister();
-    
+void UltrasonicSensor_TriggerBurst() {
     if (readEcho(ultrasonicSensorIndex) == 0) {
-       
         Trigger_1_Write(1);
         CyDelayUs(10);
         Trigger_1_Write(0);
         Trigger_2_Write(1);
         CyDelayUs(10);
-       Trigger_2_Write(0);
+        Trigger_2_Write(0);
         Trigger_3_Write(1);
         CyDelayUs(10);
         Trigger_3_Write(0);
-        //Trigger_4_Write(1);
-
-
-        //Trigger_4_Write(1);
-        //CyDelayUs(2);
+            
     }
+    
+}
+
+CY_ISR (ISR_Handler_Ultrasonic_Trigger) {
+    Timer_Ultrasonic_Trigger_ReadStatusRegister();
+    UltrasonicSensor_TriggerBurst();
+
 
 }
 
@@ -254,5 +313,11 @@ CY_ISR(ISR_Handler_Ultrasonic_Echo) {
     UltrasonicSensor_SelectSensor(ultrasonicSensorIndex);
     
 }
+
+//
+//CY_ISR (ISR_Handler_Ultrasonic_Read) {
+//    setSensorResults = sensorResults[setSensorReadIndex];
+//    
+//}
 
 /* [] END OF FILE */
