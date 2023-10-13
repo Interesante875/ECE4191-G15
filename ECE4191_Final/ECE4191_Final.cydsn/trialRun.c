@@ -39,46 +39,7 @@ void test_run() {
     
     #if TEST_RUN
         CyDelay(1000);
-        GripperHand_Open();
-        GripperArm_Extend();
-     
-        shutdown_Gripper();
-        
-        int finish = 0;
-        
-        while (!finish) {
-            startIR();
-            
-            wheel_move(Forward, 230);
-            
-            while (infraredDetectionStatus == Absence);
-            
-            wheel_move(StopMotion, 230);
-            stopIR();
-            wheel_move_by_metrics(Backward, 200, 0.02);
-            ColorDetection_Run(1);
-            
-            if (detectedColor == RedColor) {
-                GripperHand_GripPuck();   
-                GripperArm_Retract();
-                
-                shutdown_Gripper();
-                finish = 1;
-            } else {
-                GripperHand_GripPuck();   
-                GripperArm_Retract();
-                wheel_move_by_metrics(Right, 220, 20);
-                GripperArm_Extend();
-                GripperHand_Open();
-                GripperArm_Retract();
-                
-                wheel_move_by_metrics(Left, 220, 20);
-                GripperArm_Extend();
-               
-                shutdown_Gripper();
-            }
-        
-        }
+        angle_correction(240);
 
     #else
         // moveOutofBaseHighLevel(250, 0.25);
@@ -423,6 +384,7 @@ void detectWhereIsThePinZone(uint8 detectPWM) {
 void run();
 
 void runLevelOne_v2() {
+    
     if (zoneColor == PinZoneColorBlue) {
         requiredColor = BlueColor;
     } else if (zoneColor == PinZoneColorRed) {
@@ -447,7 +409,7 @@ void runLevelOne_v2() {
         facingRight = 0;
     }
 
-    CyDelay(1000);
+    CyDelay(300);
     read_U();
     bool obstacle_not_met = (FLU >= 22) && (FRU >= 22);
     
@@ -474,11 +436,13 @@ void runLevelOne_v2() {
         if (infraredDetectionStatus == Presence) {
             
             wheel_move_by_metrics(Backward, 200, 0.015);
-            ColorDetection_Run(2);
+            ColorDetection_Run(1);
             GripperHand_GripPuck();   
             GripperArm_Retract();
-            
+            CyDelay(100);
+            // ATTENTION
             if (detectedColor == RedColor) {
+                
                 shutdown_Gripper();
                 rasterFinish = 1;
             } else {
@@ -486,53 +450,249 @@ void runLevelOne_v2() {
                 wheel_move_by_metrics_with_gyro(Right, 220, 20);
                 GripperArm_Extend();
                 GripperHand_Open();
+                CyDelay(100);
                 GripperArm_Retract();
                 GripperHand_GripPuck();
                 wheel_move_by_metrics_with_gyro(Left, 220, 20);
+                CyDelay(100);
                 shutdown_Gripper();
             }
             
         } else if (!obstacle_not_met) {
             GripperArm_Retract();
             GripperHand_GripPuck();
+            CyDelay(100);
             shutdown_Gripper();
             // raster it
             
             if (facingRight) {
-                wheel_move_by_metrics_with_gyro(Left, 230, 90);
-                wheel_move_by_metrics_with_gyro(Forward, 230, 0.1);
-                wheel_move_by_metrics_with_gyro(Left, 230, 90);
+                wheel_move_by_metrics(Left, 230, 90);
+                wheel_move_by_metrics(Forward, 230, 0.1);
+                wheel_move_by_metrics(Left, 230, 90);
             } else {
-                wheel_move_by_metrics_with_gyro(Right, 230, 90);
-                wheel_move_by_metrics_with_gyro(Forward, 230, 0.1);
-                wheel_move_by_metrics_with_gyro(Right, 230, 90);
+                wheel_move_by_metrics(Right, 230, 90);
+                wheel_move_by_metrics(Forward, 230, 0.1);
+                wheel_move_by_metrics(Right, 230, 90);
             }
             
             facingRight = !facingRight;
             
+            CyDelay(100);
             read_U();
             obstacle_not_met = true;
         }
         
     }
-//    bool obstacle_not_met = (FLU >= 15) && (FRU >= 15);
-//    
-//
-//    
-//    wheel_move(Forward, 230);
-//    
-//    while (obstacle_not_met) {
-//        read_U();
-//        obstacle_not_met = (FLU >= 15) && (FRU >= 15);
-//        
-//    }
     
     wheel_move(StopMotion, 250);
-//    GripperHand_Open();
+
+    read_U();
+    
+    if (facingRight && (base_color == YellowBase || base_color == BlueBase)) {
+        obstacle_not_met = (BLU >= 10) && (BRU >= 10);
+        
+        wheel_move(Backward, 250);
+        
+        while (obstacle_not_met) {
+            read_U();
+            obstacle_not_met = (BLU >= 10) && (BRU >= 10);
+        }
+        
+        wheel_move(StopMotion, 250);
+        wheel_move_by_metrics(Right, 250, 90);
+        
+        read_U();
+        
+        obstacle_not_met = (FLU >= 28) && (FRU >= 28);
+        
+        wheel_move(Forward, 220);
+        
+        while (obstacle_not_met) {
+            read_U();
+            obstacle_not_met = (FLU >= 28) && (FRU >= 28);
+        }
+        
+        wheel_move(StopMotion, 220);
+        wheel_move_by_metrics(Left, 250, 90);
+    }
+    else if (facingRight && (base_color == RedBase || base_color == GreenBase)) {
+        obstacle_not_met = (FLU >= 10) && (FRU >= 10);
+        
+        wheel_move(Forward, 250);
+        
+        while (obstacle_not_met) {
+            read_U();
+            obstacle_not_met = (FLU >= 10) && (FRU >= 10);
+        }
+        
+        wheel_move(StopMotion, 250);
+        wheel_move_by_metrics(Right, 250, 90);
+        
+        read_U();
+        
+        obstacle_not_met = (FLU >= 28) && (FRU >= 28);
+        
+        wheel_move(Forward, 220);
+        
+        while (obstacle_not_met) {
+            read_U();
+            obstacle_not_met = (FLU >= 28) && (FRU >= 28);
+        }
+        
+        wheel_move(StopMotion, 220);
+        wheel_move_by_metrics_with_gyro(Right, 250, 90);
+        
+        facingRight = !facingRight;
+    }
+    else if (!facingRight && (base_color == YellowBase || base_color == BlueBase)) {
+        obstacle_not_met = (FLU >= 10) && (FRU >= 10);
+        
+        wheel_move(Forward, 250);
+        
+        while (obstacle_not_met) {
+            read_U();
+            obstacle_not_met = (FLU >= 10) && (FRU >= 10);
+        }
+        
+        wheel_move(StopMotion, 250);
+        wheel_move_by_metrics_with_gyro(Left, 250, 90);
+        
+        read_U();
+        
+        obstacle_not_met = (FLU >= 28) && (FRU >= 28);
+        
+        wheel_move(Forward, 220);
+        
+        while (obstacle_not_met) {
+            read_U();
+            obstacle_not_met = (FLU >= 28) && (FRU >= 28);
+        }
+        
+        wheel_move(StopMotion, 220);
+        wheel_move_by_metrics(Left, 250, 90);
+        facingRight = !facingRight;
+    }
+    else if (!facingRight && (base_color == RedBase || base_color == GreenBase)) {
+        obstacle_not_met = (BLU >= 10) && (BRU >= 10);
+        
+        wheel_move(Backward, 250);
+        
+        while (obstacle_not_met) {
+            read_U();
+            obstacle_not_met = (BLU >= 10) && (BRU >= 10);
+        }
+        
+        wheel_move(StopMotion, 250);
+        wheel_move_by_metrics(Left, 250, 90);
+        
+        read_U();
+        
+        obstacle_not_met = (FLU >= 28) && (FRU >= 28);
+        
+        wheel_move(Forward, 220);
+        
+        while (obstacle_not_met) {
+            read_U();
+            obstacle_not_met = (FLU >= 28) && (FRU >= 28);
+        }
+        
+        wheel_move(StopMotion, 220);
+        wheel_move_by_metrics(Right, 250, 90);
+    }
+    
+    
+    double FU, BU;
+    
+    read_U();
+    
+    wheel_move(Forward, 210);
+    bool notSeen = true;
+    bool obstacleNotMet = true;
+    
+    while (notSeen) {
+        if (facingRight) {
+            read_U();
+        }
+        else {
+            read_U();
+        }
+        
+        if (!(fabs(FU - BU) <= 10))
+            notSeen = FU < BU;
+        
+    }
+    
+    wheel_move(StopMotion, 210);
+    
+//    if (facingRight) {
+//        wheel_move_by_metrics(Right, 250, 90);
+//        FU = UltrasonicSensor_ReadDistanceData(3);
+//    } else {
+//        wheel_move_by_metrics(Left, 250, 90);
+//        FU = UltrasonicSensor_ReadDistanceData(2);
+//    }
+//    
+//    if (FU - 25 > 0) {
+//        wheel_move_by_metrics(Forward, 210, (FU-25/100));   
+//    }
+//    
 //    GripperArm_Extend();
-//    shutdown_Gripper();
-    
-    
+//    GripperHand_Open();
+//    GripperArm_Retract();
+//    GripperHand_GripPuck();
+//    
+//    FlickerLock_Lock();
+//    CyDelay(100);
+//    FlickerRecoil_Load();
+//    CyDelay(200);
+//    FlickerRecoil_Unload();
+//    CyDelay(200);
+//    
+//    wheel_move_by_metrics(Forward, 210, 0.065);
+//    FlickerLock_Unlock();
+//    CyDelay(200);
+//    FlickerLock_Lock();
+//    
+//    if (facingRight) {
+//        wheel_move_by_metrics_with_gyro(Left, 250, 90);
+//    } else {
+//        wheel_move_by_metrics_with_gyro(Right, 250, 90);  
+//    }
+//    
+//    BLU = UltrasonicSensor_ReadDistanceData(4);
+//    BRU = UltrasonicSensor_ReadDistanceData(5);
+//    bool distance_not_met = (BLU <= 70) && (BRU <= 70);
+//    
+//    wheel_move(Forward, 250);
+//    
+//    while (distance_not_met) {
+//        BLU = UltrasonicSensor_ReadDistanceData(4);
+//        BRU = UltrasonicSensor_ReadDistanceData(5);
+//        distance_not_met = (BLU <= 70) && (BRU <= 70);
+//    }
+//    
+//    wheel_move(StopMotion, 250);
+//    
+//    if (facingRight) {
+//        wheel_move_by_metrics_with_gyro(Left, 250, 90);
+//    } else {
+//        wheel_move_by_metrics_with_gyro(Right, 250, 90);  
+//    }
+//    
+//    BLU = UltrasonicSensor_ReadDistanceData(4);
+//    BRU = UltrasonicSensor_ReadDistanceData(5);
+//    
+//    obstacle_not_met = (BLU >= 5) && (BRU >= 5);
+//        
+//    wheel_move(Backward, 250);
+//        
+//    while (obstacle_not_met) {
+//        BLU = UltrasonicSensor_ReadDistanceData(4);
+//        BRU = UltrasonicSensor_ReadDistanceData(5);
+//        obstacle_not_met = (BLU >= 5) && (BRU >= 5);
+//    }
+//    
+//    
     
 }
 

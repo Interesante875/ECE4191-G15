@@ -65,7 +65,7 @@ void initializeWheelController(ControllerType ctrlType_name, int pwm) {
         break;
         
         case ProportionalIntegralDerivativeControl:
-            printValue("PID Controller is used\n");
+            //printValue("PID Controller is used\n");
             resetPIDController();
         break; 
         default:
@@ -140,7 +140,7 @@ CY_ISR(ISR_Handler_Wheel_Controller) {
         computePosition(masterLeftTicks - lastMasterTicks, slaveRightTicks - lastSlaveTicks);
         lastMasterTicks = masterLeftTicks;
         lastSlaveTicks = slaveRightTicks;
-        
+        // printPositionToBluetooth();
 //        printValue("L:%d R: %d, LPWM:%d RPWM: %d\n", masterLeftTicks, slaveRightTicks, masterPWM, updated_slave_pwm);
 //        if (masterLeftTicks > 0 && slaveRightTicks > 0) {
 //            debug_err = masterLeftTicks - slaveRightTicks;
@@ -380,7 +380,7 @@ void angle_correction(uint8 pwm) {
     if (angle > 30) angle = 30;
     else if (angle < -30) angle = -30;
     
-    switch (pair1) {
+    switch (minPairIndex) {
         case 0:
             printValue("FRONT\n");
             if (angle > 0) {

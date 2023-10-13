@@ -9,25 +9,17 @@
  *
  * ========================================
 */
+#ifndef LEVELONE_H
+    #define LEVELONE_H
 
-#include "project.h"
-#include <math.h>
-#include "bluetooth.h"
-#include "LevelOne.h"
-#include "trialRun.h"
-
-int main(void)
-{
-    CyGlobalIntEnable; /* Enable global interrupts. */
+    void printState();
     
-    run_L1();
-
-//    initializeRobot();
-//    test_run();
-    for(;;)
-    {
-        
-    }
-}
+    void run_L1();
+    void initializeRobotBase();
+    
+    void state_1_0();
+    void state_1_1();
+    
+#endif
 
 /* [] END OF FILE */
