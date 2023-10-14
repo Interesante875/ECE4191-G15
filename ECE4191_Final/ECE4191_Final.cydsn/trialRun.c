@@ -41,21 +41,25 @@ void test_run() {
     #if TEST_RUN
         CyDelay(1000);
         
-        uniturningAlignment(250, RightAlign);
-        
-//        wheel_move(Backward,250);
-//        
-//        bool notMet = true;
-//        
-//        while (notMet) {
+//        for (;;) {
 //            read_U();
 //            print_U();
-//            notMet = (BLU >= 25) || (BRU >= 25);
-//            
-//            
+//            CyDelay(1000);   
 //        }
-//        
-//        wheel_move(StopMotion, 250);
+        
+        wheel_move(Backward,250);
+        
+        bool notMet = true;
+        
+        while (notMet) {
+            read_U();
+            print_U();
+            notMet = (BLU >= 25) || (BRU >= 25);
+            
+            
+        }
+        
+        wheel_move(StopMotion, 250);
     #else
         // moveOutofBaseHighLevel(250, 0.25);
 //        detectWhereIsThePinZone(210);

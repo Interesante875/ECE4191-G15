@@ -31,7 +31,7 @@
 #define ENABLE_BT 1
 #define HND_SHAKE 0 
 #define MAX_SPEED 250
-#define HALF_SPEED 230
+#define HALF_SPEED 200
 #define TURN_SPEED 250
 #define FACTOR_SURFACE 1.2
 
@@ -47,11 +47,11 @@ int facingRight = 0;
 void run_L1() {
     initializeRobotBase();
     
-//    state_1_0();
-//    state_1_1();
-//    state_1_2();
-//    state_1_3();
-//    state_1_4();
+    state_1_0();
+    state_1_1();
+    state_1_2();
+    state_1_3();
+    state_1_4();
     state_1_5();
 }
 
@@ -231,7 +231,7 @@ void state_1_2 () {
     
     if (base_color == YellowBase || base_color == BlueBase) {
         if (facingRight) {
-            moveUntilObs(0, MAX_SPEED, 7);
+            moveUntilObs(0, MAX_SPEED, 20);
             uniturningAlignment(TURN_SPEED, BackAlign);
             wheel_move_by_metrics(Right, TURN_SPEED, 90 * FACTOR_SURFACE);
             uniturningAlignment(TURN_SPEED, RightAlign);
@@ -239,12 +239,12 @@ void state_1_2 () {
             wheel_move_by_metrics(Left, TURN_SPEED, 90 * FACTOR_SURFACE);
             
         } else {
-            moveUntilObs(1, MAX_SPEED, 6);
+            moveUntilObs(1, MAX_SPEED, 20);
             uniturningAlignment(TURN_SPEED, FrontAlign);
             wheel_move_by_metrics(Left, TURN_SPEED, 90 * FACTOR_SURFACE);
             uniturningAlignment(TURN_SPEED, LeftAlign);
             moveUntilObs(1, MAX_SPEED, 28);
-            wheel_move_by_metrics(Right, TURN_SPEED, 90 * FACTOR_SURFACE);
+            wheel_move_by_metrics(Left, TURN_SPEED, 90 * FACTOR_SURFACE);
             
             facingRight = 1;
         }
@@ -277,7 +277,7 @@ void state_1_2 () {
 
 void state_1_3() {
     
-    CyDelay(300);
+    biturningAlignment();
     
     read_U();
     
