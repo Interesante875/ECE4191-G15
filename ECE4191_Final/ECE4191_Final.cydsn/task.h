@@ -13,6 +13,13 @@
 
     #define TASK_H
     
+    typedef enum {
+        LeftAlign,
+        RightAlign,
+        FrontAlign,
+        BackAlign
+        
+    } Alignment;
 
     
     void retractGripper();
@@ -29,6 +36,9 @@
     
     int wallIsSeen();
     void biturningAlignment();
+    void uniturningAlignment(int speed, Alignment align);
+    
+    void moveUntilObs(int dir, int speed, double dist);
     
 #endif
 /* [] END OF FILE */

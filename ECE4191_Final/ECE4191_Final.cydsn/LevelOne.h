@@ -19,7 +19,10 @@
     
     void state_1_0();
     void state_1_1();
-    
+    void state_1_2();
+    void state_1_3();
+    void state_1_4();
+    void state_1_5();
 #endif
 
 /* [] END OF FILE */

@@ -343,9 +343,75 @@ void wheel_move (MotionDirection motion, uint8 pwm) {
     initializeWheelController(USE_CONTROLLER, pwm);
 }
 
+void angle_correction_with_sides(uint8 pwm, int dir) {
+    
+    // 0 - Front 1 - Back 2 - RIght 3 - Left
+    
+    CyDelay(360);
+    read_U();
+    
+    double arr[] = {FLU, FRU, BLU, BRU, RFU, RBU, LFU, LBU};
+    
+    int minPairIndex = dir*2;
+    
+    double delta_dist = (arr[minPairIndex] - arr[minPairIndex + 1])/100;
+    printValue("DELTA: %.2lf %.2lf %.2lf\n", delta_dist, arr[minPairIndex], arr[minPairIndex + 1]);
+    double angle = 0;
+    double threshold = 0.02;
+    
+    angle = atan2(delta_dist, 0.1005) * 180 / CY_M_PI;
+    
+    printValue("ANGLE: %.2lf\n", angle);
+    
+    if (angle > 30) angle = 30;
+    else if (angle < -30) angle = -30;
+    
+    switch (minPairIndex) {
+        case 0:
+            printValue("FRONT\n");
+            if (angle > 0) {
+                wheel_move_by_metrics(Right, pwm, fabs(angle));
+            }
+            else {
+                wheel_move_by_metrics(Left, pwm, fabs(angle));
+            }
+            break;
+        case 2:
+            printValue("BACK\n");
+            if (angle > 0) {
+                wheel_move_by_metrics(Left, pwm, fabs(angle));
+            }
+            else {
+                wheel_move_by_metrics(Right, pwm, fabs(angle));
+            }
+            break;
+        case 4:
+            printValue("RIGHT\n");
+            if (angle > 0) {
+                wheel_move_by_metrics(Right, pwm, fabs(angle));
+            }
+            else {
+                wheel_move_by_metrics(Left, pwm, fabs(angle));
+            }
+            break;
+        case 6:
+            printValue("LEFT\n");
+            if (angle > 0) {
+                wheel_move_by_metrics(Left, pwm, fabs(angle));
+            }
+            else {
+                wheel_move_by_metrics(Right, pwm, fabs(angle));
+            }
+            break;
+  
+    }
+    
+    
+}
+
 void angle_correction(uint8 pwm) {
     
-    CyDelay(120);
+    CyDelay(360);
     
     read_U();
     

@@ -23,6 +23,7 @@
 #include "servo_control.h"
 #include "behavior_tree.h"
 #include "behavior.h"
+#include "task.h"
 
 #include "math.h"
 #define MOVING_PWM 250
@@ -39,8 +40,22 @@ void test_run() {
     
     #if TEST_RUN
         CyDelay(1000);
-        angle_correction(240);
-
+        
+        uniturningAlignment(250, RightAlign);
+        
+//        wheel_move(Backward,250);
+//        
+//        bool notMet = true;
+//        
+//        while (notMet) {
+//            read_U();
+//            print_U();
+//            notMet = (BLU >= 25) || (BRU >= 25);
+//            
+//            
+//        }
+//        
+//        wheel_move(StopMotion, 250);
     #else
         // moveOutofBaseHighLevel(250, 0.25);
 //        detectWhereIsThePinZone(210);

@@ -130,6 +130,59 @@ void biturningAlignment() {
     angle_correction(225);
 }
 
+void uniturningAlignment(int speed, Alignment align) {
+    CyDelay(320);
+    if (align == LeftAlign) {
+        angle_correction_with_sides(speed, 3);
+    } 
+    else if (align == RightAlign) {
+        angle_correction_with_sides(speed, 2);
+    } 
+    else if(align == FrontAlign) {
+        angle_correction_with_sides(speed, 0);
+    } 
+    else if (align == BackAlign) {
+        angle_correction_with_sides(speed, 1);
+    } 
+    
+}
+
+
+void moveUntilObs(int dir, int speed, double dist) {
+    
+    CyDelay(320);
+    
+    printValue("MOVING BACK");
+    
+    if (dir == 0) {
+
+        wheel_move(Backward, speed);
+        bool obsNotMet = true;
+        
+        while (obsNotMet) {
+            read_U();
+            print_U();
+            obsNotMet = (BLU >= dist) || (BRU >= dist);
+        }
+        
+        wheel_move(StopMotion, speed); 
+        
+    } else {
+        wheel_move(Forward, speed);
+        bool obsNotMet = true;
+        
+        while (obsNotMet) {
+            read_U();
+            obsNotMet = (FLU >= dist) || (FRU >= dist);
+        }
+        
+        wheel_move(StopMotion, speed);    
+        
+    }
+      
+    
+}
+
 int wallIsSeen() {
     int proximity_left = (pos_x < 0.1);
     int proximity_right = (pos_x > 2.3);

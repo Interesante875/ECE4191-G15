@@ -17,6 +17,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <math.h>
+
+#define MAX_ALLOWED_STDDEV 2.0
 
 int ultrasonicSensorIndex;
 
@@ -137,7 +140,7 @@ void UltrasonicSensor_SelectSensor(int sensorIndex) {
 
 void UltrasonicSensor_MeasureDistance(int sensorIndex) {
 
-
+   
     count = Timer_Ultrasonic_Echo_ReadCounter();
  
     distance = (double) (65536 - count)/58.0;
@@ -154,9 +157,28 @@ void UltrasonicSensor_MeasureDistance(int sensorIndex) {
         
         double * rowPointer = sensorMeasuredDistances[sensorIndex];
 
+        double mean = 0;
+        for (int i = 0; i < ARRAY_SIZE; i++) {
+            mean += rowPointer[i];
+        }
+        mean /= ARRAY_SIZE;
+
+        double stddev = 0.0;
+        for (int i = 0; i < ARRAY_SIZE; i++) {
+            stddev += pow(rowPointer[i] - mean, 2);
+        }
+        stddev = sqrt(stddev / ARRAY_SIZE);
+
+        // Check if the new reading is within the allowed range.
+        if (fabs(distance - mean) < MAX_ALLOWED_STDDEV * stddev) {
+            double median = findMedian(rowPointer , ARRAY_SIZE);
+            sensorResults[sensorIndex] = median;
+        } else {
+            // Reject the reading if it's too far from the mean.
+            // You can choose to do nothing or handle it differently.
+            // sensorResults[sensorIndex] may not be updated in this case.
+        }
         
-        double median = findMedian(rowPointer , ARRAY_SIZE);
-        sensorResults[sensorIndex] = median;
         
         // printValue("[%d]: %d %lf\n", sensorIndex, count, sensorResults[sensorIndex]);
     #else
