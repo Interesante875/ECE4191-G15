@@ -12,6 +12,7 @@
 #include "project.h"
 #include "trialRun.h"
 #include "p_ctrl.h"
+#include "analog.h"
 #include "locomotion.h"
 #include "navigation.h"
 #include "ultrasonic.h"
@@ -41,25 +42,98 @@ void test_run() {
     #if TEST_RUN
         CyDelay(1000);
         
+        initializeSharpIR();
+        
+        for (;;) {
+            printValue("DIST: %.3lf\n", analogDistance);
+            CyDelay(1000);
+            
+        }
+        
+//        bool notSeen = true;
+//        bool arenaWallNotTooFar = true;
+//        bool arenaWallNotTooClose = false;
+//    
+//        const int HALF_SPEED = 200;
+//        const int TURN_SPEED = 230;
+//    
+//        while (notSeen) {
+//            uniturningAlignment(TURN_SPEED, BackAlign);
+//            
+//            arenaWallNotTooFar = (BLU <= 65) && (BRU <= 65);
+//        
+//            wheel_move(Forward, HALF_SPEED);
+//            
+//            while (arenaWallNotTooFar) {
+//                read_U();
+//                
+//                arenaWallNotTooFar = (BLU <= 65) && (BRU <= 65);
+//                if (!(fabs(RFU - RBU) <= 10))
+//                    notSeen = RFU > RBU;
+//                printValue("RFU: %.2lf RBU: %.2lf detected: %d\n", RFU, RBU, notSeen);
+//                if (!notSeen) {
+//                    printValue("SEEN\n");
+//                    break;
+//                }
+//            }
+//            
+//            wheel_move(StopMotion, HALF_SPEED);
+//        
+//            CyDelay(300);
+//            
+//            
+//            if (!notSeen) return;
+//            
+//            read_U();
+//            arenaWallNotTooClose = (BLU >= 14) || (BRU >= 14);
+//            
+//            //uniturningAlignment(TURN_SPEED, RightAlign);
+//            
+//            wheel_move(Backward, HALF_SPEED);
+// 
+//            while (arenaWallNotTooClose) {
+//                read_U();
+//                arenaWallNotTooClose = (BLU >= 14) || (BRU >= 14);
+//                if (!(fabs(RFU - RBU) <= 10) && arenaWallNotTooClose)
+//                {
+//                    notSeen = RFU > RBU;
+//                    
+//                }
+//                printValue("RFU: %.2lf RBU: %.2lf detected: %d\n", RFU, RBU, notSeen);
+//                
+//                if (!notSeen) {
+//                    printValue("SEEN\n");
+//                    break;
+//                }
+//            }
+//            
+//            wheel_move(StopMotion, HALF_SPEED);
+//        
+//            if (!notSeen) return;
+//
+//            //uniturningAlignment(TURN_SPEED, BackAlign);
+//        }
+//        
+//    
 //        for (;;) {
 //            read_U();
 //            print_U();
 //            CyDelay(1000);   
 //        }
         
-        wheel_move(Backward,250);
-        
-        bool notMet = true;
-        
-        while (notMet) {
-            read_U();
-            print_U();
-            notMet = (BLU >= 25) || (BRU >= 25);
-            
-            
-        }
-        
-        wheel_move(StopMotion, 250);
+//        wheel_move(Backward,250);
+//        
+//        bool notMet = true;
+//        
+//        while (notMet) {
+//            read_U();
+//            print_U();
+//            notMet = (BLU >= 25) || (BRU >= 25);
+//            
+//            
+//        }
+//        
+//        wheel_move(StopMotion, 250);
     #else
         // moveOutofBaseHighLevel(250, 0.25);
 //        detectWhereIsThePinZone(210);

@@ -255,10 +255,12 @@
       <Data key="1dacffb2-28d5-4640-9265-f366cf769bd0" value="isr_IR_Sensor_RIGHT" />
       <Data key="5d2424ce-32e1-424e-8d9d-93f0883d58cd" value="isr_ultrasonic_echo" />
       <Data key="6f2d57bd-b6d0-4115-93da-ded3485bf4ed/74b069b5-d5c5-469b-a48a-44b8a12146cd" value="I2C_1_I2C_IRQ" />
+      <Data key="8d5a8d72-c6e9-4b1d-a4cb-f23c19a44aa5" value="isr_analog_measure" />
       <Data key="26a91525-ebe4-4c04-acdb-848054932401/e979b35e-c089-429a-96bb-6d4d69c94283" value="QuadDec_RIGHT_isr" />
       <Data key="62f6932c-12b8-4880-8c8c-b3a7316a6a44/e979b35e-c089-429a-96bb-6d4d69c94283" value="QuadDec_LEFT_isr" />
       <Data key="522ee3fe-c30c-4757-adfa-e915792874e2" value="isr_ultrasonic_burst" />
       <Data key="575b1d12-882f-490e-8ca7-2ed375ff2880" value="isr_wheel_controller" />
+      <Data key="898d20ea-43ee-483e-9751-5e05576fd20b/b6592af9-e743-4dfd-a597-27f9102033ee" value="ADC_DelSig_1_IRQ" />
       <Data key="89402461-4ad9-47b4-9beb-f021ac419464" value="isr_IR_Sensor_NegativeEdge" />
       <Data key="a158ec88-fbe8-477f-91b0-2848cc2bf5a1" value="isr_ultrasonic_echo_back" />
       <Data key="b63f585b-9abc-4d98-a3d4-6bb09b62131d" value="isr_ultrasonic_trigger" />
@@ -276,6 +278,7 @@
       <Data key="2f2b85cb-ac86-4068-b571-fb320ecd279f" value="Trigger_2" />
       <Data key="02f2cf2c-2c7a-49df-9246-7a3435c21be3" value="SCL_1" />
       <Data key="3a9189f0-9236-4dd1-a8d9-4f174ac93ae9" value="MOTOR_FLICKER_LOCK" />
+      <Data key="3f39d37b-f2d5-4957-a14f-1f5fc72183be" value="distance" />
       <Data key="4fb3ce60-0488-41a2-a40d-4393c5944ce0" value="S2" />
       <Data key="5d1f37b1-3d2b-4594-aaae-9c72033b9fcc" value="MOTOR_FLICKER_RECOIL" />
       <Data key="7a32bc1b-57d5-449d-a52b-f81f6c39a7b9" value="Count" />
@@ -294,6 +297,7 @@
       <Data key="4475cc2d-2e31-4262-a59d-915c8794e2ef" value="MOTOR_RIGHT_IN_3" />
       <Data key="22863ebe-a37b-476f-b252-6e49a8c00b12" value="SDA_1" />
       <Data key="716507ed-8825-4e8d-937b-2557580f1ae4" value="MOTOR_EN_LEFT" />
+      <Data key="77715107-f8d5-47e5-a629-0fb83101ac6b" value="analog" />
       <Data key="a0aa757e-9e0b-4d4c-974d-510ad3fb0758" value="MOTOR_GRIPPER_HAND" />
       <Data key="a54c00ca-78da-4fbf-9ec1-632a4067c982" value="MOTOR_GRIPPER_ARM" />
       <Data key="a0549be8-5a5b-4866-bfb6-eb06fa8406a7" value="Trigger_3" />
@@ -3419,6 +3423,13 @@
         <Data key="Vector" value="-1" />
       </Group>
     </Group>
+    <Group key="8d5a8d72-c6e9-4b1d-a4cb-f23c19a44aa5">
+      <Group key="CortexM3">
+        <Data key="Assigned" value="True" />
+        <Data key="Priority" value="3" />
+        <Data key="Vector" value="-1" />
+      </Group>
+    </Group>
     <Group key="26a91525-ebe4-4c04-acdb-848054932401/e979b35e-c089-429a-96bb-6d4d69c94283">
       <Group key="CortexM3">
         <Data key="Assigned" value="True" />
@@ -3444,6 +3455,13 @@
       <Group key="CortexM3">
         <Data key="Assigned" value="True" />
         <Data key="Priority" value="4" />
+        <Data key="Vector" value="-1" />
+      </Group>
+    </Group>
+    <Group key="898d20ea-43ee-483e-9751-5e05576fd20b/b6592af9-e743-4dfd-a597-27f9102033ee">
+      <Group key="CortexM3">
+        <Data key="Assigned" value="True" />
+        <Data key="Priority" value="3" />
         <Data key="Vector" value="-1" />
       </Group>
     </Group>
@@ -3528,6 +3546,11 @@
         <Data key="Port Format" value="12,1" />
       </Group>
     </Group>
+    <Group key="3f39d37b-f2d5-4957-a14f-1f5fc72183be">
+      <Group key="0">
+        <Data key="Port Format" value="15,1" />
+      </Group>
+    </Group>
     <Group key="4fb3ce60-0488-41a2-a40d-4393c5944ce0">
       <Group key="0">
         <Data key="Port Format" value="2,2" />
@@ -3601,6 +3624,11 @@
     <Group key="716507ed-8825-4e8d-937b-2557580f1ae4">
       <Group key="0">
         <Data key="Port Format" value="3,0" />
+      </Group>
+    </Group>
+    <Group key="77715107-f8d5-47e5-a629-0fb83101ac6b">
+      <Group key="0">
+        <Data key="Port Format" value="15,0" />
       </Group>
     </Group>
     <Group key="a0aa757e-9e0b-4d4c-974d-510ad3fb0758">

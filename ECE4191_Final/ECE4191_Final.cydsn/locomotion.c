@@ -179,7 +179,7 @@ void wheel_move_by_ticks(MotionDirection motion, int pwm, int target_ticks) {
     initializeWheelController(USE_CONTROLLER, pwm);
     
     
-    printValue("Set Controller\n");
+    // printValue("Set Controller\n");
     while (abs(masterLeftTicks) < target_ticks){
         //computePosition(masterLeftTicks - lastMasterTicks, slaveRightTicks - lastSlaveTicks); 
     }

@@ -102,46 +102,25 @@ void state_1_0() {
     
     if (base_color == YellowBase || base_color == BlueBase) {
         wheel_move_by_metrics(Right, TURN_SPEED, 90 * FACTOR_SURFACE);
-        
-        uniturningAlignment(TURN_SPEED, RightAlign);
-        
-        // biturningAlignment();
-        
-        //moveBackwardUntilObs(MAX_SPEED);
-//        wheel_move_by_metrics(Backward, MAX_SPEED, 0.6);
+        uniturningAlignment(TURN_SPEED, RightAlign); 
         moveUntilObs(0, MAX_SPEED, 25);
-        // biturningAlignment();
-        uniturningAlignment(TURN_SPEED, BackAlign);
-        
+        uniturningAlignment(TURN_SPEED, BackAlign);        
         wheel_move_by_metrics(Left, TURN_SPEED, 90 * FACTOR_SURFACE);
-        
         uniturningAlignment(TURN_SPEED, LeftAlign);
-        
         wheel_move_by_metrics(Forward, MAX_SPEED, 0.62);
-        
-        // uniturningAlignment(TURN_SPEED, LeftAlign);
-        
         wheel_move_by_metrics(Right, TURN_SPEED, 90 * FACTOR_SURFACE);
-        
-        uniturningAlignment(TURN_SPEED, BackAlign);
-        
+        uniturningAlignment(TURN_SPEED, BackAlign); 
         facingRight = 1;
     } else {
         wheel_move_by_metrics(Left, TURN_SPEED, 90 * FACTOR_SURFACE);
-        
-//        moveBackwardUntilObs(MAX_SPEED);
-        
-        wheel_move_by_metrics(Backward, MAX_SPEED, 0.6);
-        
-        biturningAlignment();
-
+        uniturningAlignment(TURN_SPEED, LeftAlign);
+        moveUntilObs(0, MAX_SPEED, 25);
+        uniturningAlignment(TURN_SPEED, BackAlign); 
         wheel_move_by_metrics(Right, TURN_SPEED, 90 * FACTOR_SURFACE);
-        
-        wheel_move_by_metrics(Forward, MAX_SPEED, 0.6);
- 
+        uniturningAlignment(TURN_SPEED, RightAlign);
+        wheel_move_by_metrics(Forward, MAX_SPEED, 0.62);
         wheel_move_by_metrics(Left, TURN_SPEED, 90 * FACTOR_SURFACE);
-        
-        biturningAlignment();
+        uniturningAlignment(TURN_SPEED, BackAlign);
         facingRight = 0;
     }
     
@@ -154,7 +133,6 @@ void state_1_1() {
     
     read_U();
     bool obstacle_not_met = (FLU >= 22) || (FRU >= 22);
-    // bool wall_not_met = (pos_x >= 0.1) && (pos_x <= 2.3) && (pos_y >= 0.1) && (pos_y <= 2.3);
     bool wall_not_met = true;
     
     int line_not_finish = 1;
@@ -207,14 +185,14 @@ void state_1_1() {
             if (facingRight) {
                 uniturningAlignment(TURN_SPEED, FrontAlign);
                 wheel_move_by_metrics(Left, MAX_SPEED, 90 * FACTOR_SURFACE);   
-                wheel_move_by_metrics(Forward, MAX_SPEED, 0.15);
+                wheel_move_by_metrics(Forward, MAX_SPEED, 0.1);
                 wheel_move_by_metrics(Left, MAX_SPEED, 90 * FACTOR_SURFACE);  
                 uniturningAlignment(TURN_SPEED, BackAlign);
             }
             else {
                 uniturningAlignment(TURN_SPEED, FrontAlign);
                 wheel_move_by_metrics(Right, MAX_SPEED, 90 * FACTOR_SURFACE);   
-                wheel_move_by_metrics(Forward, MAX_SPEED, 0.15);
+                wheel_move_by_metrics(Forward, MAX_SPEED, 0.1);
                 wheel_move_by_metrics(Right, MAX_SPEED, 90 * FACTOR_SURFACE);  
                 uniturningAlignment(TURN_SPEED, BackAlign);
             }
@@ -231,7 +209,7 @@ void state_1_2 () {
     
     if (base_color == YellowBase || base_color == BlueBase) {
         if (facingRight) {
-            moveUntilObs(0, MAX_SPEED, 20);
+            moveUntilObs(0, MAX_SPEED, 25);
             uniturningAlignment(TURN_SPEED, BackAlign);
             wheel_move_by_metrics(Right, TURN_SPEED, 90 * FACTOR_SURFACE);
             uniturningAlignment(TURN_SPEED, RightAlign);
@@ -239,10 +217,10 @@ void state_1_2 () {
             wheel_move_by_metrics(Left, TURN_SPEED, 90 * FACTOR_SURFACE);
             
         } else {
-            moveUntilObs(1, MAX_SPEED, 20);
+            moveUntilObs(1, MAX_SPEED, 25);
             uniturningAlignment(TURN_SPEED, FrontAlign);
             wheel_move_by_metrics(Left, TURN_SPEED, 90 * FACTOR_SURFACE);
-            uniturningAlignment(TURN_SPEED, LeftAlign);
+            uniturningAlignment(TURN_SPEED, RightAlign);
             moveUntilObs(1, MAX_SPEED, 28);
             wheel_move_by_metrics(Left, TURN_SPEED, 90 * FACTOR_SURFACE);
             
@@ -254,21 +232,21 @@ void state_1_2 () {
     else {
         
         if (facingRight) {
-            moveUntilObs(1, MAX_SPEED, 10);
-            biturningAlignment();
-            wheel_move_by_metrics(Left, TURN_SPEED, 90);
-            biturningAlignment();
+            moveUntilObs(1, MAX_SPEED, 25);
+            uniturningAlignment(TURN_SPEED, FrontAlign);
+            wheel_move_by_metrics(Right, TURN_SPEED, 90 * FACTOR_SURFACE);
+            uniturningAlignment(TURN_SPEED, LeftAlign);
             moveUntilObs(1, HALF_SPEED, 25);
-            wheel_move_by_metrics(Right, TURN_SPEED, 90);
+            wheel_move_by_metrics(Right, TURN_SPEED, 90 * FACTOR_SURFACE);
             
             facingRight = 0;
         } else {
-            moveUntilObs(0, MAX_SPEED, 10);
-            biturningAlignment();
-            wheel_move_by_metrics(Right, TURN_SPEED, 90);
-            biturningAlignment();
+            moveUntilObs(0, MAX_SPEED, 25);
+            uniturningAlignment(TURN_SPEED, BackAlign);
+            wheel_move_by_metrics(Left, TURN_SPEED, 90 * FACTOR_SURFACE);
+            uniturningAlignment(TURN_SPEED, LeftAlign);
             moveUntilObs(1, HALF_SPEED, 25);
-            wheel_move_by_metrics(Left, TURN_SPEED, 90);
+            wheel_move_by_metrics(Right, TURN_SPEED, 90 * FACTOR_SURFACE);
         }
         
     }
@@ -277,7 +255,7 @@ void state_1_2 () {
 
 void state_1_3() {
     
-    biturningAlignment();
+    
     
     read_U();
     
@@ -287,7 +265,9 @@ void state_1_3() {
     
     if (base_color == YellowBase || base_color == BlueBase) {
         while (notSeen) {
-            uniturningAlignment(TURN_SPEED, BackAlign);
+            //uniturningAlignment(TURN_SPEED, BackAlign);
+            
+            biturningAlignment();
             
             arenaWallNotTooFar = (BLU <= 55) && (BRU <= 55);
         
@@ -297,7 +277,7 @@ void state_1_3() {
                 read_U();
                 arenaWallNotTooFar = (BLU <= 55) && (BRU <= 55);
                 if (!(fabs(RFU - RBU) <= 10))
-                    notSeen = RFU < RBU;
+                    notSeen = RFU > RBU;
                 
                 if (!notSeen) break;
             }
@@ -321,7 +301,7 @@ void state_1_3() {
                 arenaWallNotTooClose = (BLU >= 14) || (BRU >= 14);
                 if (!(fabs(RFU - RBU) <= 10) && arenaWallNotTooClose)
                 {
-                    notSeen = RFU < RBU;
+                    notSeen = RFU > RBU;
                     
                 }
 

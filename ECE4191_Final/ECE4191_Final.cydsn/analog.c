@@ -9,28 +9,10 @@
  *
  * ========================================
 */
-
 #include "project.h"
-#include <math.h>
-#include "bluetooth.h"
-#include "LevelOne.h"
 #include "analog.h"
-#include "trialRun.h"
 
-int main(void)
-{
-    CyGlobalIntEnable; /* Enable global interrupts. */
-    
-//    run_L1();
 
-    initializeRobot();
-    test_run();
 
-    
-    for(;;)
-    {
-
-    }
-}
 
 /* [] END OF FILE */

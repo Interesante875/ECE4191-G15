@@ -21,10 +21,18 @@
     } DetectionStatus;
 
     extern volatile DetectionStatus infraredDetectionStatus;
-
+    extern double analogDistance;
+    
     void startIR();
     void stopIR();
     int IRPinValue();
+    
+    
+    void initializeSharpIR();
+    void stopSharpIR();
+    
+    void readSharpIR();
+    CY_ISR (ISR_Handler_Analog_Measure);
     
     CY_ISR(ISR_Handler_IR_Sensor_PositiveEdge);
     CY_ISR(ISR_Handler_IR_Sensor_NegativeEdge);
