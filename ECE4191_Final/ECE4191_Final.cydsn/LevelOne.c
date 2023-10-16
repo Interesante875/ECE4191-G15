@@ -16,9 +16,9 @@
 
 
 #define MAX_SPEED 245
-#define HALF_SPEED 200
-#define TURN_SPEED 230
-#define FACTOR_SURFACE 1.1
+#define HALF_SPEED 210
+#define TURN_SPEED 225
+#define FACTOR_SURFACE 1.05
 
 
 int state = 0;
@@ -132,10 +132,12 @@ void state_1_1() {
                     } else {
                         isWall = true;  
                         obstacleCount++;  // Increment obstacle count
+                        printValue("STILL DECIDING? %d\n", obstacleCount);
                     }
                     if (!isWall) {
                         CyDelay(100);
                     } else if (obstacleCount > 5) {
+                        printValue("IT IS A WALL\n");
                         line_not_finish = 0;
                         break;
                     }    
@@ -379,7 +381,7 @@ void state_1_4() {
     
     if (base_color == YellowBase || base_color == BlueBase) {
         wheel_move_by_metrics(Forward, HALF_SPEED, 0.01);
-        wheel_move_by_metrics(Left, TURN_SPEED, 90 * FACTOR_SURFACE);
+        wheel_move_by_metrics(Left, HALF_SPEED, 90 * FACTOR_SURFACE);
 //        uniturningAlignment(TURN_SPEED, RightAlign);
 //        biturningAlignment();
         CyDelay(320);
@@ -388,7 +390,7 @@ void state_1_4() {
         
         double dist = FLU > FRU ? FLU : FRU;
         
-        dist = dist - 37.5;
+        dist = dist - 35.5;
         
         if (dist > 0) {
             wheel_move_by_metrics(Forward, HALF_SPEED, dist/100);

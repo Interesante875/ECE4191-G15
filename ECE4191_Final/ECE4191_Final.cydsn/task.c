@@ -119,9 +119,9 @@ void shoot() {
     FlickerLock_Lock();
     CyDelay(100);
     FlickerRecoil_Load();
-    CyDelay(200);
+    CyDelay(500);
     FlickerRecoil_Unload();
-    CyDelay(200);
+    CyDelay(500);
     
     wheel_move_by_metrics(Forward, 230, 0.065);
     CyDelay(1000);

@@ -363,7 +363,7 @@ void angle_correction_with_sides(uint8 pwm, int dir) {
     
     double L = 0;
     
-    if (dir == 0 || dir == 2) {
+    if (dir == 0 || dir == 1) {
         L = 0.140;   
     } else {
         L = 0.170;   

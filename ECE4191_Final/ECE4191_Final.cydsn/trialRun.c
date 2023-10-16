@@ -31,7 +31,7 @@
 #define DETETC_PWM 200
 #define ADJUST_PWM 230
 
-#define TEST_RUN 6
+#define TEST_RUN 7
 #define ENABLE_BT 0 
 // BlueBase, RedBase, YellowBase, GreenBase
 StartingBase base_color;
@@ -91,6 +91,9 @@ void test_run() {
     #elif TEST_RUN == 6
         wheel_move_by_metrics(Forward, 250, 0.5);
         wheel_move_by_metrics(Backward, 250, 0.5);
+        
+    #elif TEST_RUN == 7
+        uniturningAlignment(230, BackAlign);
     #else
         // moveOutofBaseHighLevel(250, 0.25);
 //        detectWhereIsThePinZone(210);
