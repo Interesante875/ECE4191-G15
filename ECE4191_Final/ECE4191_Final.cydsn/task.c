@@ -36,9 +36,10 @@
 
 void retractGripper() {
     GripperHand_GripPuck();
+    CyDelay(300);
     GripperArm_Retract();
     
-    CyDelay(100);
+    CyDelay(300);
     
     shutdown_Gripper();
 }
@@ -46,9 +47,10 @@ void retractGripper() {
 void lowerGripperToGround() {
     
     GripperHand_Open();
+    CyDelay(300);
     GripperArm_Extend();
     
-    CyDelay(100);
+    CyDelay(300);
     
     shutdown_Gripper();
     
@@ -56,10 +58,11 @@ void lowerGripperToGround() {
 
 void grabPuckAndHold() {
     
-    GripperHand_GripPuck();   
+    GripperHand_GripPuck();  
+    CyDelay(200);
     GripperArm_Retract();
     
-    CyDelay(100);
+    CyDelay(200);
     
     shutdown_Gripper();
     
@@ -67,9 +70,11 @@ void grabPuckAndHold() {
 
 void grabPuckAndDiscard() {
 
-    GripperHand_GripPuck();   
+    GripperHand_GripPuck(); 
+    
     GripperArm_Retract();
-    wheel_move_by_metrics(Right, 240, 30);
+    shutdown_Gripper();
+    wheel_move_by_metrics(Right, 253, 30);
     GripperArm_Extend();
     GripperHand_Open();
     
@@ -77,10 +82,10 @@ void grabPuckAndDiscard() {
     
     GripperArm_Retract();
 
-    wheel_move_by_metrics(Left, 240, 30);
+    wheel_move_by_metrics(Left, 253, 30);
     GripperArm_Extend();
     
-    CyDelay(200);
+    CyDelay(100);
     
     shutdown_Gripper();
     
@@ -118,7 +123,7 @@ void shoot() {
     FlickerRecoil_Unload();
     CyDelay(200);
     
-    wheel_move_by_metrics(Forward, 210, 0.065);
+    wheel_move_by_metrics(Forward, 230, 0.065);
     CyDelay(1000);
     FlickerLock_Unlock();
     CyDelay(200);

@@ -354,12 +354,22 @@ void angle_correction_with_sides(uint8 pwm, int dir) {
     
     int minPairIndex = dir*2;
     
+    if (arr[minPairIndex] >= 45 || arr[minPairIndex+1] >= 45) return;
+    
     double delta_dist = (arr[minPairIndex] - arr[minPairIndex + 1])/100;
     printValue("DELTA: %.2lf %.2lf %.2lf\n", delta_dist, arr[minPairIndex], arr[minPairIndex + 1]);
     double angle = 0;
     double threshold = 0.02;
     
-    angle = atan2(delta_dist, 0.1005) * 180 / CY_M_PI;
+    double L = 0;
+    
+    if (dir == 0 || dir == 2) {
+        L = 0.140;   
+    } else {
+        L = 0.170;   
+    }
+    
+    angle = atan2(delta_dist, L) * 180 / CY_M_PI;
     
     printValue("ANGLE: %.2lf\n", angle);
     

@@ -152,7 +152,7 @@ void GripperArm_Hurl() {
         setFlag_GripperArm_PWM(!GripperArm_PWM_Status);
     }  
     ServoControlFunction gripperArm = GripperArm_SetCompare;
-    smoothControl(980, 870, 10, gripperArm);
+    smoothControl(980, 870, 20, gripperArm);
 }
 
 void boot_FlickerRecoil() {

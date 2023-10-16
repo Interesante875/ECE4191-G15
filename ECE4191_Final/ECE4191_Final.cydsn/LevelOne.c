@@ -15,10 +15,10 @@
 #include "math.h"
 
 
-#define MAX_SPEED 250
+#define MAX_SPEED 245
 #define HALF_SPEED 200
-#define TURN_SPEED 250
-#define FACTOR_SURFACE 1.0
+#define TURN_SPEED 230
+#define FACTOR_SURFACE 1.1
 
 
 int state = 0;
@@ -42,7 +42,7 @@ void printState() {
 
 void state_1_0() {
 
-    wheel_move_by_metrics(Forward, MAX_SPEED, 0.4);
+    wheel_move_by_metrics(Forward, MAX_SPEED, 0.3);
     
     if (base_color == YellowBase || base_color == BlueBase) {
         wheel_move_by_metrics(Left, TURN_SPEED, 90 * FACTOR_SURFACE);
@@ -53,6 +53,7 @@ void state_1_0() {
         uniturningAlignment(TURN_SPEED, LeftAlign);
         wheel_move_by_metrics(Forward, MAX_SPEED, 0.6);
         wheel_move_by_metrics(Right, TURN_SPEED, 90 * FACTOR_SURFACE);
+        wheel_move_by_metrics(Backward, MAX_SPEED, 0.15);
         uniturningAlignment(TURN_SPEED, BackAlign); 
         facingRight = 1;
     } else {
@@ -64,6 +65,7 @@ void state_1_0() {
         uniturningAlignment(TURN_SPEED, RightAlign); 
         wheel_move_by_metrics(Forward, MAX_SPEED, 0.6);
         wheel_move_by_metrics(Left, TURN_SPEED, 90 * FACTOR_SURFACE);
+        wheel_move_by_metrics(Backward, MAX_SPEED, 0.15);
         uniturningAlignment(TURN_SPEED, BackAlign);
         facingRight = 0;
     }
@@ -73,10 +75,7 @@ void state_1_0() {
 
 void state_1_1() {
 
-    
-    read_U();
-    bool obstacle_not_met = true;
-    
+    bool obstacle_not_met = true;   
     int line_not_finish = 1;
     int raster_finish = 0;
     
@@ -94,7 +93,7 @@ void state_1_1() {
             
             while (infraredDetectionStatus == Absence && line_not_finish) {
                 read_U();
-                line_not_finish = (FLU >= 30) || (FRU >= 30); 
+                line_not_finish = (FLU >= 34) || (FRU >= 34); 
                 
             }
             
@@ -117,17 +116,32 @@ void state_1_1() {
                 }
             } 
             
-//            else {
+            else {
+//              
+                
+                int period = 0;
+                bool isWall = false;
+                int obstacleCount = 0;  // Track the number of consecutive obstacles
+                obstacle_not_met = (FLU >= 50) && (FRU >= 50);
+                while (period++<=10) {
+                    read_U();
+                    obstacle_not_met = (FLU >= 50) || (FRU >= 50);
+                    if (obstacle_not_met) {
+                        line_not_finish = 1;
+                        obstacleCount = 0;  // Reset obstacle count if no obstacle
+                    } else {
+                        isWall = true;  
+                        obstacleCount++;  // Increment obstacle count
+                    }
+                    if (!isWall) {
+                        CyDelay(100);
+                    } else if (obstacleCount > 5) {
+                        line_not_finish = 0;
+                        break;
+                    }    
+                }
 //                
-//                read_U();
-//                obstacle_not_met = (BLU >= 50) || (BRU >= 50);
-//                
-//                if (!obstacle_not_met) {
-//                    line_not_finish = 1;
-//                    continue;   
-//                }
-//                
-//            }
+            }
              
         }
         
@@ -135,20 +149,26 @@ void state_1_1() {
             printValue("IN TURNING\n");
             stopIR();
             retractGripper();
+            
+            wheel_move_by_metrics(Forward, TURN_SPEED, 0.1);
             if (facingRight) {
                 uniturningAlignment(TURN_SPEED, FrontAlign);
-                wheel_move_by_metrics(Left, MAX_SPEED, 90 * FACTOR_SURFACE);  
+                wheel_move_by_metrics(Left, TURN_SPEED, 90 * FACTOR_SURFACE);  
                 uniturningAlignment(TURN_SPEED, RightAlign);
                 wheel_move_by_metrics(Forward, MAX_SPEED, 0.15);
-                wheel_move_by_metrics(Left, MAX_SPEED, 90 * FACTOR_SURFACE);  
+                uniturningAlignment(TURN_SPEED, RightAlign);
+                wheel_move_by_metrics(Left, TURN_SPEED, 90 * FACTOR_SURFACE);  
+                wheel_move_by_metrics(Backward, MAX_SPEED, 0.15);
                 uniturningAlignment(TURN_SPEED, BackAlign);
             }
             else {
                 uniturningAlignment(TURN_SPEED, FrontAlign);
-                wheel_move_by_metrics(Right, MAX_SPEED, 90 * FACTOR_SURFACE);
+                wheel_move_by_metrics(Right, TURN_SPEED, 90 * FACTOR_SURFACE);
                 uniturningAlignment(TURN_SPEED, LeftAlign);
                 wheel_move_by_metrics(Forward, MAX_SPEED, 0.15);
-                wheel_move_by_metrics(Right, MAX_SPEED, 90 * FACTOR_SURFACE);  
+                uniturningAlignment(TURN_SPEED, LeftAlign);
+                wheel_move_by_metrics(Right, TURN_SPEED, 90 * FACTOR_SURFACE);  
+                wheel_move_by_metrics(Backward, MAX_SPEED, 0.15);
                 uniturningAlignment(TURN_SPEED, BackAlign);
             }
         
@@ -226,15 +246,15 @@ void state_1_3() {
         while (notSeen) {
             uniturningAlignment(TURN_SPEED, FrontAlign);
             arenaWallNotTooFar = true;
-            curr_ADC_Level = SharpIR_ReadDistance();
-            prev_ADC_Level = SharpIR_ReadDistance();
+            curr_ADC_Level = SharpIR_ReadDistance(0);
+            prev_ADC_Level = SharpIR_ReadDistance(0);
             
             wheel_move(Backward, HALF_SPEED);
             
             while (arenaWallNotTooFar) { 
                 read_U();
                 arenaWallNotTooFar = (FLU <= 55) && (FRU <= 55);
-                curr_ADC_Level = SharpIR_ReadDistance();
+                curr_ADC_Level = SharpIR_ReadDistance(0);
                 if (curr_ADC_Level - prev_ADC_Level >= 4.5) {
                     notSeen = false;                  
                 } else {
@@ -258,8 +278,8 @@ void state_1_3() {
             read_U();
             arenaWallNotTooClose = (FLU >= 14) || (FRU >= 14);
             
-            curr_ADC_Level = SharpIR_ReadDistance();
-            prev_ADC_Level = SharpIR_ReadDistance();
+            curr_ADC_Level = SharpIR_ReadDistance(0);
+            prev_ADC_Level = SharpIR_ReadDistance(0);
             
             wheel_move(Forward, HALF_SPEED);
  
@@ -267,7 +287,7 @@ void state_1_3() {
                 read_U();
                 arenaWallNotTooClose = (FLU >= 14) || (FRU >= 14);
                 
-                curr_ADC_Level = SharpIR_ReadDistance();
+                curr_ADC_Level = SharpIR_ReadDistance(0);
                 
                 if (curr_ADC_Level - prev_ADC_Level >= 4.5) {
                     notSeen = false;                  
@@ -292,15 +312,15 @@ void state_1_3() {
         while (notSeen) {
             uniturningAlignment(TURN_SPEED, BackAlign);
             arenaWallNotTooFar = true;
-            curr_ADC_Level = SharpIR_ReadDistance();
-            prev_ADC_Level = SharpIR_ReadDistance();
+            curr_ADC_Level = SharpIR_ReadDistance(0);
+            prev_ADC_Level = SharpIR_ReadDistance(0);
             
             wheel_move(Backward, HALF_SPEED);
             
             while (arenaWallNotTooFar) { 
                 read_U();
-                arenaWallNotTooFar = (FLU <= 55) && (FRU <= 55);
-                curr_ADC_Level = SharpIR_ReadDistance();
+                arenaWallNotTooFar = (FLU <= 50) && (FRU <= 50);
+                curr_ADC_Level = SharpIR_ReadDistance(0);
                 if (curr_ADC_Level - prev_ADC_Level >= 4.5) {
                     notSeen = false;                  
                 } else {
@@ -324,8 +344,8 @@ void state_1_3() {
             read_U();
             arenaWallNotTooClose = (FLU >= 14) || (FRU >= 14);
             
-            curr_ADC_Level = SharpIR_ReadDistance();
-            prev_ADC_Level = SharpIR_ReadDistance();
+            curr_ADC_Level = SharpIR_ReadDistance(0);
+            prev_ADC_Level = SharpIR_ReadDistance(0);
             
             wheel_move(Forward, HALF_SPEED);
  
@@ -333,7 +353,7 @@ void state_1_3() {
                 read_U();
                 arenaWallNotTooClose = (FLU >= 14) || (FRU >= 14);
                 
-                curr_ADC_Level = SharpIR_ReadDistance();
+                curr_ADC_Level = SharpIR_ReadDistance(0);
                 
                 if (curr_ADC_Level - prev_ADC_Level >= 4.5) {
                     notSeen = false;                  
@@ -358,17 +378,17 @@ void state_1_3() {
 void state_1_4() {
     
     if (base_color == YellowBase || base_color == BlueBase) {
-        wheel_move_by_metrics(Forward, HALF_SPEED, 0.035);
+        wheel_move_by_metrics(Forward, HALF_SPEED, 0.01);
         wheel_move_by_metrics(Left, TURN_SPEED, 90 * FACTOR_SURFACE);
-        uniturningAlignment(TURN_SPEED, RightAlign);
-        //biturningAlignment();
+//        uniturningAlignment(TURN_SPEED, RightAlign);
+//        biturningAlignment();
         CyDelay(320);
         
         read_U();
         
         double dist = FLU > FRU ? FLU : FRU;
         
-        dist = dist - 35;;
+        dist = dist - 37.5;
         
         if (dist > 0) {
             wheel_move_by_metrics(Forward, HALF_SPEED, dist/100);
@@ -377,7 +397,7 @@ void state_1_4() {
         }
         
         placePuckAtDeck();
-        // shoot();
+        shoot();
         
     } else {
         wheel_move_by_metrics(Forward, HALF_SPEED, 0.035);
@@ -399,7 +419,7 @@ void state_1_4() {
         }
         
         placePuckAtDeck();
-        // shoot();
+        shoot();
         
     }
 }
@@ -445,7 +465,6 @@ void state_1_5() {
     wheel_move_by_metrics(Backward, MAX_SPEED, backDist);
     
 }
-
 
 
 /* [] END OF FILE */

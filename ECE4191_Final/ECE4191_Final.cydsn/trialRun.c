@@ -31,7 +31,7 @@
 #define DETETC_PWM 200
 #define ADJUST_PWM 230
 
-#define TEST_RUN 5
+#define TEST_RUN 6
 #define ENABLE_BT 0 
 // BlueBase, RedBase, YellowBase, GreenBase
 StartingBase base_color;
@@ -72,19 +72,25 @@ void test_run() {
         }
     #elif TEST_RUN == 5
         initializeSharpIR(0);
-        selectSharpIR(0);
+        
         double dist;
-        for (int i = 0; i < 10; i++) {
-            dist = SharpIR_ReadDistance();
-            printValue("(%d): %.2lf\n", 0, dist);
-            CyDelay(1000);
+        while(1){
+            for (int i = 0; i < 10; i++) {
+//                dist = SharpIR_ReadDistance();
+//                printValue("(%d): %.2lf\n", 0, dist);
+                readSharpIR();
+                CyDelay(500);
+            }
+//            selectSharpIR(1);
+//            for (int i = 0; i < 10; i++) {
+//                dist = SharpIR_ReadDistance();
+//                printValue("(%d): %.2lf\n", 1, dist);
+//                CyDelay(500);
+//            }
         }
-        selectSharpIR(1);
-        for (int i = 0; i < 10; i++) {
-            dist = SharpIR_ReadDistance();
-            printValue("(%d): %.2lf\n", 1, dist);
-            CyDelay(1000);
-        }
+    #elif TEST_RUN == 6
+        wheel_move_by_metrics(Forward, 250, 0.5);
+        wheel_move_by_metrics(Backward, 250, 0.5);
     #else
         // moveOutofBaseHighLevel(250, 0.25);
 //        detectWhereIsThePinZone(210);

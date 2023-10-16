@@ -20,7 +20,7 @@
     #define ENABLE_MEDIAN_FILTERING 1
     #define ENABLE_TIMER_BURST 0
     #define NUM_ULTRASONIC_SENSORS 8
-    #define ARRAY_SIZE 5
+    #define ARRAY_SIZE 7
     /*
     DP-0
     0 bit 0 - FRONT_LEFT

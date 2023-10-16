@@ -216,15 +216,15 @@ void state_2_3() {
         while (notSeen) {
             uniturningAlignment(TURN_SPEED, FrontAlign);
             arenaWallNotTooFar = true;
-            curr_ADC_Level = SharpIR_ReadDistance();
-            prev_ADC_Level = SharpIR_ReadDistance();
+            curr_ADC_Level = SharpIR_ReadDistance(0);
+            prev_ADC_Level = SharpIR_ReadDistance(0);
             
             wheel_move(Backward, HALF_SPEED);
             
             while (arenaWallNotTooFar) { 
                 read_U();
                 arenaWallNotTooFar = (FLU <= 55) && (FRU <= 55);
-                curr_ADC_Level = SharpIR_ReadDistance();
+                curr_ADC_Level = SharpIR_ReadDistance(0);
                 if (curr_ADC_Level - prev_ADC_Level >= 4.5) {
                     notSeen = false;                  
                 } else {
@@ -248,8 +248,8 @@ void state_2_3() {
             read_U();
             arenaWallNotTooClose = (FLU >= 14) || (FRU >= 14);
             
-            curr_ADC_Level = SharpIR_ReadDistance();
-            prev_ADC_Level = SharpIR_ReadDistance();
+            curr_ADC_Level = SharpIR_ReadDistance(0);
+            prev_ADC_Level = SharpIR_ReadDistance(0);
             
             wheel_move(Forward, HALF_SPEED);
  
@@ -257,7 +257,7 @@ void state_2_3() {
                 read_U();
                 arenaWallNotTooClose = (FLU >= 14) || (FRU >= 14);
                 
-                curr_ADC_Level = SharpIR_ReadDistance();
+                curr_ADC_Level = SharpIR_ReadDistance(0);
                 
                 if (curr_ADC_Level - prev_ADC_Level >= 4.5) {
                     notSeen = false;                  
