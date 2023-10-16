@@ -9,30 +9,13 @@
  *
  * ========================================
 */
-
-#include "project.h"
-#include <math.h>
-#include "bluetooth.h"
 #include "levels.h"
-#include "LevelOne.h"
-#include "analog.h"
-#include "trialRun.h"
+#include "LevelFour.h"
+#include "math.h"
 
-int main(void)
-{
-    CyGlobalIntEnable; /* Enable global interrupts. */
-//    initializeRobotBase();
-//    run_L1();
 
-    initializeRobot();
-    test_run();
-
-    
-    
-    for(;;)
-    {
-
-    }
-}
-
+#define MAX_SPEED 250
+#define HALF_SPEED 200
+#define TURN_SPEED 250
+#define FACTOR_SURFACE 1.0
 /* [] END OF FILE */

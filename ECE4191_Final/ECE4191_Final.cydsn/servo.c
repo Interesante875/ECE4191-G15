@@ -15,29 +15,29 @@
 #include <cytypes.h>
 
 void turnOn_GripperHand() {
-    PWM_Servo_Gripper_Start();
+    PWM_Servo_Gripper_Hand_Start();
 }
 void turnOff_GripperHand() {
-    PWM_Servo_Gripper_Stop();   
+    PWM_Servo_Gripper_Hand_Stop();   
 }
 void GripperHand_SetCompare(int compareValue) {
-    PWM_Servo_Gripper_WriteCompare1(compareValue); 
+    PWM_Servo_Gripper_Hand_WriteCompare(compareValue); 
 }
 int GripperHand_ReadCompare() {
-    return PWM_Servo_Gripper_ReadCompare1(); 
+    return PWM_Servo_Gripper_Hand_ReadCompare(); 
 }
 
 void turnOn_GripperArm() {
-    PWM_Servo_Gripper_Start();   
+    PWM_Servo_Gripper_Arm_Start();   
 }
 void turnOff_GripperArm() {
-    PWM_Servo_Gripper_Stop();   
+    PWM_Servo_Gripper_Arm_Stop();   
 }
 void GripperArm_SetCompare(int compareValue) {
-    PWM_Servo_Gripper_WriteCompare2(compareValue);    
+    PWM_Servo_Gripper_Arm_WriteCompare(compareValue);    
 }
 int GripperArm_ReadCompare() {
-    return PWM_Servo_Gripper_ReadCompare2(); 
+    return PWM_Servo_Gripper_Arm_ReadCompare(); 
 }
 
 void turnOn_FlickerRecoil() {

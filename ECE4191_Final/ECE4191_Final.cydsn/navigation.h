@@ -38,7 +38,7 @@
     void initializePosition(StartingBase color);
     void computePosition(int left_ticks, int right_ticks);
     
-    void printToBluetooth();
+    void printPositionToBluetooth();
 
 #endif
 /* [] END OF FILE */

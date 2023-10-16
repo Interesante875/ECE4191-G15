@@ -18,8 +18,8 @@
 #include "pid_ctrl.h"
 
 #define PID_CTRL_P_CONST 0.95
-#define PID_CTRL_I_CONST 0.2
-#define PID_CTRL_D_CONST 0.45
+#define PID_CTRL_I_CONST 0.1
+#define PID_CTRL_D_CONST 0.2
 #define CTRL_MAX 255
 #define CTRL_MIN 0
 
@@ -73,11 +73,6 @@ void computePIDControllerCorrectionSignal() {
     pidLastError = pidError;
 
     // Ensure the correction signal is within the allowed range
-    if (pidCorrectionSignal > CTRL_MAX) {
-        pidCorrectionSignal = CTRL_MAX;
-    } else if (pidCorrectionSignal < CTRL_MIN) {
-        pidCorrectionSignal = CTRL_MIN;
-    }
 
     // Assign the correction signal
     correctionSignal = pidCorrectionSignal;
@@ -89,8 +84,8 @@ uint8 computePIDControllerOutput(uint8 masterPwm) {
     // Ensure the output is within the allowed range
     if (slavePwm > CTRL_MAX) {
         slavePwm = CTRL_MAX;
-    } else if (slavePwm < CTRL_MIN) {
-        slavePwm = CTRL_MIN;
+    } else if (slavePwm < CTRL_MIN + 10) {
+        slavePwm = CTRL_MIN + 10;
     }
 
     return (uint8)slavePwm;

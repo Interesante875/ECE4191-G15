@@ -20,7 +20,7 @@
     #define ENABLE_MEDIAN_FILTERING 1
     #define ENABLE_TIMER_BURST 0
     #define NUM_ULTRASONIC_SENSORS 8
-    #define ARRAY_SIZE 3
+    #define ARRAY_SIZE 7
     /*
     DP-0
     0 bit 0 - FRONT_LEFT
@@ -48,28 +48,27 @@
     
     extern UdsDetectState udsDetectState;
     
-    extern int ultrasonicSensorIndex_FB;
-    extern int ultrasonicSensorIndex_LR;
+    extern int ultrasonicSensorIndex;
     
     extern double sensorMeasuredDistances[NUM_ULTRASONIC_SENSORS][ARRAY_SIZE];
-
+    extern double sensorResults[NUM_ULTRASONIC_SENSORS];
 
     // Function prototypes
     void InitalizeUltrasonicSensor();
     void ShutdownUltrasonicSensor();
 
     void UltrasonicSensor_TriggerBurst();
- 
+    
     double UltrasonicSensor_ReadDistanceData(int sensorIdx);
     void UltrasonicSensor_SelectSensor(int sensorIndex);
     void UltrasonicSensor_MeasureDistance();
     
     void UltrasonicSensor_ChangeState(UdsDetectState state);
 
-    
-    CY_ISR(ISR_Handler_Ultrasonic_Burst);
-    CY_ISR(ISR_Handler_Ultrasonic_Echo_Front);
-    CY_ISR(ISR_Handler_Ultrasonic_Echo_Back);
+    int readEcho(int sensorIndex);
+    CY_ISR(ISR_Handler_Ultrasonic_Trigger);
+    CY_ISR(ISR_Handler_Ultrasonic_Echo);
+    CY_ISR(ISR_Handler_Ultrasonic_Read);
 
 #endif // ULTRASONIC_SENSOR_H
 /* [] END OF FILE */

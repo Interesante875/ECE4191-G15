@@ -83,7 +83,7 @@ void SetFrequencyScaling(int S0_set, int S1_set) {
     S0_Write(S0_set);
     S1_Write(S1_set);
     
-    CyDelayUs(200);   
+    CyDelayUs(1000);   
 }
 
 void ColorDetection_Run(int numRuns) {
