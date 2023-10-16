@@ -69,7 +69,7 @@ void grabPuckAndDiscard() {
 
     GripperHand_GripPuck();   
     GripperArm_Retract();
-    wheel_move_by_metrics(Right, 240, 20);
+    wheel_move_by_metrics(Right, 240, 30);
     GripperArm_Extend();
     GripperHand_Open();
     
@@ -77,10 +77,10 @@ void grabPuckAndDiscard() {
     
     GripperArm_Retract();
 
-    wheel_move_by_metrics(Left, 240, 20);
+    wheel_move_by_metrics(Left, 240, 30);
     GripperArm_Extend();
     
-    CyDelay(100);
+    CyDelay(200);
     
     shutdown_Gripper();
     
@@ -119,6 +119,7 @@ void shoot() {
     CyDelay(200);
     
     wheel_move_by_metrics(Forward, 210, 0.065);
+    CyDelay(1000);
     FlickerLock_Unlock();
     CyDelay(200);
     FlickerLock_Lock();
@@ -179,9 +180,107 @@ void moveUntilObs(int dir, int speed, double dist) {
         wheel_move(StopMotion, speed);    
         
     }
-      
-    
+
 }
+
+
+int computeZoneNum(double dist2Wall, int front_or_back) {
+    
+    int deckNum = 0;
+    
+    if (front_or_back) {
+        if (dist2Wall <= 20) {
+            deckNum = 6;
+            printValue("DECK NUM: %d\n", deckNum);
+            return deckNum;
+        }
+        else if (dist2Wall <= 25) {
+            deckNum = 5;
+            printValue("DECK NUM: %d\n", deckNum);
+            return deckNum;
+        }
+        else if (dist2Wall <= 30) {
+            deckNum = 4;
+            printValue("DECK NUM: %d\n", deckNum);
+            return deckNum;
+        }
+        else if (dist2Wall <= 35) {
+            deckNum = 3;
+            printValue("DECK NUM: %d\n", deckNum);
+            return deckNum;
+        }
+        else if (dist2Wall <= 40) {
+            deckNum = 2;
+            printValue("DECK NUM: %d\n", deckNum);
+            return deckNum;
+        }
+        else if (dist2Wall <= 45) {
+            deckNum = 1;
+            printValue("DECK NUM: %d\n", deckNum);
+            return deckNum;
+        }
+        else {
+            return deckNum;
+        }  
+    }
+    else {
+        if (dist2Wall <= 28) {
+            deckNum = 6;
+            printValue("DECK NUM: %d\n", deckNum);
+            return deckNum;
+        } 
+        else if (dist2Wall <= 32) {
+            deckNum = 5;
+            printValue("DECK NUM: %d\n", deckNum);
+            return deckNum; 
+        }
+        else if (dist2Wall <= 37) {
+            deckNum = 4;
+            printValue("DECK NUM: %d\n", deckNum);
+            return deckNum; 
+        }
+        else if (dist2Wall <= 42) {
+            deckNum = 3;
+            printValue("DECK NUM: %d\n", deckNum);
+            return deckNum; 
+        }
+        else if (dist2Wall <= 47) {
+            deckNum = 2;
+            printValue("DECK NUM: %d\n", deckNum);
+            return deckNum; 
+        }
+        else if (dist2Wall <= 52) {
+            deckNum = 1;
+            printValue("DECK NUM: %d\n", deckNum);
+            return deckNum;  
+        }
+        else {
+            return deckNum;  
+        }  
+    }
+    
+    return 0;
+}
+
+PinZoneColor computePinZoneColor (int deckNum) {
+    switch (deckNum) {
+        case 1:
+            return PinZoneColorBlue;
+        case 2:
+            return PinZoneColorGreen;
+        case 3:
+            return PinZoneColorRed;
+        case 4:
+            return PinZoneColorBlue;
+        case 5:
+            return PinZoneColorGreen;
+        case 6:
+            return PinZoneColorRed;
+        default:
+            return PinZoneColorInvalid;
+    }
+}
+
 
 int wallIsSeen() {
     int proximity_left = (pos_x < 0.1);

@@ -28,9 +28,11 @@
     int IRPinValue();
     
     
-    void initializeSharpIR();
-    void stopSharpIR();
+    void initializeSharpIR(int interruptBased);
+    void selectSharpIR(int sensorIndex);
     
+    void stopSharpIR();
+    double SharpIR_ReadDistance();
     void readSharpIR();
     CY_ISR (ISR_Handler_Analog_Measure);
     

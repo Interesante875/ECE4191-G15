@@ -9,19 +9,18 @@
  *
  * ========================================
 */
-#ifndef LEVELONE_H
-    #define LEVELONE_H
+#ifndef LEVELTHREE_H
+    #define LEVELTHREE_H
 
-    void printState();
+    void run_L3();
     
-    void run_L1();
+    void state_3_0();
+    void state_3_1();
+    void state_3_2();
+    void state_3_3();
+    void state_3_4();
+    void state_3_5();
+    void state_3_6();
     
-    void state_1_0();
-    void state_1_1();
-    void state_1_2();
-    void state_1_3();
-    void state_1_4();
-    void state_1_5();
 #endif
-
 /* [] END OF FILE */

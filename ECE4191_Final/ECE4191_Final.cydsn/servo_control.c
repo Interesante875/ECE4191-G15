@@ -18,12 +18,16 @@
 // Function pointer type to set servo compare value
 typedef void (*ServoControlFunction)(int);
 
-static int GripperPWM_Status = 0;
+static int GripperHand_PWM_Status = 0;
+static int GripperArm_PWM_Status = 0;
 static int FlickerRecoilPWM_Status = 0;
 static int FlickerLockPWM_Status = 0;
 
-void setFlag_GripperPWM(int OnOffFlag) {
-    GripperPWM_Status = OnOffFlag; 
+void setFlag_GripperHand_PWM(int OnOffFlag) {
+    GripperHand_PWM_Status = OnOffFlag; 
+}
+void setFlag_GripperArm_PWM(int OnOffFlag) {
+    GripperArm_PWM_Status = OnOffFlag; 
 }
 void setFlag_FlickerRecoilPWM(int OnOffFlag) {
     FlickerRecoilPWM_Status = OnOffFlag;
@@ -67,47 +71,56 @@ void exponentialControl(int begin, int end, int steps, ServoControlFunction serv
 }
 
 void shutdown_Gripper() {
-    if (GripperPWM_Status) {
-        CyDelay(200);
+    shutdown_GripperHand();
+    shutdown_GripperArm();
+}
+
+void shutdown_GripperHand() {
+    if (GripperHand_PWM_Status) {
         turnOff_GripperHand(); 
-        turnOff_GripperArm(); 
-        setFlag_GripperPWM(!GripperPWM_Status);
+        setFlag_GripperHand_PWM(!GripperHand_PWM_Status);
+    }
+}
+
+void shutdown_GripperArm() {
+    if (GripperArm_PWM_Status) {
+        turnOff_GripperArm();  
+        setFlag_GripperArm_PWM(!GripperArm_PWM_Status);
     }
 }
 
 void GripperHand_Open() {
-    if (!GripperPWM_Status) {
+    if (!GripperHand_PWM_Status) {
         turnOn_GripperHand(); 
-        setFlag_GripperPWM(!GripperPWM_Status);
+        setFlag_GripperHand_PWM(!GripperHand_PWM_Status);
     }
     ServoControlFunction gripperHand = GripperHand_SetCompare;
     smoothControl(870, 980, 5, gripperHand);
-
 }
 
 void GripperHand_GripPuck() {
-    if (!GripperPWM_Status) {
+    if (!GripperHand_PWM_Status) {
         turnOn_GripperHand();   
-        setFlag_GripperPWM(!GripperPWM_Status);
+        setFlag_GripperHand_PWM(!GripperHand_PWM_Status);
     }   
     ServoControlFunction gripperHand = GripperHand_SetCompare;
-    smoothControl(980, 960, 2, gripperHand);
+    smoothControl(980, 950, 2, gripperHand);
 
 }
 
 void GripperHand_Close() {
-    if (!GripperPWM_Status) {
+    if (!GripperHand_PWM_Status) {
         turnOn_GripperHand(); 
-        setFlag_GripperPWM(!GripperPWM_Status);
+        setFlag_GripperHand_PWM(!GripperHand_PWM_Status);
     }   
     ServoControlFunction gripperHand = GripperHand_SetCompare;
-    smoothControl(980, 950, 5, gripperHand);
+    smoothControl(980, 940, 5, gripperHand);
 }
 
 void GripperArm_Extend() {
-    if (!GripperPWM_Status) {
+    if (!GripperArm_PWM_Status) {
         turnOn_GripperArm(); 
-        setFlag_GripperPWM(!GripperPWM_Status);
+        setFlag_GripperArm_PWM(!GripperArm_PWM_Status);
     }   
     ServoControlFunction gripperArm = GripperArm_SetCompare;
     smoothControl(980, 865, 1, gripperArm);
@@ -115,28 +128,28 @@ void GripperArm_Extend() {
 }
 
 void GripperArm_SmallExtend() {
-    if (!GripperPWM_Status) {
+    if (!GripperArm_PWM_Status) {
         turnOn_GripperArm(); 
-        setFlag_GripperPWM(!GripperPWM_Status);
+        setFlag_GripperArm_PWM(!GripperArm_PWM_Status);
     }   
     ServoControlFunction gripperArm = GripperArm_SetCompare;
     smoothControl(900, 870, 1, gripperArm);
 }
 
 void GripperArm_Retract() {
-    if (!GripperPWM_Status) {
+    if (!GripperArm_PWM_Status) {
         turnOn_GripperArm();   
-        setFlag_GripperPWM(!GripperPWM_Status);
+        setFlag_GripperArm_PWM(!GripperArm_PWM_Status);
     }   
     ServoControlFunction gripperArm = GripperArm_SetCompare;
     smoothControl(850, 950, 1, gripperArm);
-    // smoothControl(940, 950, 1, gripperArm);
+
 }
 
 void GripperArm_Hurl() {
-    if (!GripperPWM_Status) {
+    if (!GripperArm_PWM_Status) {
         turnOn_GripperArm();   
-        setFlag_GripperPWM(!GripperPWM_Status);
+        setFlag_GripperArm_PWM(!GripperArm_PWM_Status);
     }  
     ServoControlFunction gripperArm = GripperArm_SetCompare;
     smoothControl(980, 870, 10, gripperArm);

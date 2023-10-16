@@ -37,6 +37,8 @@
     int wallIsSeen();
     void biturningAlignment();
     void uniturningAlignment(int speed, Alignment align);
+    int computeZoneNum(double dist2Wall, int front_or_back);
+    
     
     void moveUntilObs(int dir, int speed, double dist);
     

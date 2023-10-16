@@ -24,7 +24,8 @@
     typedef enum {
         PinZoneColorBlue,
         PinZoneColorGreen,
-        PinZoneColorRed
+        PinZoneColorRed,
+        PinZoneColorInvalid
     } PinZoneColor;
 
     typedef enum {
@@ -35,13 +36,17 @@
     } InputState;
 
     extern bool isStringNotReceived;
-    extern int levelOnePinDeckNum;
+    
     extern int currentLevel;
     extern InputState inputState;
     extern PinZoneColor zoneColor;
-    extern PinZoneColor levelTwoZoneColor;
+    
+    extern int levelOnePinDeckNum;
+    extern int levelTwoPinDeckNum;
     extern int levelThreePinDeckNum;
     extern int levelFourPinDeckNum;
+    extern PinZoneColor levelOneZoneColor;
+    extern PinZoneColor levelTwoZoneColor;
     extern PinZoneColor levelThreeZoneColor;
     extern PinZoneColor levelFourZoneColor;
     extern int test_val;

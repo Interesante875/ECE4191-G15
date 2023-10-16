@@ -297,7 +297,7 @@
       <Data key="4475cc2d-2e31-4262-a59d-915c8794e2ef" value="MOTOR_RIGHT_IN_3" />
       <Data key="22863ebe-a37b-476f-b252-6e49a8c00b12" value="SDA_1" />
       <Data key="716507ed-8825-4e8d-937b-2557580f1ae4" value="MOTOR_EN_LEFT" />
-      <Data key="77715107-f8d5-47e5-a629-0fb83101ac6b" value="analog" />
+      <Data key="77715107-f8d5-47e5-a629-0fb83101ac6b" value="analog_left" />
       <Data key="a0aa757e-9e0b-4d4c-974d-510ad3fb0758" value="MOTOR_GRIPPER_HAND" />
       <Data key="a54c00ca-78da-4fbf-9ec1-632a4067c982" value="MOTOR_GRIPPER_ARM" />
       <Data key="a0549be8-5a5b-4866-bfb6-eb06fa8406a7" value="Trigger_3" />
@@ -306,6 +306,7 @@
       <Data key="b65a597e-7385-4d73-a628-5cbfc4d741e9" value="Echo_RIGHT_FRONT" />
       <Data key="c263bf58-c47f-4742-903f-63a3f6945ded" value="MOTOR_LEFT_PHASE_B" />
       <Data key="d4ecab1a-ecc1-441a-bfe6-ca5c629c4f27" value="Echo_BACK_RIGHT" />
+      <Data key="d92fa7b3-816f-44e9-aa07-bdfe67ee7c4d" value="analog_right" />
       <Data key="d304fa33-5823-4363-85f7-83ba61dc99f7" value="MOTOR_RIGHT_PHASE_B" />
       <Data key="d23546d7-a9fd-4103-a1bc-9ac28c8b8900" value="IR_Sensor" />
       <Data key="e6b92ece-4eb9-4e38-b77a-ecedd8078512" value="Echo_FRONT_RIGHT" />
@@ -3543,7 +3544,7 @@
     </Group>
     <Group key="3a9189f0-9236-4dd1-a8d9-4f174ac93ae9">
       <Group key="0">
-        <Data key="Port Format" value="12,1" />
+        <Data key="Port Format" value="15,1" />
       </Group>
     </Group>
     <Group key="3f39d37b-f2d5-4957-a14f-1f5fc72183be">
@@ -3669,6 +3670,11 @@
     <Group key="d4ecab1a-ecc1-441a-bfe6-ca5c629c4f27">
       <Group key="0">
         <Data key="Port Format" value="2,7" />
+      </Group>
+    </Group>
+    <Group key="d92fa7b3-816f-44e9-aa07-bdfe67ee7c4d">
+      <Group key="0">
+        <Data key="Port Format" value="2,6" />
       </Group>
     </Group>
     <Group key="d304fa33-5823-4363-85f7-83ba61dc99f7">

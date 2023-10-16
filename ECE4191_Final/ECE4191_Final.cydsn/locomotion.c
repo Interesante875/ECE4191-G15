@@ -429,7 +429,11 @@ void angle_correction(uint8 pwm) {
     int pair2 = arr[minPairIndex + 1];
 
     printValue("The lowest value pair is (%d, %d)\n", pair1, pair2);
-
+    
+    if (pair1 >= 38 || pair2 >= 38) {
+        return;   
+        
+    }
     
     lastMasterTicks = 0;
     lastSlaveTicks = 0;

@@ -9,9 +9,8 @@
  *
  * ========================================
 */
-
 #include "levels.h"
-#include "LevelOne.h"
+#include "LevelTwo.h"
 #include "math.h"
 
 
@@ -20,27 +19,20 @@
 #define TURN_SPEED 250
 #define FACTOR_SURFACE 1.0
 
+int facingRight;
 
-int state = 0;
-int facingRight = 0;
+void run_L2() {
 
-
-void run_L1() {
-
-    state_1_0();
-    state_1_1();
-    state_1_2();
-    state_1_3();
-    state_1_4();
-    state_1_5();  
+    state_2_0();
+    state_2_1();
+    state_2_2();
+    state_2_3();
+    state_2_4();
+    state_2_5();  
     
 }
 
-void printState() {
-    printValue("STATE: [%d] \n", state);   
-}
-
-void state_1_0() {
+void state_2_0() {
 
     wheel_move_by_metrics(Forward, MAX_SPEED, 0.4);
     
@@ -71,7 +63,7 @@ void state_1_0() {
 }
 
 
-void state_1_1() {
+void state_2_1() {
 
     
     read_U();
@@ -106,7 +98,7 @@ void state_1_1() {
                 wheel_move_by_metrics(Backward, TURN_SPEED, 0.025);
                 ColorDetection_Run(1);
                 printValue("DETECTED COLOR: %d\n", detectedColor);
-                if (detectedColor == requiredColor_L1) {
+                if (detectedColor == requiredColor_L2) {
                     printValue("OBTAINED WANTED PUCK\n");
                     grabPuckAndHold();
                     line_not_finish = 0;
@@ -160,7 +152,7 @@ void state_1_1() {
 }
 
 
-void state_1_2 () {
+void state_2_2 () {
     
     if (base_color == YellowBase || base_color == BlueBase) {
         if (facingRight) {
@@ -208,7 +200,7 @@ void state_1_2 () {
     
 }
 
-void state_1_3() {
+void state_2_3() {
     
     read_U();
     
@@ -216,10 +208,8 @@ void state_1_3() {
     bool arenaWallNotTooFar = true;
     bool arenaWallNotTooClose = false;
     
-    initializeSharpIR(0);
-    
     if (base_color == YellowBase || base_color == BlueBase) {
-        
+        initializeSharpIR(0);
         double curr_ADC_Level = 0;
         double prev_ADC_Level = 0;
         
@@ -285,77 +275,12 @@ void state_1_3() {
         }
     }
     else {
-        
-        double curr_ADC_Level = 0;
-        double prev_ADC_Level = 0;
-        
-        while (notSeen) {
-            uniturningAlignment(TURN_SPEED, BackAlign);
-            arenaWallNotTooFar = true;
-            curr_ADC_Level = SharpIR_ReadDistance();
-            prev_ADC_Level = SharpIR_ReadDistance();
-            
-            wheel_move(Backward, HALF_SPEED);
-            
-            while (arenaWallNotTooFar) { 
-                read_U();
-                arenaWallNotTooFar = (FLU <= 55) && (FRU <= 55);
-                curr_ADC_Level = SharpIR_ReadDistance();
-                if (curr_ADC_Level - prev_ADC_Level >= 4.5) {
-                    notSeen = false;                  
-                } else {
-                    prev_ADC_Level = curr_ADC_Level;   
-                }
-                
-                if (!notSeen) {
-                    printValue("SEEN\n");
-                    break;
-                }
-            }
-            
-            wheel_move(StopMotion, HALF_SPEED);
-                
-            if (!notSeen){
-                return;   
-            }
-            
-            CyDelay(300);
 
-            read_U();
-            arenaWallNotTooClose = (FLU >= 14) || (FRU >= 14);
-            
-            curr_ADC_Level = SharpIR_ReadDistance();
-            prev_ADC_Level = SharpIR_ReadDistance();
-            
-            wheel_move(Forward, HALF_SPEED);
- 
-            while (arenaWallNotTooClose) {
-                read_U();
-                arenaWallNotTooClose = (FLU >= 14) || (FRU >= 14);
-                
-                curr_ADC_Level = SharpIR_ReadDistance();
-                
-                if (curr_ADC_Level - prev_ADC_Level >= 4.5) {
-                    notSeen = false;                  
-                } else {
-                    prev_ADC_Level = curr_ADC_Level;   
-                }
-                
-                if (!notSeen) {
-                    printValue("SEEN\n");
-                    break;
-                }            
-            }
-            
-            wheel_move(StopMotion, HALF_SPEED);
-        }
     }
-    
-    stopSharpIR();
   
 }
 
-void state_1_4() {
+void state_2_4() {
     
     if (base_color == YellowBase || base_color == BlueBase) {
         wheel_move_by_metrics(Forward, HALF_SPEED, 0.035);
@@ -404,7 +329,7 @@ void state_1_4() {
     }
 }
 
-void state_1_5() {
+void state_2_5() {
     
     if (base_color == YellowBase || base_color == BlueBase) {
         
@@ -445,7 +370,4 @@ void state_1_5() {
     wheel_move_by_metrics(Backward, MAX_SPEED, backDist);
     
 }
-
-
-
 /* [] END OF FILE */

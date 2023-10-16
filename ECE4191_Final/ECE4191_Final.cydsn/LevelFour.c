@@ -9,19 +9,13 @@
  *
  * ========================================
 */
-#ifndef LEVELONE_H
-    #define LEVELONE_H
+#include "levels.h"
+#include "LevelFour.h"
+#include "math.h"
 
-    void printState();
-    
-    void run_L1();
-    
-    void state_1_0();
-    void state_1_1();
-    void state_1_2();
-    void state_1_3();
-    void state_1_4();
-    void state_1_5();
-#endif
 
+#define MAX_SPEED 250
+#define HALF_SPEED 200
+#define TURN_SPEED 250
+#define FACTOR_SURFACE 1.0
 /* [] END OF FILE */

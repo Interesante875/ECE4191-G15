@@ -16,7 +16,7 @@
 
 int adc_receive = 0;
 double analogDistance;
-
+int SharpIndex;
 volatile DetectionStatus infraredDetectionStatus;
 
 CY_ISR(ISR_Handler_IR_Sensor_PositiveEdge) {
@@ -46,23 +46,42 @@ int IRPinValue() {
 }
 
 
-void initializeSharpIR() {
+void initializeSharpIR(int interruptBased) {
     
     analogDistance = 0;
+    SharpIndex = 0;
+    
+    AMux_1_Start();
+    selectSharpIR(SharpIndex);
     ADC_DelSig_1_Start();
     ADC_DelSig_1_StartConvert();  
-    Timer_SharpIR_Start();
-    isr_analog_measure_StartEx(ISR_Handler_Analog_Measure);
     
+    if (interruptBased) {
+        Timer_SharpIR_Start();
+        isr_analog_measure_StartEx(ISR_Handler_Analog_Measure);
+    }
     
 }
 
+void selectSharpIR(int sensorIndex) {
+    AMux_1_FastSelect(sensorIndex);
+}
+
 void stopSharpIR() {
+    AMux_1_Stop();
     ADC_DelSig_1_Stop();
     Timer_SharpIR_Stop();
     isr_analog_measure_Stop();
 }
 
+double SharpIR_ReadDistance() {
+    const double a = 237299.53, b = 1840.20;
+    adc_receive = ADC_DelSig_1_GetResult16();
+    analogDistance = a/(adc_receive - b) - 0.5;
+    
+    return analogDistance;
+    
+}
 
 void readSharpIR() {
     const double a = 237299.53, b = 1840.20;
