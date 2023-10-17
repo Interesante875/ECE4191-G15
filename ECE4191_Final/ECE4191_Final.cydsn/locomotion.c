@@ -460,7 +460,7 @@ double angle_correction_with_sides_return(uint8 pwm, int dir) {
     if (arr[minPairIndex] >= 40 || arr[minPairIndex+1] >= 40) return 0;
     
     double delta_dist = (arr[minPairIndex] - arr[minPairIndex + 1])/100;
-    printValue("DELTA: %.2lf %.2lf %.2lf\n", delta_dist, arr[minPairIndex], arr[minPairIndex + 1]);
+    // printValue("DELTA: %.2lf %.2lf %.2lf\n", delta_dist, arr[minPairIndex], arr[minPairIndex + 1]);
     double angle = 0;
     double threshold = 0.02;
     
@@ -480,7 +480,7 @@ double angle_correction_with_sides_return(uint8 pwm, int dir) {
         angle *= 2;
     }
     
-    printValue("ANGLE: %.2lf\n", angle);
+    // printValue("ANGLE: %.2lf\n", angle);
     if (dir != 1) {
         if (angle > 30) angle = 30;
         else if (angle < -30) angle = -30;
@@ -490,10 +490,10 @@ double angle_correction_with_sides_return(uint8 pwm, int dir) {
         else if (angle < -50) angle = -50;
         
     }
-    printValue("CANGLE: %.2lf\n", angle);
+    // printValue("CANGLE: %.2lf\n", angle);
     switch (minPairIndex) {
         case 0:
-            printValue("FRONT\n");
+            // printValue("FRONT\n");
             if (angle > 0) {
                 wheel_move_by_metrics(Right, pwm, fabs(angle));
             }
@@ -502,7 +502,7 @@ double angle_correction_with_sides_return(uint8 pwm, int dir) {
             }
             break;
         case 2:
-            printValue("BACK\n");
+            // printValue("BACK\n");
             if (angle > 0) {
                 wheel_move_by_metrics(Left, pwm, fabs(angle));
             }
@@ -511,7 +511,7 @@ double angle_correction_with_sides_return(uint8 pwm, int dir) {
             }
             break;
         case 4:
-            printValue("RIGHT\n");
+            // printValue("RIGHT\n");
             if (angle > 0) {
                 wheel_move_by_metrics(Right, pwm, fabs(angle));
             }
@@ -520,7 +520,7 @@ double angle_correction_with_sides_return(uint8 pwm, int dir) {
             }
             break;
         case 6:
-            printValue("LEFT\n");
+            // printValue("LEFT\n");
             if (angle > 0) {
                 wheel_move_by_metrics(Left, pwm, fabs(angle));
             }

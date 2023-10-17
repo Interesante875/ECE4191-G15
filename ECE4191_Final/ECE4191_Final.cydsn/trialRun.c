@@ -36,7 +36,7 @@
 #define DETETC_PWM 200
 #define ADJUST_PWM 230
 
-#define TEST_RUN 6
+#define TEST_RUN 9
 #define ENABLE_BT 0 
 // BlueBase, RedBase, YellowBase, GreenBase
 StartingBase base_color;
@@ -44,7 +44,7 @@ Color requiredColor;
 
 void test_run() {
     CyDelay(1000);
-    #if TEST_RUN == 1 // Shooter
+    #if TEST_RUN == 1 
         shoot();
     #elif TEST_RUN == 2
         
@@ -110,12 +110,10 @@ void test_run() {
             print_U();
             
         }
+       
         
-    #elif TEST_RUN == 9
-        bt_moving_out_of_base();
-        bt_move_to_raster_start();
-//        bt_return_to_base();
-//        bt_scan_pin_deck();
+    elif TEST_RUN == 9
+        
     #else
         // moveOutofBaseHighLevel(250, 0.25);
 //        detectWhereIsThePinZone(210);

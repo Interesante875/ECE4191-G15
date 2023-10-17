@@ -55,7 +55,7 @@ void state_1_0() {
         infiniteTurningAlignment(ALIGN_SPEED, FrontAlign);  
         wheel_move_by_metrics(Right, TURN_SPEED, 90 * FACTOR_SURFACE);
         infiniteTurningAlignment(ALIGN_SPEED, LeftAlign);  
-        wheel_move_by_metrics(Forward, MAX_SPEED, 0.55);
+        wheel_move_by_metrics(Forward, MAX_SPEED, 0.7);
         infiniteTurningAlignment(ALIGN_SPEED, LeftAlign);    
         wheel_move_by_metrics(Right, TURN_SPEED, 90 * FACTOR_SURFACE);
         wheel_move_by_metrics(Backward, MAX_SPEED, 0.05);
@@ -167,7 +167,7 @@ void state_1_1() {
                 infiniteTurningAlignment(ALIGN_SPEED, FrontAlign);
                 wheel_move_by_metrics(Left, TURN_SPEED, 90 * FACTOR_SURFACE);  
                 infiniteTurningAlignment(ALIGN_SPEED, RightAlign);
-                wheel_move_by_metrics(Forward, MAX_SPEED, 0.15);
+                wheel_move_by_metrics(Forward, MAX_SPEED, 0.22);
                 infiniteTurningAlignment(ALIGN_SPEED, RightAlign);
                 wheel_move_by_metrics(Left, TURN_SPEED, 90 * FACTOR_SURFACE);  
                 wheel_move_by_metrics(Backward, MAX_SPEED, 0.05);
@@ -177,7 +177,7 @@ void state_1_1() {
                 infiniteTurningAlignment(ALIGN_SPEED, FrontAlign);
                 wheel_move_by_metrics(Right, TURN_SPEED, 90 * FACTOR_SURFACE);
                 infiniteTurningAlignment(ALIGN_SPEED, LeftAlign);
-                wheel_move_by_metrics(Forward, MAX_SPEED, 0.15);
+                wheel_move_by_metrics(Forward, MAX_SPEED, 0.22);
                 infiniteTurningAlignment(ALIGN_SPEED, LeftAlign);
                 wheel_move_by_metrics(Right, TURN_SPEED, 90 * FACTOR_SURFACE);  
                 wheel_move_by_metrics(Backward, MAX_SPEED, 0.05);
@@ -250,6 +250,8 @@ void state_1_3() {
     bool arenaWallNotTooClose = false;
     
     initializeSharpIR(0);
+    
+    CyDelay(200);
     
     if (base_color == YellowBase || base_color == BlueBase) {
         
@@ -391,7 +393,7 @@ void state_1_3() {
 void state_1_4() {
     
     if (base_color == YellowBase || base_color == BlueBase) {
-        //wheel_move_by_metrics(Backward, HALF_SPEED, 0.01);
+        wheel_move_by_metrics(Forward, HALF_SPEED, 0.025);
         infiniteTurningAlignment(ALIGN_SPEED, RightAlign);
         wheel_move_by_metrics(Left, TURN_SPEED, 90 * FACTOR_SURFACE);
         infiniteTurningAlignment(ALIGN_SPEED, RightAlign);

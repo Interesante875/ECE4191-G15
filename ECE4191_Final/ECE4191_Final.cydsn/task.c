@@ -178,7 +178,8 @@ void infiniteTurningAlignment(int speed, Alignment align) {
     double currAng = 0;
     double prevAng = 0;
     double deviation = 360;
-    while(deviation < 3) {
+    int count = 0;
+    while(deviation > 3 && count++ < 6) {
         if (align == LeftAlign) {
             currAng = angle_correction_with_sides_return(speed, 3);
         } 

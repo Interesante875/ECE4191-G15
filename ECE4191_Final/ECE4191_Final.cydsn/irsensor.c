@@ -91,6 +91,7 @@ double SharpIR_ReadDistance(int LR) {
     analogDistanceLeft = a/(adc_receive_left - b) - 0.5;
     analogDistanceRight = c/(adc_receive_right - d);
     
+    //printValue("ADC:%d distance: %.2lf\n", adc_receive_right, analogDistanceRight);
     if (!LR)
         return analogDistanceLeft;
     else 

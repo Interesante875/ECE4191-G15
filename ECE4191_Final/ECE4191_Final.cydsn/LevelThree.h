@@ -20,7 +20,10 @@
     void state_3_3();
     void state_3_4();
     void state_3_5();
+    void state_3_5_v2();
+    void state_3_6_v2();
     void state_3_6();
+    void state_3_7();
     
 #endif
 /* [] END OF FILE */

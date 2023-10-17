@@ -165,8 +165,7 @@ void ColorDetection_FindMax(int maxRed, int maxGreen, int maxBlue) {
     if (maxRed >= 8000 && maxBlue >= 8000 && maxGreen >= 8000) {
         detectedColor = WhiteColor;
         return;
-    }
-    
+    } 
     if (maxRed >= 6000 && maxBlue >= 6000 && maxGreen >= 6000) {
         detectedColor = GreyColor;
         return;

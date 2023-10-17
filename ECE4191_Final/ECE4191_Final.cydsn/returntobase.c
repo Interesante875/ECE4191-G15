@@ -79,7 +79,7 @@ void act_reverse_to_nearest_wall() {
     
     if (_cond_rtb_far_from_nearest_wall && _status_rtb == 0) {
         
-        printValue("REVERSE TO NEAREST WALL\n");
+        // printValue("REVERSE TO NEAREST WALL\n");
         
         _cond_rtb_is_moving = 1;
         
@@ -181,7 +181,7 @@ void cond_misalign_base() {
 void act_align_base_wall() {
     
     if (_status_rtb == 3 && !_cond_rtb_far_from_base && _cond_rtb_displace) {
-        printValue("ALIGNING\n");
+        // printValue("ALIGNING\n");
         multiTurningAlignment(HALF_SPEED, BackAlign, 3);
     }
 }
