@@ -354,7 +354,7 @@ void angle_correction_with_sides(uint8 pwm, int dir) {
     
     int minPairIndex = dir*2;
     
-    if (arr[minPairIndex] >= 45 || arr[minPairIndex+1] >= 45) return;
+    if (arr[minPairIndex] >= 40 || arr[minPairIndex+1] >= 40) return;
     
     double delta_dist = (arr[minPairIndex] - arr[minPairIndex + 1])/100;
     printValue("DELTA: %.2lf %.2lf %.2lf\n", delta_dist, arr[minPairIndex], arr[minPairIndex + 1]);
@@ -371,11 +371,17 @@ void angle_correction_with_sides(uint8 pwm, int dir) {
     
     angle = atan2(delta_dist, L) * 180 / CY_M_PI;
     
+    if (dir <= 1) {
+        angle *= 2;
+    }
+    
     printValue("ANGLE: %.2lf\n", angle);
     
     if (angle > 30) angle = 30;
     else if (angle < -30) angle = -30;
+   
     
+    printValue("CANGLE: %.2lf\n", angle);
     switch (minPairIndex) {
         case 0:
             printValue("FRONT\n");

@@ -27,11 +27,13 @@
 #include "task.h"
 #include "servo.h"
 #include "math.h"
+#include "moveoutfrombase.h"
+
 #define MOVING_PWM 250
 #define DETETC_PWM 200
 #define ADJUST_PWM 230
 
-#define TEST_RUN 7
+#define TEST_RUN 9
 #define ENABLE_BT 0 
 // BlueBase, RedBase, YellowBase, GreenBase
 StartingBase base_color;
@@ -93,7 +95,18 @@ void test_run() {
         wheel_move_by_metrics(Backward, 250, 0.5);
         
     #elif TEST_RUN == 7
-        uniturningAlignment(230, BackAlign);
+        uniturningAlignment(230, FrontAlign);
+        
+    #elif TEST_RUN == 8
+        for(;;) {
+            read_U();
+            print_U();
+            
+        }
+        
+    #elif TEST_RUN == 9
+        bt_moving_out_of_base();
+        
     #else
         // moveOutofBaseHighLevel(250, 0.25);
 //        detectWhereIsThePinZone(210);

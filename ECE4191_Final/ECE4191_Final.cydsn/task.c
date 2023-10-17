@@ -48,8 +48,7 @@ void lowerGripperToGround() {
     
     GripperHand_Open();
     CyDelay(300);
-    GripperArm_Extend();
-    
+    GripperArm_Extend();   
     CyDelay(300);
     
     shutdown_Gripper();
@@ -59,10 +58,9 @@ void lowerGripperToGround() {
 void grabPuckAndHold() {
     
     GripperHand_GripPuck();  
-    CyDelay(200);
+    CyDelay(300);
     GripperArm_Retract();
-    
-    CyDelay(200);
+    CyDelay(300);
     
     shutdown_Gripper();
     
@@ -74,18 +72,19 @@ void grabPuckAndDiscard() {
     
     GripperArm_Retract();
     shutdown_Gripper();
-    wheel_move_by_metrics(Right, 253, 30);
+    
+    wheel_move_by_metrics(Right, 235, 30);
     GripperArm_Extend();
     GripperHand_Open();
     
-    CyDelay(100);
+    CyDelay(300);
     
     GripperArm_Retract();
 
-    wheel_move_by_metrics(Left, 253, 30);
+    wheel_move_by_metrics(Left, 235, 30);
     GripperArm_Extend();
     
-    CyDelay(100);
+    CyDelay(300);
     
     shutdown_Gripper();
     
@@ -99,15 +98,16 @@ void grabPuckAndHurl() {
 
 void placePuckAtDeck() {
     
+    GripperHand_GripPuck();
     GripperArm_Extend();
     GripperHand_Open();
     
-    CyDelay(100);
+    CyDelay(400);
     
     GripperArm_Retract();
     GripperHand_GripPuck();
     
-    CyDelay(100);
+    CyDelay(400);
     
     shutdown_Gripper();
     
@@ -137,7 +137,7 @@ void biturningAlignment() {
 }
 
 void uniturningAlignment(int speed, Alignment align) {
-    CyDelay(320);
+    CyDelay(180);
     if (align == LeftAlign) {
         angle_correction_with_sides(speed, 3);
     } 
@@ -154,9 +154,29 @@ void uniturningAlignment(int speed, Alignment align) {
 }
 
 
+void multiTurningAlignment(int speed, Alignment align, int times) {
+    CyDelay(180);
+    for (int i = 0; i < times; i++) {
+        if (align == LeftAlign) {
+            angle_correction_with_sides(speed, 3);
+        } 
+        else if (align == RightAlign) {
+            angle_correction_with_sides(speed, 2);
+        } 
+        else if(align == FrontAlign) {
+            angle_correction_with_sides(speed, 0);
+        } 
+        else if (align == BackAlign) {
+            angle_correction_with_sides(speed, 1);
+        } 
+    }
+    
+}
+
+
 void moveUntilObs(int dir, int speed, double dist) {
     
-    CyDelay(320);
+    CyDelay(180);
     
     printValue("MOVING BACK");
     

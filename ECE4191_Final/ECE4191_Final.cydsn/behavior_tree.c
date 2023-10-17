@@ -10,6 +10,7 @@
  * ========================================
 */
 #include "project.h"
+#include <stdarg.h>
 #include "stdio.h"
 #include "stdlib.h"
 #include "string.h"
@@ -25,6 +26,16 @@ int moving;
 // Functions to be associated with each node
 void rootNode() {
     // printValue("Root Node Executed\n");
+}
+
+void endNode() {
+
+    if (done)
+    {
+        printValue("END Node executed\n");
+        wheel_move(StopMotion, 250);   
+    }
+    
 }
 
 void readDistance() {
@@ -60,15 +71,7 @@ void avoidObs() {
     
 }
 
-void END() {
-    
-    // printValue("Function executed for node 4\n");
-    if (done)
-    {
-        printValue("END function executed\n");
-        wheel_move(StopMotion, 250);   
-    }
-}
+
 
 void function5() {
     printValue("Function executed for node 5\n");
@@ -87,7 +90,7 @@ struct node* createNode(int v) {
 }
 
 // Create graph
-struct Graph* createGraph(int vertices) {
+struct Graph* createGraph(int vertices, ...) {
     struct Graph* graph = malloc(sizeof(struct Graph));
     graph->numVertices = vertices;
 
@@ -96,43 +99,42 @@ struct Graph* createGraph(int vertices) {
 
     graph->visited = malloc(vertices * sizeof(int));
 
+    va_list args;
+    va_start(args, vertices);
     int i;
     for (i = 0; i < vertices; i++) {
         graph->adjLists[i] = NULL;
         graph->visited[i] = 0;
-
+        graph->functionArray[i] = va_arg(args, void (*)());
+        va_end(args);
         // Set the function pointers for each node
-        switch (i) {
-            case 0:
-                graph->functionArray[i] = &rootNode;
-                break;
-            case 1:
-                graph->functionArray[i] = &END;
-                break;
-            case 2:
-                graph->functionArray[i] = &readDistance;
-                break;
-            case 3:
-                graph->functionArray[i] = &avoidObs;
-                break;
-            case 4:
-                graph->functionArray[i] = &moveForward;
-                break;
-//            case 5:
-//                graph->functionArray[i] = &function5;
+//        switch (i) {
+//            case 0:
+//                graph->functionArray[i] = &rootNode;
 //                break;
-//            case 6:
-//                graph->functionArray[i] = &function6;
+//            case 1:
+//                graph->functionArray[i] = &END;
 //                break;
-            default:
-                graph->functionArray[i] = NULL;
-                break;
-        }
+//            case 2:
+//                graph->functionArray[i] = &readDistance;
+//                break;
+//            case 3:
+//                graph->functionArray[i] = &avoidObs;
+//                break;
+//            case 4:
+//                graph->functionArray[i] = &moveForward;
+//                break;
+////            case 5:
+////                graph->functionArray[i] = &function5;
+////                break;
+////            case 6:
+////                graph->functionArray[i] = &function6;
+////                break;
+//            default:
+//                graph->functionArray[i] = NULL;
+//                break;
+//        }
     }
-    
-    obstacle = 0;
-    done = 0;
-    moving = 0;
     
     return graph;
 }

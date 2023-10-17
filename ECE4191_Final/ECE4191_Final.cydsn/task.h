@@ -37,6 +37,7 @@
     int wallIsSeen();
     void biturningAlignment();
     void uniturningAlignment(int speed, Alignment align);
+    void multiTurningAlignment(int speed, Alignment align, int times);
     int computeZoneNum(double dist2Wall, int front_or_back);
     
     

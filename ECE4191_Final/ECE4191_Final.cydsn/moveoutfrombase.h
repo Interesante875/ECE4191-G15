@@ -9,11 +9,11 @@
  *
  * ========================================
 */
-#ifndef BEHAVIOR_H
-    #define BEHAVIOR_H
+#ifndef MOVEOUTFROMBASE_H
+    #define MOVEOUTFROMBASE_H
     
+    void bt_moving_out_of_base();
     
-    
-    
-    #endif
+
+#endif
 /* [] END OF FILE */

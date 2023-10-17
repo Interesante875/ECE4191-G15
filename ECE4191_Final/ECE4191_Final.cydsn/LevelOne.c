@@ -15,10 +15,10 @@
 #include "math.h"
 
 
-#define MAX_SPEED 245
-#define HALF_SPEED 210
-#define TURN_SPEED 225
-#define FACTOR_SURFACE 1.05
+#define MAX_SPEED 240
+#define HALF_SPEED 220
+#define TURN_SPEED 230
+#define FACTOR_SURFACE 1.0
 
 
 int state = 0;
@@ -27,12 +27,12 @@ int facingRight = 0;
 
 void run_L1() {
 
-    state_1_0();
+//    state_1_0();
     state_1_1();
-    state_1_2();
-    state_1_3();
-    state_1_4();
-    state_1_5();  
+//    state_1_2();
+//    state_1_3();
+//    state_1_4();
+//    state_1_5();  
     
 }
 
@@ -102,7 +102,7 @@ void state_1_1() {
             
             if (infraredDetectionStatus == Presence) {
                 stopIR();
-                wheel_move_by_metrics(Backward, TURN_SPEED, 0.025);
+                wheel_move_by_metrics(Backward, HALF_SPEED, 0.015);
                 ColorDetection_Run(1);
                 printValue("DETECTED COLOR: %d\n", detectedColor);
                 if (detectedColor == requiredColor_L1) {
@@ -118,25 +118,29 @@ void state_1_1() {
             
             else {
 //              
-                
                 int period = 0;
                 bool isWall = false;
                 int obstacleCount = 0;  // Track the number of consecutive obstacles
-                obstacle_not_met = (FLU >= 50) && (FRU >= 50);
+                obstacle_not_met = (FLU >= 34) && (FRU >= 34);
                 while (period++<=10) {
                     read_U();
-                    obstacle_not_met = (FLU >= 50) || (FRU >= 50);
+                    obstacle_not_met = (FLU >= 34) || (FRU >= 34);
                     if (obstacle_not_met) {
+                        isWall = false;
                         line_not_finish = 1;
                         obstacleCount = 0;  // Reset obstacle count if no obstacle
+                        printValue("MIGHT NOT BE THO %d\n", obstacleCount);
                     } else {
                         isWall = true;  
                         obstacleCount++;  // Increment obstacle count
                         printValue("STILL DECIDING? %d\n", obstacleCount);
+                        CyDelay(100);
                     }
+                    
                     if (!isWall) {
                         CyDelay(100);
-                    } else if (obstacleCount > 5) {
+                        printValue("NOT SURE IF IT IS WALL!\n");
+                    } else if (obstacleCount > 9) {
                         printValue("IT IS A WALL\n");
                         line_not_finish = 0;
                         break;
@@ -155,22 +159,28 @@ void state_1_1() {
             wheel_move_by_metrics(Forward, TURN_SPEED, 0.1);
             if (facingRight) {
                 uniturningAlignment(TURN_SPEED, FrontAlign);
+                uniturningAlignment(TURN_SPEED, FrontAlign);
                 wheel_move_by_metrics(Left, TURN_SPEED, 90 * FACTOR_SURFACE);  
                 uniturningAlignment(TURN_SPEED, RightAlign);
                 wheel_move_by_metrics(Forward, MAX_SPEED, 0.15);
                 uniturningAlignment(TURN_SPEED, RightAlign);
+                uniturningAlignment(TURN_SPEED, RightAlign);
                 wheel_move_by_metrics(Left, TURN_SPEED, 90 * FACTOR_SURFACE);  
                 wheel_move_by_metrics(Backward, MAX_SPEED, 0.15);
                 uniturningAlignment(TURN_SPEED, BackAlign);
+                uniturningAlignment(TURN_SPEED, BackAlign);
             }
             else {
+                uniturningAlignment(TURN_SPEED, FrontAlign);
                 uniturningAlignment(TURN_SPEED, FrontAlign);
                 wheel_move_by_metrics(Right, TURN_SPEED, 90 * FACTOR_SURFACE);
                 uniturningAlignment(TURN_SPEED, LeftAlign);
                 wheel_move_by_metrics(Forward, MAX_SPEED, 0.15);
                 uniturningAlignment(TURN_SPEED, LeftAlign);
+                uniturningAlignment(TURN_SPEED, LeftAlign);
                 wheel_move_by_metrics(Right, TURN_SPEED, 90 * FACTOR_SURFACE);  
                 wheel_move_by_metrics(Backward, MAX_SPEED, 0.15);
+                uniturningAlignment(TURN_SPEED, BackAlign);
                 uniturningAlignment(TURN_SPEED, BackAlign);
             }
         
@@ -215,7 +225,7 @@ void state_1_2 () {
             uniturningAlignment(TURN_SPEED, LeftAlign);
             moveUntilObs(1, HALF_SPEED, 32);
             wheel_move_by_metrics(Right, TURN_SPEED, 90 * FACTOR_SURFACE);
-            
+            uniturningAlignment(TURN_SPEED, FrontAlign);
             facingRight = 0;
         } else {
             moveUntilObs(0, MAX_SPEED, 30);
@@ -380,9 +390,13 @@ void state_1_3() {
 void state_1_4() {
     
     if (base_color == YellowBase || base_color == BlueBase) {
-        wheel_move_by_metrics(Forward, HALF_SPEED, 0.01);
-        wheel_move_by_metrics(Left, HALF_SPEED, 90 * FACTOR_SURFACE);
-//        uniturningAlignment(TURN_SPEED, RightAlign);
+        wheel_move_by_metrics(Backward, HALF_SPEED, 0.02);
+        uniturningAlignment(TURN_SPEED, FrontAlign);
+        uniturningAlignment(TURN_SPEED, FrontAlign);
+        wheel_move_by_metrics(Left, TURN_SPEED, 90 * FACTOR_SURFACE);
+        uniturningAlignment(TURN_SPEED, RightAlign);
+        uniturningAlignment(TURN_SPEED, RightAlign);
+        uniturningAlignment(TURN_SPEED, RightAlign);
 //        biturningAlignment();
         CyDelay(320);
         
@@ -390,7 +404,7 @@ void state_1_4() {
         
         double dist = FLU > FRU ? FLU : FRU;
         
-        dist = dist - 35.5;
+        dist = dist - 32;
         
         if (dist > 0) {
             wheel_move_by_metrics(Forward, HALF_SPEED, dist/100);
@@ -432,7 +446,8 @@ void state_1_5() {
         
         wheel_move_by_metrics(Left, TURN_SPEED, 90 * FACTOR_SURFACE);
         uniturningAlignment(TURN_SPEED, RightAlign);
-        
+        uniturningAlignment(TURN_SPEED, RightAlign);
+        uniturningAlignment(TURN_SPEED, RightAlign);
         read_U();
         
         double dist = 0.8 - (BLU + BRU)/200;
@@ -441,6 +456,7 @@ void state_1_5() {
         
         wheel_move_by_metrics(Left, TURN_SPEED, 90 * FACTOR_SURFACE);
         
+        uniturningAlignment(TURN_SPEED, BackAlign);
         uniturningAlignment(TURN_SPEED, BackAlign);
     } 
     else {
