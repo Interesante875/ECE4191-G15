@@ -39,7 +39,7 @@ void initializeRobotBase() {
         requiredColor_L2 = levelTwoZoneColor;
         STATE_CURR_LEVEL = currentLevel;
     #else
-        requiredColor_L1 = RedColor;
+        requiredColor_L1 = GreenColor;
         requiredColor_L2 = RedColor;
         STATE_CURR_LEVEL = 1;
     #endif

@@ -173,6 +173,30 @@ void multiTurningAlignment(int speed, Alignment align, int times) {
     
 }
 
+void infiniteTurningAlignment(int speed, Alignment align) {
+    CyDelay(180);
+    double currAng = 0;
+    double prevAng = 0;
+    double deviation = 360;
+    while(deviation < 3) {
+        if (align == LeftAlign) {
+            currAng = angle_correction_with_sides_return(speed, 3);
+        } 
+        else if (align == RightAlign) {
+            currAng = angle_correction_with_sides_return(speed, 2);
+        } 
+        else if(align == FrontAlign) {
+            currAng = angle_correction_with_sides_return(speed, 0);
+        } 
+        else if (align == BackAlign) {
+            currAng = angle_correction_with_sides_return(speed, 1);
+        } 
+        
+        deviation = fabs(currAng - prevAng);
+        prevAng = currAng;
+    }
+}
+
 
 void moveUntilObs(int dir, int speed, double dist) {
     

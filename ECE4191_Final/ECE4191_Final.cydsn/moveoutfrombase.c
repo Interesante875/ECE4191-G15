@@ -21,7 +21,7 @@
 #define TURN_SPEED 230
 #define FACTOR_SURFACE 1.0
 
-int _end = 0;
+int _end_moving_out_from_base = 0;
 int _cond_moving_out_from_base = 1; // higher level stuff
 
 int _cond_far_enough = 0;
@@ -35,7 +35,7 @@ void _root_moving_out_of_base() {
 
 void _end_moving_out_of_base() {
     
-    if (_end) {
+    if (_end_moving_out_from_base) {
         
         printValue("DONE MOVING OUT OF BASE\n");
         _cond_is_moving = 0;
@@ -81,7 +81,7 @@ void act_turn_to_nearest_wall() {
             multiTurningAlignment(TURN_SPEED, RightAlign, 2);
         }
         
-        _end = 1;
+        _end_moving_out_from_base = 1;
     }
     
 }
@@ -144,10 +144,9 @@ void bt_moving_out_of_base() {
         addEdge(graph, 6, 7);
         addEdge(graph, 6, 8);
         
-        CyDelay(1000);
         
         for (;;) {
-            if (_end) break;
+            if (_end_moving_out_from_base) break;
             
             for (int j = 0; j < graph->numVertices; j++) {
                 graph->visited[j] = 0;

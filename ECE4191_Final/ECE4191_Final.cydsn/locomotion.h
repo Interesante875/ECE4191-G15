@@ -12,7 +12,7 @@
 #ifndef LOCOMOTION_H
     #define LOCOMOTION_H
     
-    #define USE_CONTROLLER ProportionalIntegralDerivativeControl
+    #define USE_CONTROLLER ProportionalControl
     #define USE_GYRO_CONTROL 1
     
     #include "motor_control.h"
@@ -34,7 +34,7 @@
     void wheel_move (MotionDirection motion, uint8 pwm);
     void angle_correction(uint8 pwm);
     void angle_correction_with_sides(uint8 pwm, int dir);
-    
+    double angle_correction_with_sides_return(uint8 pwm, int dir);
     
     double inverseVarianceWeighting(double ticks_h, double gyro_h);
     

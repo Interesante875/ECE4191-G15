@@ -28,12 +28,15 @@
 #include "servo.h"
 #include "math.h"
 #include "moveoutfrombase.h"
+#include "movetorasterstart.h"
+#include "returntobase.h"
+#include "scanpindeck.h"
 
 #define MOVING_PWM 250
 #define DETETC_PWM 200
 #define ADJUST_PWM 230
 
-#define TEST_RUN 9
+#define TEST_RUN 6
 #define ENABLE_BT 0 
 // BlueBase, RedBase, YellowBase, GreenBase
 StartingBase base_color;
@@ -93,7 +96,11 @@ void test_run() {
     #elif TEST_RUN == 6
         wheel_move_by_metrics(Forward, 250, 0.5);
         wheel_move_by_metrics(Backward, 250, 0.5);
-        
+//        wheel_move_by_metrics(Left, 250, 90);
+        wheel_move_by_metrics(Left, 230, 90);
+        wheel_move_by_metrics(Right, 230, 90);
+//        wheel_move_by_metrics(Right, 250, 90);
+//        wheel_move_by_metrics(Right, 250, 90);
     #elif TEST_RUN == 7
         uniturningAlignment(230, FrontAlign);
         
@@ -106,7 +113,9 @@ void test_run() {
         
     #elif TEST_RUN == 9
         bt_moving_out_of_base();
-        
+        bt_move_to_raster_start();
+//        bt_return_to_base();
+//        bt_scan_pin_deck();
     #else
         // moveOutofBaseHighLevel(250, 0.25);
 //        detectWhereIsThePinZone(210);

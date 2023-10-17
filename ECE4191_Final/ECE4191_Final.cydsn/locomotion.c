@@ -273,6 +273,21 @@ void wheel_move_by_metrics_with_gyro (MotionDirection motion, uint8 pwm, double 
     CyDelay(EMF_BUFFER_DELAY);
 }
 
+int computeTicks(int L, int R) {
+    if (L > 0 && R > 0) {
+        return (L+R)/2;
+    } else if (L < 0 && R < 0) {
+        return (L+R)/2;
+    } else if (L > 0 && R < 0) {
+        return (L-R)/2;
+    } else if (L < 0 && R > 0) {
+        return (R-L)/2;
+    } else {
+        return 0;   
+    }
+    
+}
+
 void wheel_move_by_metrics (MotionDirection motion, uint8 pwm, double metrics) {
     
     int ticks = 0;
@@ -364,9 +379,11 @@ void angle_correction_with_sides(uint8 pwm, int dir) {
     double L = 0;
     
     if (dir == 0 || dir == 1) {
-        L = 0.140;   
-    } else {
-        L = 0.170;   
+        L = 0.10;   
+    } else if (dir == 2) {
+        L = 0.160;   
+    } else if (dir == 3) {
+        L = 0.14;   
     }
     
     angle = atan2(delta_dist, L) * 180 / CY_M_PI;
@@ -376,11 +393,15 @@ void angle_correction_with_sides(uint8 pwm, int dir) {
     }
     
     printValue("ANGLE: %.2lf\n", angle);
-    
-    if (angle > 30) angle = 30;
-    else if (angle < -30) angle = -30;
-   
-    
+    if (dir != 1) {
+        if (angle > 30) angle = 30;
+        else if (angle < -30) angle = -30;
+    }
+    else {
+        if (angle > 50) angle = 50;
+        else if (angle < -50) angle = -50;
+        
+    }
     printValue("CANGLE: %.2lf\n", angle);
     switch (minPairIndex) {
         case 0:
@@ -423,6 +444,94 @@ void angle_correction_with_sides(uint8 pwm, int dir) {
     }
     
     
+}
+
+double angle_correction_with_sides_return(uint8 pwm, int dir) {
+    
+    // 0 - Front 1 - Back 2 - RIght 3 - Left
+    
+    CyDelay(100);
+    read_U();
+    
+    double arr[] = {FLU, FRU, BLU, BRU, RFU, RBU, LFU, LBU};
+    
+    int minPairIndex = dir*2;
+    
+    if (arr[minPairIndex] >= 40 || arr[minPairIndex+1] >= 40) return 0;
+    
+    double delta_dist = (arr[minPairIndex] - arr[minPairIndex + 1])/100;
+    printValue("DELTA: %.2lf %.2lf %.2lf\n", delta_dist, arr[minPairIndex], arr[minPairIndex + 1]);
+    double angle = 0;
+    double threshold = 0.02;
+    
+    double L = 0;
+    
+    if (dir == 0 || dir == 1) {
+        L = 0.10;   
+    } else if (dir == 2) {
+        L = 0.160;   
+    } else if (dir == 3) {
+        L = 0.14;   
+    }
+    
+    angle = atan2(delta_dist, L) * 180 / CY_M_PI;
+    
+    if (dir <= 1) {
+        angle *= 2;
+    }
+    
+    printValue("ANGLE: %.2lf\n", angle);
+    if (dir != 1) {
+        if (angle > 30) angle = 30;
+        else if (angle < -30) angle = -30;
+    }
+    else {
+        if (angle > 50) angle = 50;
+        else if (angle < -50) angle = -50;
+        
+    }
+    printValue("CANGLE: %.2lf\n", angle);
+    switch (minPairIndex) {
+        case 0:
+            printValue("FRONT\n");
+            if (angle > 0) {
+                wheel_move_by_metrics(Right, pwm, fabs(angle));
+            }
+            else {
+                wheel_move_by_metrics(Left, pwm, fabs(angle));
+            }
+            break;
+        case 2:
+            printValue("BACK\n");
+            if (angle > 0) {
+                wheel_move_by_metrics(Left, pwm, fabs(angle));
+            }
+            else {
+                wheel_move_by_metrics(Right, pwm, fabs(angle));
+            }
+            break;
+        case 4:
+            printValue("RIGHT\n");
+            if (angle > 0) {
+                wheel_move_by_metrics(Right, pwm, fabs(angle));
+            }
+            else {
+                wheel_move_by_metrics(Left, pwm, fabs(angle));
+            }
+            break;
+        case 6:
+            printValue("LEFT\n");
+            if (angle > 0) {
+                wheel_move_by_metrics(Left, pwm, fabs(angle));
+            }
+            else {
+                wheel_move_by_metrics(Right, pwm, fabs(angle));
+            }
+            break;
+  
+    }
+    
+    return angle;
 }
 
 void angle_correction(uint8 pwm) {

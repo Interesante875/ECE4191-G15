@@ -12,13 +12,16 @@
 
 #include "levels.h"
 #include "LevelOne.h"
+#include "returntobase.h"
+#include "moveoutfrombase.h"
 #include "math.h"
 
 
 #define MAX_SPEED 240
-#define HALF_SPEED 220
-#define TURN_SPEED 230
-#define FACTOR_SURFACE 1.0
+#define HALF_SPEED 195
+#define ALIGN_SPEED 200
+#define TURN_SPEED 215
+#define FACTOR_SURFACE 1.15
 
 
 int state = 0;
@@ -27,12 +30,12 @@ int facingRight = 0;
 
 void run_L1() {
 
-//    state_1_0();
+    state_1_0();
     state_1_1();
-//    state_1_2();
-//    state_1_3();
-//    state_1_4();
-//    state_1_5();  
+    state_1_2();
+    state_1_3();
+    state_1_4();
+    state_1_5();  
     
 }
 
@@ -44,17 +47,19 @@ void state_1_0() {
 
     wheel_move_by_metrics(Forward, MAX_SPEED, 0.3);
     
+    
     if (base_color == YellowBase || base_color == BlueBase) {
         wheel_move_by_metrics(Left, TURN_SPEED, 90 * FACTOR_SURFACE);
-        uniturningAlignment(TURN_SPEED, LeftAlign); 
+        infiniteTurningAlignment(ALIGN_SPEED, LeftAlign);
         moveUntilObs(1, MAX_SPEED, 25);
-        uniturningAlignment(TURN_SPEED, FrontAlign);       
+        infiniteTurningAlignment(ALIGN_SPEED, FrontAlign);  
         wheel_move_by_metrics(Right, TURN_SPEED, 90 * FACTOR_SURFACE);
-        uniturningAlignment(TURN_SPEED, LeftAlign);
-        wheel_move_by_metrics(Forward, MAX_SPEED, 0.6);
+        infiniteTurningAlignment(ALIGN_SPEED, LeftAlign);  
+        wheel_move_by_metrics(Forward, MAX_SPEED, 0.55);
+        infiniteTurningAlignment(ALIGN_SPEED, LeftAlign);    
         wheel_move_by_metrics(Right, TURN_SPEED, 90 * FACTOR_SURFACE);
-        wheel_move_by_metrics(Backward, MAX_SPEED, 0.15);
-        uniturningAlignment(TURN_SPEED, BackAlign); 
+        wheel_move_by_metrics(Backward, MAX_SPEED, 0.05);
+        infiniteTurningAlignment(TURN_SPEED, BackAlign);
         facingRight = 1;
     } else {
         wheel_move_by_metrics(Left, TURN_SPEED, 90 * FACTOR_SURFACE);
@@ -93,7 +98,7 @@ void state_1_1() {
             
             while (infraredDetectionStatus == Absence && line_not_finish) {
                 read_U();
-                line_not_finish = (FLU >= 34) || (FRU >= 34); 
+                line_not_finish = (FLU >= 32) || (FRU >= 32); 
                 
             }
             
@@ -116,38 +121,38 @@ void state_1_1() {
                 }
             } 
             
-            else {
-//              
-                int period = 0;
-                bool isWall = false;
-                int obstacleCount = 0;  // Track the number of consecutive obstacles
-                obstacle_not_met = (FLU >= 34) && (FRU >= 34);
-                while (period++<=10) {
-                    read_U();
-                    obstacle_not_met = (FLU >= 34) || (FRU >= 34);
-                    if (obstacle_not_met) {
-                        isWall = false;
-                        line_not_finish = 1;
-                        obstacleCount = 0;  // Reset obstacle count if no obstacle
-                        printValue("MIGHT NOT BE THO %d\n", obstacleCount);
-                    } else {
-                        isWall = true;  
-                        obstacleCount++;  // Increment obstacle count
-                        printValue("STILL DECIDING? %d\n", obstacleCount);
-                        CyDelay(100);
-                    }
-                    
-                    if (!isWall) {
-                        CyDelay(100);
-                        printValue("NOT SURE IF IT IS WALL!\n");
-                    } else if (obstacleCount > 9) {
-                        printValue("IT IS A WALL\n");
-                        line_not_finish = 0;
-                        break;
-                    }    
-                }
-//                
-            }
+//            else {
+////              
+//                int period = 0;
+//                bool isWall = false;
+//                int obstacleCount = 0;  // Track the number of consecutive obstacles
+//                obstacle_not_met = (FLU >= 34) && (FRU >= 34);
+//                while (period++<=10) {
+//                    read_U();
+//                    obstacle_not_met = (FLU >= 34) || (FRU >= 34);
+//                    if (obstacle_not_met) {
+//                        isWall = false;
+//                        line_not_finish = 1;
+//                        obstacleCount = 0;  // Reset obstacle count if no obstacle
+//                        printValue("MIGHT NOT BE THO %d\n", obstacleCount);
+//                    } else {
+//                        isWall = true;  
+//                        obstacleCount++;  // Increment obstacle count
+//                        printValue("STILL DECIDING? %d\n", obstacleCount);
+//                        CyDelay(100);
+//                    }
+//                    
+//                    if (!isWall) {
+//                        CyDelay(100);
+//                        printValue("NOT SURE IF IT IS WALL!\n");
+//                    } else if (obstacleCount > 9) {
+//                        printValue("IT IS A WALL\n");
+//                        line_not_finish = 0;
+//                        break;
+//                    }    
+//                }
+////                
+//            }
              
         }
         
@@ -158,30 +163,25 @@ void state_1_1() {
             
             wheel_move_by_metrics(Forward, TURN_SPEED, 0.1);
             if (facingRight) {
-                uniturningAlignment(TURN_SPEED, FrontAlign);
-                uniturningAlignment(TURN_SPEED, FrontAlign);
+                
+                infiniteTurningAlignment(ALIGN_SPEED, FrontAlign);
                 wheel_move_by_metrics(Left, TURN_SPEED, 90 * FACTOR_SURFACE);  
-                uniturningAlignment(TURN_SPEED, RightAlign);
+                infiniteTurningAlignment(ALIGN_SPEED, RightAlign);
                 wheel_move_by_metrics(Forward, MAX_SPEED, 0.15);
-                uniturningAlignment(TURN_SPEED, RightAlign);
-                uniturningAlignment(TURN_SPEED, RightAlign);
+                infiniteTurningAlignment(ALIGN_SPEED, RightAlign);
                 wheel_move_by_metrics(Left, TURN_SPEED, 90 * FACTOR_SURFACE);  
-                wheel_move_by_metrics(Backward, MAX_SPEED, 0.15);
-                uniturningAlignment(TURN_SPEED, BackAlign);
-                uniturningAlignment(TURN_SPEED, BackAlign);
+                wheel_move_by_metrics(Backward, MAX_SPEED, 0.05);
+                infiniteTurningAlignment(ALIGN_SPEED, BackAlign);
             }
             else {
-                uniturningAlignment(TURN_SPEED, FrontAlign);
-                uniturningAlignment(TURN_SPEED, FrontAlign);
+                infiniteTurningAlignment(ALIGN_SPEED, FrontAlign);
                 wheel_move_by_metrics(Right, TURN_SPEED, 90 * FACTOR_SURFACE);
-                uniturningAlignment(TURN_SPEED, LeftAlign);
+                infiniteTurningAlignment(ALIGN_SPEED, LeftAlign);
                 wheel_move_by_metrics(Forward, MAX_SPEED, 0.15);
-                uniturningAlignment(TURN_SPEED, LeftAlign);
-                uniturningAlignment(TURN_SPEED, LeftAlign);
+                infiniteTurningAlignment(ALIGN_SPEED, LeftAlign);
                 wheel_move_by_metrics(Right, TURN_SPEED, 90 * FACTOR_SURFACE);  
-                wheel_move_by_metrics(Backward, MAX_SPEED, 0.15);
-                uniturningAlignment(TURN_SPEED, BackAlign);
-                uniturningAlignment(TURN_SPEED, BackAlign);
+                wheel_move_by_metrics(Backward, MAX_SPEED, 0.05);
+                infiniteTurningAlignment(TURN_SPEED, BackAlign);
             }
         
             facingRight = !facingRight;
@@ -196,18 +196,19 @@ void state_1_2 () {
     
     if (base_color == YellowBase || base_color == BlueBase) {
         if (facingRight) {
-            moveUntilObs(0, MAX_SPEED, 30);
-            uniturningAlignment(TURN_SPEED, BackAlign);
+            moveUntilObs(0, MAX_SPEED, 34);
+            
+            infiniteTurningAlignment(ALIGN_SPEED, BackAlign);
             wheel_move_by_metrics(Right, TURN_SPEED, 90 * FACTOR_SURFACE);
-            uniturningAlignment(TURN_SPEED, RightAlign);
+            infiniteTurningAlignment(ALIGN_SPEED, RightAlign);
             moveUntilObs(1, TURN_SPEED, 32);
             wheel_move_by_metrics(Right, TURN_SPEED, 90 * FACTOR_SURFACE);
             
         } else {
-            moveUntilObs(1, MAX_SPEED, 25);
-            uniturningAlignment(TURN_SPEED, FrontAlign);
+            moveUntilObs(1, MAX_SPEED, 34);
+            infiniteTurningAlignment(ALIGN_SPEED, FrontAlign);
             wheel_move_by_metrics(Left, TURN_SPEED, 90 * FACTOR_SURFACE);
-            uniturningAlignment(TURN_SPEED, RightAlign);
+            infiniteTurningAlignment(ALIGN_SPEED, RightAlign);
             moveUntilObs(1, TURN_SPEED, 32);
             wheel_move_by_metrics(Right, TURN_SPEED, 90 * FACTOR_SURFACE);
             
@@ -220,12 +221,12 @@ void state_1_2 () {
         
         if (facingRight) {
             moveUntilObs(1, MAX_SPEED, 30);
-            uniturningAlignment(TURN_SPEED, FrontAlign);
+            multiTurningAlignment(TURN_SPEED, FrontAlign, 3);
             wheel_move_by_metrics(Right, TURN_SPEED, 90 * FACTOR_SURFACE);
-            uniturningAlignment(TURN_SPEED, LeftAlign);
+            multiTurningAlignment(TURN_SPEED, LeftAlign, 3);
             moveUntilObs(1, HALF_SPEED, 32);
             wheel_move_by_metrics(Right, TURN_SPEED, 90 * FACTOR_SURFACE);
-            uniturningAlignment(TURN_SPEED, FrontAlign);
+            multiTurningAlignment(TURN_SPEED, FrontAlign, 3);
             facingRight = 0;
         } else {
             moveUntilObs(0, MAX_SPEED, 30);
@@ -256,7 +257,7 @@ void state_1_3() {
         double prev_ADC_Level = 0;
         
         while (notSeen) {
-            uniturningAlignment(TURN_SPEED, FrontAlign);
+            infiniteTurningAlignment(ALIGN_SPEED, FrontAlign);
             arenaWallNotTooFar = true;
             curr_ADC_Level = SharpIR_ReadDistance(0);
             prev_ADC_Level = SharpIR_ReadDistance(0);
@@ -322,7 +323,7 @@ void state_1_3() {
         double prev_ADC_Level = 0;
         
         while (notSeen) {
-            uniturningAlignment(TURN_SPEED, BackAlign);
+            infiniteTurningAlignment(ALIGN_SPEED, BackAlign);;
             arenaWallNotTooFar = true;
             curr_ADC_Level = SharpIR_ReadDistance(0);
             prev_ADC_Level = SharpIR_ReadDistance(0);
@@ -390,13 +391,10 @@ void state_1_3() {
 void state_1_4() {
     
     if (base_color == YellowBase || base_color == BlueBase) {
-        wheel_move_by_metrics(Backward, HALF_SPEED, 0.02);
-        uniturningAlignment(TURN_SPEED, FrontAlign);
-        uniturningAlignment(TURN_SPEED, FrontAlign);
+        //wheel_move_by_metrics(Backward, HALF_SPEED, 0.01);
+        infiniteTurningAlignment(ALIGN_SPEED, RightAlign);
         wheel_move_by_metrics(Left, TURN_SPEED, 90 * FACTOR_SURFACE);
-        uniturningAlignment(TURN_SPEED, RightAlign);
-        uniturningAlignment(TURN_SPEED, RightAlign);
-        uniturningAlignment(TURN_SPEED, RightAlign);
+        infiniteTurningAlignment(ALIGN_SPEED, RightAlign);
 //        biturningAlignment();
         CyDelay(320);
         
@@ -404,7 +402,7 @@ void state_1_4() {
         
         double dist = FLU > FRU ? FLU : FRU;
         
-        dist = dist - 32;
+        dist = dist - 30;
         
         if (dist > 0) {
             wheel_move_by_metrics(Forward, HALF_SPEED, dist/100);
@@ -418,7 +416,7 @@ void state_1_4() {
     } else {
         wheel_move_by_metrics(Forward, HALF_SPEED, 0.035);
         wheel_move_by_metrics(Left, TURN_SPEED, 90 * FACTOR_SURFACE);
-        uniturningAlignment(TURN_SPEED, RightAlign);
+        infiniteTurningAlignment(ALIGN_SPEED, RightAlign);
         //biturningAlignment();
         CyDelay(320);
         
@@ -426,7 +424,7 @@ void state_1_4() {
         
         double dist = FLU > FRU ? FLU : FRU;
         
-        dist = dist - 35;;
+        dist = dist - 30;
         
         if (dist > 0) {
             wheel_move_by_metrics(Forward, HALF_SPEED, dist/100);
@@ -445,19 +443,18 @@ void state_1_5() {
     if (base_color == YellowBase || base_color == BlueBase) {
         
         wheel_move_by_metrics(Left, TURN_SPEED, 90 * FACTOR_SURFACE);
-        uniturningAlignment(TURN_SPEED, RightAlign);
-        uniturningAlignment(TURN_SPEED, RightAlign);
-        uniturningAlignment(TURN_SPEED, RightAlign);
-        read_U();
         
-        double dist = 0.8 - (BLU + BRU)/200;
+        bt_return_to_base();
+//        multiTurningAlignment(TURN_SPEED, RightAlign, 3);
+//        read_U();
+//        
+//        double dist = 0.8 - (BLU + BRU)/200;
+//        
+//        wheel_move_by_metrics(Forward, MAX_SPEED, dist);
+//        
+//        wheel_move_by_metrics(Left, TURN_SPEED, 90 * FACTOR_SURFACE);
         
-        wheel_move_by_metrics(Forward, MAX_SPEED, dist);
-        
-        wheel_move_by_metrics(Left, TURN_SPEED, 90 * FACTOR_SURFACE);
-        
-        uniturningAlignment(TURN_SPEED, BackAlign);
-        uniturningAlignment(TURN_SPEED, BackAlign);
+//        infiniteTurningAlignment(ALIGN_SPEED, BackAlign);
     } 
     else {
         wheel_move_by_metrics(Right, TURN_SPEED, 90 * FACTOR_SURFACE);
@@ -476,11 +473,11 @@ void state_1_5() {
     }
     
     
-    read_U();
-    
-    double backDist = (BLU + BRU)/200;
-    
-    wheel_move_by_metrics(Backward, MAX_SPEED, backDist);
+//    read_U();
+//    
+//    double backDist = (BLU + BRU)/200;
+//    
+//    wheel_move_by_metrics(Backward, TURN_SPEED, backDist);
     
 }
 

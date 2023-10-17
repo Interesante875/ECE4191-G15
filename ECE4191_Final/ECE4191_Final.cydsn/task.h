@@ -38,6 +38,7 @@
     void biturningAlignment();
     void uniturningAlignment(int speed, Alignment align);
     void multiTurningAlignment(int speed, Alignment align, int times);
+    void infiniteTurningAlignment(int speed, Alignment align);
     int computeZoneNum(double dist2Wall, int front_or_back);
     
     
