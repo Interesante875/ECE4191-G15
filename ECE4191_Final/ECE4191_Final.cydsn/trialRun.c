@@ -36,7 +36,7 @@
 #define DETETC_PWM 200
 #define ADJUST_PWM 230
 
-#define TEST_RUN 9
+#define TEST_RUN 2
 #define ENABLE_BT 0 
 // BlueBase, RedBase, YellowBase, GreenBase
 StartingBase base_color;
@@ -45,15 +45,26 @@ Color requiredColor;
 void test_run() {
     CyDelay(1000);
     #if TEST_RUN == 1 
-        shoot();
+        for (;;) {
+            read_U();
+            print_U();
+            CyDelay(1000);
+        }
     #elif TEST_RUN == 2
         
-        GripperHand_Open();
-        GripperArm_Extend();
-        GripperHand_GripPuck();
-        GripperArm_Retract();
+//        wheel_move_by_metrics(Forward, 240, 0.7);
+//        wheel_move_by_metrics(Backward, 240, 0.7);
+//        CyDelay(1000);
+
+        wheel_move_by_metrics(Left, 210, 90);
+        CyDelay(1000);
+
+        wheel_move_by_metrics(Right, 210, 90);
+        CyDelay(1000);
         
-        shutdown_Gripper();
+        wheel_move_by_metrics(Forward, 230, 0.5);
+        CyDelay(500);
+        wheel_move_by_metrics(Backward, 230, 0.5);
         
     #elif TEST_RUN == 3
         
@@ -132,7 +143,7 @@ void initializeRobot() {
     #if !TEST_RUN && ENABLE_BT
         waitingHandshake();
     #endif
-    InitalizeUltrasonicSensor();
+    // InitalizeUltrasonicSensor();
 }
 
 void moveOutofBaseHighLevel(uint8 pwm, double dist_in_metre) {
@@ -680,7 +691,6 @@ void runLevelOne_v2() {
     
     wheel_move(Forward, 210);
     bool notSeen = true;
-    bool obstacleNotMet = true;
     
     while (notSeen) {
         if (facingRight) {

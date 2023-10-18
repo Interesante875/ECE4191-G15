@@ -57,10 +57,10 @@ void initializeSharpIR(int interruptBased) {
 //    selectSharpIR(SharpIndex);
     ADC_DelSig_1_Start();
     ADC_DelSig_1_StartConvert();  
-    
-    ADC_SAR_1_Start();
-    ADC_SAR_1_SetPower(0);
-    ADC_SAR_1_StartConvert();
+//    
+//    ADC_SAR_1_Start();
+//    ADC_SAR_1_SetPower(0);
+//    ADC_SAR_1_StartConvert();
     
     if (interruptBased) {
         Timer_SharpIR_Start();
@@ -77,7 +77,7 @@ void stopSharpIR() {
     
     ADC_DelSig_1_Stop();
     
-    ADC_SAR_1_Stop();
+    //ADC_SAR_1_Stop();
     
     Timer_SharpIR_Stop();
     isr_analog_measure_Stop();
@@ -87,7 +87,7 @@ double SharpIR_ReadDistance(int LR) {
     const double c = 17841.10, d = 228.70;
     const double a = 237299.53, b = 1840.20;
     adc_receive_left = ADC_DelSig_1_GetResult16();
-    adc_receive_right = ADC_SAR_1_GetResult16();
+    adc_receive_right = 0;
     analogDistanceLeft = a/(adc_receive_left - b) - 0.5;
     analogDistanceRight = c/(adc_receive_right - d);
     
@@ -104,7 +104,7 @@ void readSharpIR() {
     const double c = 17841.10, d = 228.70;
     
     adc_receive_left = ADC_DelSig_1_GetResult16();
-    adc_receive_right = ADC_SAR_1_GetResult16();
+    //adc_receive_right = ADC_SAR_1_GetResult16();
     analogDistanceLeft = a/(adc_receive_left - b) - 0.5;
     analogDistanceRight = c/(adc_receive_right - d);
     

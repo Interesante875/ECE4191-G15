@@ -85,36 +85,10 @@ void restartUltrasonicSensor() {
 
 double UltrasonicSensor_ReadDistanceData(int sensorIndex) {
 
-    //pauseUltrasonicSensor();
-    double val = sensorResults[sensorIndex];
-    // restartUltrasonicSensor();
 
-    // printValue("READ (%d) %.3lf\n", sensorIndex, sensorResults[sensorIndex]);
+    double val = sensorResults[sensorIndex];
 
     return val;
-    
-    
-    #if ENABLE_MEDIAN_FILTERING == 1
-//        double* rowPointer = sensorMeasuredDistances[sensorIndex];
-//        
-//        // Create a copy of the array
-//        double copyArray[ARRAY_SIZE];
-//        for (int i = 0; i < ARRAY_SIZE; i++) {
-//            copyArray[i] = rowPointer[i];
-//        }
-//        median = findMedian(copyArray, ARRAY_SIZE);
-        // printValue("READ: (%d) %.2lf %.2lf %.2lf %.2lf\n", sensorIndex, copyArray[0], copyArray[1], copyArray[2], median);
-        // printValue("UDS(%d) %lf\n", sensorIndex, median);
-        
-        
-    #else
-        
-    
-    double value = sensorMeasuredDistances[sensorIndex][0];
-    // printValue("Read: (%d) %lf\n", sensorIndex, value);
-    return value;
-    
-    #endif
 
 }
 
@@ -123,18 +97,7 @@ void UltrasonicSensor_SelectSensor(int sensorIndex) {
     
     
     Control_Reg_Ultrasonic_Write(sensorIndex);
-    CyDelayUs(10);
-//    
-//    bool cycle = false;
-//    
-//    if (ultrasonicSensorIndex == 7 && sensorIndex == 0) {
-//        UltrasonicSensor_TriggerBurst();
-//    }
     ultrasonicSensorIndex = sensorIndex;
-    
-    
-    
-    // UltrasonicSensor_TriggerBurst();
 
 }
 
@@ -254,6 +217,9 @@ void UltrasonicSensor_ChangeState(UdsDetectState state) {
 }
 
 void UltrasonicSensor_TriggerBurst() {
+    
+    
+    
     if (readEcho(ultrasonicSensorIndex) == 0) {
         Trigger_1_Write(1);
         CyDelayUs(10);
@@ -333,9 +299,8 @@ CY_ISR(ISR_Handler_Ultrasonic_Echo) {
         
         
     }
-//    ultrasonicSensorIndex = (ultrasonicSensorIndex + 1) % (NUM_ULTRASONIC_SENSORS);
+
     UltrasonicSensor_SelectSensor(ultrasonicSensorIndex);
-    
 }
 
 //

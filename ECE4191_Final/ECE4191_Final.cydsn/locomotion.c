@@ -98,7 +98,6 @@ CY_ISR(ISR_Handler_Wheel_Controller) {
     Timer_Wheel_ReadStatusRegister();
     
     masterPWM = MotorController_GetLeftPwm();
-
     updated_slave_pwm = 0;
     
     switch (ctrlType) {
@@ -224,8 +223,8 @@ void wheel_move_by_metrics_with_gyro (MotionDirection motion, uint8 pwm, double 
     setMotionDirection(motion);
     initializeWheelController(USE_CONTROLLER, pwm);
     
-    double initHeadingAngleSE = heading_angle;
-    double initHeadingAngleGyro = gyroHeading;
+//    double initHeadingAngleSE = heading_angle;
+
     
     #if USE_GYRO_CONTROL
         while (abs(masterLeftTicks) < ticks); 
@@ -319,8 +318,8 @@ void wheel_move_by_metrics (MotionDirection motion, uint8 pwm, double metrics) {
     // printValue("Initial Heading: %lf\n",gyroHeading);
     while (abs(masterLeftTicks) < ticks); 
 
-//    printValue("LEFT: %d RIGHT: %d\n ", masterLeftTicks, slaveRightTicks);
-//    printValue("Master PWM: %d Slave PWM: %d\n", masterPWM, slavePWM);
+    printValue("LEFT: %d RIGHT: %d\n ", masterLeftTicks, slaveRightTicks);
+    printValue("Master PWM: %d Slave PWM: %d\n", masterPWM, slavePWM);
     
     stopWheelController();
     stopMotor();
@@ -467,7 +466,7 @@ double angle_correction_with_sides_return(uint8 pwm, int dir) {
     double L = 0;
     
     if (dir == 0 || dir == 1) {
-        L = 0.10;   
+        L = 0.11;   
     } else if (dir == 2) {
         L = 0.160;   
     } else if (dir == 3) {
@@ -476,9 +475,9 @@ double angle_correction_with_sides_return(uint8 pwm, int dir) {
     
     angle = atan2(delta_dist, L) * 180 / CY_M_PI;
     
-    if (dir <= 1) {
-        angle *= 2;
-    }
+//    if (dir <= 1) {
+//        angle *= 2;
+//    }
     
     // printValue("ANGLE: %.2lf\n", angle);
     if (dir != 1) {

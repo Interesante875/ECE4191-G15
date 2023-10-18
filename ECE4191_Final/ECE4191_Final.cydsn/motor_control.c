@@ -24,10 +24,14 @@ void turnMotorOn(uint8 pwm) {
     MotorController_StartLeftQuadDec();
     MotorController_StartRightQuadDec();
     
+    MotorController_ResetLeftQuadDec();
+    MotorController_ResetRightQuadDec();
+    
     MotorController_StartPwm();
     
-    MotorController_SetLeftPwmCompare(pwm);
     MotorController_SetRightPwmCompare(pwm);
+    MotorController_SetLeftPwmCompare(pwm);
+    
     
 }
 

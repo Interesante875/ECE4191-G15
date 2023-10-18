@@ -25,7 +25,7 @@ Color requiredColor_L4;
 int STATE_CURR_LEVEL;
 
 void initializeRobotBase() {
-    base_color = YellowBase;
+    base_color = GreenBase;
     
     initializePosition(base_color);
     
@@ -39,12 +39,14 @@ void initializeRobotBase() {
         requiredColor_L2 = levelTwoZoneColor;
         STATE_CURR_LEVEL = currentLevel;
     #else
-        requiredColor_L1 = GreenColor;
+        requiredColor_L1 = RedColor;
         requiredColor_L2 = RedColor;
         STATE_CURR_LEVEL = 1;
     #endif
     
-    printValue("FINDING: %d\n", requiredColor_L1);
     InitalizeUltrasonicSensor();
 }
+
+
+
 /* [] END OF FILE */

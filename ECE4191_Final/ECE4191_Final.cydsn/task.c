@@ -33,6 +33,26 @@
 #define ENABLE_BT 1
 // BlueBase, RedBase, YellowBase, GreenBase
 
+double minUltrasonicDistance;
+// BlueBase, RedBase, YellowBase, GreenBase
+Alignment findMinUltrasonic(int arrayIndex) {
+    float maxUltrasonic[] = {(FLU > FRU)?FLU:FRU, (BLU > BRU)?BLU:BRU, (LFU > LBU)?LFU:LBU, (RFU > RBU)?RFU:RBU};
+    Alignment alignArray[] = {FrontAlign, BackAlign, LeftAlign, RightAlign};
+    int size = sizeof(maxUltrasonic) / sizeof(maxUltrasonic[0]); // Calculate the size of the array
+
+    int min = maxUltrasonic[0]; // Assume the first element is the minimum
+    int minIndex = 0; // Index of the minimum element
+
+    // Iterate through indices 1, 2, and 3 to find the minimum value and its index
+    for (int i = 1; i < size; ++i) {
+        if (i != arrayIndex && maxUltrasonic[i] < min) {
+            min = maxUltrasonic[i];
+            minIndex = i;
+        }
+    }
+    minUltrasonicDistance = min;
+    return alignArray[minIndex];
+}
 
 void retractGripper() {
     GripperHand_GripPuck();
@@ -123,7 +143,7 @@ void shoot() {
     FlickerRecoil_Unload();
     CyDelay(500);
     
-    wheel_move_by_metrics(Forward, 230, 0.065);
+    wheel_move_by_metrics(Forward, 210, 0.0625);
     CyDelay(1000);
     FlickerLock_Unlock();
     CyDelay(200);
@@ -179,7 +199,7 @@ void infiniteTurningAlignment(int speed, Alignment align) {
     double prevAng = 0;
     double deviation = 360;
     int count = 0;
-    while(deviation > 3 && count++ < 6) {
+    while(deviation > 5 && count++<=6) {
         if (align == LeftAlign) {
             currAng = angle_correction_with_sides_return(speed, 3);
         } 
@@ -212,7 +232,6 @@ void moveUntilObs(int dir, int speed, double dist) {
         
         while (obsNotMet) {
             read_U();
-            print_U();
             obsNotMet = (BLU >= dist) || (BRU >= dist);
         }
         

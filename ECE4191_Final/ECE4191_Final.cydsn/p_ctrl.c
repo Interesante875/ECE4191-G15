@@ -18,7 +18,7 @@
 #include "p_ctrl.h"
 #include "bluetooth.h"
 
-#define P_CTRL_P_CONST 1.2
+#define P_CTRL_P_CONST 1.25
 #define CTRL_MAX 255
 #define CTRL_MIN 0
 

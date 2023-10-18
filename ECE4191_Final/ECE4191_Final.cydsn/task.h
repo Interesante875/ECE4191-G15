@@ -43,6 +43,8 @@
     
     
     void moveUntilObs(int dir, int speed, double dist);
-    
+    extern double minUltrasonicDistance;
+    // BlueBase, RedBase, YellowBase, GreenBase
+    Alignment findMinUltrasonic(int arrayIndex);
 #endif
 /* [] END OF FILE */

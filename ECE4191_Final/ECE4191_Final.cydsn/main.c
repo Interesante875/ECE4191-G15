@@ -23,10 +23,35 @@ int main(void)
 {
     CyGlobalIntEnable; /* Enable global interrupts. */
     initializeRobotBase();
-    run_L3();
+    run_L1();
+//    if (STATE_CURR_LEVEL == 1) {
+//        run_L1();
+//        CyDelay(5000);
+//        run_L2();
+//        CyDelay(5000);
+//        run_L3();
+//        CyDelay(5000);
+//        run_L4();
+//        CyDelay(5000);
+//    } else if (STATE_CURR_LEVEL == 2) {
+//        run_L2();
+//        CyDelay(5000);
+//        run_L3();
+//        CyDelay(5000);
+//        run_L4();
+//        CyDelay(5000);
+//    }  else if (STATE_CURR_LEVEL == 3) {
+//        run_L3();
+//        CyDelay(5000);
+//        run_L4();
+//        CyDelay(5000);
+//    }  else if (STATE_CURR_LEVEL == 4) {
+//        run_L4();
+//        CyDelay(5000);
+//    }
 //
 //    initializeRobot();
-////    test_run();
+//    test_run();
 
     
     for(;;)
