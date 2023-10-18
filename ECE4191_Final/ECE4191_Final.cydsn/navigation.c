@@ -44,33 +44,35 @@ void initializePosition(StartingBase color) {
     
     switch (color) {
         case RedBase:
-            pos_y = 0.85;
+            pos_y = 1.52; 
             pos_x = 0.05;
-            self_pos_y_base = 0.85;
+            self_pos_y_base = 1.52;
             self_pos_x_base = 0.05;
             heading_angle = 0;
             printValue("RED\n");
         break;
         case YellowBase:
-            pos_y = 1.52;
+//            pos_y = 1.52;
+//            pos_x = 0.05;
+            pos_y = 0.85;
             pos_x = 0.05;
-            self_pos_y_base = 1.52;
+            self_pos_y_base = 0.85;
             self_pos_x_base = 0.05;
             heading_angle = 0;
             printValue("YELLOW\n");
         break;
         case GreenBase:
-            pos_y = 1.52;
+            pos_y = 0.85;
             pos_x = 2.32;
-            self_pos_y_base = 1.52;
+            self_pos_y_base = 0.85;
             self_pos_x_base = 2.32;
             heading_angle = CY_M_PI;
             printValue("GREEN\n");
         break;
         case BlueBase:
-            pos_y = 0.85;
+            pos_y = 1.52;
             pos_x = 2.32;
-            self_pos_y_base = 0.85;
+            self_pos_y_base = 1.52;
             self_pos_x_base = 2.32;
             heading_angle = CY_M_PI;
             printValue("BLUE\n");
@@ -116,11 +118,11 @@ void computePosition(int left_ticks, int right_ticks) {
 
 }
 
-void printToBluetooth() {
+void printPositionToBluetooth() {
     double pos_x_prime = pos_x;
     double pos_y_prime = pos_y;
     double heading_angle_prime = (heading_angle * 180 / CY_M_PI);
     
-    // printValue("x: %lf y: %lf, t: %lf\n", pos_x_prime, pos_y_prime, heading_angle_prime);
+    printValue("x: %.2lf y: %.2lf, t: %.1lf\n", pos_x_prime, pos_y_prime, heading_angle_prime);
 }
 /* [] END OF FILE */

@@ -9,11 +9,16 @@
  *
  * ========================================
 */
-#ifndef BEHAVIOR_H
-    #define BEHAVIOR_H
+#ifndef LEVELTWO_H
+    #define LEVELTWO_H
+ 
+    void run_L2();
     
-    
-    
-    
-    #endif
+    void state_2_0();
+    void state_2_1();
+    void state_2_2();
+    void state_2_3();
+    void state_2_4();
+    void state_2_5();
+#endif
 /* [] END OF FILE */

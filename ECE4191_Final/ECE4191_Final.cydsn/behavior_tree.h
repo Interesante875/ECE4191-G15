@@ -28,7 +28,7 @@
     };
     
     struct node* createNode(int v);
-    struct Graph* createGraph(int vertices);
+    struct Graph* createGraph(int vertices, ...);
     void addEdge(struct Graph* graph, int src, int dest);
     void sortAdjList(struct Graph* graph, int vertex);
     void DFS(struct Graph* graph, int vertex);

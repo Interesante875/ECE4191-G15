@@ -20,12 +20,14 @@
 /* Global Variables */
 bool isStringNotReceived;
 int levelOnePinDeckNum;
+int levelTwoPinDeckNum;
+int levelThreePinDeckNum;
+int levelFourPinDeckNum;
 int currentLevel;
 InputState inputState;
 PinZoneColor zoneColor;
+PinZoneColor levelOneZoneColor;
 PinZoneColor levelTwoZoneColor;
-int levelThreePinDeckNum;
-int levelFourPinDeckNum;
 PinZoneColor levelThreeZoneColor;
 PinZoneColor levelFourZoneColor;
 int test_val;
@@ -95,7 +97,7 @@ void performHandshake(void) {
             // Parse each line into the specified format
             if (sscanf(token, "%d %19s %d", &first_number, color, &second_number) == 3) {
                 // Print the parsed values
-                printValue("Pin Deck Number: %d, Pin Deck Color: %s, Current Level: %d\n", first_number, color, second_number);
+                printValue("L1 Pin Deck Number: %d, L2 Pin Deck Color: %s, Current Level: %d\n", first_number, color, second_number);
                 
                 levelOnePinDeckNum = first_number;
                 currentLevel = second_number;
@@ -114,15 +116,12 @@ void performHandshake(void) {
                 switch (currentLevel) {
                     case 1:
                         if (levelOnePinDeckNum == 1 || levelOnePinDeckNum == 3) {
-                            zoneColor = PinZoneColorBlue;
+                            levelOneZoneColor = PinZoneColorBlue;
                         } else if (levelOnePinDeckNum == 2 || levelOnePinDeckNum == 4) {
-                            zoneColor = PinZoneColorGreen;
+                            levelOneZoneColor = PinZoneColorGreen;
                         } else {
-                            zoneColor = PinZoneColorRed;
+                            levelOneZoneColor = PinZoneColorRed;
                         }
-                        break;
-                    case 2:
-                        zoneColor = levelTwoZoneColor;
                         break;
                     default:
                         break;

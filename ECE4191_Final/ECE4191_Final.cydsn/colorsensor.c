@@ -83,7 +83,7 @@ void SetFrequencyScaling(int S0_set, int S1_set) {
     S0_Write(S0_set);
     S1_Write(S1_set);
     
-    CyDelayUs(200);   
+    CyDelayUs(1000);   
 }
 
 void ColorDetection_Run(int numRuns) {
@@ -165,8 +165,7 @@ void ColorDetection_FindMax(int maxRed, int maxGreen, int maxBlue) {
     if (maxRed >= 8000 && maxBlue >= 8000 && maxGreen >= 8000) {
         detectedColor = WhiteColor;
         return;
-    }
-    
+    } 
     if (maxRed >= 6000 && maxBlue >= 6000 && maxGreen >= 6000) {
         detectedColor = GreyColor;
         return;

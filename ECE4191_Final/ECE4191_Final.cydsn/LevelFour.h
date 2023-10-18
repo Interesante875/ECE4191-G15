@@ -9,11 +9,18 @@
  *
  * ========================================
 */
-#ifndef BEHAVIOR_H
-    #define BEHAVIOR_H
+#ifndef LEVELFOUR_H
+    #define LEVELFOUR_H
+
+    void run_L4();
     
+    void state_4_0();
+    void state_4_1();
+    void state_4_2();
+    void state_4_3();
+    void state_4_4();
+    void state_4_5();
+    void state_4_6();
     
-    
-    
-    #endif
+#endif
 /* [] END OF FILE */

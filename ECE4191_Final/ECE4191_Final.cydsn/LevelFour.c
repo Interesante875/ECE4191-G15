@@ -9,11 +9,13 @@
  *
  * ========================================
 */
-#ifndef BEHAVIOR_H
-    #define BEHAVIOR_H
-    
-    
-    
-    
-    #endif
+#include "levels.h"
+#include "LevelFour.h"
+#include "math.h"
+
+
+#define MAX_SPEED 250
+#define HALF_SPEED 200
+#define TURN_SPEED 250
+#define FACTOR_SURFACE 1.0
 /* [] END OF FILE */

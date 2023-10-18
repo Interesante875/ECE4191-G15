@@ -24,13 +24,17 @@
         ProportionalIntegralDerivativeControl
     } ControllerType;
     
+    
     extern ControllerType ctrlType;
+    extern MotionDirection currentMotion;
     
     void wheel_move_by_ticks(MotionDirection motion, int pwm, int target_ticks);
     void wheel_move_by_metrics (MotionDirection motion, uint8 pwm, double metrics);
     void wheel_move_by_metrics_with_gyro (MotionDirection motion, uint8 pwm, double metrics);
     void wheel_move (MotionDirection motion, uint8 pwm);
-    void angle_correction(uint8 pwm, double distance_1, double distance_2);
+    void angle_correction(uint8 pwm);
+    void angle_correction_with_sides(uint8 pwm, int dir);
+    double angle_correction_with_sides_return(uint8 pwm, int dir);
     
     double inverseVarianceWeighting(double ticks_h, double gyro_h);
     

@@ -9,11 +9,11 @@
  *
  * ========================================
 */
-#ifndef BEHAVIOR_H
-    #define BEHAVIOR_H
+#ifndef MOVETORASTERSTART_H
+    #define MOVETORASTERSTART_H
     
+    void bt_move_to_raster_start();
     
-    
-    
-    #endif
+
+#endif
 /* [] END OF FILE */

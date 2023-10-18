@@ -9,11 +9,10 @@
  *
  * ========================================
 */
-#ifndef BEHAVIOR_H
-    #define BEHAVIOR_H
+#ifndef RASTERSCAN_H
+    #define RASTERSCAN_H
     
+    void bt_raster_scan();
     
-    
-    
-    #endif
+#endif
 /* [] END OF FILE */

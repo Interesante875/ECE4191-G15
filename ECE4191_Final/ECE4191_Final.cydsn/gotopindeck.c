@@ -9,11 +9,5 @@
  *
  * ========================================
 */
-#ifndef BEHAVIOR_H
-    #define BEHAVIOR_H
-    
-    
-    
-    
-    #endif
+
 /* [] END OF FILE */

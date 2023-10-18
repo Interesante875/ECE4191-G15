@@ -9,11 +9,11 @@
  *
  * ========================================
 */
-#ifndef BEHAVIOR_H
-    #define BEHAVIOR_H
+#ifndef SCANPINDECK_H
+    #define SCANPINDECK_H
     
+    void bt_scan_pin_deck();
     
-    
-    
-    #endif
+
+#endif
 /* [] END OF FILE */

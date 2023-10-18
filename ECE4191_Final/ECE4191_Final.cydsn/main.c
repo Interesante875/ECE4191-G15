@@ -13,31 +13,50 @@
 #include "project.h"
 #include <math.h>
 #include "bluetooth.h"
+#include "levels.h"
+#include "LevelOne.h"
+#include "LevelThree.h"
+#include "analog.h"
 #include "trialRun.h"
-#include "ultrasonic.h"
-#include "ultrasonic_control.h"
 
 int main(void)
 {
     CyGlobalIntEnable; /* Enable global interrupts. */
-    initializeBluetooth();
-    InitalizeUltrasonicSensor();
-    
-    // test_run();
+    initializeRobotBase();
+    run_L1();
+//    if (STATE_CURR_LEVEL == 1) {
+//        run_L1();
+//        CyDelay(5000);
+//        run_L2();
+//        CyDelay(5000);
+//        run_L3();
+//        CyDelay(5000);
+//        run_L4();
+//        CyDelay(5000);
+//    } else if (STATE_CURR_LEVEL == 2) {
+//        run_L2();
+//        CyDelay(5000);
+//        run_L3();
+//        CyDelay(5000);
+//        run_L4();
+//        CyDelay(5000);
+//    }  else if (STATE_CURR_LEVEL == 3) {
+//        run_L3();
+//        CyDelay(5000);
+//        run_L4();
+//        CyDelay(5000);
+//    }  else if (STATE_CURR_LEVEL == 4) {
+//        run_L4();
+//        CyDelay(5000);
+//    }
+//
+//    initializeRobot();
+//    test_run();
+
     
     for(;;)
     {
-        
-        for (int i = 0; i < 8; i++) {
-            read_U();
-            print_U();
-            printValue("%.2lf: %.2lf ", BLU, BRU);
-            printValue("%.2lf: %.2lf\n", RBU, LBU);
-            CyDelay(50);
-        }
-        // printValue("\n");
-        CyDelay(3000);
-        
+
     }
 }
 

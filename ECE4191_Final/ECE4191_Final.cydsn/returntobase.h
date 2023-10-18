@@ -9,11 +9,11 @@
  *
  * ========================================
 */
-#ifndef BEHAVIOR_H
-    #define BEHAVIOR_H
+#ifndef RETURNTOBASE_H
+    #define RETURNTOBASE_H
     
+    void bt_return_to_base();
     
-    
-    
-    #endif
+
+#endif
 /* [] END OF FILE */
